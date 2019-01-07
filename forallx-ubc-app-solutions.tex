@@ -1,0 +1,3233 @@
+%!TEX root = forallx-ubc.tex
+\chapter[Solutions to selected exercises]{Solutions to selected exercises}
+\label{app.solutions}
+
+Many of the exercises may be answered correctly in different ways. Where that is the case, the solution here represents one possible correct answer.
+
+
+\solutionsection{ch.intro}{pr.Sentences1}
+%\begin{earg}
+%\item England is smaller than China.
+\nextSeq
+%\item Greenland is south of Jerusalem.
+\nextSeq
+%\item Is New Jersey east of Wisconsin?
+\noSeq
+%\item The atomic number of helium is 2.
+\nextSeq
+%\item The atomic number of helium is $\pi$.
+\nextSeq
+%\item I hate overcooked noodles.
+\nextSeq
+%\item Blech! Overcooked noodles!
+\noSeq
+%\item Overcooked noodles are disgusting.
+\nextSeq
+%\item Take your time.
+\noSeq
+%\item This is the last question.
+\lastSeq are sentences.
+%\end{earg}
+
+
+
+\solutionsection{ch.intro}{pr.MartianGiraffes}
+\begin{earg}
+%\nextSeq %G2, G3, and G4
+\item consistent
+%\noSeq %G1, G3, and G4
+\item inconsistent
+%\nextSeq %G1, G2, and G4
+\item consistent
+%\lastSeq %G1, G2, and G3
+\item consistent
+%are consistent.
+\end{earg}
+
+\solutionsection{ch.intro}{pr.EnglishCombinations}
+\begin{earg}
+\item Possible. For example:
+	\begin {earg}
+	\item[] Vancouver is in Canada.
+	\item[] Seattle is in Canada.
+	\item[\therefore] Seattle and Vancouver are both in Canada.
+	\end{earg}
+\item[2.] Possible. The previous argument is an example.
+\item[3.] Possible. For example:
+	\begin {earg}
+	\item[] Vancouver is in Canada.
+	\item[] Vancouver is not in Canada
+	\item[\therefore] Vancouver is in Canada and it is not in Canada.
+	\end{earg}
+\item[4.] Impossible. If the conclusion is a tautology, the argument is guaranteed to be valid.
+\item[5.] Impossible. By definition, a tautology is not contingent.
+\item[6.] Possible. Any two tautologies will do.
+\item[7.] Impossible. Anything logically equivalent to a tautology is a tautology.
+\item[8.] Possible. For example:
+	\begin {earg}
+	\item[] Vancouver is in Canada and Vancouver is not in Canada.
+	\item[] Seattle is in Canada and Seattle is not in Canada.
+	\end{earg}
+\item[9.] Impossible. If it contains a contradiction, it is inconsistent.
+\item[10.] Possible. For example:
+	\begin {earg}
+	\item[] Vancouver is in Canada or Vancouver is not in Canada.
+	\item[] Seattle is in Canada and Seattle is not in Canada.
+	\end{earg}
+\end{earg}
+
+\solutionsection{ch.SL}{pr.monkeysuits}
+\begin{earg}
+\item $\enot M$
+\item $M \eor \enot M$
+\item $G \eor C$
+\item $\enot C \eand \enot G$
+\item $C \eif (\enot G \eand \enot M)$
+\item $M \eor (C \eor G)$
+\end{earg}
+
+
+\solutionsection{ch.SL}{pr.avacareer}
+\begin{earg}
+\item $E_1 \eand E_2$
+\item $F_1 \eif S_1$
+\item $F_1 \eor E_1$
+\item $E_2 \eand \enot S_2$
+\item $\enot E_1 \eand \enot E_2$
+\item $E_1 \eand E_2 \eand \enot(S_1 \eor S_2)$
+\item $S_2 \eif F_2$
+\item $(\enot E_1 \eif \enot E_2) \eand (E_1 \eif E_2)$
+\item $S_1 \eiff \enot S_2$
+\item $(E_2 \eand F_2) \eif S_2$
+\item $\enot(E_2 \eand F_2)$
+\item $(F_1 \eand F_2) \eiff (\enot E_1 \eand \enot E_2)$
+\end{earg}
+
+\solutionsection{ch.SL}{pr.spies}
+\begin{ekey}
+\item[A:] Alice is a spy.
+\item[B:] Bob is a spy.
+\item[C:] The code has been broken.
+\item[G:] The German embassy will be in an uproar.
+\end{ekey}
+\begin{earg}
+\item %Alice and Bob are both spies.
+$A \eand B$
+\item %If either Alice or Bob is a spy, then the code has been broken.
+$(A \eor B) \eif C$
+\item %If neither Alice nor Bob is a spy, then the code remains unbroken.
+$\enot(A \eor B) \eif \enot C$
+\item %The German embassy will be in an uproar, unless someone has broken the code.
+$G \eor C$
+\item %Either the code has been broken or it has not, but the German embassy will be in an uproar regardless.
+$(C \eor \enot C) \eand G$
+\item %Either Alice or Bob is a spy, but not both.
+$(A \eor B) \eand \enot(A \eand B)$
+\end{earg}
+
+
+\solutionsection{ch.SL}{pr.gregorbaseball}
+\begin{ekey}
+\item[G:] Gregor plays first base.
+\item[L:] The team will lose.
+\item[M:] There is a miracle.
+\item[C:] Gregor's mom will bake cookies.
+\end{ekey}
+\begin{earg}
+\item %If Gregor plays first base, then the team will lose.
+$G \eif L$
+\item %The team will lose unless there is a miracle.
+$\enot M \eif L$
+\item %The team will either lose or it won't, but Gregor will play first base regardless.
+$(L \eor \enot L) \eand G$
+\item %Gregor's mom will bake cookies if and only if Gregor plays first base.
+$C \eiff G$
+\item %If there is a miracle, then Gregor's mom will not bake cookies.
+$M \eif \enot C$
+\end{earg}
+
+\solutionsection{ch.SL}{pr.wiffSL}
+\begin{earg}
+\item %$(A)$
+(a) no (b) no
+\item %$J_{374} \eor \enot J_{374}$
+(a) no (b) yes
+\item %$\enot \enot \enot \enot F$
+(a) yes (b) yes
+\item %$\enot \eand S$
+(a) no (b) no
+\item %$(G \eand \enot G)$
+(a) yes (b) yes
+\item %$\metaA{} \eif \metaA{}$
+(a) no (b) no
+\item %$(A \eif (A \eand \enot F)) \eor (D \eiff E)$
+(a) no (b) yes
+\item %$[(Z \eiff S) \eif W] \eand [J \eor X]$
+(a) no (b) yes
+\item %$(F \eiff \enot D \eif J) \eor (C \eand D)$
+(a) no (b) no
+\end{earg}
+
+
+
+
+\solutionsection{ch.TruthTables}{pr.TT.TTorC}
+\begin{earg}
+\item tautology
+\item contradiction
+\item contingent
+\item tautology
+\item tautology
+\item contingent
+\item tautology
+\item contradiction
+\item tautology
+\item contradiction
+\item tautology
+\item contingent
+\item contradiction
+\item contingent
+\item tautology
+\item tautology
+\item contingent
+\item contingent
+\end{earg}
+
+\solutionsection{ch.TruthTables}{pr.TT.equiv}
+%\begin{earg}
+%\item not equivalent
+\noSeq
+%\item equivalent
+\nextSeq
+%\item equivalent
+\nextSeq
+%\item not equivalent
+\noSeq
+%\item equivalent
+\nextSeq
+%\item equivalent
+\nextSeq
+%\item not equivalent
+\noSeq
+%\item equivalent
+\nextSeq
+%\item equivalent
+\lastSeq
+%\item not equivalent
+\noSeq
+%\end{earg}
+are logically equivalent.
+
+\solutionsection{ch.TruthTables}{pr.TT.consistent}
+%\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ %consistent
+\nextSeq
+%\item $A \eand B$, $C\eif \enot B$, $C$ %inconsistent
+\noSeq
+%\item $A\eor B$, $A\eif C$, $B\eif C$ %consistent
+\nextSeq
+%\item $A\eif B$, $B\eif C$, $A$, $\enot C$ %inconsistent
+\noSeq
+%\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$  %inconsistent
+\noSeq
+%\item $A \eor B$, $B\eor C$, $C\eif \enot A$ %consistent
+\nextSeq
+%\item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$ %consistent
+\nextSeq
+%\item $A$, $B$, $C$, $\enot D$, $\enot E$, $F$ %consistent
+\lastSeq
+are consistent.
+
+\solutionsection{ch.TruthTables}{pr.TT.valid}
+%\item $A\eif A$, \therefore\ $A$ %invalid
+\noSeq
+%\item $A\eor\bigl[A\eif(A\eiff A)\bigr]$, \therefore\ A %invalid
+\noSeq
+%\item $A\eif(A\eand\enot A)$, \therefore\ $\enot A$ %valid
+\nextSeq
+%\item $A\eiff\enot(B\eiff A)$, \therefore\ $A$ %invalid
+\noSeq
+%\item $A\eor(B\eif A)$, \therefore\ $\enot A \eif \enot B$ %valid
+\nextSeq
+%\item $A\eif B$, $B$, \therefore\ $A$ %invalid
+\noSeq
+%\item $A\eor B$, $B\eor C$, $\enot A$, \therefore\ $B \eand C$ %invalid
+\noSeq
+%\item $A\eor B$, $B\eor C$, $\enot B$, \therefore\ $A \eand C$ %valid
+\nextSeq
+%\item $(B\eand A)\eif C$, $(C\eand A)\eif B$, \therefore\ $(C\eand B)\eif A$ %invalid
+\noSeq
+%\item $A\eiff B$, $B\eiff C$, \therefore\ $A\eiff C$ %valid
+\lastSeq
+are valid.
+
+
+\solutionsection{ch.TruthTables}{pr.TT.concepts}
+\begin{earg}
+\item %Suppose that \metaA{} and \metaB{} are logically equivalent. What can you say about $\metaA{}\eiff\metaB{}$?
+\metaA{} and \metaB{} have the same truth value on every line of a complete truth table, so $\metaA{}\eiff\metaB{}$ is true on every line. It is a tautology.
+\item %Suppose that $(\metaA{}\eand\metaB{})\eif\metaC{}$ is contingent. What can you say about the argument ``\metaA{}, \metaB{}, \therefore\metaC{}''?
+The sentence is false on some line of a complete truth table. On that line, \metaA{} and \metaB{} are true and \metaC{} is false. So the argument is invalid.
+\item %Suppose that $\{\metaA{},\metaB{}, \metaC{}\}$ is inconsistent. What can you say about $(\metaA{}\eand\metaB{}\eand\metaC{})$?
+Since there is no line of a complete truth table on which all three sentences are true, the conjunction is false on every line. So it is a contradiction.
+\item %Suppose that \metaA{} is a contradiction. What can you say about the argument ``\metaA{}, \metaB{}, \therefore\metaC{}''?
+Since \metaA{} is false on every line of a complete truth table, there is no line on which \metaA{} and \metaB{} are true and \metaC{} is false. So the argument is valid.
+\item %Suppose that \metaC{} is a tautology. What can you say about the argument ``\metaA{}, \metaB{}, \therefore\metaC{}''?
+Since \metaC{} is true on every line of a complete truth table, there is no line on which \metaA{} and \metaB{} are true and \metaC{} is false. So the argument is valid.
+\item %Suppose that \metaA{} and \metaB{} are logically equivalent. What can you say about $(\metaA{}\eor\metaB{})$?
+Not much. $(\metaA{}\eor\metaB{})$ is a tautology if \metaA{} and \metaB{} are tautologies; it is a contradiction if they are contradictions; it is contingent if they are contingent.
+\item %Suppose that \metaA{} and \metaB{} are \emph{not} logically equivalent. What can you say about $(\metaA{}\eor\metaB{})$?
+\metaA{} and \metaB{} have different truth values on at least one line of a complete truth table, and $(\metaA{}\eor\metaB{})$ will be true on that line. On other lines, it might be true or false. So $(\metaA{}\eor\metaB{})$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
+\end{earg}
+
+
+\solutionsection{ch.TruthTables}{pr.altConnectives}
+\begin{earg}
+\item %$A\eor B$
+$\enot A \eif B$
+\item %$A\eand B$
+$\enot(A \eif \enot B)$
+\item %$A\eiff B$
+$\enot [(A\eif B) \eif \enot(B\eif A)]$
+%\item %$A \eand B$
+%$\enot(\enot A \eor \enot B)$
+%\item %$A \eif B$
+%$\enot A \eor B$
+%\item %$A \eiff B$
+%$\enot(\enot A \eor \enot B) \eor \enot(A \eor B)$
+\end{earg}
+
+
+
+
+
+\solutionsection{ch.sl.trees}{pr.sl.treeroot}
+\begin{earg}
+\item (a) $\{P, P \eif Q, Q \eif \enot P\}$, (b) true
+%$\{P, P \eif Q, Q \eif \enot P\} \vdash{}$
+\item (a) $\enot((P \eif Q) \eiff (Q \eif P))$, (b) true
+% $(P \eif Q) \eiff (Q \eif P)$ is a tautology.
+\item (a) $\{P \eand Q, \enot R \eif \enot Q, \enot (P \eand R)\}$, (b) true
+% The following argument is valid:
+%	\begin{ekey}
+%		\item[] $P \eand Q$
+%		\item[] $\enot R \eif \enot Q$
+%		\item[\therefore] $P \eand R$
+%	\end{ekey}
+\item (a) $\{A \eor B, B \eif C, A \eiff C, \enot C\}$, (b) true
+%\item There is no interpretation that satisfies $A \eor B$, $B \eif C$, and $A \eiff C$ without also satisfying C.
+\item (a) $A \eiff \enot A$, (b) true
+%\item $A \eiff \enot A$ is a contradiction.
+\item (a) $\{P, P \eif Q, \enot Q, \enot A\}$, (b) true
+%\item Every interpretation satisfying $P$, $P \eif Q$, and $\enot Q$ also satisfies $A$.
+\item (a) $\{P \eif Q, \enot P \eor \enot Q, Q \eif P\}$, (b) false.
+%\item There is at least one interpretation that satisfies $P \eif Q$, $\enot P \eor \enot Q$, and $Q \eif P$.
+\end{earg}
+
+\solutionsection{ch.sl.trees}{pr.sl.agtree}
+
+The argument is valid.
+
+\begin{prooftree}
+{
+to prove={\{A \eiff B, \enot B \eif (C \eor D), E \eif \enot C, (\enot D \eand F) \eor G, \enot A \eand E\} \vdash H \eor G}
+}
+[A \eiff B, checked, name=p1
+[\enot B \eif (C \eor D), checked, grouped, name=p2
+[E \eif \enot C, checked, grouped, name=p3
+[(\enot D \eand F) \eor G, checked, grouped, name=p4
+[\enot A \eand E, checked, grouped, name=p5
+[\enot (H \eor G), checked, grouped, name=p6
+	[\enot A, just={\eand}:p5
+	[E, grouped
+		[\enot H, just={\enot \eor}:p6
+		[\enot G, grouped
+			[\enot D \eand F, checked, name=ndaf, just={\eor}:p4
+				[\enot D, just={\eand}:!u
+				[F, grouped
+					[\enot E, close, just={\eif}:p3
+					]
+					[\enot C
+						[A, just={\eiff}:p1
+						[B, grouped, close
+						]
+						]
+						[\enot A
+						[\enot B, grouped
+							[\enot \enot B, close, just={\eif}:p2]
+							[C \eor D
+								[C, close, just={\eor}:!u]
+								[D, close]
+							]
+						]
+						]
+					]
+				]
+				]								
+			]
+			[G, close]
+		]
+		]
+	]
+	]
+]
+]
+]
+]
+]
+]
+\end{prooftree}
+
+
+\solutionsection{ch.sl.trees}{tree.examples}
+\begin{earg}
+
+\item True.
+
+	\begin{prooftree}
+	{
+	to prove={\{P, P \eif Q, Q \eif \enot P\} \vdash{}\bot},
+	}
+	[P, name=p1
+	[P \eif Q, checked, name=p2
+	[Q \eif \enot P, checked, name=p3
+		[\enot P, close]
+		[Q
+			[\enot Q, close]
+			[\enot P, close]
+		]
+	]
+	]
+	]
+	\end{prooftree}
+
+\item False.
+
+	\begin{prooftree}
+	{
+	}
+	[\enot((P \eif Q) \eiff (Q \eif P)), checked, name=l1
+		[P \eif Q, checked, name=l2, just={\enot \eiff}:l1
+			[\enot (Q \eif P), grouped, name=l3, checked 
+				[Q, just={\enot \eif}:l3
+				[\enot P, grouped
+					[\enot P, just={\eif}:l2, open]
+					[Q, open]
+				]
+				]
+			]
+		]
+		[\enot (P\eif Q), checked, name=r3
+		[Q \eif P, grouped, checked, name=r4
+			[P, just={\enot \eif}:r3, move by=1
+			[\enot Q, grouped
+				[\enot Q, just={\eif}:r4, open]
+				[P, open]
+			]
+			]
+		]
+		]
+	]
+	\end{prooftree}
+
+$\{P=0, Q=1\}$ and $\{P=1, Q=0\}$ each falsify $((P \eif Q) \eiff (Q \eif P))$, so it is not a tautology.
+
+
+%\item The following argument is valid:
+%	\begin{ekey}
+%		\item[] $P \eand Q$
+%		\item[] $\enot R \eif \enot Q$
+%		\item[\therefore] $P \eand R$
+%	\end{ekey}
+
+\item True.
+
+	\begin{prooftree}
+	{
+	}
+	[P \eand Q, checked, name=p1
+	[\enot R \eif \enot Q, checked, name=p2, grouped
+	[\enot (P \eand R), checked, name=p3, grouped
+		[P, just={\eand}:p1
+		[Q, grouped
+			[\enot P, close, just={\enot \eand}:p3]
+			[\enot R
+				[\enot \enot R, just={\eif}:p2, close]
+				[\enot Q, close]
+			]
+		]
+		]
+	]
+	]
+	]
+	\end{prooftree}
+	
+
+
+%\item There is no interpretation that satisfies $A \eor B$, $B \eif C$, and $A \eiff C$ without also satisfying C.
+
+\item True.
+
+	\begin{prooftree}
+	{
+	}
+	[A \eor B, checked, name=p1
+	[B \eif C, checked, grouped, name=p2
+	[A \eiff C, checked, grouped, name=p3
+	[\enot C, grouped, name=p4
+		[\enot B, just={\eif}:p2
+			[A, just={\eor}:p1
+				[A, just={\eiff}:p3
+				[C, grouped, close
+				]
+				]
+				[\enot A
+				[\enot C, grouped, close
+				]
+				]
+			]
+			[B, close]
+		]
+		[C, close]
+	]
+	]
+	]
+	]
+	\end{prooftree}
+
+
+%\item $A \eiff \enot A$ is a contradiction.
+
+\item True.
+
+\begin{prooftree}
+{
+}
+[A \eiff \enot A, checked, name=p1
+	[A, just={\eiff}:p1
+	[\enot A, grouped, close
+	]
+	]
+	[\enot A
+	[A, grouped, close
+	]
+	]
+]
+\end{prooftree}
+
+%\item Every interpretation satisfying $P$, $P \eif Q$, and $\enot Q$ also satisfies $A$.
+
+\item True.
+
+\begin{prooftree}
+{
+}
+[P, checked, name=p1
+[P \eif Q, checked, grouped, name=p2
+[\enot Q, grouped, checked, name=p3
+[\enot A, grouped, name=p4
+	[\enot P, just={\eif}:p2, close]
+	[Q, close]
+]
+]
+]
+]
+\end{prooftree}
+
+%\item There is at least one interpretation that satisfies $P \eif Q$, $\enot P \eor \enot Q$, and $Q \eif P$.
+
+\item True. $\{P=0, Q=0\}$ satisfies these sentences.
+
+\begin{prooftree}
+{
+}
+[P \eif Q, checked, name=p1
+[\enot P \eor \enot Q, checked, grouped, name=p2
+[Q \eif P, grouped, checked, name=p3
+	[\enot P, just={\eor}:p2
+		[\enot P, just={\eif}:p1
+			[\enot Q, just={\eif}:p3, open]
+			[P, close]
+		]
+		[Q
+			[\enot Q, close]
+			[P, close]
+		]
+	]
+	[\enot Q
+		[\enot P
+			[\enot Q, open]
+			[P, close]
+		]
+		[Q, close]
+	]
+]
+]
+]
+\end{prooftree}
+
+%
+%
+%
+%
+
+
+
+\end{earg}
+
+
+
+
+
+
+
+
+\solutionsection{ch.SLsoundcomplete}{pr.SL.soundness-resolutions}
+
+\begin{earg}
+%\begin{earg}
+%\item Change the rule for conjunctions to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\metaA{}\eand\metaB{}
+%		[\metaA{}]
+%		[\metaB{}]
+%	]
+%\end{prooftree}
+%\end{center}
+%}
+
+\item Yes. Assuming that the root $\metaA{} \eand \metaB{}$ is satisfiable, for some interpretation $\mathcal{I}$, $\mathcal{I}(\metaA{} \eand \metaB{})=1$, so $\mathcal{I}(\metaA{})=1$ and $\mathcal{I}(\metaB{})=1$. So if what comes above is satisfiable, at least one branch is guaranteed to be satisfiable after this rule has been performed. (In fact, both are.)
+
+%
+%\item Change the rule for conjunctions to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\metaA{}\eand\metaB{}
+%		[\metaA{}]
+%	]
+%\end{prooftree}
+%\end{center}
+%}
+%
+
+
+\item Yes. Assuming that the root $\metaA{} \eand \metaB{}$ is satisfiable, for some interpretation $\mathcal{I}$, $\mathcal{I}(\metaA{} \eand \metaB{})=1$, so $\mathcal{I}(\metaA{})=1$. So if what comes above is satisfiable, the continuation is guaranteed to be satisfiable after this rule has been performed.
+
+
+%\item Change the rule for conjunctions to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\metaA{}\eand\metaB{}
+%		[\metaA{}
+%		[\enot\metaB{}, grouped
+%		]
+%		]
+%	]
+%\end{prooftree}
+%\end{center}
+%}
+%
+
+\item No. It is possible to satisfy the root $\metaA{} \eand \metaB{}$ without satisfying the extension of the tree. Here is a counterexample to the soundness of the revised system. This tree has a satisfiable root, but closes if we use the rule in question.
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[B
+[A \eand B, grouped, checked
+	[A
+	[\enot B, grouped, close
+	]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+
+%\item Change the rule for disjunctions to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\metaA{}\eor\metaB{}
+%		[\metaA{}
+%		[\metaB{}, grouped
+%		]
+%		]
+%	]
+%\end{prooftree}
+%\end{center}
+%}
+%
+
+\item No. It is possible to satisfy the root  $\metaA{} \eor \metaB{}$ without satisfying the extension of the tree. Here is a counterexample to the soundness of the revised system. This tree has a satisfiable root, but closes if we use the rule in question.
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot A
+[A \eor B, grouped, checked
+	[A
+	[B, grouped, close
+	]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+
+%\item Change the rule for disjunctions to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\metaA{}\eor\metaB{}
+%		[\metaA{}]
+%		[\metaB{}]
+%		[\metaA{} \eand \metaB{}]
+%	]
+%\end{prooftree}
+%\end{center}
+%}
+%
+
+
+
+\item Yes. Assume $\mathcal{I}(\metaA{}\eor\metaB{})=1$. Then either $\mathcal{I}(\metaA{})=1$ or $\mathcal{I}(\metaB{})=1$. If $\mathcal{I}(\metaA{})=1$, then $\mathcal{I}$ satisfies the left branch. If $\mathcal{I}(\metaB{})=1$, then $\mathcal{I}$ satisfies the middle branch. So, assuming that $\mathcal{I}$ satisfies the sentences above this resolution rule, it must satisfy at least one branch below it. So this rule will never take us from a satisfiable branch to a tree with no satisfiable branches.
+
+
+%\item Change the rule for conditionals to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\metaA{}\eif\metaB{}
+%		[\enot\metaA{}]
+%		[\metaB{}\eor\metaA{}]
+%	]
+%\end{prooftree}
+%\end{center}
+%}
+%
+
+\item Yes. Assume $\mathcal{I}(\metaA{}\eif\metaB{})=1$. Then either $\mathcal{I}(\enot\metaA{})=1$ or $\mathcal{I}(\metaB{})=1$. If $\mathcal{I}(\enot\metaA{})=1$, then $\mathcal{I}(\metaA{})=0$, so $\mathcal{I}$ satisfies the left branch. If $\mathcal{I}(\metaB{})=1$, then $\mathcal{I}$ satisfies the right branch, as the rule for disjunctions is if at least one disjunct is satisfied, the disjunction is satisfied. So, assuming that $\mathcal{I}$ satisfies the sentences above this resolution rule, it must satisfy at least one branch below it. So this rule will never take us from a satisfiable branch to a tree with no satisfiable branches.
+
+%\item Change the rule for conditionals to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\metaA{}\eif\metaB{}
+%		[\enot\metaA{}\eor\metaB{}]
+%	]
+%\end{prooftree}
+%\end{center}
+%}
+%
+
+\item Yes. Assume $\mathcal{I}(\metaA{}\eif\metaB{})=1$. Then either $\mathcal{I}(\enot\metaA{})=1$ or $\mathcal{I}(\metaB{})=1$. In either case, the single branch is satisfied, as the rule for disjunctions is if at least one disjunct is satisfied, the disjunction is satisfied. So, assuming that $\mathcal{I}$ satisfies the sentences above this resolution rule, it must satisfy at least one branch below it. So this rule will never take us from a satisfiable branch to a tree with no satisfiable branches.
+
+%\item Change the rule for biconditionals to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\metaA{}\eiff\metaB{}
+%		[\metaA{}
+%		[\metaB{}, grouped
+%		]
+%		]
+%	]
+%\end{prooftree}
+%\end{center}
+%}
+%
+
+
+\item No. Here is a counterexample to the soundness of the revised system. This tree has a satisfiable root, but closes if we use the rule in question.
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[P \eiff Q
+[\enot P, grouped
+	[P
+	[Q, grouped, close
+	]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+
+%\item Change the rule for disjunction to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\metaA{}\eor\metaB{}
+%		[\metaA{}]
+%		[\metaB{}]
+%		[\metaC{}]
+%	]
+%\end{prooftree}
+%\end{center}
+%}
+%
+%\end{earg}
+
+\item Yes. Assume $\mathcal{I}(\metaA{}\eor\metaB{})=1$. Then either $\mathcal{I}(\metaA{})=1$ or $\mathcal{I}(\metaB{})=1$. If $\mathcal{I}(\metaA{})=1$, then $\mathcal{I}$ satisfies the left branch. If $\mathcal{I}(\metaB{})=1$, then $\mathcal{I}$ satisfies the middle branch. So, assuming that $\mathcal{I}$ satisfies the sentences above this resolution rule, it must satisfy at least one branch below it. So this rule will never take us from a satisfiable branch to a tree with no satisfiable branches.
+
+\end{earg}
+
+
+
+
+
+
+
+
+
+
+
+\solutionsection{ch.ND.proofs}{pr.justifySLproof}
+
+\begin{multicols}{2}
+\begin{proof}
+\hypo{1}{W \eif \enot B}
+\hypo{2}{A \eand W}
+\hypo{2b}{B \eor (J \eand K)}
+\have{3}{W}\ae{2}
+\have{4}{\enot B} \ce{1,3}
+\have{5}{J \eand K} \oe{2b,4}
+\have{6}{K} \ae{5}
+\end{proof}
+
+\begin{proof}
+\hypo{1}{L \eiff \enot O}
+\hypo{2}{L \eor \enot O}
+\open
+	\hypo{a1}{\enot L} \by{for reductio}{}
+	\have{a2}{\enot O}\oe{2,a1}
+	\have{a3}{L}\be{1,a2}
+	\have{a4}{\enot L}\by{R}{a1}
+\close
+\have{3}{L}\ne{a1-a3, a1-a4}
+\end{proof}
+
+\begin{proof}
+\hypo{1}{Z \eif (C \eand \enot N)}
+\hypo{2}{\enot Z \eif (N \eand \enot C)}
+\open
+	\hypo{a1}{\enot(N \eor  C)} \by{for reductio}{}
+	\have{a2}{\enot N \eand \enot C} \by{DeM}{a1}
+	\open
+		\hypo{b1}{Z} \by{for reductio}{}
+		\have{b2}{C \eand \enot N}\ce{1,b1}
+		\have{b3}{C}\ae{b2}
+		\have{b4}{\enot C}\ae{a2}
+	\close
+	\have{a3}{\enot Z}\ni{b1-b3, b1-b4}
+	\have{a4}{N \eand \enot C}\ce{2,a3}
+	\have{a5}{N}\ae{a4}
+	\have{a6}{\enot N}\ae{a2}
+\close
+\have{3}{N \eor C}\ne{a1-a5, a1-a6}
+\end{proof}
+\end{multicols}
+
+\solutionsection{ch.ND.proofs}{pr.solvedSLproofs}
+%Give a proof for each argument in SL.
+\begin{earg}
+\item%$K\eand L$, \therefore $K\eiff L$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{a1}{K\eand L} \want{K\eiff L}
+	\open
+		\hypo{b1}{K} \want{L}
+		\have{b2}{L} \ae{a1}
+	\close
+	\have{kl}{K \eif L} \ci{b1-b2}
+	\open
+		\hypo{c1}{L} \want{K}
+		\have{c2}{K} \ae{a1}
+	\close
+	\have{lk}{L \eif K} \ci{c1-c2}
+	\have{d1}{K \eiff L} \bi{kl,lk}
+\end{proof}
+\end{solutioninlist}
+
+
+\item%$A\eif (B\eif C)$, \therefore $(A\eand B)\eif C$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{a1}{A\eif (B\eif C)} \want{(A\eand B)\eif C}
+	\open
+		\hypo{b1}{A\eand B} \want{C}
+		\have{b2}{A} \ae{b1}
+		\have{b3}{B\eif C} \ce{a1,b2}
+		\have{b4}{B} \ae{b1}
+		\have{b5}{C} \ce{b3, b4}
+	\close
+	\have{c}{(A\eand B)\eif C} \ci{b1-b5}
+\end{proof}
+\end{solutioninlist}
+\item%$P \eand (Q\eor R)$, $P\eif \enot R$, \therefore $Q\eor E$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{a1}{P \eand (Q\eor R)}
+	\hypo{a2}{P\eif \enot R} \want{Q\eor E}
+	\have{a3}{P} \andE{a1}
+	\have{a4}{\enot R} \ifE{a2,a3}
+	\have{a5}{Q\eor R} \andE{a1}
+	\have{a6}{Q} \orE{a5,a4}
+	\have{c}{Q\eor E} \orI{a6}
+\end{proof}
+\end{solutioninlist}
+\item%$(C\eand D)\eor E$, \therefore $E\eor D$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{a1}{(C\eand D)\eor E} \want{E\eor D}
+	\open
+		\hypo{b1}{\enot E} \want{D}
+		\have{b2}{C\eand D} \oe{a1,b1}
+		\have{b3}{D} \ae{b2}
+	\close
+	\have{c1}{\enot E\eif D} \ci{b1-b3}
+	\have{c2}{E\eor D} \by{MC}{c1}
+\end{proof}
+\end{solutioninlist}
+\item%$\enot F\eif G$, $F\eif H$, \therefore $G\eor H$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{a1}{\enot F\eif G}
+	\hypo{a2}{F\eif H} \want{G\eor H}
+	\open
+		\hypo{b1}{\enot G} \want{H}
+		\have{b2}{\enot\enot F} \by{MT}{a1,b1}
+		\have{b3}{F} \by{DN}{b2}
+		\have{b4}{H} \ce{a2,b3}
+	\close
+	\have{c1}{\enot G \eif H} \ci{b1-b4}
+	\have{c2}{G\eor H} \by{MC}{c1}
+\end{proof}
+\end{solutioninlist}
+\item%$(X\eand Y)\eor(X\eand Z)$, $\enot(X\eand D)$, $D\eor M$ \therefore $M$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{a1}{(X\eand Y)\eor(X\eand Z)}
+	\hypo{a2}{\enot(X\eand D)}
+	\hypo{a3}{D\eor M} \want{M}
+	\open
+		\hypo{b1}{\enot X} \by{for reductio}{}
+		\have{b2}{\enot X\eor \enot Y} \oi{b1}
+		\have{b3}{\enot (X \eand Y)} \by{DeM}{b2}
+		\have{b4}{X\eand Z} \oe{a1,b3}
+		\have{b5}{X} \ae{b4}
+		\have{b6}{\enot X} \by{R}{b1}
+	\close
+	\have{c}{X} \ne{b1-b6}
+	\open
+		\hypo{d1}{\enot M} \by{for reductio}{}
+		\have{d2}{D} \oe{a3,d1}
+		\have{d3}{X\eand D} \ai{c,d2}
+		\have{d4}{\enot(X\eand D)} \by{R}{a2}
+	\close
+	\have{e}{M} \ne{d1-d3, d1-d4}
+\end{proof}
+\end{solutioninlist}
+\end{earg}
+%
+
+
+\solutionsection{ch.ND.proofs}{pr.SLND.theorems}
+
+\begin{earg}
+\item %$O \eif O$
+\begin{solutioninlist}
+\begin{proof}
+	\open
+		\hypo{o1}{O}\want{O}
+		\have{o2}{O}\by{R}{o1}
+	\close
+	\have{o3}{O \eif O}\ci{o1-o2}
+\end{proof}
+\end{solutioninlist}
+\item %$N \eor \enot N$
+\begin{solutioninlist}
+\begin{proof}
+	\open
+		\hypo{nnon}{\enot (N \eor \enot N)}\by{for reductio}{}
+		\have{nnnn}{\enot N \eand \enot\enot N}\by{DeM}{nnon}
+		\have{n}{\enot N}\ae{nnnn}
+		\have{nn}{\enot\enot N}\ae{nnnn}
+	\close
+	\have{nonn}{N \eor \enot N}\ni{nnon-n,nnon-nn}
+\end{proof}
+\end{solutioninlist}
+\item %$\enot(P\eand \enot P)$
+\begin{solutioninlist}
+\begin{proof}
+	\open
+		\hypo{nnpanp}{\enot \enot (P \eand \enot P)}\by{for reductio}{}
+		\have{panp}{P \eand \enot P}\by{DN}{nnpanp}
+		\have{p}{P}\ae{panp}
+		\have{np}{\enot P}\ae{panp}
+	\close
+	\have{npanp}{\enot (P \eand \enot P)}\ni{nnpanp-p,nnpanp-np}
+\end{proof}
+\end{solutioninlist}
+\item %$\enot(A \eif \enot C) \eif (A \eif C)$
+\begin{solutioninlist}
+\begin{proof}
+	\open
+		\hypo{nainc}{\enot (A \eif \enot C)}\want{A \eif C}
+		\open
+			\hypo{a}{A}\want{C}{}
+			\have{nnaonc}{\enot (\enot A \eor \enot C)}\by{MC}{nainc}
+			\have{nnaannc}{\enot \enot A \eand \enot \enot C}\by{DeM}{nnaonc}
+			\have{nnaac}{\enot \enot A \eand C}\by{DN}{nnaannc}
+			\have{c}{C}\ae{nnaac}
+		\close
+		\have{aic}{A \eif C}\ci{a-c}
+	\close
+	\have{nainciaic}{\enot (A \eif \enot C) \eif (A \eif C) }\ci{o1-o2}
+\end{proof}
+\end{solutioninlist}
+\item %$J \eiff [J\eor (L\eand\enot L)]$
+\begin{solutioninlist}
+\begin{proof}
+\open
+		\hypo{j}{J}\want {J\eor (L\eand\enot L)}
+		\have{joblah}{J\eor (L\eand\enot L}\oi{j}
+	\close
+	\have{jijblah}{J \eif [J\eor (L\eand\enot L)]}\ci{j-joblah}
+	\open
+		\hypo{jblah2}{J\eor (L\eand\enot L)}\want{J}
+		\open
+			\hypo{nj}{\enot J}\by{for reductio}{}
+			\have{lanl}{L \eand \enot L}\oe{jblah2, nj}
+			\have{l}{L}\ae{lanl}
+			\have{nl}{\enot L}\ae{lanl}
+		\close
+		\have{j2}{J}\ne{nj-l,nj-nl}
+	\close
+	\have{jblahij}{(J\eor (L\eand\enot L)) \eif J}\ci{jblah2-j2}
+	\have{jiffjblah}{J \eiff [J\eor (L\eand\enot L)]}\bi{jijblah,jblahij}
+\end{proof}
+\end{solutioninlist}
+\end{earg}
+
+
+\solutionsection{ch.ND.proofs}{pr.solvedSLproofs2}
+\begin{earg}
+\item % $M \eand (\enot N \eif \enot M) \vdash (N \eand M) \eor \enot M$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{1}{M\eand(\enot N \eif \enot M)}
+	\have{2}{M}\ae{1}
+	\have{3}{\enot N \eif \enot M}\ae{1}
+	\have{4}{\enot \enot M}\by{DN}{2}
+	\have{5}{\enot \enot N}\by{MT}{3, 4}
+	\have{6}{N}\by{DN}{5}
+	\have{7}{N \eand M}\ai{6,2}
+	\have{8}{(N \eand M) \eor \enot M}\oi{7}
+\end{proof}
+\end{solutioninlist}
+\item %  \{$C\eif(E\eand G)$, $\enot C \eif G$\} $\vdash$ $G$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{1}{C \eif (E \eand G)}
+	\hypo{2}{\enot C \eif G}
+	\open
+		\hypo{3}{\enot G}\by{for reductio}{}
+		\have{4}{\enot \enot C}\by{MT}{2,3}
+		\have{5}{C}\by{DN}{4}
+		\have{6}{E \eand G}\ce{1,5}
+		\have{7}{G}\ae{6}
+		\have{8}{\enot G}\by{R}{3}
+	\close
+	\have{9}{G}\ne{3-7,3-8}
+\end{proof}
+\end{solutioninlist}
+\item % \{$(Z\eand K)\eiff(Y\eand M)$, $D\eand(D\eif M)$\} $\vdash$ $Y\eif Z$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{1}{(Z \eand K) \eiff (Y \eand M)}
+	\hypo{2}{D \eand (D \eif M)}
+	\have{3}{D \eif M}\ae{2}
+	\have{4}{D}\ae{2}
+	\have{5}{M}\ce{3,4}
+	\open
+		\hypo{6}{Y}\want{Z}
+		\have{7}{Y \eand M}\ai{6,5}
+		\have{8}{Z \eand K}\be{1,7}
+		\have{9}{Z}\ae{8}
+	\close
+	\have{10}{Y \eif Z}\ci{6-9}
+\end{proof}
+\end{solutioninlist}
+\item % \{$(W \eor X) \eor (Y \eor Z)$, $X\eif Y$, $\enot Z$\} $\vdash$ $W\eor Y$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{1}{(W \eor X) \eor (Y \eor Z)}
+	\hypo{2}{X \eif Y}
+	\hypo{3}{\enot Z}
+	\open
+		\hypo{4}{\enot (W \eor Y)))}\by{for reductio}{}
+		\have{5}{\enot W \eand \enot Y}\by{DeM}{4}
+		\have{6}{\enot Y}\ae{5}
+		\have{7}{\enot W}\ae{5}
+		\have{8}{\enot X}\by{MT}{2,6}
+		\have{9}{\enot W \eand \enot X}\ai{7,8}
+		\have{10}{\enot (W \eor X)}\by{DeM}{9}
+		\have{11}{Y \eor Z}\oe{1,10}
+		\have{12}{Z}\oe{11,6}
+		\have{13}{\enot Z}\by{R}{3}
+	\close
+	\have{14}{W \eor Y}\ne{4-12,4-13}
+\end{proof}
+\end{solutioninlist}
+\end{earg}
+
+
+
+\solutionsection{ch.QL}{pr.QLbojacksome}
+\begin{earg}
+\item %Mr.\ Peanutbutter lives with a human.
+$\exists x (Lpx \eand Bx)$
+\item %Dianne lives with a dog who worked on a movie with Bojack.
+$\exists x (Ldx \eand Dx \eand Wxb)$
+\item %Princess Caroline represents a horse who lives with a human being.
+$\exists x [Rcx \eand Hx \eand \exists y (By \eand Lxy)]$
+\item %Some human being who worked on a movie with Mr.\ Peanutbutter lives with a dog or a cat.
+$\exists x (Bx \eand Wxp \eand [\exists y (Dy \eand Lxy) \eor \exists y (Cy \eand Lxy)])$
+\item %Bojack worked on a movie with a human movie star.
+$\exists x (Bx \eand Mx \eand Wbx)$
+\item %Bojack worked on a movie with a nonhuman movie star who lives with Dianne.
+$\exists x (\enot Bx \eand Mx \eand Wbx \eand Lxd)$
+\end{earg}
+
+
+\solutionsection{ch.QL}{pr.QLalligators}
+\begin{earg}
+\item %Amos, Bouncer, and Cleo all live at the zoo.
+$Za \eand Zb \eand Zc$
+\item %Bouncer is a reptile, but not an alligator. 
+$Rb \eand \enot Ab$
+\item %If Cleo loves Bouncer, then Bouncer is a monkey. 
+$Lcb \eif Mb$
+\item %If both Bouncer and Cleo are alligators, then Amos loves them both.
+$(Ab \eand Ac)\eif(Lab \eand Lac)$
+\item %Some reptile lives at the zoo. 
+$\exists x(Rx \eand Zx)$
+\item %Every alligator is a reptile. 
+$\forall x(Ax \eif Rx)$
+\item %Any animal that lives at the zoo is either a monkey or an alligator. 
+$\forall x\bigl[Zx \eif (Mx \eor Ax)\bigr]$
+\item %There are reptiles which are not alligators.
+$\exists x(Rx \eand \enot Ax)$
+\item %Cleo loves a reptile.
+$\exists x(Rx \eand Lcx)$
+\item %Bouncer loves all the monkeys that live at the zoo.
+$\forall x\bigl[(Mx \eand Zx) \eif Lbx\bigr]$
+\item %All the monkeys that Amos loves love him back.
+$\forall x\bigl[(Mx \eand Lax) \eif Lxa\bigr]$
+\item %If any animal is an reptile, then Amos is.
+$\exists x Rx \eif Ra$
+\item %If any animal is an alligator, then it is a reptile.
+$\forall x(Ax \eif Rx)$
+\item %Every monkey that Cleo loves is also loved by Amos.
+$\forall x\bigl[(Mx \eand Lcx) \eif Lax\bigr]$
+\item %There is a monkey that loves Bouncer, but sadly Bouncer does not reciprocate this love.
+$\exists x(Mx \eand Lxb \eand \enot Lbx)$
+\end{earg}
+
+
+\solutionsection{ch.QL}{pr.QLdogtrans}
+\begin{earg}
+\item %Bertie is a dog who likes samurai movies.
+$Db \eand Sb$
+\item %Bertie, Emerson, and Fergis are all dogs.
+$Db \eand De \eand Df$
+\item %Emerson is larger than Bertie, and Fergis is larger than Emerson.
+$Leb \eand Lfe$
+\item %All dogs like samurai movies.
+$\forall x(Dx \eif Sx)$
+\item %Only dogs like samurai movies.
+$\forall x(Sx \eif Dx)$
+\item %There is a dog that is larger than Emerson.
+$\exists x(Dx \eand Lxe)$
+\item %If there is a dog larger than Fergis, then there is a dog larger than Emerson.
+$\exists x(Dx \eand Lxf) \eif \exists x(Dx \eand Lxe)$
+\item %No animal that likes samurai movies is larger than Emerson.
+$\forall x(Lxe \eif \enot Sx)$
+\item %No dog is larger than Fergis.
+$\enot \exists x(Lxf \eand Dx)$
+\item %Any animal that dislikes samurai movies is larger than Bertie.
+$\forall x(\enot Sx \eif Lxb)$
+\item %There is an animal that is between Bertie and Emerson in size.
+$\exists x((Lxb \eand Lex) \eor (Lxe \eand Lbx))$
+\item %There is no dog that is between Bertie and Emerson in size.
+$\enot \exists x(Dx \eand [(Lxb \eand Lex) \eor (Lxe \eand Lbx)])$
+\item %No dog is larger than itself.
+$\enot \exists x(Dx \eand Lxx)$
+\item %For every dog, there is some dog larger than it.
+$\forall x(Dx \eif \exists y(Dy \eand Lyx))$
+\item %There is an animal that is smaller than every dog.
+$\exists x(\forall y(Dy \eif Lyx))$
+\end{earg}
+
+
+
+
+
+\solutionsection{ch.QL}{pr.QLcandies}
+\begin{earg}
+\item %Boris has never tried any candy.
+$\enot\exists x Tx$
+\item %Marzipan is always made with sugar.
+$\forall x(Mx \eif Sx)$
+\item %Some candy is sugar-free.
+$\exists x \enot Sx$
+\item %The very best candy is chocolate.
+$\exists x[Cx \eand \enot\exists y Byx]$
+\item %No candy is better than itself.
+$\enot \exists x Bxx$
+\item %Boris has never tried sugar-free chocolate.
+$\enot \exists x(Cx \eand \enot Sx \eand Tx)$
+\item %Boris has tried marzipan and chocolate, but never together.
+$\exists x(Cx \eand Tx) \eand \exists x(Mx \eand Tx) \eand \enot \exists x(Cx \eand Mx \eand Tx)$
+\item %Any candy with chocolate is better than any candy without it.
+$\forall x[Cx \eif \forall y(\enot Cy \eif Bxy)]$
+\item %Any candy with chocolate and marzipan is better than any candy without either.
+$\forall x\bigl((Cx \eand Mx) \eif \forall y[(\enot Cy \eand \enot My) \eif Bxy]\bigr)$
+\end{earg}
+
+\solutionsection{ch.QL}{pr.QLpotluck}
+\begin{earg}
+\item %All the food is on the table.
+$\forall x(Fx \eif Tx)$
+\item %If the guacamole has not run out, then it is on the table.
+$\enot Rg \eif Tg$
+\item %Everyone likes the guacamole.
+$\forall x (Px \eif Lxg)$
+\item %If anyone likes the guacamole, then Eli does.
+$\exists x (Px \eand Lxg) \eif Leg$
+\item %Francesca only likes the dishes that have run out.
+$\forall x ((Fx \eand Lfx) \eif Rx)$
+\item %Francesca likes no one, and no one likes Francesca.
+$\enot \exists x (Px \eand Lfx) \eand \enot \exists y (Py \eand Lyf)$
+\item %Eli likes anyone who likes the guacamole.
+$\forall x ((Px \eand Lxg) \eif Lex)$
+\item %Eli likes everyone who likes anyone that he likes.
+$\forall x \forall y ((Px \eand Py \eand Lxy \eand Ley) \eif Lex)$
+\item %If there is a person on the table already, then all of the food must have run out.
+$\exists x (Px \eand Tx) \eif \forall y (Fy \eif Ry)$
+\end{earg}
+
+
+\solutionsection{ch.QL}{pr.QLballet}
+\begin{earg}
+\item %All of Patrick's children are ballet dancers.
+$\forall x(Cxp \eif Dx)$
+\item %Jane is Patrick's daughter.
+$Cjp \eand Fj$
+\item %Patrick has a daughter.
+$\exists x(Cxp \eand Fx)$
+\item %Jane is an only child.
+$\enot\exists x Sxj$
+\item %All of Patrick's daughters dance ballet.
+$\forall x\bigl[(Cxp \eand Fx)\eif Dx\bigr]$
+\item %Patrick has no sons.
+$\enot\exists x(Cxp \eand Mx)$
+\item %Jane is Elmer's niece.
+$\exists x(Cjx \eand Sxe \eand Fj)$
+\item %Patrick is Elmer's brother.
+$Spe \eand Mp$
+\item %Patrick's brothers have no children.
+$\forall x\bigl[(Sxp \eand Mx) \eif \enot\exists y Cyx\bigr]$
+\item %Jane is an aunt.
+$\exists x(Sxj \eand \exists y Cyx \eand Fj)$
+\item %Everyone who dances in the ballet has a sister who also dances in the ballet.
+$\forall x\bigl[Dx \eif \exists y(Sxy \eand Fy \eand Dy)\bigr]$
+\item %Every man who dances in the ballet is the child of someone who dances in the ballet.
+$\forall x\bigl[(Mx \eand Dx) \eif \exists y(Cxy \eand Dy)\bigr]$
+\end{earg}
+
+\solutionsection{ch.QL}{pr.subinstanceQL}
+\begin{earg}
+\item $Rca$, $Rcb$, $Rcc$, and $Rcd$ are substitution instances of $\forall x Rcx$.
+\item Of the expressions listed, only $\forall y Lby$ is a substitution instance of $\exists x\forall y Lxy$.
+\end{earg}
+
+
+
+
+
+
+
+\solutionsection{ch.QL.models}{pr.TorF1}
+%\item $Bc$
+\noSeq
+%\item $Ac \eiff \enot Nc$
+\nextSeq
+%\item $Nc \eif (Ac \eor Bc)$
+\nextSeq
+%\item $\forall x Ax$
+\nextSeq
+%\item $\forall x \enot Bx$
+\noSeq
+%\item $\exists x(Ax \eand Bx)$
+\nextSeq
+%\item $\exists x(Ax \eif Nx)$
+\noSeq
+%\item $\forall x(Nx \eor \enot Nx)$
+\nextSeq
+%\item $\exists x Bx \eif \forall x Ax$
+\lastSeq
+are true in the model.
+
+\solutionsection{ch.QL.models}{pr.TorF2}
+\noSeq%\item $\exists x(Rxm \eand Rmx)$
+\noSeq%\item $\forall x(Rxm \eor Rmx)$
+\noSeq%\item $\forall x(Hx \eiff Wx)$
+\nextSeq%\item $\forall x(Rxm \eif Wx)$
+\nextSeq%\item $\forall x\bigl[Wx \eif(Hx \eand Wx)\bigr]$
+\noSeq%\item $\exists x Rxx$
+\lastSeq%\item $\exists x\exists y Rxy$
+\noSeq%\item $\forall x \forall y Rxy$
+\noSeq%\item $\forall x \forall y (Rxy \eor Ryx)$
+\noSeq%\item $\forallx \forall y \forall z\bigl[(Rxy \eand Ryz) \eif Rxz\bigr]$
+are true in the model.
+
+
+
+
+\solutionsection{ch.QL.models}{pr.TorF3}
+\nextSeq%\item $Hc$
+\noSeq%\item $He$
+\nextSeq%\item $Mc \eor Me$
+\nextSeq%\item $Gc \eor \enot Gc$
+\nextSeq%\item $Mc \eif Gc$
+\nextSeq%\item $\exists x Hx$
+\noSeq%\item $\forall x Hx$
+\nextSeq%\item $\exists x \enot Mx$
+\nextSeq%\item $\exists x(Hx \eand Gx)$
+\nextSeq%\item $\exists x(Mx \eand Gx)$
+\nextSeq%\item $\forall x(Hx \eor Mx)$
+\nextSeq%\item $\exists x Hx \eand \exists x Mx$
+\nextSeq%\item $\forall x(Hx \eiff \enot Mx)$
+\noSeq%\item $\exists x Gx \eand \exists x \enot Gx$
+\lastSeq%\item $\forall x\exists y(Gx \eand Hy)$
+are true in the model.
+
+
+
+\solutionsection{ch.QL.models}{pr.InterpretationToModel}
+\begin{partialmodel}
+UD & \{10,11,12,13\}\\
+\extension{O} & \{11,13\}\\
+\extension{S} & $\emptyset$\\
+\extension{T} & \{10,11,12,13\}\\
+\extension{U} & \{13\}\\
+\extension{N} & \{\ntuple{11,10},\ntuple{12,11},\ntuple{13,12}\}\\
+\end{partialmodel}
+
+
+
+\solutionsection{ch.QL.models}{pr.Contingent}
+\begin{earg}
+\item %$Da \eand Db$
+	The sentence is true in this model:
+	\begin{partialmodel}
+		UD & \{Stan\}\\
+		\extension{D} & \{Stan\}\\
+		\referent{a} & Stan\\
+		\referent{b} & Stan
+	\end{partialmodel}
+	And it is false in this model:
+	\begin{partialmodel}
+		UD & \{Stan\}\\
+		\extension{D} & $\emptyset$\\
+		\referent{a} & Stan\\
+		\referent{b} & Stan
+	\end{partialmodel}
+\item %$\exists x Txh$
+	The sentence is true in this model:
+	\begin{partialmodel}
+		UD & \{Stan\}\\
+		\extension{T} & \{\ntuple{Stan, Stan}\}\\
+		\referent{h} & Stan
+	\end{partialmodel}
+	And it is false in this model:
+	\begin{partialmodel}
+		UD & \{Stan\}\\
+		\extension{T} & $\emptyset$\\
+		\referent{h} & Stan
+	\end{partialmodel}
+\item %$Pm \eand \enot\forall x Px$
+	The sentence is true in this model:
+	\begin{partialmodel}
+		UD & \{Stan, Ollie\}\\
+		\extension{P} & \{Stan\}\\
+		\referent{m} & Stan
+	\end{partialmodel}
+	And it is false in this model:
+	\begin{partialmodel}
+		UD & \{Stan\}\\
+		\extension{P} & $\emptyset$\\
+		\referent{m} & Stan
+	\end{partialmodel}
+\end{earg}
+%
+%
+%
+\solutionsection{ch.QL.models}{pr.NotEquiv}
+There are many possible correct answers. Here are some:
+\begin{earg}
+\item %$Ja$, $Ka$
+	Making the first sentence true and the second false:
+	\begin{partialmodel}
+		UD & \{alpha\}\\
+		\extension{J} & \{alpha\}\\
+		\extension{K} & $\emptyset$\\
+		\referent{a} & alpha
+	\end{partialmodel}
+\item %$\exists x Jx$, $Jm$
+	Making the first sentence true and the second false:
+	\begin{partialmodel}
+		UD & \{alpha, omega\}\\
+		\extension{J} & \{alpha\}\\
+		\referent{m} & omega
+	\end{partialmodel}
+\item %$\forall x Rxx$, $\exists x Rxx$
+	Making the first sentence false and the second true:
+	\begin{partialmodel}
+		UD & \{alpha, omega\}\\
+		\extension{R} & \{\ntuple{alpha, alpha}\}
+	\end{partialmodel}
+\item %$\exists x Px \eif Qc$, $\exists x (Px \eif Qc)$
+	Making the first sentence false and the second true:
+	\begin{partialmodel}
+		UD & \{alpha, omega\}\\
+		\extension{P} & \{alpha\}\\
+		\extension{Q} & $\emptyset$\\
+		\referent{c} & alpha
+	\end{partialmodel}
+\item %$\forall x(Px \eif \enot Qx)$, $\exists x(Px \eand \enot Qx)$
+	Making the first sentence true and the second false:
+	\begin{partialmodel}
+		UD & \{iota\}\\
+		\extension{P} & $\emptyset$\\
+		\extension{Q} & $\emptyset$
+	\end{partialmodel}
+\item %$\exists x(Px \eand Qx)$, $\exists x(Px \eif Qx)$
+	Making the first sentence false and the second true:
+	\begin{partialmodel}
+		UD & \{iota\}\\
+		\extension{P} & $\emptyset$\\
+		\extension{Q} & \{iota\}
+	\end{partialmodel}
+\item %$\forall x(Px\eif Qx)$, $\forall x(Px \eand Qx)$
+	Making the first sentence true and the second false:
+	\begin{partialmodel}
+		UD & \{iota\}\\
+		\extension{P} & $\emptyset$\\
+		\extension{Q} & \{iota\}
+	\end{partialmodel}
+\item %$\forall x\exists y Rxy$, $\exists x\forall y Rxy$
+	Making the first sentence true and the second false:
+	\begin{partialmodel}
+		UD & \{alpha, omega\}\\
+		\extension{R} & \{\ntuple{alpha, omega}, \ntuple{omega, alpha}\}
+	\end{partialmodel}
+\item %$\forall x\exists y Rxy$, $\forall x\exists y Ryx$
+	Making the first sentence false and the second true:
+	\begin{partialmodel}
+		UD & \{alpha, omega\}\\
+		\extension{R} & \{\ntuple{alpha, alpha}, \ntuple{alpha, omega}\}
+	\end{partialmodel}
+\end{earg}
+
+
+\solutionsection{ch.QL.models}{pr.SemanticsEssay}
+\begin{earg}
+\stepcounter{eargnum}
+\item No, it would not make any difference. The satisfaction of a formula with one or more free variables depends on what the variable assignment does for those variables. Because a sentence has no free variables, however, its satisfaction does not depend on the variable assignment. So a sentence that is satisfied by \emph{some} variable assignment is satisfied by \emph{every} other variable assignment as well.
+\end{earg}
+
+
+
+
+
+
+
+\solutionsection{ch.QLTrees}{pr.QL.trees.tautology}
+
+\begin{earg}
+\item $\forall x \forall y (Gxy \eif \exists z Gxz)$ is a tautology.
+
+	\begin{prooftree}
+	{
+	}
+	[\enot \forall x \forall y (Gxy \eif \exists z Gxz), checked=a
+		[\enot \forall y (Gay \eif \exists z Gaz), just=1 \enot $\forall$, checked=b
+			[\enot (Gab \eif \exists z Gaz), just=2 \enot $\forall$, checked, grouped
+				[Gab, just=3 \enot \eif
+				[\enot \exists z Gaz, grouped, subs={b}
+					[\enot Gab, close={4, 6}
+					]
+				]
+				]
+			]
+		]
+	]
+	\end{prooftree}
+
+
+\item $\forall x Fx \eor \forall x (Fx \eif Gx)$ is not a tautology.
+
+	\begin{prooftree}
+	{
+	}
+	[\enot (\forall x Fx \eor \forall x (Fx \eif Gx)), checked
+		[\enot \forall x Fx, checked=a, just=1 \enot \eor
+		[\enot \forall x (Fx \eif Gx), grouped, checked=b
+			[\enot Fa, just=2 \enot $\forall$
+				[\enot (Fb \eif Gb), just=3 \enot $\forall$, checked, grouped
+					[Fb, just=5 \enot \eif
+					[\enot Gb, grouped, open
+					]
+					]
+				]
+			]
+		]
+		]
+	]
+	\end{prooftree}
+
+UD=\{a, b\}, extension($F$)=\{b\}, extension($G$)=$\emptyset$
+
+
+\item $\forall x (Fx \eif (\enot Fx \eif \forall y Gy))$ is a tautology.
+
+	\begin{prooftree}
+	{
+	}
+	[\enot \forall x (Fx \eif (\enot Fx \eif \forall y Gy)), checked=a
+		[\enot (Fa \eif (\enot Fa \eif \forall y Gy)), checked, just=1 \enot $\forall$
+			[Fa, just=2 \enot \eif
+			[\enot (\enot Fa \eif \forall y Gy), checked, grouped
+				[\enot Fa, just=4 \enot \eif
+				[\enot \forall y Gy, grouped, close={3, 5}
+				]
+				]
+			]
+			]
+		]
+	]
+	\end{prooftree}
+
+
+
+
+
+
+\item $\exists x (Fx \eor \enot Fx)$ is a tautology.
+
+	\begin{prooftree}
+	{
+	}
+	[\enot \exists x (Fx \eor \enot Fx), subs={a}
+		[\enot (Fa \eor \enot Fa), checked, just=1 \enot $\exists$
+			[\enot Fa, just=2 \enot \eor
+			[\enot\enot Fa, grouped, close={3, 4}
+			]
+			]
+		]
+	]
+	\end{prooftree}
+
+
+\item $\exists x Jx \eiff \enot \forall x \enot Jx$ is a tautology.
+
+	\begin{prooftree}
+	{
+	}
+	[\enot (\exists x Jx \eiff \enot \forall x \enot Jx), checked
+		[\exists x Jx, just=1 \eiff, checked=a
+		[\enot \enot \forall x \enot Jx, grouped, checked, name=dna
+			[Ja, name=ja1, just=2 $\exists$, move by=1
+				[\forall x \enot Jx, just={\enot \enot: dna}, subs={a}, name=noJ, move by=1
+					[\enot Ja, just={$\forall$: noJ}, close={:ja1,!c}]
+				]
+			]
+		]
+		]
+		[\enot \exists x Jx, just=1 \eiff, subs={a}, name=nej2
+		[\enot \forall x \enot Jx, grouped, checked=a, name=nanj 
+				[\enot \enot Ja, just={\enot $\forall$: nanj}, name=nnj
+				[\enot Ja, just={\enot $\exists$: nej2}, close={:nnj,!c}, move by=1
+				]
+			]
+		]
+		]
+	]
+	\end{prooftree}
+
+
+
+
+\item $\forall x (Fx \eor Gx) \eif (\forall y Fy \eor \exists x Gx)$ is a tautology.
+
+\begin{prooftree}
+	{
+	}
+	[\enot (\forall x (Fx \eor Gx) \eif (\forall y Fy \eor \exists x Gx)), checked
+		[\forall x (Fx \eor Gx), just=1 \enot \eif, subs={a}
+		[\enot (\forall y Fy \eor \exists x Gx), checked, grouped
+			[\enot\forall y Fy, just=3 \enot \eor, checked=a
+			[\enot \exists x Gx, grouped, subs={a}
+				[\enot Fa, just=4 \enot $\forall$
+					[\enot Ga, just=5 \enot $\exists$
+						[Fa \eor Ga, checked, just=2 $\forall$
+							[Fa, just=8 \eor, close]
+							[Ga, close]
+						]
+					]
+				]
+			]
+			]
+		]
+		]
+	]
+\end{prooftree}
+
+\end{earg}
+
+
+
+
+
+\solutionsection{ch.QLTrees}{pr.QL.trees.validity}
+\begin{earg}
+\item $Fa$, $Ga$, \therefore\ $\forall x (Fx \eif Gx)$ is invalid.
+
+
+\begin{prooftree}
+	{
+	}
+	[Fa
+	[Ga, grouped
+	[\enot \forall x (Fx \eif Gx), grouped, checked=b
+		[\enot (Fb \eif Gb), checked, just=3 \enot$\forall$
+			[Fb, just=4 \enot\eif
+			[\enot Gb, grouped, open
+			]
+			]
+		]
+	]
+	]
+	]
+\end{prooftree}
+
+UD=\{a, b\}, extension($F$)=\{a, b\}, extension($G$)=\{a\}
+
+
+
+
+\item $Fa$, $Ga$, \therefore\ $\exists x (Fx \eand Gx)$ is valid.
+
+
+\begin{prooftree}
+	{}
+	[Fa
+	[Ga, grouped
+	[\enot \exists x (Fx \eand Gx), grouped, subs={a}
+		[\enot (Fa \eand Ga), checked, just=3 \enot $\exists$
+			[\enot Fa, close, just=4 \enot \eand]
+			[\enot Ga, close, just=4 \enot \eand]
+		]
+	]
+	]
+	]
+\end{prooftree}
+
+
+\item $\forall x \exists y Lxy$, \therefore\ $\exists x \forall y Lxy$ is invalid.
+\begin{prooftree}
+	{}
+	[\forall x \exists y Lxy, subs={a, b, c, ...}
+	[\enot \exists x \forall y Lxy, subs={a, b, c, ...}
+	[\exists y Lay, checked=b, just=1 $\forall$
+	[Lab, just=3 $\exists$, grouped
+	[\enot \forall y Lay, checked=c, just=2 \enot $\exists$
+	[\enot Lac, just=5 \enot $\forall$, grouped
+	[\exists y Lby, checked=d, just=1 $\forall$
+	[Lbd, just=7 $\exists$, grouped
+	[\enot \forall y Lby, checked=e, just=2 \enot $\exists$
+	[\enot Lbe, just=9 \enot $\forall$, grouped
+	[\exists y Lcy, checked=f, just=1 $\forall$
+	[Lcf, just=11 $\exists$, grouped
+	[\enot \forall y Lcy, checked=g, just=2 \enot $\exists$
+	[\enot Lcg, just=13 \enot $\forall$, grouped
+	[\vdots
+	]
+	]
+	]
+	]
+	]
+	]
+	]
+	]
+	]
+	]
+	]
+	]
+	]
+	]
+	]
+\end{prooftree}
+
+This tree continues in an infinite way; each new name requires additional instances at line 1 and line 2, which in turn require two more new names. We can represent a model with an infinite UD, giving the extension of $L$ as either a chart or an infinite set of ordered pairs. It is also possible to collapse this interpretation into a finite one; examining the chart, we can see that there is no reason the names couldn't be repeating names for the same two objects; we could let $d$ and $e$ be additional names for $b$ and $c$, respectively, and so on for $f$ and $g$, etc. So a two-object model will also suffice to satisfy the premises and falsify the conclusion, with UD=\{b, c\} and extension($L$)=\{\ntuple{b, b}, \ntuple{c, b}\}. This is also shown in a second chart.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{l|lllllllll}
+$Lxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{e} & \textbf{f} & \textbf{g} & \ldots &   \\ \hline
+\textbf{a} & -          & 1          & 0          &            &            &            &            &     &   \\
+\textbf{b} &            &            &            & 1          & 0          &            &            &     &   \\
+\textbf{c} &            &            &            &            &            & 1          & 0          &     &   \\
+\textbf{d} &            &            &            &            &            &            &            & 1   & 0 \\
+\vdots        &            &            &            &            &            &            &            &     &  
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{l|ll}
+$Lxy$        & \textbf{b} & \textbf{c} \\ \hline
+\textbf{b} & 1          & 0          \\
+\textbf{c} & 1          & 0         
+\end{tabular}
+\end{table}
+
+\item $\exists x (Fx \eand Gx)$, $Fb \eiff Fa$, $Fc \eif Fa$, \therefore\ $Fa$ is invalid.
+
+\begin{prooftree}
+	{
+	}
+	[\exists x (Fx \eand Gx), checked=d
+	[Fb \eiff Fa, checked, grouped
+	[Fc \eif Fa, checked, grouped
+	[\enot Fa, grouped
+		[Fd \eand Gd, checked, just=1 $\exists$
+			[Fd, just=5 \eand
+			[Gd, grouped
+				[Fb, just=2 \eiff
+				[Fa, grouped, close={4, 9}
+				]
+				]
+				[\enot Fb
+				[\enot Fa, grouped
+					[\enot Fc, just=3 \eif, open]
+					[Fa, close={9, 10}]
+				]
+				]
+			]
+			]
+		]
+	]
+	]
+	]
+	]
+\end{prooftree}
+
+UD=\{a, b, c, d\}, extension($F$)=\{d\}, extension($G$)=\{d\}
+
+
+
+
+\item $\forall x \exists y Gyx$, \therefore\ $\forall x \exists y (Gxy \eor Gyx)$ is valid.
+
+\begin{prooftree}
+	{
+	}
+	[\forall x \exists y Gyx, subs={a}
+	[\enot \forall x \exists y (Gxy \eor Gyx), checked=a, grouped
+		[\enot \exists y (Gay \eor Gya), subs={b}, just=2 \enot$\forall$
+			[\exists y Gya, checked=b, just=1 $\forall$
+				[Gba, just=4 $\exists$
+					[\enot (Gab \eor Gba), checked, just=3 \enot $\exists$
+						[\enot Gab, just=6 \enot\eor
+						[\enot Gba, close={5, 8}, grouped
+						]
+						]
+					]
+				]
+			]
+		]
+	]
+	]
+\end{prooftree}
+\end{earg}
+
+
+
+
+
+
+
+
+%\solutionsection{ch.QLTrees}{pr.QL.trees.translation.and.validity}
+%\begin{earg}
+%
+%
+%
+%\item % Every logic student is studying. Deborah is not studying. Therefore, Deborah is not a logic student.
+%
+%\begin{ekey}
+%\item[UD:] People
+%\item[Lx:] $x$ is a logic student.
+%\item[Sx:] $x$ is studying.
+%\item[d:] Deborah
+%\end{ekey}
+%
+%Using this translation, the argument translates to:
+%\begin{earg}
+%\item[] $\forall x (Lx \eif Sx)$
+%\item[]  $\enot Sd$
+%\item[\therefore]$\enot Ld$
+%\end{earg}
+%
+%\begin{prooftree}
+%{
+%}
+%[\forall x (Lc \eif Sx), subs={d}
+%[\enot Sd, grouped
+%[\enot \enot Ld, grouped
+%	[Ld \eif Sd, just=1 $\forall$
+%		[\enot Ld, just=4 \eif, close={3, 5}]
+%		[Sd, close={2,5}]
+%	]
+%]
+%]
+%]
+%\end{prooftree}
+%
+%The tree closes, so the argument is valid.
+
+
+%I gave a stupid question accidentally! It's gone now.
+
+
+%\item% Every door can be opened by some key. Therefore, some door can open every key.
+%
+%\begin{ekey}
+%\item[UD:] Doors and Keys
+%\item[Dx:] $x$ is a door.
+%\item[Kx:] $x$ is a key.
+%\item[Oxy:] $x$ can open $y$.
+%\end{ekey}
+%
+%Using this translation, the argument translates to:
+%
+%\begin{earg}
+%\item[]$\forall x (Dx \eif \exists y(Ky \eand Oyx))$
+%\item[\therefore]$\exists x (Dx \eand \forall y(Ky \eand Oxy))$
+%\end{earg}
+%
+%
+%\begin{prooftree}
+%{
+%}
+%[\forall x (Dx \eif \exists y(Ky \eand Oyx)), subs={a,b}
+%[\enot \exists x (Dx \eand \forall y(Ky \eand Oxy)), subs={a,b}, grouped 
+%	[Da \eif \exists y(Ky \eand Oya), just=1 $\forall$
+%		[\enot Da, just=3 \eif
+%			[\vdots]
+%		]
+%		[\exists y(Ky \eand Oya), checked=b
+%			[Kb \eand Oba, just=4 $\exists$
+%				[Kb, just=5 \eand
+%				[Oba, grouped
+%					[Db \eif \exists y(Ky \eand Oyb), just=1 $\forall$
+%						[\enot Db, just=8 \eif
+%							[\vdots]
+%						]
+%						[\exists y(Ky \eand Oyb), checked=c
+%							[Kc \eand Ocb, just=9 $\exists$	
+%								[Kc, just=10 \eand
+%								[Ocb, grouped
+%									[\enot (Da \eand \forall y(Ky \eand Oay)), just=2 \enot $\exists$
+%										[\enot Da, just=13 \enot \eand
+%											[\vdots]
+%										]
+%										[\enot \forall y(Ky \eand Oay), checked=d
+%											[\enot (Kd \eand Oad), just=14 \enot $\forall$
+%												[\enot Kd, just=15 \enot \eand
+%													[\vdots]
+%												]
+%												[\enot Oad
+%													[\enot (Db \eand \forall y(Ky \eand Oby)), just=2 \enot $\exists$, checked=e
+%														[\vdots]
+%														[\enot Obe, just=17 \enot $\forall$
+%															[\vdots]
+%														]
+%													]
+%													]
+%												]
+%											]
+%										]
+%									]
+%								]
+%								]
+%							]
+%						]	
+%					]
+%				]
+%				]
+%			]
+%		]
+%	]
+%]
+%]
+%\end{prooftree}
+%
+%\begin{table}[h!]
+%\centering
+%\begin{tabular}{l|lllll}
+% & $Dx$ & $Kx$\\ \hline
+%$a$   & 0 & - \\
+%$b$   & 0 & 1 \\
+%$c$   & 0 & 1 \\
+%$d$   & 0 & 1 \\
+%\vdots & \vdots & \vdots
+%\end{tabular}
+%\end{table}
+%
+%\begin{table}[h!]
+%\centering
+%\begin{tabular}{l|lllll}
+%$Oxy$   & $a$ & $b$ & $c$ & $d$ & $e$ & \ldots \\ \hline
+%$a$   & - & - & - & 0 & -   \\
+%$b$   & 1 & - & - & - & 0   \\
+%$c$   & - & 1 & - & - & -   \\
+%$d$   & - & - & 1 & - & -   \\
+%$e$   & - & - & - & 1 & -   \\
+%\vdots & 1 & - & - & - & -
+%\end{tabular}
+%
+%\end{table}
+%\begin{table}[h!]
+%\centering
+%\begin{tabular}{l|lllll}
+% & $Dx$ & $Kx$\\ \hline
+%$a$   & 0 & - \\
+%$b$   & 0 & 1 \\
+%$c$   & 0 & 1 \\
+%$d$   & 0 & 1 \\
+%\vdots & \vdots & \vdots
+%\end{tabular}
+%\end{table}
+%
+%\begin{table}[h!]
+%\centering
+%\begin{tabular}{l|lllll}
+%$Oxy$   & $a$ & $b$ & $c$ & $d$ & $e$ & \ldots \\ \hline
+%$a$   & - & - & - & 0 & -   \\
+%$b$   & 1 & - & - & - & 0   \\
+%$c$   & - & 1 & - & - & -   \\
+%$d$   & - & - & 1 & - & -   \\
+%$e$   & - & - & - & 1 & -   \\
+%\vdots & 1 & - & - & - & -
+%\end{tabular}
+%\end{table}
+%
+%The tree does not close, so the argument is invalid. An infinite model that describes a way to satisfy the root is given in the tables above.
+
+%\item% Kirk is a white male Captain. Therefore, some Captains are white.
+%
+%\begin{ekey}
+%\item[UD:] People
+%\item[Wx:] $x$ is white.
+%\item[Mx:] $x$ is male.
+%\item[Cx:] $x$ is captain.
+%\item[k:] Kirk.
+%\end{ekey}
+%
+%Using this translation, the argument translates to:
+%
+%\begin{earg}
+%\item[]$Wk \eand Mk \eand Ck$
+%\item[\therefore] $\exists x(Cx \eand Wx)$
+%\end{earg}
+%
+%
+%\begin{prooftree}
+%{
+%}
+%[Wk \eand Mk \eand Ck
+%[\enot \exists x(Cx \eand Wx), subs={k}, grouped
+%	[Wk, just=1 \eand
+%	[Mk, grouped
+%	[Ck, grouped
+%		[\enot (Ck \eand Wk), just=2 \enot $\exists$
+%			[\enot Ck, just=6 \enot \eand, close={5, 7}]
+%			[\enot Wk, close={3, 7}]
+%		]
+%	]
+%	]
+%	]
+%]
+%]
+%\end{prooftree}
+%
+%The tree closes, so the argument is valid. Note that in QL, ``some" requires only that at least one instance is true.
+%
+%\item
+%
+%\item
+%
+%\end{earg}
+%
+
+
+\solutionsection{ch.QLsoundcomplete}{pr.QLalttrees-sound}
+
+\begin{earg}
+
+
+
+
+\item This system would not be sound. The satisfiability of an existential does not imply the satisfiability of any arbitrary instance. Here is a counterexample. This tree has a satisfiable root, but can close, given the proposed rule.
+% Change the rule for existentials to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\exists\script{x}\metaA{}, checked={\script{a}}
+%		[\metaA{}\substitute{\script{x}}{\script{a}}, just=for \emph{any} \script{a}
+%		]
+%	]
+%	\end{prooftree}
+%	\end{center}
+%	}
+
+\begin{prooftree}
+	{not line numbering}
+	[\exists x Fx
+	[\enot Fa, grouped
+		[Fa, close]
+	]
+	]
+\end{prooftree}
+
+
+\item This system would not be sound. Satisfying the existential doesn't guarantee satisfying its $d$ instance. Here is a counterexample:
+
+%Change the rule for existentials to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\exists\script{x}\metaA{}, checked=d
+%		[\metaA{}\substitute{\script{x}}{d}, just=(whether or not $d$ is new)
+%		]
+%	]
+%	\end{prooftree}
+%	\end{center}
+%	}
+%
+
+\begin{prooftree}
+	{not line numbering}
+	[\exists x Fx
+	[\enot Fd, grouped
+		[Fd, close]
+	]
+	]
+\end{prooftree}
+
+
+
+
+\item This system would not be sound. The satisfiability of an existential does not imply the satisfiability of any three arbitrary instances. Here is a counterexample. This tree has a satisfiable root, but can close, given the proposed rule.
+% Change the rule for existentials to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\exists\script{x}\metaA{}, checked
+%		[\metaA{}\substitute{\script{x}}{\script{a}}, just={for 3 different names, old or new}
+%		[ , grouped
+%		[\metaA{}\substitute{\script{x}}{\script{b}}, grouped
+%		[ , grouped
+%		[\metaA{}\substitute{\script{x}}{\script{c}}, grouped
+%		]
+%		]
+%		]
+%		]
+%		]
+%	]
+%	\end{prooftree}
+%	\end{center}
+%	}
+
+\begin{prooftree}
+	{not line numbering}
+	[\exists x Fx
+	[\enot Fa, grouped
+		[Fa, 
+		[Fb, grouped
+		[Fc, grouped, close
+		]
+		]
+		]
+	]
+	]
+\end{prooftree}
+
+\item This system would still be sound; the proof extends. If we assume $\forall\script{x}\metaA{}$ is satisfiable, then some interpretation $\mathcal{I}$ satisfies it. This interpretation either satisfies all three instances (if the names were interpreted by $\mathcal{I}$), or it can easily be extended into a new interpretation $\mathcal{I}\mbox{*}$ that satisfies them, by adding any new names and assigning them to any objects in $\mathcal{I}$'s UD, all of which we know satisfy \metaA{}. So this rule will never take us from a satisfiable branch to an unsatisfiable one.
+
+% Change the rule for universals to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\forall\script{x}\metaA{}, checked
+%		[\metaA{}\substitute{\script{x}}{\script{a}}, just={for 3 different names, old or new}
+%		[ , grouped
+%		[\metaA{}\substitute{\script{x}}{\script{b}}, grouped
+%		[ , grouped
+%		[\metaA{}\substitute{\script{x}}{\script{c}}, grouped
+%		]
+%		]
+%		]
+%		]
+%		]
+%	]
+%	\end{prooftree}
+%	\end{center}
+%	}
+
+
+\item This system would still be sound; the proof extends. If we assume $\exists\script{x}\metaA{}$ is satisfiable, then some interpretation $\mathcal{I}$ satisfies it. Create a new interpretation $\mathcal{I}\mbox{*}$, which includes the three names, and assign them each to an object in $\mathcal{I}$'s UD that satisfies \metaA{}. We know there is at least one such object, since $\mathcal{I}(\exists\script{x}\metaA{})=1$. (Remember there is no prohibition on assigning multiple names to the same object.) $\mathcal{I}\mbox{*}$ is guaranteed to satisfy the extension of the branch along with that which came above. So this rule will never take us from a satisfiable branch to an unsatisfiable one.
+
+% Change the rule for existentials to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\exists\script{x}\metaA{}, checked
+%		[\metaA{}\substitute{\script{x}}{\script{a}}, just={for 3 new names}
+%		[ , grouped
+%		[\metaA{}\substitute{\script{x}}{\script{b}}, grouped
+%		[ , grouped
+%		[\metaA{}\substitute{\script{x}}{\script{c}}, grouped
+%		]
+%		]
+%		]
+%		]
+%		]
+%	]
+%	\end{prooftree}
+%	\end{center}
+%	}
+%
+
+
+\item This system would still be sound; the proof extends. If we assume $\forall\script{x}\metaA{}$ is satisfiable, then some interpretation $\mathcal{I}$ satisfies it. Extend the interpretation to include the new name, and assign it to any object in the UD, which we know will satisfy \metaA{}; the new interpretation satisfies the extension and what came before. So this rule will never take us from a satisfiable branch to an unsatisfiable one.
+
+%Change the rule for universals to this rule:
+%	\factoidbox{
+%            	\begin{center}
+%            \begin{prooftree}
+%            {not line numbering}
+%            [\forall\script{x}\metaA{}, checked={\script{a}}
+%            	[\metaA{}\substitute{\script{x}}{\script{a}}, just=where \script{a} is \emph{new}
+%            	]
+%            ]
+%            \end{prooftree}
+%            \end{center}
+%	}
+
+
+
+
+\item This system would still be sound; the proof extends. If \script{x} does not occur in \metaA{}, then $\exists\script{x}\metaA{}$ is logically equivalent to \metaA{}. (Every substitution instance for \script{x} of \metaA{} will trivially just be \metaA{}--- since there is no \script{x} in that sentence, replacing `every' instance of that variable with any name results in no change at all.) So this rule is equivalent to the original conjunction rule, which is sound.
+
+% Change the rule for conjunction to this rule:
+%	\factoidbox{
+%            	\begin{center}
+%            \begin{prooftree}
+%            {not line numbering}
+%            	[\metaA{} \eand \metaB{}, checked
+%            		[\exists \script{x} \metaA{}, just=where \script{x} does not occur in \metaA{}
+%			[\metaB{}, grouped
+%            		]
+%            		]
+%		]
+%            \end{prooftree}
+%            \end{center}
+%	}
+%
+%
+%
+%
+%
+
+\item This system would still be sound. The soundness proof does not rely on the branch completion rules, so changing those rules will never interfere with the soundness proof.
+%Change this requirement (given on page \pageref{branchcompletiondefined})
+%	\factoidbox{A branch is \define{complete} if and only if either (i) it is closed, or (ii) every resolvable sentence in every branch has been resolved, and for every general sentence and every name \script{a} in the branch, the \script{a} instance of that general sentence has been taken.}
+%	to this one
+%	\factoidbox{A branch is \define{complete} if and only if either (i) it is closed, or (ii) every resolvable sentence in every branch has been resolved, and for every general sentence, \emph{at least one instance of} that general sentence has been taken.}
+
+
+
+
+
+\item This system would still be sound. The soundness proof does not rely on the branch completion rules, so changing those rules will never interfere with the soundness proof.
+% Change the branch completion requirement to:
+%	\factoidbox{\ldots and for every general sentence and every name \script{a} \emph{that is above that general sentence in the branch}, the \script{a} instance of that general sentence has been taken.}
+%
+%\item Change the branch completion requirement to:
+%	\factoidbox{\ldots and for every general sentence and every name \script{a} in the branch, the \script{a} instance of that general sentence has been taken, \emph{and at least one additional new instance of that general sentence has also been taken}.}
+%	
+
+\item This system would remain sound. Adding an additional requirement for completion will never make it easier to close branches.
+%\item Change the branch completion requirement to:
+%	\factoidbox{\ldots and for every general sentence and every name \script{a} in the branch, the \script{a} instance of that general sentence has been taken, \emph{and at least one additional new instance of that general sentence has also been taken}.}
+%	
+
+
+
+\end{earg}
+
+
+
+
+
+
+
+
+\solutionsection{ch.QLsoundcomplete}{pr.QLalttrees-complete}
+
+\begin{earg}
+
+
+
+
+\item This system would remain complete. If an existential is in a completed open branch, and this rule has been performed, then some instance of that existential is also in that branch. Any interpretation that satisfies that instance will also satisfy the existential.
+% Change the rule for existentials to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\exists\script{x}\metaA{}, checked={\script{a}}
+%		[\metaA{}\substitute{\script{x}}{\script{a}}, just=for \emph{any} \script{a}
+%		]
+%	]
+%	\end{prooftree}
+%	\end{center}
+%	}
+
+\item This system would still be complete. If an existential is in a completed open branch, and this rule has been performed, then the $d$ instance of that existential is also in that branch. Any interpretation that satisfies that instance will also satisfy the existential.
+
+%Change the rule for existentials to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\exists\script{x}\metaA{}, checked=d
+%		[\metaA{}\substitute{\script{x}}{d}, just=(whether or not $d$ is new)
+%		]
+%	]
+%	\end{prooftree}
+%	\end{center}
+%	}
+%
+
+\item This system would still be complete. If an existential is in a completed open branch, and this rule has been performed, then three instances of that existential are also in that branch. Any interpretation that satisfies them will also satisfy the existential.
+% Change the rule for existentials to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\exists\script{x}\metaA{}, checked
+%		[\metaA{}\substitute{\script{x}}{\script{a}}, just={for 3 different names, old or new}
+%		[ , grouped
+%		[\metaA{}\substitute{\script{x}}{\script{b}}, grouped
+%		[ , grouped
+%		[\metaA{}\substitute{\script{x}}{\script{c}}, grouped
+%		]
+%		]
+%		]
+%		]
+%		]
+%	]
+%	\end{prooftree}
+%	\end{center}
+%	}
+
+\item This system would not be complete. Satisfying three substitution instances for \script{x} of \metaA{} doesn't guarantee satisfying $\forall \script{x} \metaA{}$. Here is a counterexample to completeness--- a tree with an unsatisfiable root that remains open.
+% Change the rule for universals to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\forall\script{x}\metaA{}, checked
+%		[\metaA{}\substitute{\script{x}}{\script{a}}, just={for 3 different names, old or new}
+%		[ , grouped
+%		[\metaA{}\substitute{\script{x}}{\script{b}}, grouped
+%		[ , grouped
+%		[\metaA{}\substitute{\script{x}}{\script{c}}, grouped
+%		]
+%		]
+%		]
+%		]
+%		]
+%	]
+%	\end{prooftree}
+%	\end{center}
+%	}
+
+\begin{prooftree}
+	{not line numbering}
+	[\forall x Fx, checked
+	[\enot Fa, grouped
+		[Fb
+		[Fc, grouped
+		[Fd, grouped
+		]
+		]
+		]
+	]
+	]
+\end{prooftree}
+
+
+
+
+\item This system would still be complete; the proof extends. Satisfying substitution instances for \script{x} of \metaA{}--- whether new or not, and no matter how many times--- guarantees satisfying $\exists \script{x} \metaA{}$. 
+% Change the rule for existentials to this rule:
+%	\factoidbox{
+%	\begin{center}
+%	\begin{prooftree}
+%	{not line numbering}
+%	[\exists\script{x}\metaA{}, checked
+%		[\metaA{}\substitute{\script{x}}{\script{a}}, just={for 3 new names}
+%		[ , grouped
+%		[\metaA{}\substitute{\script{x}}{\script{b}}, grouped
+%		[ , grouped
+%		[\metaA{}\substitute{\script{x}}{\script{c}}, grouped
+%		]
+%		]
+%		]
+%		]
+%		]
+%	]
+%	\end{prooftree}
+%	\end{center}
+%	}
+%
+
+
+\item This system would not be complete. Satisfying an instance of a universal (whether or not the name is new) is no guarantee that the universal will be satisfied. Here is a counterexample:
+%Change the rule for universals to this rule:
+%	\factoidbox{
+%            	\begin{center}
+%            \begin{prooftree}
+%            {not line numbering}
+%            [\forall\script{x}\metaA{}, checked={\script{a}}
+%            	[\metaA{}\substitute{\script{x}}{\script{a}}, just=where \script{a} is \emph{new}
+%            	]
+%            ]
+%            \end{prooftree}
+%            \end{center}
+%	}
+
+
+\begin{prooftree}
+	{not line numbering}
+	[\forall x Fx, checked
+	[\enot Fa, grouped
+		[Fb
+		]
+	]
+	]
+\end{prooftree}
+
+
+
+\item This system would still be complete; the proof extends. If \script{x} does not occur in \metaA{}, then $\exists\script{x}\metaA{}$ is logically equivalent to \metaA{}. (Every substitution instance for \script{x} of \metaA{} will trivially just be \metaA{}--- since there is no \script{x} in that sentence, replacing `every' instance of that variable with any name results in no change at all.) So this rule is equivalent to the original conjunction rule, which is complete.
+
+% Change the rule for conjunction to this rule:
+%	\factoidbox{
+%            	\begin{center}
+%            \begin{prooftree}
+%            {not line numbering}
+%            	[\metaA{} \eand \metaB{}, checked
+%            		[\exists \script{x} \metaA{}, just=where \script{x} does not occur in \metaA{}
+%			[\metaB{}, grouped
+%            		]
+%            		]
+%		]
+%            \end{prooftree}
+%            \end{center}
+%	}
+%
+%
+%
+%
+%
+
+\item This system would not be complete. Taking one instance isn't enough to ensure that the universal is satisfied. Here is a counterexample:
+%Change this requirement (given on page \pageref{branchcompletiondefined})
+%	\factoidbox{A branch is \define{complete} if and only if either (i) it is closed, or (ii) every resolvable sentence in every branch has been resolved, and for every general sentence and every name \script{a} in the branch, the \script{a} instance of that general sentence has been taken.}
+%	to this one
+%	\factoidbox{A branch is \define{complete} if and only if either (i) it is closed, or (ii) every resolvable sentence in every branch has been resolved, and for every general sentence, \emph{at least one instance of} that general sentence has been taken.}
+
+
+\begin{prooftree}
+	{not line numbering}
+	[\forall x Fx, checked
+	[\enot Fa, grouped
+		[Fb
+		]
+	]
+	]
+\end{prooftree}
+
+
+
+
+\item This system would not be complete. If a name is introduced later on in the tree and that instance of the universal hasn't been taken, satisfying the instances corresponding to the old names is not enough to guarantee satisfying the universal. Here is a counterexample to completeness:
+% Change the branch completion requirement to:
+%	\factoidbox{\ldots and for every general sentence and every name \script{a} \emph{that is above that general sentence in the branch}, the \script{a} instance of that general sentence has been taken.}
+%
+
+
+\begin{prooftree}
+	{}
+	[Fa
+	[\forall x \forall y \enot Rxy, grouped, subs={a}
+	[\forall x \exists y Rxy, grouped, subs={a}
+		[\forall y \enot Ray, subs={a}, just=1 $\forall$
+			[\exists y Ray, checked=b, just=2 $\forall$, grouped
+				[\enot Raa, just=3 \enot $\forall$
+					[Rab, just=4 $\exists$]
+				]
+			]
+		]
+	]
+	]
+	]
+\end{prooftree}
+
+\item This system would remain complete. The addition is simply the new requirement that at least one new name be introduced via this rule; the reasoning that applied for completeness of the original system is unchanged. Satisfying every instance corresponding to a name in the branch will guarantee satisfying the general claims (the universals or negated existentials), since the UDs are constructed based on the names in the branch.
+
+%\item Change the branch completion requirement to:
+%	\factoidbox{\ldots and for every general sentence and every name \script{a} in the branch, the \script{a} instance of that general sentence has been taken, \emph{and at least one additional new instance of that general sentence has also been taken}.}
+%	
+
+
+
+\end{earg}
+
+\solutionsection{ch.identity}{pr.QL-ID-spies}
+\begin{earg}
+\item $Sh \eand \enot \exists x (Vx \eand Sx)$%Hofthor is a spy, but no vegetarian is a spy.
+\item $\enot Ki \eif \enot\exists x Kx$%No one knows the combination to the safe unless Ingmar does.
+\item $\enot \exists x (Sx \eand Kx)$%No spy knows the combination to the safe.
+\item $\enot Vh \eand \enot Vi$%Neither Hofthor nor Ingmar is a vegetarian.
+\item $\exists x (Vx \eand Thx)$%Hofthor trusts a vegetarian.
+\item $\forall x (Txi \eif \exists y (Txy \eand Vy))$%Everyone who trusts Ingmar trusts a vegetarian.
+\item $\forall x (Txi \eif \exists y (Txy \eand \exists z (Tyz \eand Vz)))$%Everyone who trusts Ingmar trusts someone who trusts a vegetarian.
+\item $Ki \eand \enot \exists x (Kx \eand x{\neq}i)$%Only Ingmar knows the combination to the safe.
+\item $Tih \eand \enot \exists x (Tix \eand x{\neq}h)$%$$Ingmar trusts Hofthor, but no one else.
+\item $\exists x (Kx \eand \enot \exists y (Ky \eand x{\neq}y) \eand Vx)$%The person who knows the combination to the safe is a vegetarian.
+\item $\exists x (Kx \eand \enot \exists y (Ky \eand x{\neq}y) \eand \enot Sx)$ %The person who knows the combination to the safe is not a spy.
+\end{earg}
+
+
+
+
+\solutionsection{ch.identity}{pr.QL-ID-cards}
+\begin{earg}
+\item %All clubs are black cards.
+$\forall x(Cx \eif Bx)$
+\item %There are no wild cards.
+$\enot\exists x Wx$
+\item %There are at least two clubs.
+$\exists x \exists y(Cx \eand Cy \eand x{\neq} y)$
+\item %There is more than one one-eyed jack.
+$\exists x \exists y(Jx \eand Ox \eand Jy \eand Oy \eand x{\neq} y)$
+\item %There are at most two one-eyed jacks.
+$\forall x\forall y\forall z\bigl[(Jx \eand Ox \eand Jy \eand Oy \eand Jz \eand Oz)\eif(x{=}y \eor x{=}z \eor y{=}z)\bigr]$
+\item %There are exactly two black jacks.
+$\exists x\exists y\bigl(Jx \eand Bx \eand Jy \eand By \eand x \neq y\eand \forall z[(Jz \eand Bz) \eif (x{=}z \eor y{=}z)]\bigr)$
+\item %There are exactly four deuces.
+$\exists x_1\exists x_2\exists x_3\exists x_4\bigl[Dx_1 \eand Dx_2 \eand Dx_3 \eand Dx_4 \eand x_1 \neq x_2 \eand x_1 \neq x_3 \eand x_1 \neq x_4 \eand x_2 \neq x_3 \eand x_2 \neq x_4 \eand x_3 \neq x_4  \eand \enot\exists y(Dy \eand y\neq x_1 \eand y\neq x_2 \eand y\neq x_3 \eand y\neq x_4)\bigr]$
+\item %The deuce of clubs is a black card.
+$\exists x\bigl(Dx \eand Cx \eand \forall y[(Dy\eand Cy) \eif x{=}y] \eand Bx\bigr)$
+\item %One-eyed jacks and the man with the axe are wild.
+$\forall x\bigl[(Ox \eand Jx) \eif Wx\bigr] \eand \exists x\bigl[Mx \eand \forall y(My \eif x{=}y) \eand Wx\bigr]$
+\item %If the deuce of clubs is wild, then there is exactly one wild card.
+$\exists x\bigl(Dx \eand Cx \eand \forall y[(Dy\eand Cy) \eif x{=}y] \eand Wx\bigr)\eif \exists x\forall y(Wx \eiff x{=}y)$
+\item %The man with the axe is not a jack.
+$\exists x\bigl[Mx \eand \forall y(My \eif x{=}y) \eand \enot Jx\bigr]$
+\item %The deuce of clubs is not the man with the axe.
+$\exists x\exists z\bigl(Dx \eand Cx \eand Mz \eand \forall y[(Dy\eand Cy) \eif x{=}y]  \eand \forall y[(My \eif z{=}y) \eand x\neq z]\bigr)$
+\end{earg}
+
+
+
+
+
+\solutionsection{ch.identity}{pr.QLbuffy}
+%\begin{ekey}
+%\item[UD:] people, generations, and monsters
+%\item[Gx:] $x$ is a generation.
+%\item[Hx:] $x$ is human.
+%\item[Sx:] $x$ is a slayer.
+%\item[Vx:] $x$ is a vampire.
+%\item[Dx:] $x$ is a demon.
+%\item[Wx:] $x$ is a werewolf.
+%\item[Fx:] $x$ is a force of darkness.
+%\item[Axy:] $x$ will stand against $y$.
+%\item[Bxy:] $x$ is born in generation $y$.
+%\item[Kxy:] $x$ will kick $y$.
+%\item[b:] Buffy
+%\item[f:] Faith
+%\item[w:] Willow
+%\end{ekey}
+\begin{earg}
+\item $\exists x (Bbx \eand Bwx)$ %Buffy and Willow were born unto the same generation.
+\item $\forall x \forall y [\exists z (Gz \eand Sx \eand Sy \eand Bxz \eand Byz) \eif x{=}y]$ %There is no more than one slayer born in each generation.
+\item $\exists x (Sx \eand x{\neq}b \eand Fx)$ %A slayer other than Buffy is one of the forces of darkness.
+\item $\forall x [(Fx \eand \enot Wx) \eif Awx]$ %Willow will stand against any force of darkness other than a werewolf.
+\item $\forall x (x{\neq}f \eif Kfx)$ %Faith will kick everyone except herself.
+\item $\forall x (\exists y (Sy \eand Axy \eand \enot \exists z ((Vz \eor Dz) \eand Kxz)) \eif Kbx)$ %Buffy will kick anyone who stands against a slayer, unless they are also kicking vampires or demons.
+\item $\forall x (Gx \eif \exists y (Sy \eand Byx))$ %In every generation a slayer is born.
+\item $\forall x (Gx \eif \exists y (Sy \eand Byx \eand \forall z [(Vz \eor Dz \eor Fz) \eif Ayz]))$ %In every generation a slayer is born. She will stand against vampires, demons, and forces of darkness.
+\item $\forall x (Gx \eif \exists y (Sy \eand Byx \eand \\ 
+\forall z [(Vz \eor Dz \eor Fz) \eif Ayz] \eand \\ 
+	\forall y_{2} (\forall z [(Vz \eor Dz \eor Fz) \eif Ay_{2}z] \eif y_{2}{=}y) ))$ %In every generation a slayer is born. She alone will stand against vampires, demons, and forces of darkness.
+\end{earg}
+
+
+
+\solutionsection{ch.identity}{pr.IdentityModels}
+\begin{earg}
+\item %Show that $\{{\enot}Raa, \forall x (x{=}a \eor Rxa)\}$ is consistent.
+There are many possible answers. Here is one:
+\begin{partialmodel}
+UD & \{Harry, Sally\}\\
+\extension{R} &\{\ntuple{Sally, Harry}\}\\
+\referent{a} & Harry
+\end{partialmodel}
+\item %Show that $\{\forall x\forall y\forall z(x{=}y \eor y{=}z \eor x{=}z), \exists x\exists y\ x\neq y\}$ is consistent.
+There are no predicates or constants, so we only need to give a UD.
+Any UD with 2 members will do.
+\item %Show that $\{\forall x\forall y\ x{=}y, \exists x\ x \neq a\}$ is inconsistent.
+We need to show that it is impossible to construct a model in which these are both true. Suppose $\exists x\ x {\neq} a$ is true in a model. There is something in the universe of discourse that is \emph{not} the referent of $a$. So there are at least two things in the universe of discourse: \referent{a} and this other thing. Call this other thing $\beta$--- we know $a {\neq} \beta$. But if $a {\neq} \beta$, then $\forall x\forall y\ x{=}y$ is false. So the first sentence must be false if the second sentence is true. As such, there is no model in which they are both true. Therefore, they are inconsistent.
+\item %Show that $\exists x (x {=} h \eand x {=} i)$ is contingent.
+A model where this is true:
+\begin{partialmodel}
+UD & \{Harry\}\\
+\referent{h} & Harry\\
+\referent{i} & Harry
+\end{partialmodel}
+
+A model where this is false:
+\begin{partialmodel}
+UD & \{Harry, Ivan\}\\
+\referent{h} & Harry\\
+\referent{i} & Ivan
+\end{partialmodel}
+
+\item %Show that \{$\exists x\exists y(Zx \eand Zy \eand x{=}y)$, $\enot Zd$, $d{=}s$\} is consistent.
+This is one of many possible answers:
+\begin{partialmodel}
+UD & \{Dorothy, Harry\}\\
+\extension{Z} &\{\ntuple{Harry}\}\\
+\referent{d} & Dorothy\\
+\referent{h} & Harry\\
+\referent{s} & Dorothy
+\end{partialmodel}
+
+
+\item %Show that `$\forall x(Dx \eif \exists y Tyx)$ \therefore\ $\exists y \exists z\ y{\neq} z$' is invalid.
+This is one of a number of possible answers. Any model with a 1 object UD that satisfies the premise will work.
+\begin{partialmodel}
+UD & \{Dorothy\}\\
+\extension{D} &\{\}\\
+\extension{T} &\{\}\\
+\referent{d} & Dorothy\\
+\end{partialmodel}
+
+
+
+\end{earg}
+
+
+
+\solutionsection{ch.identity}{pr.IdentityTrees}
+
+\begin{earg}
+\item \begin{multicols}{2}
+$\models \forall x \forall y (x{=}y \eif y{=}x)$ is true.
+
+\begin{prooftree}
+{}
+[\enot \forall x \forall y (x{=}y \eif y{=}x), checked=a
+	[\enot \forall y (a{=}y \eif y{=}a), checked=b, just=1 $\enot \forall$
+		[\enot (a{=}b \eif b{=}a), checked, just=2 $\enot \forall$, grouped
+			[a{=}b, just=3 \enot \eif
+			[b{\neq}a, grouped
+				[b{\neq}b, just={4, 5 =}, close={6}]
+			]
+			]
+		]
+	]
+]
+\end{prooftree}
+\end{multicols}
+
+\item \begin{multicols}{2} $\models \forall x \exists y \: x{=}y$ is true.
+
+\begin{prooftree}
+{}
+[\enot \forall x \exists y \: x{=}y, checked=a
+	[\enot \exists y \: y{=}a, subs={a}, just=1 $\enot \forall$
+		[a{\neq}a, close=3, just=2 \enot $\exists$]
+	]
+]
+\end{prooftree}
+\end{multicols}
+
+\item \begin{multicols}{2} $\models \exists x \forall y \: x{=}y$ is false.
+
+\begin{prooftree}
+{}
+[\enot \exists x \forall y \: x{=}y, subs=a
+	[\enot \forall y \: y{=}a, checked=b, just=1 $\enot \exists$
+		[b{\neq}a, just=2 \enot $\forall$, open]
+	]
+]
+\end{prooftree}
+
+\begin{partialmodel}
+	UD & \{a, b\}\\
+\end{partialmodel}
+\end{multicols}
+
+\item \begin{multicols}{2}
+$\exists x \forall y \: x{=}y \models \forall x \forall y (Rxy \eiff Ryx)$ is true.
+
+\begin{prooftree}
+{}
+[\exists x \forall y \: x{=}y, checked=a
+[\enot \forall x \forall y (Rxy \eiff Ryx), checked=b, grouped
+	[\forall y \: a{=}y, subs={b, c}, just=1 $\forall$
+		[\enot \forall y (Rby \eiff Ryb), checked=c, just=2 $\enot \forall$
+			[\enot (Rbc \eiff Rcb), checked, just=4 \enot $\forall$, grouped
+				[a{=}b, just=3 $\forall$
+				[a{=}c, just=3 $\forall$, grouped
+					[\enot (Rac \eiff Rca), just={5, 6 =}
+						[\enot (Raa \eiff Raa), just={5, 7 =}, checked, grouped
+							[Raa, just=9 \enot\eiff
+							[\enot Raa, grouped, close={10, 11}
+							]
+							]
+							[Raa
+							[\enot Raa, grouped, close={10, 11}
+							]
+							]
+						]
+					]
+				]
+				]
+			]
+		]
+	]
+]
+]
+\end{prooftree}
+\end{multicols}
+
+\item $\models \enot \forall x \forall y \forall z [(Axy \eand Azx \eand y{=}z) \eif Axx]$ is false.
+
+\begin{prooftree}
+{}
+[\enot\enot\forall x \forall y \forall z ((Axy \eand Azx \eand y{=}z) \eif Axx), checked
+	[\forall x \forall y \forall z ((Axy \eand Azx \eand y{=}z) \eif Axx), just=1 \enot\enot, subs={a}
+		[\forall y \forall z ((Aay \eand Aza \eand y{=}z) \eif Aaa), just=2 $\forall$, subs={a}, grouped
+			[\forall z ((Aaa \eand Aza \eand a{=}z) \eif Aaa), just=3 $\forall$, subs={a}, grouped
+				[(Aaa \eand Aaa \eand a{=}a) \eif Aaa, just=4 $\forall$, checked, grouped
+					[\enot (Aaa \eand Aaa \eand a{=}a), just=5 \eif, checked
+						[\enot Aaa, just=6 \enot \eand, open]
+						[\enot Aaa, open]
+						[a{\neq}a, close=7]
+					]
+					[Aaa, open]
+				]
+			]
+		]
+	]
+]
+\end{prooftree}
+
+This tree is complete. Three open branches describe these two models:
+
+\begin{multicols}{2}
+\begin{partialmodel}
+UD & \{a\}\\
+\extension{A} & $\emptyset$
+\end{partialmodel}
+
+\begin{partialmodel}
+UD & \{a\}\\
+\extension{A} & \{\ntuple{a, a}\}
+\end{partialmodel}
+\end{multicols}
+
+\item $\forall x \forall y \: x{=}y \models \exists x Fx \eiff \forall x Fx$ is true.
+
+\begin{prooftree}
+{}
+[\forall x \forall y \: x{=}y, subs={a}
+[\enot (\exists x Fx \eiff \forall x Fx), grouped, checked
+	[\exists x Fx, checked=a, just=2 \eiff, name=ex1
+	[\enot \forall x Fx, checked=b, grouped, name=notall
+		[Fa, just=$\exists$: ex1, move by=2, name=c1
+		[\enot Fb, grouped, just=\enot $\forall$: notall, name=nfb
+			[\forall y \: a{=}y, subs={b}, just=1 $\forall$, name=ally
+				[a{=}b, just=$\forall$: ally, name=ab, grouped
+					[\enot Fa, name=c2, close={7, 11}, just={=: ab, nfb}
+					]
+				]
+			]
+		]
+		]
+	]
+	]
+	[\enot \exists x Fx, subs={a}, name=ppp
+	[\forall x Fx, grouped, subs={a}, name=allxfx
+		[\enot Fa, just={\enot$\exists$: ppp}
+			[Fa, just={$\forall$: allxfx}, close, grouped
+			]
+		]
+	]
+	]
+]
+]
+\end{prooftree}
+
+
+\item $\forall x (x{=}a \eor x{=}b), Ga \eiff \enot Gb \models \enot \exists x \exists y \exists z (Gx \eand Gy \eand \enot Gz)$ is false.
+
+\begin{prooftree}
+{}
+[\forall x (x{=}a \eor x{=}b), subs={c, d, e, a, b}
+[Ga \eiff \enot Gb, grouped, checked
+[\enot \enot \exists x \exists y \exists z (Gx \eand Gy \eand \enot Gz), grouped, checked
+	[\exists x \exists y \exists z (Gx \eand Gy \eand \enot Gz), just=3 \enot\enot, checked=c
+		[\exists y \exists z (Gc \eand Gy \eand \enot Gz), just=4 $\exists$, checked=d, grouped
+			[\exists z (Gx \eand Gd \eand \enot Gz), just=5 $\exists$, checked=e, grouped
+				[Gc \eand Gd \eand \enot Ge, checked, grouped
+					[Gc, just=7 \eand, name=e1
+					[Gd, grouped
+					[\enot Ge, grouped
+								[c{=}a \eor c{=}b, checked
+									[c{=}a, just=11 \eor, name=e2
+										[Ga, just={=: e1, e2}
+											[Ga, just=2 \eiff
+											[\enot Gb, grouped
+												[d{=}a \eor d{=}b, checked, just=1 $\forall$
+													[d{=}a, just=\eor:{!u}
+														[e{=}a \eor e{=}b, checked, just=1 $\forall$
+															[e{=}a, just=\eor:{!u}
+																[\enot Ga, close={13, 20}]
+															]
+															[e{=}b
+																[a{=}a \eor a{=}b, checked, just=1 $\forall$
+																	[a{=}a, just=\eor:{!u}
+																		[b{=}a \eor b{=}b, just=1 $\forall$, checked
+																			[b{=}a, just=\eor:{!u}
+																				[Gb, close={15, 24}]
+																			]
+																			[b{=}b, open]
+																		]
+																	]
+																	[a{=}b]
+																]
+															]
+														]
+													]
+													[d{=}b]
+												]
+											]
+											]
+											[\enot Ga
+											[Gb, grouped, close={13, 14}
+											]
+											]
+										]
+									]
+									[c{=}b]
+								]
+					]Raa
+					]
+					]
+				]
+			]
+		]
+	]
+]
+]
+]
+\end{prooftree}
+
+This tree will end up with multiple open branches; since one open branch is enough to falsify the entailment claim, this version focuses on the left-most open branch at every point, leaving the other open branches incomplete. It describes this model:
+
+\begin{partialmodel}
+UD & \{a, b\}\\
+\referent{a} & a\\
+\referent{b} & b\\
+\referent{c} & a\\
+\referent{d} & a\\
+\referent{e} & b\\
+\extension{G} & \{a\}
+\end{partialmodel}
+
+
+\item $\forall x (Fx \eif x{=}f), \exists x (Fx \eor \forall y \: y{=}x) \models Ff$ is false.
+
+\begin{prooftree}
+{}
+[\forall x (Fx \eif x{=}f), subs={a, f}
+[\exists x (Fx \eor \forall y \: y{=}a), checked=a, grouped
+[\enot Ff, grouped
+	[Fa \eor \forall y \: y{=}a, checked, just=2 $\exists$
+		[Fa \eif a{=}f, just=1 $\forall$
+			[\enot Fa, just=5 \eif
+				[Fa, just=4 \eor, close]
+				[\forall y \: y{=}a, subs={f, a}
+					[f{=}a, just=7 $\forall$, name=e1
+					[a{=}a, just=7 $\forall$, grouped
+						[Ff \eif f{=}f, checked, just=1 $\forall$
+							[\enot Ff, name=e2
+								[\enot Fa, just={=: e1, e2}]
+							]
+							[f{=}f, open]
+						]
+					]
+					]
+				]
+			]
+			[a{=}f]
+		]
+	]
+]
+]
+]
+\end{prooftree}
+
+We have one completed open branch. (Another open branch has not been completed.) It gives this model:
+
+\begin{partialmodel}
+UD & \{a\}\\
+\referent{a} & a\\
+\referent{f} & a\\
+\extension{F} & $\emptyset$
+\end{partialmodel}
+
+\item $\exists x \exists y Dxy \models \forall x_{1} \forall x_{2} \forall x_{3} \forall x_{4} [(Dx_{1}x_{2} \eand Dx_{3}x_{4}) \eif (x_{2}{\neq}x_{3} \eor Dx_{1}x_{4})]$ is false.
+
+\begin{prooftree}
+{}
+[\exists x \exists y Dxy, checked=a
+[\enot \forall x_{1} \forall x_{2} \forall x_{3} \forall x_{4} ((Dx_{1}x_{2} \eand Dx_{3}x_{4}) \eif (x_{2}{\neq}x_{3} \eor Dx_{1}x_{4})), grouped, checked=c
+[\exists y Day, checked=b, just=1 $\exists$
+[Dab, just=3 $\exists$, grouped
+[\enot \forall x_{2} \forall x_{3} \forall x_{4} ((Dcx_{2} \eand Dx_{3}x_{4}) \eif (x_{2}{\neq}x_{3} \eor Dcx_{4})), just=2 \enot $\forall$, checked=d
+[\enot \forall x_{3} \forall x_{4} ((Dcd \eand Dx_{3}x_{4}) \eif (d{\neq}x_{3} \eor Dcx_{4})), checked=e, just=5 \enot $\forall$,grouped
+[\enot \forall x_{4} ((Dcd \eand Dex_{4} \eif (d{\neq}e \eor Dcx_{4})), checked=f, just=6 \enot $\forall$, grouped
+[\enot ((Dcd \eand Def) \eif (d{\neq}e \eor Dcf)), checked, just=7 \enot $\forall$, grouped
+[Dcd \eand Def, checked, just=8 \enot \eif
+[\enot (d{\neq}e \eor Dcf), checked, grouped
+[Dcd, just=9 \eand, name=dcd
+[Def, grouped, name=def
+[\enot d{\neq}e, just=10 \enot\eif
+[\enot Dcf, grouped
+[d{=}e, just=13 \enot\enot, name=ee
+[Ddf, just={=: def, ee}
+[Dce, just={=: dcd, ee}, grouped, open
+]]]]]]]]]]]]]]]]]
+\end{prooftree}
+
+\begin{multicols}{2}
+\begin{partialmodel}
+UD & \{a, b, c, d, f\}\\
+\referent{a} & a\\
+\referent{b} & b\\
+\referent{c} & c\\
+\referent{d} & d\\
+\referent{e} & d\\
+\referent{f} & f\\
+\end{partialmodel}
+\begin{partialmodel}
+\extension{D} & \begin{tabular}{l|lllll}
+$Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\ \hline
+\textbf{a} & -          & 1          & -          & -          & -          \\
+\textbf{b} & -          & -          & -          & -          & -          \\
+\textbf{c} & -          & -          & -          & 1          & 0          \\
+\textbf{d} & -          & -          & -          & -          & 1          \\
+\textbf{f} & -          & -          & -          & -          & -         
+\end{tabular}
+\end{partialmodel}
+\end{multicols}
+
+\end{earg}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\solutionsection{ch.QLND}{pr.justifyQLproof}
+
+
+%$\{\forall x(\exists y)(Rxy \eor Ryx),\forall x\enot Rmx\}\vdash\exists xRxm$
+\begin{proof}
+\hypo{p1}{\forall x\exists y(Rxy \eor Ryx)}
+\hypo{p2}{\forall x\enot Rmx}
+\have{3}{\exists y(Rmy \eor Rym)}\Ae{p1}
+	\open
+		\hypo{a1}{Rma \eor Ram} \by{for $\exists${}E}{}
+		\have{a2}{\enot Rma}\Ae{p2}
+		\have{a3}{Ram}\oe{a1,a2}
+		\have{a4}{\exists x Rxm}\Ei{a3}
+	\close
+\have{n}{\exists x Rxm} \Ee{3,a1-a4}
+\end{proof}
+
+%$\{\forall x(\exists yLxy \eif \forall zLzx), Lab\} \vdash \forall xLxx$
+\begin{proof}
+\hypo{1}{\forall x(\exists yLxy \eif \forall zLzx)}
+\hypo{2}{Lab}
+\have{3}{\exists y Lay \eif \forall zLza}\Ae{1}
+\have{4}{\exists y Lay} \Ei{2}
+\have{5}{\forall z Lza} \ce{3,4}
+\have{6}{Lca}\Ae{5}
+\have{7}{\exists y Lcy \eif \forall zLzc}\Ae{1}
+\have{8}{\exists y Lcy}\Ei{6}
+\have{9}{\forall z Lzc}\ce{7,8}
+\have{10}{Lcc}\Ae{9}
+\have{11}{\forall x Lxx}\Ai{10}
+\end{proof}
+
+% $\{\forall x(Jx \eif Kx), \exists x\forall y Lxy, \forall x Jx\} \vdash \exists x(Kx \eand Lxx)$
+\begin{proof}
+\hypo{a}{\forall x(Jx \eif Kx)}
+\hypo{b}{\exists x\forall y Lxy}
+\hypo{c}{\forall x Jx}
+\open
+	\hypo{2}{\forall y Lay} \by{for $\exists${}E}{}
+	\have{d}{Ja}\Ae{c}
+	\have{e}{Ja \eif Ka}\Ae{a}
+	\have{f}{Ka}\ce{e,d}
+	\have{3}{Laa}\Ae{2}
+	\have{4}{Ka \eand Laa}\ai{f,3}
+	\have{5}{\exists x(Kx \eand Lxx)}\Ei{4}
+\close
+\have{j}{\exists x(Kx \eand Lxx)}\Ee{b,2-5}
+\end{proof}
+
+
+%$\vdash \exists x Mx \eor \forall x\enot Mx$
+\begin{proof}
+	\open
+		\hypo{p1}{\enot (\exists x Mx \eor \forall x\enot Mx)} \by{for reductio}{}
+		\have{p2}{\enot \exists x Mx \eand \enot \forall x\enot Mx} \by{DeM}{p1}
+		\have{p3}{\enot \exists x Mx}\ae{p2}
+		\have{p4}{\forall x\enot Mx}\by{QN}{p3}
+		\have{p5}{\enot \forall x\enot Mx}\ae{p2}
+	\close
+\have{n}{\exists x Mx \eor \forall x\enot Mx} \ne{p1-p4, p1-p5}
+\end{proof}
+
+
+\solutionsection{ch.QLND}{pr.someQLproofs}
+
+\begin{earg}
+\item%$\vdash \forall x Fx \eor \enot \forall x Fx$
+\begin{solutioninlist}
+\begin{proof}
+	\open
+		\hypo{p1}{\enot(\forall x Fx \eor \enot\forall x Fx)} \by{for reductio}{}
+		\have{s1}{\enot\forall x Fx \eand \enot\enot\forall x Fx} \by{DeM}{p1}
+		\have{s2}{\enot \forall x Fx}\ae{s1}
+		\have{s3}{\enot\enot\forall x Fx}\ae{s1}
+	\close
+	\have{c}{\forall x Fx \eor \enot\forall x Fx} \ne{p1-s2, p1-s3}
+\end{proof}
+\end{solutioninlist}
+\item %$\{\forall x(Mx \eiff Nx), Ma\eand\exists x Rxa\}\vdash \exists x Nx$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{p1}{\forall x(Mx \eiff Nx)}
+	\hypo{p2}{Ma \eand \exists x Rxa} \by{want $\exists x Nx$}{}
+	\have{a1}{Ma \eiff Na} \Ae{p1}
+	\have{a2}{Ma} \ae{p2}
+	\have{a3}{Na} \be{a1,a2}
+	\have{c}{\exists x Nx} \Ei{a3}
+\end{proof}
+\end{solutioninlist}
+\item %$\{\forall x(\enot Mx \eor Ljx), \forall x(Bx\eif Ljx), \forall x(Mx\eor Bx)\}\vdash \forall xLjx$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{a1}{\forall x(\enot Mx \eor Ljx)}
+	\hypo{a2}{\forall x(Bx \eif Ljx)}
+	\hypo{a3}{\forall x(Mx \eor Bx)} \by{want $\forall x Ljx$}{}
+	\have{a4}{\enot Ma \eor Lja} \Ae{a1}
+	\have{a5}{Ma \eif Lja} \by{MC}{a4}
+	\have{a6}{Ba \eif Lja} \Ae{a2}
+	\have{a7}{Ma \eor Ba} \Ae{a3}
+	\have{a8}{Lja}  \by{DIL}{a7, a5, a6}
+	\have{a9}{\forall x Ljx} \Ai{a8}
+\end{proof}
+\end{solutioninlist}
+\item %$\forall x(Cx \eand Dt)\vdash \forall xCx \eand Dt$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{a1}{\forall x(Cx \eand Dt)} \by{want $\forall x Cx \eand Dt$}{}
+	\have{a2}{Ca \eand Dt} \Ae{a1}
+	\have{a3}{Ca} \ae{a2}
+	\have{a4}{\forall x Cx} \Ai{a3}
+	\have{a5}{Dt} \ae{a2}
+	\have{a6}{\forall x Cx \eand Dt} \ai{a4, a5}
+\end{proof}
+\end{solutioninlist}
+\item %$\exists x(Cx \eor Dt)\vdash \exists x Cx \eor Dt$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{a1}{\exists x(Cx \eor Dt)} \by{want $\exists x Cx \eor Dt$}{}
+	\open
+		\hypo{a2}{Ca \eor Dt} \by{for {$\exists$}E}{}
+		\open
+			\hypo{a3}{\enot(\exists x Cx \eor Dt)} \by{for reductio}{}
+			\have{a4}{\enot\exists x Cx \eand \enot Dt} \by{DeM}{a3}
+			\have{a5}{\enot Dt} \ae{a4}
+			\have{a6}{Ca} \oe{a2,a5}
+			\have{a7}{\exists x Cx} \Ei{a6}
+			\have{a8}{\enot\exists x Cx} \ae{a4}
+		\close
+		\have{a9}{\exists x Cx \eor Dt} \ne{a3-a7, a3-a8}
+	\close
+	\have{a10}{\exists x Cx \eor Dt} \Ee{a1,a2-a9}
+\end{proof}
+\end{solutioninlist}
+\end{earg}
+
+
+
+
+\solutionsection{ch.QLND}{pr.QLproofsNDe}
+
+\begin{earg}
+\item%$\forall x \forall y Gxy\vdash\exists x Gxx$
+\begin{solutioninlist}
+\begin{proof}
+	\open
+		\hypo{p1}{\enot(\forall x Fx \eor \enot\forall x Fx)} \by{for reductio}{}
+		\have{s1}{\enot\forall x Fx \eand \enot\enot\forall x Fx} \by{DeM}{p1}
+		\have{s2}{\enot \forall x Fx}\ae{s1}
+		\have{s3}{\enot\enot\forall x Fx}\ae{s1}
+	\close
+	\have{c}{\forall x Fx \eor \enot\forall x Fx} \ne{p1-s2, p1-s3}
+\end{proof}
+\end{solutioninlist}
+\item %$\forall x \forall y (Gxy \eif Gyx) \vdash \forall x\forall y (Gxy \eiff Gyx)$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{1}{\forall x\forall y(Gxy \eif Gyx)}
+	\have{2}{\forall y(Gay \eif Gya)}\Ae{1}
+	\have{3}{Gab \eif Gba}\Ae{2}
+	\have{4}{\forall y(Gby \eif Gyb)}\Ae{1}
+	\have{5}{Gba \eif Gab}\Ae{4}
+	\have{6}{Gab \eiff Gba}\bi{3,5}
+	\have{7}{\forall y(Gay \eiff Gya)}\Ai{6}
+	\have{8}{\forall x\forall y(Gxy \eiff Gyx)}\Ai{7}
+\end{proof}
+\end{solutioninlist}
+\item %3 $\{\forall x(Ax\eif Bx), \exists x Ax\} \vdash \exists x Bx$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{a1}{\forall x(\enot Mx \eor Ljx)}
+	\hypo{a2}{\forall x(Bx \eif Ljx)}
+	\hypo{a3}{\forall x(Mx \eor Bx)} \by{want $\forall x Ljx$}{}
+	\have{a4}{\enot Ma \eor Lja} \Ae{a1}
+	\have{a5}{Ma \eif Lja} \by{MC}{a4}
+	\have{a6}{Ba \eif Lja} \Ae{a2}
+	\have{a7}{Ma \eor Ba} \Ae{a3}
+	\have{a8}{Lja}  \by{DIL}{a7, a5, a6}
+	\have{a9}{\forall x Ljx} \Ai{a8}
+\end{proof}
+\end{solutioninlist}
+\item %$4 $\{Na \eif \forall x(Mx \eiff Ma), Ma, \enot Mb\}\vdash \enot Na$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{a1}{\forall x(Cx \eand Dt)} \by{want $\forall x Cx \eand Dt$}{}
+	\have{a2}{Ca \eand Dt} \Ae{a1}
+	\have{a3}{Ca} \ae{a2}
+	\have{a4}{\forall x Cx} \Ai{a3}
+	\have{a5}{Dt} \ae{a2}
+	\have{a6}{\forall x Cx \eand Dt} \ai{a4, a5}
+\end{proof}
+\end{solutioninlist}
+\item %5 $\vdash\forall z (Pz \eor \enot Pz)$
+\begin{solutioninlist}
+\begin{proof}
+	\hypo{a1}{\exists x(Cx \eor Dt)} \by{want $\exists x Cx \eor Dt$}{}
+	\open
+		\hypo{a2}{Ca \eor Dt} \by{for {$\exists$}E}{}
+		\open
+			\hypo{a3}{\enot(\exists x Cx \eor Dt)} \by{for reductio}{}
+			\have{a4}{\enot\exists x Cx \eand \enot Dt} \by{DeM}{a3}
+			\have{a5}{\enot Dt} \ae{a4}
+			\have{a6}{Ca} \oe{a2,a5}
+			\have{a7}{\exists x Cx} \Ei{a6}
+			\have{a8}{\enot\exists x Cx} \ae{a4}
+		\close
+		\have{a9}{\exists x Cx \eor Dt} \ne{a3-a7, a3-a8}
+	\close
+	\have{a10}{\exists x Cx \eor Dt} \Ee{a1,a2-a9}
+\end{proof}
+\end{solutioninlist}
+\item %6 $\vdash\forall x Rxx\eif \exists x \exists y Rxy$
+\begin{solutioninlist}
+\begin{proof}
+\open
+	\hypo{1}{\forall x Rxx}\by{want $\eif \exists x \exists y Rxy$}{}
+	\have{2}{Raa}\Ae{1}
+	\have{3}{\exists y Ray}\Ei{2}
+	\have{4}{\exists x \exists y Rxy}\Ei{3}
+\close
+\have{5}{\forall x Rxx \eif \exists x \exists y Rxy}\ci{1-4}
+\end{proof}
+\end{solutioninlist}
+\item %7 $\vdash\forall y \exists x (Qy \eif Qx)$
+\begin{solutioninlist}
+\begin{proof}
+\open
+	\hypo{1}{\enot \forall y\exists x(Qy \eif Qx)}\by{for reductio}{}
+	\have{2}{\exists y \enot \exists x(Qy \eif Qx)}\by{QN}{1}
+	\have{3}{\enot \exists x (Qa \eif Qx)}\Ee{2}
+	\have{4}{\forall x\enot(Qa \eif Qx)}\by{QN}{3}
+	\have{5}{\enot (Qa \eif Qa)}\Ae{4}
+	\have{6}{\enot (\enot Qa \eor Qa)}\by{MC}{5}
+	\have{7}{\enot \enot Qa \eand \enot Qa}\by{DeM}{6}
+	\have{8}{\enot \enot Qa}\ae{7}
+	\have{9}{\enot Qa}\ae{7}
+\close
+\have{10}{\forall y\exists x(Qy \eif Qx)}\ne{1-8,1-9}
+\end{proof}
+\end{solutioninlist}
+\end{earg}
+
+
+
+\solutionsection{ch.QLND}{pr.likes}
+Regarding the translation of this argument, see p.~\pageref{likes2}.
+
+\begin{proof}
+\hypo{1}{\exists x\forall y[\forall z(Lxz \eif Lyz) \eif Lxy]}
+\open
+	\hypo{a}{\forall y[\forall z(Laz \eif Lyz) \eif Lay]} \by{for $\exists${}E}{}
+	\have{b}{\forall z(Laz \eif Laz) \eif Laa} \Ae{a}
+	\open
+		\hypo{c1}{\enot \exists x Lxx} \by{for reductio}{}
+		\have{c2}{\forall x\enot Lxx} \by{QN}{c1}
+		\have{c3}{\enot Laa} \Ae{c2}
+		\have{c4}{\enot \forall z(Laz \eif Laz)} \by{MT}{b,c3}
+		\open
+			\hypo{d1}{Lab} \by{want $Lab$}{}
+			\have{d2}{Lab} \by{R}{d1}
+		\close
+		\have{c5}{Lab \eif Lab} \ci{d1-d2}
+		\have{c6}{\forall z(Laz \eif Laz)} \Ai{c5}
+		\have{cn}{\enot \forall z(Laz \eif Laz)} \by{R}{c4}
+	\close
+	\have{h}{\exists x Lxx} \ne{c1-cn}
+\close
+\have{n}{\exists x Lxx} \Ee{1, a-h}
+\end{proof}
+
+
+\solutionsection{ch.QLND}{pr.QLequivornot}
+%\item $\forall x Px \eif Qc$, $\forall x (Px \eif Qc)$
+\noSeq
+%\item $\forall x Px \eand Qc$, $\forall x (Px \eand Qc)$
+\nextSeq
+%\item $Qc \eor \exists x Qx$, $\exists x (Qc \eor Qx)$
+\nextSeq
+%\item $\forall x\forall y \forall z Bxyz$, $\forall x Bxxx$
+\noSeq
+%\item $\forall x\forall y Dxy$, $\forall y\forall x Dxy$
+\lastSeq
+%\item $\exists x\forall y Dxy$, $\forall y\exists x Dxy$
+\noSeq
+are logically equivalent.
+
+\solutionsection{ch.QLND}{pr.QLvalidornot}
+\noSeq%\item $\forall x\exists y Rxy$, \therefore\ $\exists y\forall x Rxy$
+\nextSeq%\item $\exists y\forall x Rxy$, \therefore\ $\forall x\exists y Rxy$
+\noSeq%\item $\exists x(Px \eand \enot Qx)$, \therefore\ $\forall x(Px \eif \enot Qx)$
+\nextSeq%\item $\forall x(Sx \eif Ta)$, $Sd$, \therefore\ $Ta$
+\nextSeq%\item $\forall x(Ax\eif Bx)$, $\forall x(Bx \eif Cx)$, \therefore\ $\forall x(Ax \eif Cx)$
+\noSeq%\item $\exists x(Dx \eor Ex)$, $\forall x(Dx \eif Fx)$, \therefore\ $\exists x(Dx \eand Fx)$
+\nextSeq%\item $\forall x\forall y(Rxy \eor Ryx)$, \therefore\ $Rjj$
+\noSeq%\item $\exists x\exists y(Rxy \eor Ryx)$, \therefore\ $Rjj$
+\noSeq%\item $\forall x Px \eif \forall x Qx$, $\exists x \enot Px$, \therefore\ $\exists x \enot Qx$
+\lastSeq%\item $\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx$, \therefore\ $\forall x \enot Mx$
+are valid. Here are complete answers for some of them:
+\begin{earg}
+\item %$\forall x\exists y Rxy$, \therefore\ $\exists y\forall x Rxy$
+	\begin{solutioninlist}
+	\begin{partialmodel}
+		UD & \{mocha, freddo\}\\
+		\extension{R} & \{\ntuple{mocha, freddo}, \ntuple{freddo, mocha}\}
+	\end{partialmodel}
+	\end{solutioninlist}
+\item %$\exists y\forall x Rxy$, \therefore\ $\forall x\exists y Rxy$
+	\begin{solutioninlist}
+	\begin{proof}
+		\hypo{p}{\exists y\forall x Rxy} \by{want $\forall x\exists y Rxy$}{}
+		\open
+			\hypo{ass}{\forall x Rxa} \by{for $\exists${}E}{}
+			\have{R}{Rba} \Ae{ass}
+			\have{ER}{\exists y Rby} \Ei{R}
+			\have{AER}{\forall x \exists y Rxy} \Ai{ER}
+		\close
+		\have{c}{\forall x\exists y Rxy} \Ee{p, ass-AER}
+	\end{proof}
+	\end{solutioninlist}
+\end{earg}

@@ -1,0 +1,863 @@
+%% Copyright 2017 Clea F. Rees
+% Modified by Jonathan Ichikawa who doesn't really understand LaTeX. I've introduced a separate 'open' marker, syntactically alike to 'close'
+% I did it by trial and error for myself. Use at your own risk.
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Clea F. Rees.
+%
+% This work consists of all files listed in manifest.txt.
+%%
+\NeedsTeXFormat{LaTeX2e}
+\RequirePackage{svn-prov}
+\ProvidesPackageSVN{$Id: prooftrees.sty 5848 2017-02-09 02:15:38Z cfrees $}[v0.6 \revinfo]
+\RequirePackage{etoolbox}
+% define \prooftrees@enw to hold the name of the environment
+% default is to name the environment prooftree, this ensures backwards compatibility
+\newcommand*\prooftrees@enw{prooftree}
+% allow users to change the name to tableau using tableaux
+\DeclareOption{tableaux}{\renewcommand*\prooftrees@enw{tableau}}
+% just in case
+\DeclareOption{tableau}{\renewcommand*\prooftrees@enw{tableau}}
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{forest}}
+% if \prooftree is not yet defined, set the name to prooftree; otherwise, use tableau to avoid conflict with bussproofs (which uses 'prooftree' rather than 'bussproof' as one might expect)
+\ifundef\prooftree{\renewcommand*\prooftrees@enw{prooftree}}{\renewcommand*\prooftrees@enw{tableau}}
+% let users override the default prooftree in case they need to load bussproofs later
+\ProcessOptions
+\RequirePackage{forest}[2016/12/04]
+\RequirePackage{amssymb}
+\newcommand*\linenumberstyle[1]{#1.}
+% currently, keys starting 'proof tree' and macros starting 'prooftree' or 'prooftree@' are intended for internal use only
+% this does not apply to the environment prooftree
+% other keys and macros are intended for use in documents
+% in particular, the style 'proof tree' is **NOT** intended to be used directly by the user and its direct use is **ABSOLUTELY NOT SUPPORTED IN ANY WAY, SHAPE OR FORM**; it is intended only for implicit use when the prooftree environment calls it
+\forestset{% don't use @ in register/option names - the documentation is lying when it says non-alphanumerics will be converted to underscores when forming pgfmath functions ;)
+  declare boolean register={line numbering},% line numbers
+  line numbering,% default is for line numbers
+  declare boolean register={justifications},% line justifications
+  not justifications,% default is for no line justifications (b/c there's no point in enabling this if the user doesn't specify any content)
+  declare boolean register={single branches},% single branches: explicitly drawn branches and a normal level distance between lone children and their parents
+  not single branches,% default is for lone children to be grouped with their parents
+  declare dimen register={line no width},% default will be set to the width of 99 wrapped in the line numbering style
+  line no width'=0pt,% fallback default is 0pt
+  declare dimen register={just sep},% amount by which to shift justifications away from the main tree
+  just sep'=1.5em,% default is 1.5em
+  declare dimen register={line no sep},% amount by which to shift line numbers away from the main tree
+  line no sep'=1.5em,
+  declare dimen register={close sep},% distance between closure symbols and any following annotation
+  close sep'=.75\baselineskip,
+  declare dimen register={proof tree line no x},
+  proof tree line no x'=0pt,
+  declare dimen register={proof tree justification x},
+  proof tree justification x'=0pt,
+  declare count register={proof tree rhif lefelau},% count the levels in the proof tree
+  proof tree rhif lefelau'=0,
+  declare count register={proof tree lcount},% count the line numbers (on the left)
+  proof tree lcount'=0,
+  declare count register={proof tree jcount},% count the justifications (on the right)
+  proof tree jcount'=0,
+  declare count register={line no shift},% adjustment for line numbering
+  line no shift'=0,
+  declare count register={proof tree aros},
+  proof tree aros'=0,
+  declare toks register={check with},
+  check with={\ensuremath{\checkmark}},
+  declare boolean register={check right},
+  check right,
+  check left/.style={not check right},
+  declare toks register={subs with},
+  subs with={\ensuremath{\backslash}},
+  declare boolean register={subs right},
+  subs right,
+  subs left/.style={not subs right},
+  declare toks register={close with},
+  close with={\ensuremath{\otimes}},
+  declare toks register={open with},
+  open with={\ensuremath{\uparrow}},
+  declare keylist register={close format},
+  close format={font=\scriptsize},
+  declare keylist register={close with format},
+  close with format={},
+  declare toks register={merge delimiter},
+  merge delimiter={\text{; }},
+  declare boolean register={just refs left},
+  just refs left,
+  just refs right/.style={not just refs left},
+  declare keylist register={just format},
+  just format={},
+  declare keylist register={line no format},
+  line no format={},
+  declare autowrapped toks register={highlight format},
+  highlight format={draw=gray, rounded corners},
+  declare keylist register={proof statement format},
+  proof statement format={},
+  declare keylist register={wff format},
+  wff format={},
+  declare boolean={proof tree justification}{0},
+  declare boolean={proof tree line number}{0},
+  declare boolean={grouped}{0},
+  declare boolean={proof tree phantom}{0},
+  declare boolean={highlight wff}{0},
+  declare boolean={highlight just}{0},
+  declare boolean={highlight line no}{0},
+  declare boolean={highlight line}{0},
+  Autoforward={highlight line}{highlight just, highlight wff, highlight line no},
+  declare boolean={proof tree toing}{0},
+  declare boolean={proof tree toing with}{0},
+  declare boolean={proof tree rhiant cymysg}{0},
+  declare boolean={proof tree rhifo}{1},
+  declare boolean={proof tree arweinydd}{0},
+  declare autowrapped toks={just}{},
+  declare toks={proof tree rhestr rhifau llinellau}{},
+  declare toks={proof tree close}{},
+  declare toks={proof tree open}{},
+  declare toks={proof tree rhestr rhifau llinellau cau}{},
+  declare autowrapped toks={just options}{},
+  declare autowrapped toks={line no options}{},
+  declare autowrapped toks={wff options}{},
+  declare autowrapped toks={line options}{},
+  Autoforward={line options}{just options={#1}, line no options={#1}, wff options={#1}},
+  declare count={proof tree toing by}{0},
+  declare count={proof tree cadw toing by}{0},
+  declare count={proof tree toooing}{0},
+  declare count={proof tree proof line no}{0},
+  % keylists for internal storage
+  declare keylist={proof tree jrefs}{},
+  declare keylist={proof tree crefs}{},
+  % keylists for use in stages
+  declare keylist={proof tree ffurf}{},
+  declare keylist={proof tree symud awto}{},
+  declare keylist={proof tree creu nodiadau}{},
+  declare keylist={proof tree nodiadau}{},
+  % > not documented yet, I think
+  % > now indicates use of process when it is the first token, preceding a list of instructions as opposed to pgfmath stuff
+  define long step={proof tree symud}{}{%
+    root,sort by={>{O}{level},>{_O<}{1}{n children}},sort'=descendants
+  },
+  define long step={proof tree cywiro symud}{}{%
+    root,if line numbering={n=2}{n=1},sort by={>{O}{level},>{_O<}{1}{n children}},sort'=descendants
+  },
+  define long step={proof tree camau}{}{% updated version of defn. from saso's code (forest2-saso-ptsz.tex) & http://chat.stackexchange.com/transcript/message/28321501#28321501
+    root,sort by={>{O}{y},>{Ow1+d}{x}{-##1}},sort'={filter={descendants}{>{OO!&}{proof tree rhifo}{proof tree phantom}}}% angen +d - gweler http://chat.stackexchange.com/transcript/message/28607212#28607212
+  },
+  define long step={proof tree wffs}{}{% coeden brif yn unig ar ôl i greu nodiadau
+    fake=root,if line numbering={n=2}{n=1},tree
+  },
+  checked/.style={% mark discharge with optional name substituted into existential
+    delay={%
+      if check right={%
+        content+'={\ \forestregister{check with}#1},
+      }{%
+        +content'={\forestregister{check with}#1\ },
+      },
+    },
+  },
+  subs/.style={% mark substitution of name into universal
+    delay={%
+      if subs right={%
+        content+'={\ \forestregister{subs with}#1},
+      }{%
+        +content'={\forestregister{subs with}#1\ },
+      },
+    },
+  },
+  close/.style={% this now uses nodes rather than a label to accommodate annotations; closing must be done before packing the tree to ensure that sufficient space is allowed for the symbol and any following annotation; the annotations must be processed before anything is moved to ensure that the correct line numbers are used later, even if the references are given as relative node names
+    if={%
+      >{__=}{#1}{}%
+    }{}{%
+      temptoksb={},
+      temptoksa={#1},
+      split register={temptoksa}{:}{proof tree close,temptoksb},
+      if temptoksb={}{}{%
+        split register={temptoksb}{,}{proof tree cref},
+      },
+    },
+    delay={%
+      append={% this node holds the closure symbol
+        [\forestregister{close with},
+          not proof tree rhifo,
+          proof tree phantom,
+          grouped,
+          no edge,
+          process keylist register=close with format,
+          before computing xy={% adjust the distance between the closure symbol and any annotation
+            delay={%
+              for children={%
+                l/.register=close sep,
+              },
+            },
+          },
+          before drawing tree={%
+            if={>{RR|}{line numbering}{justifications}}{%
+              proof tree proof line no/.option=!parent.proof tree proof line no,
+            }{},
+          },
+          if={%
+            >{__=}{#1}{}%
+          }{}{% don't create a second node if there's no annotation
+            delay={%
+              append={% this node holds the annotation, possibly including cross-references which will be relative to the node's grandparent
+                [,
+                  not proof tree rhifo,
+                  proof tree phantom,
+                  grouped,
+                  no edge,
+                  process keylist register=close format,
+                  if={%
+                    >{O_=}{!parent,parent.proof tree close}{}%
+                  }{}{content/.option=!{parent,parent}.proof tree close},
+                  proof tree crefs/.option=!{parent,parent}.proof tree crefs,
+                  delay={%
+                    !{parent,parent}.proof tree crefs'={},
+                  },
+                  before drawing tree={%
+                    if={>{RR|}{line numbering}{justifications}}{%
+                      proof tree proof line no/.option=!{parent,parent}.proof tree proof line no,
+                    }{},
+                  },
+                ]%
+              },
+            },
+          },
+        ]%
+      },
+    },
+  },
+    open/.style={% this now uses nodes rather than a label to accommodate annotations; closing must be done before packing the tree to ensure that sufficient space is allowed for the symbol and any following annotation; the annotations must be processed before anything is moved to ensure that the correct line numbers are used later, even if the references are given as relative node names
+    if={%
+      >{__=}{#1}{}%
+    }{}{%
+      temptoksb={},
+      temptoksa={#1},
+      split register={temptoksa}{:}{proof tree close,temptoksb},
+      if temptoksb={}{}{%
+        split register={temptoksb}{,}{proof tree cref},
+      },
+    },
+    delay={%
+      append={% this node holds the open symbol
+        [\forestregister{open with},
+          not proof tree rhifo,
+          proof tree phantom,
+          grouped,
+          no edge,
+          process keylist register=close with format,
+          before computing xy={% adjust the distance between the closure symbol and any annotation
+            delay={%
+              for children={%
+                l/.register=close sep,
+              },
+            },
+          },
+          before drawing tree={%
+            if={>{RR|}{line numbering}{justifications}}{%
+              proof tree proof line no/.option=!parent.proof tree proof line no,
+            }{},
+          },
+          if={%
+            >{__=}{#1}{}%
+          }{}{% don't create a second node if there's no annotation
+            delay={%
+              append={% this node holds the annotation, possibly including cross-references which will be relative to the node's grandparent
+                [,
+                  not proof tree rhifo,
+                  proof tree phantom,
+                  grouped,
+                  no edge,
+                  process keylist register=close format,
+                  if={%
+                    >{O_=}{!parent,parent.proof tree close}{}%
+                  }{}{content/.option=!{parent,parent}.proof tree close},
+                  proof tree crefs/.option=!{parent,parent}.proof tree crefs,
+                  delay={%
+                    !{parent,parent}.proof tree crefs'={},
+                  },
+                  before drawing tree={%
+                    if={>{RR|}{line numbering}{justifications}}{%
+                      proof tree proof line no/.option=!{parent,parent}.proof tree proof line no,
+                    }{},
+                  },
+                ]%
+              },
+            },
+          },
+        ]%
+      },
+    },
+  },
+  proof tree line no/.style={% creates the line numbers on the left; note that it *does* matter that these are part of the tree, even though they do not need to be packed or to have xy computed; moreover, it matters that each is the child of the previous line number... so it won't do for them to *remain* siblings, even though that's fine when they are created.
+    anchor=base west,
+    no edge,
+    proof tree line number,
+    text width/.register=line no width,
+    x'/.register=proof tree line no x,
+    process keylist register=line no format,
+    delay={%
+      proof tree lcount'+=1,
+      tempcounta/.process={RRw2+n}{proof tree lcount}{line no shift}{##1+##2},
+      content/.process={Rw1}{tempcounta}{\linenumberstyle{##1}},% content i.e. the line number
+      name/.expanded={line no \foresteregister{tempcounta}},% name them so they can be moved later
+      typeset node,
+      if proof tree lcount>=3{% the initial location of most line numbers is incorrect and they must be moved
+        for previous={% move the line number below the previous line number
+          append/.expanded={line no \foresteregister{tempcounta}}
+        },
+      }{},
+    },
+  },
+  proof tree line justification/.style={% creates the justifications on the right but does not yet specify any content
+    anchor=base west,
+    no edge,
+    proof tree justification,
+    x'/.register=proof tree justification x,
+    process keylist register=just format,
+    delay={%
+      proof tree jcount'+=1,
+      tempcounta/.process={RRw2+n}{proof tree jcount}{line no shift}{##1+##2},
+      name/.expanded={just \foresteregister{tempcounta}},% name them so they can be moved
+      typeset node,% angen i osgoi broblemau 'da highlight just/line etc.
+      if proof tree jcount>=3{% correct the location as for the line numbers (cf. line no style)
+        for previous={%
+          append/.expanded={just \foresteregister{tempcounta}},
+        },
+      }{},
+    },
+  },
+  zero start/.style={%
+    line no shift'+=-1,
+  },
+  to prove/.style={% sets a proof statement
+    for root={%
+      before typesetting nodes={%
+        content={#1},
+        phantom=false,
+        baseline,
+        if line numbering={anchor=base west}{anchor=base},
+        process keylist register=proof statement format
+      },
+      before computing xy={%
+        delay={%
+          for children={%
+            l=1.5*\baselineskip,
+          },
+        },
+      },
+    },
+  },
+  proof tree/.style={% this style should **NOT** be used directly in a forest environment - see notes at top of this file
+    for tree={%
+      parent anchor=children,% manual 64
+      child anchor=parent,% manual 64
+      math content,
+      delay={%
+        if just={}{}{% if we've got justifications, make sure nodes are created for them later and split out cross-references so we identify the correct nodes before anything gets moved, allowing the use of relative node names
+          justifications,
+          temptoksa={},
+          split option={just}{:}{just,temptoksa},
+          if temptoksa={}{}{%
+            split register={temptoksa}{,}{proof tree jref},
+          },
+        },
+        if content={}{% if there's no proof statement
+          if level=0{}{%
+            shape=coordinate,
+          },
+        }{},
+      },
+    },
+    where level=0{%
+      for children={% no edges from phantom root or proof statement to children
+        before typesetting nodes={%
+          no edge,
+        },
+      },
+      delay={%
+        if content={}{phantom}{},
+        if line numbering={% create the line numbers if appropriate
+          parent anchor=south west,
+          if line no width={0pt}{%
+            line no width/.pgfmath={width("\noexpand\linenumberstyle{99}")},
+          }{},
+        }{},
+      },
+      proof tree creu nodiadau={% this is processed after computing xy
+        if={>{RR|}{line numbering}{justifications}}{% count proof lines if necessary
+          proof tree rhif lefelau'/.register=line no shift,
+          for proof tree camau={%
+            if level>=1{%
+              if={%
+                >{OO<}{y}{!back.y}%
+              }{%
+                proof tree rhif lefelau'+=1,
+                proof tree proof line no'/.register=proof tree rhif lefelau,
+              }{%
+                proof tree proof line no'/.register=proof tree rhif lefelau
+              },
+            }{},
+          },
+        }{},
+        if line numbering={% get the x position of line numbers and adjust the location and alignment of the proof statement
+          proof tree line no x/.min={>{OOw2+d}{x}{min x}{##1+##2}}{fake=root,descendants},
+          proof tree line no x-/.register=line no width,
+          proof tree line no x-/.register=line no sep,
+          for root={%
+            tempdimc/.option=x,
+            x'+/.register=proof tree line no x,
+            x'-/.option=min x,
+          },
+          prepend={% create line numbers on left
+            [,
+              proof tree line no,
+              % () to group are required here - otherwise, the -1 (or -2 or whatever) is silently ignored
+              repeat={((proof_tree_rhif_lefelau)-1)-(line_no_shift)}{% most are created in the wrong place but proof tree line no moves them later
+                delay n={proof_tree_lcount}{
+                  append={[, proof tree line no]},
+                },
+              },
+            ]%
+          },
+        }{},
+        if justifications={% get the x position of justifications and create the nodes which will hold the justification content, if required
+          proof tree justification x/.max={>{OOw2+d}{x}{max x}{##1+##2}}{fake=root,descendants},
+          proof tree justification x+/.register=just sep,
+          append={%
+            [,
+              proof tree line justification,
+              repeat={((proof_tree_rhif_lefelau)-1)-(line_no_shift)}{% most are created in the wrong place but proof tree line justification moves them later
+                delay n={proof_tree_jcount}{%
+                  append={[, proof tree line justification]},
+                },
+              }%
+            ]%
+          },
+        }{},
+      },
+    }{%
+      delay={%
+        if single branches={}{% automatically group lines if not using single branches
+          if n children=1{%
+            for children={%
+              grouped,
+            },
+          }{},
+        },
+      },
+      before typesetting nodes={% apply wff-specific highlighting and additional TikZ keys
+        process keylist register=wff format,
+        if highlight wff={node options/.register=highlight format}{},
+        node options/.option=wff options,
+      },
+    },
+    proof tree ffurf={% processed before proof tree symud auto: adjusts the alignment of lines when some levels of the tree are grouped together either whenever the number of children is only 1 or by applying the grouped style to particular nodes when specifying the tree
+      if single branches={%
+        where={%
+          >{O! _O< O &&}{grouped}{2}{level}{proof tree rhifo}%
+        }{%
+          if={%
+           >{_O= _O< &}{1}{!parent.n children}{1}{!parent,parent.n children}%
+          }{%
+            not tempboola,
+            for root/.process={Ow1}{level}{%
+              for level={##1}{%
+                if={%
+                 >{_O< _O= &}{1}{!parent.n children}{1}{n}%
+                }{%
+                  tempboola,
+                }{},
+              },
+            },
+            if tempboola={%
+              proof tree toing,
+            }{},
+          }{},
+        }{},
+      }{},
+      where={%
+       >{O _O< O &&}{grouped}{1}{level}{proof tree rhifo}%
+      }{% this searches for certain kinds of structural asymmetry in the tree and attempts to move lines appropriately in such cases - the algorithm is intended to be relatively conservative (not in the sense of 'cautious' or 'safe' but in the sense of 'reflection of the overlapping consensus of reasonable users' / 'what would be rationally agreed behind the prooftrees veil of ignorance'; apologies for the inconvenience if you are an unreasonable user)
+        not tempboola,
+        for root/.process={Ow1}{level}{%
+          for level={##1}{%
+            if={%
+             >{_O< _O= &}{1}{!parent.n children}{1}{n}%
+            }{%
+              tempboola,
+            }{},
+          },
+        },% Sašo:  http://chat.stackexchange.com/transcript/message/27874731#27874731, see also http://chat.stackexchange.com/transcript/message/27874722#27874722
+        if tempboola={%
+          if n children=0{%
+            if={>{OO|}{!parent.proof tree toing}{!parent.proof tree toing with}}{% we're already moving the parent and the child will move with the parent, so we can just mark this and do nothing else
+              proof tree toing with,
+            }{%
+              for root/.process={Ow1}{level}{% don't move a terminal node even in case of asymmetry: instead, create a separate proof line for terminal nodes on this level which are only children, by moving children with siblings on this level down a proof line, without altering their physical location
+                % this makes the tree more compact and stops it looking silly
+                for level={##1}{%
+                  if={%
+                   >{_O< _O= &}{1}{!parent.n children}{1}{n}%
+                  }{% this just serves to keep the levels nice for the sub-tree and ensure things align. We need this because we want to skip a level here to allow room for the terminal node in the other branch
+                    for parent={%
+                      if proof tree rhiant cymysg={}{% we mark the parent to avoid increasing the line number of its descendants more than once
+                        proof tree rhiant cymysg,
+                        for descendants={%
+                          proof tree toing by'+=1,
+                        },
+                      },
+                    },
+                  }{},
+                },
+              },% Sašo:  http://chat.stackexchange.com/transcript/message/27874731#27874731, see also http://chat.stackexchange.com/transcript/message/27874722#27874722
+            },
+            no edge,
+          }{%
+            if={%
+             >{_O= _O< &}{1}{!parent.n children}{1}{!parent,parent.n children}%
+            }{% don't try to move if the node has more than 1 child or the grandparent has no more than that; otherwise, mark the node as one to move - we figure out where to move it later
+              proof tree toing,
+            }{no edge},
+          },
+        }{no edge},
+      }{},
+    },
+    proof tree symud awto={% processed before typesetting nodes: if _this_ could be done during packing, that would be very nice, even if the previous stuff can't be
+      proof tree aros'=0,
+      for proof tree symud={%
+        if proof tree toing={% this relies on an experimental feature of forest, which is anffodus
+          for nodewalk={fake=parent,fake=sibling,descendants}{do dynamics},
+          delay n={\foresteregister{proof tree aros}}{%
+            tempcounta/.max={>{OOOOw4+n}{level}{proof tree toing by}{proof tree toooing}{proof tree rhifo}{(##1+##2+##3)*##4}}{parent,sibling,descendants},
+            if tempcounta>=1{%
+              if={%
+               >{Rw1+n OOw2+n >}{tempcounta}{##1+1}{level}{proof tree toing by}{##1+##2}%
+              }{%
+                tempcounta-/.option=level,
+                tempcounta'+=1,
+                move by/.register=tempcounta,
+              }{no edge},
+            }{no edge},
+          },
+          proof tree aros'+=4,
+        }{},
+      },
+    },
+    proof tree nodiadau={% processed after proof tree creu nodiadau and before before drawing tree: creates annotation content which may include cross-references, applies highlighting and additional TikZ keys to line numbers, justifications and to wffs where specified for entire proof lines
+      where proof tree crefs={}{}{% resolve cross-refs in closures
+        split option={proof tree crefs}{,}{proof tree rhif llinell cau},
+        if content={}{%
+          content/.option=proof tree rhestr rhifau llinellau cau,
+        }{%
+          content+/.process={_O}{\ }{proof tree rhestr rhifau llinellau cau},
+        },
+        typeset node,
+      },
+      if line numbering={% apply highlighting and additional TikZ keys to line numbers; initial alignment of numbers with proof lines
+        for proof tree wffs={%
+          if highlight line no={%
+            for name/.process={Ow1OOOw3}{proof tree proof line no}{line no ##1}{proof tree proof line no}{line no options}{y}{% from Sašo's anti-pgfmath version - rhaid ddweud proof tree proof line no yn ddwywaith ?! dim yn bosibl i ailddefnyddio'r gyntaf ?!
+              node options/.register=highlight format,
+              ##2,
+              y'=##3,
+              proof tree proof line no'=##1,
+              typeset node,
+            }%
+          }{%
+            if line no options={}{%
+              if proof tree phantom={}{%
+                for name/.process={Ow1OOw2}{proof tree proof line no}{line no ##1}{proof tree proof line no}{y}{%
+                  y'=##2,
+                  proof tree proof line no'=##1,
+                }%
+              },
+            }{%
+              for name/.process={Ow1OOOw3}{proof tree proof line no}{line no ##1}{proof tree proof line no}{line no options}{y}{%
+                ##2,
+                y'=##3,
+                proof tree proof line no'=##1,
+                typeset node,
+              }%
+            },
+          },
+        },
+      }{},
+      if justifications={% initial alignment of justifications with proof lines, addition of content, resolution of cross-references and application of highlighting and additional TikZ keys
+        for proof tree wffs={%
+          if just={}{%
+            if proof tree phantom={}{%
+              for name/.process={Ow1OOw2}{proof tree proof line no}{just ##1}{proof tree proof line no}{y}{% from Sašo's anti-pgfmath version - rhaid ddweud proof tree proof line no yn ddwywaith ?! dim yn bosibl i ailddefnyddio'r gyntaf ?!
+                y'=##2,
+                proof tree proof line no'=##1,
+              }%
+            },
+          }{% puts the content of the justifications into the empty justification nodes on the right; because this is done late, the nodes need to be typeset again
+            if proof tree jrefs={}{}{% resolve cross-refs in justifications
+              split option={proof tree jrefs}{,}{proof tree rhif llinell},
+              if just refs left={%
+                +just/.process={O_}{proof tree rhestr rhifau llinellau}{\ },
+              }{%
+                just+/.process={_O}{\ }{proof tree rhestr rhifau llinellau},
+              },
+            },
+            if highlight just={% apply highlighting and additional TikZ keys to justifications, set content and merge any conflicting specifications, warning user if appropriate
+              for name/.process={Ow1OOOOw4}{proof tree proof line no}{just ##1}{proof tree proof line no}{just}{just options}{y}{% from Sašo's anti-pgfmath version - rhaid ddweud proof tree proof line no yn ddwywaith ?! dim yn bosibl i ailddefnyddio'r gyntaf ?!
+                if={%
+                 >{O_= O_= |}{content}{}{content}{##2}%
+                }{% gweler isod - o gôd Sašo
+                  content={##2},
+                }{%
+                  content+'={\foresteregister{merge delimiter}##2},
+                  TeX={\PackageWarning{prooftrees}{Merging conflicting justifications for line ##1! Please examine the output carefully and use "move by" to move lines later in the proof if required. Details of how to do this are included in the documentation.}},
+                },
+                node options/.register=highlight format,
+                ##3,
+                y'=##4,
+                proof tree proof line no'=##1,
+                typeset node,
+              }% do NOT put a comma here!
+            }{%
+              for name/.process={Ow1OOOOw4}{proof tree proof line no}{just ##1}{proof tree proof line no}{just}{just options}{y}{% from Sašo's anti-pgfmath version - rhaid ddweud proof tree proof line no yn ddwywaith ?! dim yn bosibl i ailddefnyddio'r gyntaf ?!
+                if={% from Sašo's anti-pgfmath version - I appreciate this is faster, but why is it *required*?!
+                 >{O_= O_= |}{content}{}{content}{##2}%
+                }{%
+                  content={##2},
+                }{%
+                  content+'={\foresteregister{merge delimiter}##2},
+                  TeX={\PackageWarning{prooftrees}{Merging conflicting justifications for line ##1! Please examine the output carefully and use "move by" to move lines later in the proof if required. Details of how to do this are included in the documentation.}},
+                },
+                ##3,
+                y'=##4,
+                proof tree proof line no'=##1,
+                typeset node,
+              }% do NOT put a comma here!
+            }
+          },
+        },
+      }{},
+      for proof tree wffs={% apply highlighting and TikZ keys which are specified for whole proof lines to all applicable wffs
+        if proof tree phantom={}{%
+          if highlight line={%
+            for proof tree wffs/.process={OOw2}{proof tree proof line no}{line options}{%
+              if proof tree proof line no={##1}{%
+                node options/.register=highlight format,
+                ##2,
+              }{}%
+            },
+          }{%
+            for proof tree wffs/.process={OOw2}{proof tree proof line no}{line options}{%
+              if proof tree proof line no={##1}{##2}{},
+            },
+          },
+          delay={typeset node},
+        },
+      },
+    },
+    before packing={% initial alignment so we don't get proof line numbers incrementing due to varying height/depth of nodes, for example - when single branches is true and few nodes are grouped, this is also a reasonable first approximation
+      for tree={%
+        tier/.process={OOw2+nw1}{level}{proof tree toing by}{##1+##2}{tier ##1},
+      },
+      for root={% if there's no proof statement, adjust the alignment of the proof relative to the surrounding text
+        if content={}{%
+          !{n=1}.baseline,
+        }{},
+      },
+    },
+    before computing xy={% adjust distance between levels for grouped nodes after tree is packed
+      for tree={%
+        if={%
+         >{O _O< &}{grouped}{1}{level}%
+        }{l'=\baselineskip}{},
+      },
+    },
+    before drawing tree={% set final alignment for proof lines which have been moved by effectively grouping lead nodes and moving their subtrees accordingly - this requires that each line number and justification be the child of the previous one and that if justifications are used at all, then justifications exist for all proof lines, even if empty
+      if={>{RR|R!&}{line numbering}{justifications}{single branches}}{% correct the alignment of move by lines when single branches is false - o fersiwn anti-pgfmath Sašo
+        tempdimc'=0pt,% track cumulative adjustments to line numbers and justifications
+        for proof tree cywiro symud={%
+          if proof tree arweinydd={% only examine the lead nodes - their descendants need the same (cumulative) adjustments
+            tempdima'/.option=y,
+            if line numbering={% if there are line numbers, we use the previous line number's vertical position
+              for name/.process={Ow1+nw1}{proof tree proof line no}{##1-1}{line no ##1}{% arafach ?
+                tempdimb'/.option=y,
+              }%
+            }{% if not, we use the previous justification's vertical position
+              for name/.process={Ow1+nw1}{proof tree proof line no}{##1-1}{just ##1}{% arafach ?
+                tempdimb'/.option=y,
+              }%
+            },
+            for parent={% the parent (which will be a phantom) gets aligned with the previous line
+              y'/.register=tempdimb,
+            },
+            if tempdimb<={0pt}{% adjust so we align this line below the previous one (assuming we're going down)
+              tempdimb'-=\baselineskip,
+            }{%
+              tempdimb'+=\baselineskip,
+            },
+            tempdimb'-/.register=tempdima,% how far are we moving?
+            for tree={% adjust this node and all descendants
+              y'+/.register=tempdimb,
+            },
+            tempdimb'-/.register=tempdimc,% deduct any tracked cumulative adjustments to line numbers and justifications
+            if line numbering={% adjust the line numbers, if any
+              for name/.process={Ow1}{proof tree proof line no}{line no ##1}{%
+                for tree={%
+                  y'+/.register=tempdimb,
+                },
+              }%
+            }{},
+            if justifications={% adjust the justifications, if any
+              for name/.process={Ow1}{proof tree proof line no}{just ##1}{% t. 60 manual 2.1 rc1
+                for tree={%
+                  y'+/.register=tempdimb,
+                },
+              }%
+            }{},
+            tempdimc'/.register=tempdimb,% add the adjustment just implemented to the tracked cumulative adjustments for line numbers and/or justifications
+          }{},
+        },
+      }{},
+    },
+  },
+  move by/.style={% this implements both the automated moves prooftrees finds necessary and any additional moves requested by the user - more accurately, it implements initial moves, which may get corrected later (e.g. to avoid skipping numbers or creating empty proof lines, which we assume aren't wanted)
+    if={
+     >{_n<}{0}{#1}%
+    }{% only try to move the node if the target line number exceeds the one i.e. the line number is to be positively incremented
+      proof tree cadw toing by/.option=proof tree toing by,
+      proof tree arweinydd,
+      for tree={%
+        if={%
+         >{_n<}{1}{#1}%
+        }{% track skipped lines for which we won't be creating phantom nodes
+          proof tree toing by+=#1-2,
+          proof tree toooing'+=1,
+        }{},
+      },
+      delay={%
+        replace by={% insert our first phantom
+          [,
+            if={%
+             >{_n<}{1}{#1}%
+            }{%
+              child anchor=parent,
+              parent anchor=parent,
+            }{%
+              child anchor=children,
+              parent anchor=children,
+            },
+            proof tree phantom,
+            edge path/.option=!last dynamic node.edge path,% Sašo Živanović: http://chat.stackexchange.com/transcript/message/27990955#27990955
+            edge/.option=!last dynamic node.edge,
+            append,
+            before drawing tree={%
+              if={>{RR|}{line numbering}{justifications}}{%
+                proof tree proof line no/.process={Ow1+n}{!parent.proof tree proof line no}{##1+1},
+              }{},
+            },
+            if={%
+             >{_n<}{1}{#1}%
+            }{% if we are moving by more than 1, we insert a second phantom so that a node with siblings which is moved a long way will not get a unidirectional edge but an edge which looks similar to others in the tree (by default, sloping down a line or so and then plummeting straight down rather than a sharply-angled steep descent)
+              delay={%
+                append={%
+                  [,
+                    child anchor=parent,
+                    parent anchor=parent,
+                    proof tree toing by=#1-2+proof_tree_cadw_toing_by,
+                    proof tree phantom,
+                    edge path/.option=!last dynamic node.edge path,
+                    edge/.option=!last dynamic node.edge,
+                    before drawing tree={%
+                      if={>{RR|}{line numbering}{justifications}}{%
+                        proof tree proof line no/.process={Ow1+n}{!n=1.proof tree proof line no}{##1-1},
+                      }{},
+                    },
+                    append=!sibling,
+                  ]%
+                },
+              },
+            }{%
+              if single branches={}{%
+                delay={%
+                  for children={%
+                    no edge,
+                  },
+                },
+              },
+            },
+           ]%
+        },
+      },
+    }{%
+      TeX/.process={Ow1}{name}{\PackageWarning{prooftrees}{Line not moved! I can only move things later in the proof. Please see the documentation for details. ##1}},
+    },
+  },
+  proof tree cref/.style={% get the names of nodes cross-referenced in closure annotations for use later
+    proof tree crefs+/.option=#1.name,
+  },
+  proof tree rhif llinell cau/.style={% get the proof line numbers of the cross-referenced nodes in closure annotations, using the list of names created earlier
+    if proof tree rhestr rhifau llinellau cau={}{}{%
+      proof tree rhestr rhifau llinellau cau+={,\,},
+    },
+    proof tree rhestr rhifau llinellau cau+/.option=#1.proof tree proof line no,
+  },
+  proof tree jref/.style={% get the names of nodes cross-referenced in justifications for use later
+    proof tree jrefs+/.option=#1.name,
+  },
+  proof tree rhif llinell/.style={% get the proof line numbers of the cross-referenced nodes in justifications, using the list of names created earlier
+    if proof tree rhestr rhifau llinellau={}{}{%
+      proof tree rhestr rhifau llinellau+={,\,},
+    },
+    proof tree rhestr rhifau llinellau+/.option=#1.proof tree proof line no,% works according to Sašo's anti-pgfmath version
+  },
+  proof tree dadfygio/.style={% style for use in debugging moves which displays information about nodes in the tree
+    before packing={%
+      for tree={%
+        label/.process={OOOw3}{level}{proof tree toing by}{id}{[red,font=\tiny,inner sep=0pt,outer sep=0pt, anchor=south]below:##1/##2/##3},
+      },
+    },
+    before drawing tree={%
+      for tree={%
+        delay={%
+          tikz+/.process={Ow1}{proof tree proof line no}{\node [anchor=west, font=\tiny, text=blue, inner sep=0pt] at (.east) {##1}; },
+        },
+      },
+    },
+  },
+}
+\environbodyname\prooftreebody
+\bracketset{action character=@}
+\NewEnviron{\prooftrees@enw}[1]{% \forest/\endforest from egreg's answer at http://tex.stackexchange.com/a/229608/
+  \forest
+    (%
+      stages={% customised definition of stages - we don't use any custom stages, but we do use several custom keylists, where the processing order of these is critical
+        for root'={% nothing is removed from the standard forest definition - we only change it by adding to it
+          process keylist register=default preamble,
+          process keylist register=preamble,
+        },
+        process keylist=given options,
+        process keylist=before typesetting nodes,
+        % first two additions: process two custom keylists after before typesetting nodes and before typesetting nodes
+        process keylist=proof tree ffurf,
+        process keylist=proof tree symud awto,
+        typeset nodes stage,
+        process keylist=before packing,
+        pack stage,
+        process keylist=before computing xy,
+        compute xy stage,
+        % second two additions: process two custom keylists after computing xy and before before drawing tree
+        process keylist=proof tree creu nodiadau,
+        process keylist=proof tree nodiadau,
+        process keylist=before drawing tree,
+        draw tree stage,
+      },
+    )%
+    proof tree,% apply the proof tree style, which sets keylists from both forest's defaults and our custom additions
+    #1,% insert user's preamble, empty or otherwise - this allows the user both to override our defaults (e.g. by setting a non-empty proof statement or a custom format for line numbers) and to customise the tree using forest's facilities in the usual way - BUT customisations of the latter kind may or may not be effective, may or may not have undesirable - not to say chaotic - consequences, and may or may not cause compilation failures (structural changes, in particular, should be avoided completely)
+    [, name=proof statement @\prooftreebody]%
+  \endforest}
+\endinput
+%% end prooftrees.sty

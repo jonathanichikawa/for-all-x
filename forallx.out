@@ -1,0 +1,49 @@
+\BOOKMARK [0][-]{chapter.1}{What is logic?}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Arguments}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Sentences}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Two ways that arguments can go wrong}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Deductive validity}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.5}{Other logical notions}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.6}{Formal languages}{chapter.1}% 7
+\BOOKMARK [1][-]{section*.11}{Practice Exercises}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{Sentential logic}{}% 9
+\BOOKMARK [1][-]{section.2.1}{Sentence letters}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{Connectives}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{Other symbolization}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.4}{Sentences of SL}{chapter.2}% 13
+\BOOKMARK [1][-]{section*.21}{Practice Exercises}{chapter.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Truth tables}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Truth-functional connectives}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{Complete truth tables}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.3}{Using truth tables}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.4}{Partial truth tables}{chapter.3}% 19
+\BOOKMARK [1][-]{section*.26}{Practice Exercises}{chapter.3}% 20
+\BOOKMARK [0][-]{chapter.4}{Quantified logic}{}% 21
+\BOOKMARK [1][-]{section.4.1}{From sentences to predicates}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.2}{Building blocks of QL}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.3}{Quantifiers}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.4}{Translating to QL}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.5}{Sentences of QL}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.6}{Identity}{chapter.4}% 27
+\BOOKMARK [1][-]{section*.43}{Practice Exercises}{chapter.4}% 28
+\BOOKMARK [0][-]{chapter.5}{Formal semantics}{}% 29
+\BOOKMARK [1][-]{section.5.1}{Semantics for SL}{chapter.5}% 30
+\BOOKMARK [1][-]{section.5.2}{Interpretations and models in QL}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.3}{Semantics for identity}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.4}{Working with models}{chapter.5}% 33
+\BOOKMARK [1][-]{section.5.5}{Truth in QL}{chapter.5}% 34
+\BOOKMARK [1][-]{section*.53}{Practice Exercises}{chapter.5}% 35
+\BOOKMARK [0][-]{chapter.6}{Proofs}{}% 36
+\BOOKMARK [1][-]{section.6.1}{Basic rules for SL}{chapter.6}% 37
+\BOOKMARK [1][-]{section.6.2}{Derived rules}{chapter.6}% 38
+\BOOKMARK [1][-]{section.6.3}{Rules of replacement}{chapter.6}% 39
+\BOOKMARK [1][-]{section.6.4}{Rules for quantifiers}{chapter.6}% 40
+\BOOKMARK [1][-]{section.6.5}{Rules for identity}{chapter.6}% 41
+\BOOKMARK [1][-]{section.6.6}{Proof strategy}{chapter.6}% 42
+\BOOKMARK [1][-]{section.6.7}{Proof-theoretic concepts}{chapter.6}% 43
+\BOOKMARK [1][-]{section.6.8}{Proofs and models}{chapter.6}% 44
+\BOOKMARK [1][-]{section.6.9}{Soundness and completeness}{chapter.6}% 45
+\BOOKMARK [1][-]{section*.72}{Practice Exercises}{chapter.6}% 46
+\BOOKMARK [0][-]{appendix.A}{Other symbolic notation}{}% 47
+\BOOKMARK [0][-]{appendix.B}{Solutions to selected exercises}{}% 48
+\BOOKMARK [0][-]{Item.664}{C Quick Reference}{}% 49

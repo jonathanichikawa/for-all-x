@@ -1,0 +1,575 @@
+%!TEX root = forallx-ubc.tex
+\chapter{Identity}
+\label{ch.identity}
+
+This chapter extends QL by adding logical resources for discussion of \emph{identity}. In the logical sense, identity is about which object something is. Two things aren't `identical' in our sense just because they look exactly alike. (Identical twins aren't \emph{logically} identical.) Neither does identity, in our logical sense, have to do with the way an individual conceives of oneself. (We're not getting into whether one \emph{identifies as} a woman, etc.) Instead, we will develop logical vocabulary to talk about whether, e.g., the person who robbed the bank is \emph{the same person as} the person who shot Uncle Ben.
+
+It is already possible to talk about identity in QL, by assigning identity and related concepts to predicates in interpretation keys. (In this sense, it's possible to talk about pretty much anything in QL.) However, there are a few reasons why we may wish to have a more robust logical notion of identity than that. We begin by examining some of these motivations. Identity will strengthen QL, increasing its expressive power in many ways.
+
+\section{Motivating identity as a logical category}
+\label{sec.identitymotivation}
+
+Consider this sentence:
+
+\begin{earg}
+\item[\ex{onlyyou}] Only you can prevent forest fires.
+\end{earg}
+
+How should we translate it into QL? Here is one simple option. We could use this symbolization key:
+
+\begin{ekey}
+\item[UD:] people
+\item[Px:] only $x$ can prevent forest fires
+\item[u:] you
+\end{ekey}
+
+And then we could translate sentence \ref{onlyyou} straightforwardly as $Pu$. This might be adequate for some purposes, but this translation misses out on a key fact about sentence \ref{onlyyou}. Notice that sentence \ref{onlyyou} is inconsistent with sentence \ref{onlyher}:
+
+\begin{earg}
+\item[\ex{onlyher}] Only your mother can prevent forest fires.
+\end{earg}
+
+If we add a name for your mother to the symbolization key above,
+
+\begin{ekey}
+\item[m:] your mother
+\end{ekey}
+
+we can translate sentence \ref{onlyher} as $Pm$. The problem is that $Pu$ and $Pm$ are obviously consistent in QL, as this simple model demonstrates:
+
+\begin{partialmodel}
+	UD & \{$u$, $m$\}\\
+	\extension{P} & \{$u$, $m$\}
+\end{partialmodel}
+
+The `only' in each sentence has just been made a part of the predicate, in a way that ignores its logical force. (Compare the analogous discussion in the Introduction to Chapter \ref{ch.QL} that motivated extending SL with predicates and quantifiers.) If \emph{only} you can prevent forest fires, that means that no one \emph{else}--- i.e., no one who \emph{is not} you--- can prevent forest fires. We don't yet have the logical vocabulary to express these thoughts in a strong enough way.
+
+These sentences give rise to a related issue:
+
+\begin{earg}
+\item[\ex{ppq}] Peter Parker lives in Queens.
+\item[\ex{pps}] Peter Parker is Spider-Man.
+\item[\ex{sq}] Spider-Man lives in Queens.
+\end{earg}
+
+Here is a natural interpretation key for these sentences, given the resources we've seen so far.
+
+\begin{ekey}
+\item[UD:] people and places
+\item[Lxy:] $x$ lives in $y$
+\item[Ixy:] $x$ is $y$
+\item[p:] Peter Parker
+\item[s:] Spider-Man
+\item[q:] Queens
+\end{ekey}
+
+Then sentences \ref{ppq}--\ref{sq} can be translated thus:
+
+\begin{earg}
+\item[\ref{ppq}.] $Lpq$
+\item[\ref{pps}.] $Ips$
+\item[\ref{sq}.] $Lsq$
+\end{earg}
+
+But the argument from the English \ref{ppq} and \ref{pps} to \ref{sq} seems valid, whereas the corresponding argument form is obviously invalid in QL. This model satisfies the premises and falsifies the conclusion:
+
+\begin{partialmodel}
+	UD & \{p, s, q\}\\
+	\extension{L} &\begin{tabular}{l|lll}
+		$Lxy$   & p & s & q \\ \hline
+		p & -     & -  & 1 \\
+		s & -     & -  & 0 \\
+		q & -     & -  & -
+		\end{tabular}\\
+	\extension{I} &\begin{tabular}{l|lll}
+		$Ixy$   & p & s & q \\ \hline
+		p & -     & 1  & - \\
+		s & -     & -  & - \\
+		q & -     & -  & -
+		\end{tabular}
+\end{partialmodel}
+
+Given the interpretation key above, this is a model where Peter is Spider-Man, but where Peter and Spider-Man do not live in the same place. This does not correspond to a genuine possibility; if Peter and Spider-Man are the same person, then they must live in the same place. This is an important logical fact about identity. But in the formalism given, $I$ is just another predicate like $L$, susceptible to many different interpretations and extensions.
+
+Here is a third example. 
+
+\begin{earg}
+\item[\ex{m1}] Mozart composed \emph{Le Nozze di Figaro}.
+\item[\ex{m2}] Mozart composed \emph{Don Giovanni}.
+\item[\ex{m3}] Mozart composed at least two things.
+\end{earg}
+
+We introduce the obvious interpretation key:
+
+\begin{ekey}
+\item[UD:] people and operas
+\item[Cxy:] $x$ composed $y$
+\item[m:] Mozart
+\item[n:] \emph{Le Nozze di Figaro}
+\item[g:] \emph{Don Giovanni}
+\end{ekey}
+
+Then we might translate the argument thus:
+
+\begin{earg}
+\item[] $Cmn$
+\item[] $Cmg$
+\item[\therefore] $\exists x Cmx \eand \exists y Cmy$
+\end{earg}
+
+This is a valid argument. But the problem is that $\exists x Cmx \eand \exists y Cmy$ is a very bad translation of `Mozart composed at least two things'. Notice that it is the conjunction of two existentials, each of which says that Mozart composed at least one thing. Suppose he composed only one thing; then each conjunct is true, so the conjunction is true. To say that he composed at least \emph{two} things, it's not enough to say that he composed at least one thing, and then to say again that he composed at least one thing--- we need some way to ensure that the $x$ and $y$ are \emph{not the same thing}.
+
+What all three of these cases--- the forest fire case, the Spider-Man case, and the Mozart case--- show us is that if we want to reflect the logical relationships having to do with identity, we need special logical vocabulary to do so. Just as we introduced the `$\forall$' and `$\exists$' formalisms to reflect logical facts about quantifiers, we also need a special symbol for identity. That symbol will be `$=$'. Like our other logical symbols--- `\eif', `\enot', `$\forall$', etc.--- its meaning will be fixed as part of our language. Interpretation keys tell us what predicates like $Fx$ mean; they don't get to specify the meaning of the logical terms.
+
+When we introduced quantifiers and predicates, we described the shift as switching to a new language, from SL to QL. In fact, however, QL isn't so much a change away from SL as it is an addition to it. (All SL sentences are QL sentences, and all SL entailments are also QL entailments.) Here we will make one more addition, corresponding to identity. We won't introduce a whole new name for our extended version of QL; it can be specified descriptively as `quantified logic with identity'. (The choice about whether to introduce a new language name is a purely conventional one; we're here just following ordinary practice.)
+
+\section{=}
+
+We revise the definitions of grammaticality and truth in QL to add the following stipulation:
+
+For any two names \script{a} and \script{b}, `$\script{a}{=}\script{b}$' is an atomic sentence in QL. It is true in a model just in case, in that model, the referent of \script{a} is the same object as the referent of \script{b}; i.e., the model assigns \script{a} and \script{b} to the same object. For example, here is a model:
+
+\begin{partialmodel}
+	UD & \{Peter Parker, Aunt May\}\\
+	\referent{p} & Peter Parker\\
+	\referent{s} & Peter Parker\\
+	\referent{m} & Aunt May
+\end{partialmodel}
+
+In this model, $p{=}s$ is true, and $p{=}m$ and $s{=}m$ are false. We'll introduce a familiar shorthand for negating identity claims; $s {\neq} m$ is our preferred abbreviation for \enot $s{=}m$. (Remember that `$s{=}m$' is an atomic sentence, so `\enot $s {=} m$' is the negation of that sentence. It is tempting, when one looks at that sentence, to attach the negation only to $s$, so that the sentence says that the `negation of $s$' is identical to $m$. But this way of reading it ultimately makes no sense; names do not have negations in QL. Only sentences do. This is part of the reason we will usually prefer to write $s {\neq} m$, rather than the potentially confusing \enot $s{=}m$. But if you do see or write the latter, remember that the negation applies to the whole identity claim.)
+
+A logical notion of identity is just what is needed to overcome the shortcomings of the translations in the introduction to this chapter.
+
+\section{Identity and `no one else'}
+
+Consider again sentence \ref{onlyyou}:
+
+\begin{ekey}
+\item[\ref{onlyyou}.] Only you can prevent forest fires.
+\end{ekey}
+
+In the introduction we tried translating this into QL with a predicate `only  \blank can prevent forest fires'; now we can reflect its logical structure more fully. So we'll let our predicate just indicate the ability to prevent forest fires:
+
+\begin{ekey}
+\item[UD:] people
+\item[Px:] $x$ can prevent forest fires
+\item[u:] you
+\end{ekey}
+
+If only you can prevent forest fires, that means that you can prevent forest fires, and, moreover, no one \emph{else}--- no one who is not you--- can prevent forest fires. The first part is simple. You can prevent forest fires: $Pu$. Now we must say that no one else can prevent forest fires. Another way to say that is this: it is \emph{not} the case that there is someone \emph{who is not you} who can prevent forest fires. So you can think of that as a negated existential: $\enot \exists x (x {\neq} u \eand Px)$. Putting these two pieces together as a conjunction, we can translate sentence \ref{onlyyou} as:
+
+\begin{earg}
+\item[\ref{onlyyou}.] $Pu \eand \enot \exists x (x {\neq} u \eand Px)$
+\end{earg}
+
+A second way of characterizing the `no one else' clause would translate it as a universal claim, saying, of everything, that if it is not you, then it cannot prevent forest fires: $\forall x (x {\neq} u \eif \enot Px)$. This is equivalent to $\enot \exists x (x {\neq} u \eand Px)$; either is an acceptable translation. (By the end of this chapter we'll be able to prove this equivalence.)
+
+Using similar reasoning, one can translate other kinds of sentences that talk about objects \emph{other than} ones just mentioned. For example, suppose we want to say that Rebecca only thinks about herself. She thinks about herself, and there is no one else that she thinks about. Using $r$ for Rebecca and $Txy$ for `$x$ thinks about $y$', we could say: $$Trr \eand \enot \exists x (x {\neq} r \eand Trx)$$
+
+There are more examples of similar kinds of translation exercises in the practice problems at the end of this chapter.
+
+\section{Identical objects satisfy identical predicates}
+
+In \S\ref{sec.identitymotivation}, we saw that treating identity as a simple predicate prevented the validity of intuitively valid arguments like  this one:
+
+\begin{earg}
+\item[\ref{ppq}] Peter Parker lives in Queens.
+\item[\ref{pps}] Peter Parker is Spider-Man.
+\item[\ref{sq}] Spider-Man lives in Queens.
+\end{earg}
+
+The problem was that if the extension of the identity predicate can simply be presented in a model, without regard for the other features of the model, there was no guarantee that $p$ and $s$--- the names for Peter Parker and Spider-Man--- were related in any particular way, just because \ntuple{Peter Parker, Spider-Man} happened to be assigned in the extension of the $I$ predicate.
+
+But if we translate the identity predicate with the QL identity claim $p{=}s$, this requires that the names $s$ and $p$ be assigned to the \emph{very same object} in the model. Consequently, for any sentence \metaA{} involving the name $p$, \metaA{}\substitute{p}{s}--- the sentence that results from replacing each $p$ in \metaA{} with an $s$--- will have the same truth value as \metaA{}. If $Fp$ is true, then the object named by $p$ is in the extension of $F$. And if $p{=}s$, then the object named by $p$ is \emph{the very same object as} the object named by $s$. So of course the object named by $s$ (that same object) must also be in the extension of $F$. In general, identical objects have identical properties.
+
+(The converse is not true in general. There is no rule in QL that says that if all the same wffs are true of two different names, they must be two names for the same object.)
+
+If Peter is Spider-Man, then everything true of Peter is also true of Spider-Man. So this argument form, unlike the first translation we attempted, is valid in QL:
+
+\begin{earg}
+\item[] $Lpq$
+\item[] $p{=}s$
+\item[\therefore] $Lsq$
+\end{earg}
+
+In \S\ref{sec.identity.trees} below we'll extend our tree method to claims with identity, which will give us a formal means for proving the validity of arguments like this one. (The natural deduction system for QL given in Chapter \ref{ch.QLND} will give us another.)
+
+
+
+
+
+\section{Quantity}
+\label{sec.quantity}
+
+Identity also lets us talk about quantity in a way that wasn't available before. In \S\ref{sec.identitymotivation} we observed some challenges with translating claims about the number of objects that satisfy a particular description. For example, we struggled with sentences like `Mozart composed more than one opera'. But identity makes such claims straightforward.
+
+\begin{ekey}
+\item[UD:] people and operas
+\item[Cxy:] $x$ composed $y$
+\item[Ox:] $x$ is an opera
+\item[m:] Mozart
+\item[n:] \emph{Le Nozze di Figaro}
+\item[g:] \emph{Don Giovanni}
+\end{ekey}
+
+We want to say that there are two things, that have the following features: they are different from each other, they are both operas, and they are both composed by Mozart. A double-existential sentence, listing those conjuncts, will suffice: 
+$$\exists x \exists y (x {\neq} y \eand Ox \eand Oy \eand Cmx \eand Cmy)$$
+Strictly speaking, QL conjunctions only have two conjuncts, so to write this sentence scrupulously, we'd need to include brackets to signify that we're talking about conjunctions of conjunctions:
+$$\exists x \exists y (x {\neq} y \eand [(Ox \eand Oy) \eand (Cmx \eand Cmy)])$$
+In sentences like these--- and the longer ones listing more conditions that will feature soon--- it is usually preferable for readability to leave these internal brackets out. We will write as if our system allows arbitrary numbers of conjuncts, with the understanding that, should the need arise, we could always put them back in explicitly. (We'll rarely have occasion to do so.)
+
+This sentence says that Mozart wrote at least two operas. To say that he wrote at least \emph{three} operas would require another quantifier with a new variable $z$, and the specification that $z$ be an opera, written by Mozart, and non-identical to both of the ones previously mentioned:
+
+\begin{multline*}
+\exists x \exists y \exists z (x {\neq} y \eand x {\neq} z \eand y {\neq} z \eand 
+Ox \eand Oy \eand Oz \eand Cmx \eand Cmy \eand Cmz)
+\end{multline*}
+
+As you can see, these sentences get long and complicated rather quickly.
+
+Suppose we wanted to say that Mozart composed \emph{exactly} two operas--- no more, and no fewer. There are two reasonably natural choices for how to say that. One is to conjoin the first QL sentence of this section--- Mozart composed at least two operas--- with the negation of the second--- Mozart did not compose at least three operas. The result is:
+
+\begin{multline*}
+\exists x \exists y (x {\neq} y \eand Ox \eand Oy \eand Cmx \eand Cmy) \eand \\ \enot \exists x \exists y \exists z (x {\neq} y \eand x {\neq} z \eand y {\neq} z \eand Ox \eand Oy \eand Oz \eand Cmx \eand Cmy \eand Cmz)
+\end{multline*}
+
+A slightly more efficient way of saying the same thing, rather than conjoining a new negated triple existential, would be to add, within the scope of the first two quantifiers, a conjunct to the effect that every opera composed by Mozart is one of the two mentioned in that first conjunction. To say that any opera composed by Mozart is either $x$ or $y$ is to say that, for any $z$, if $z$ is an opera composed by Mozart, then it is either $x$ or $y$. In other words: $\forall z [(Oz \eand Cmz) \eif (z{=}x \eor z{=}y)]$. So another way to say that Mozart composed exactly two operas is:
+
+\begin{multline*}
+\exists x \exists y ((x {\neq} y  \eand  Ox \eand Oy \eand  Cmx \eand Cmy) \eand \\
+\forall z [(Oz \eand Cmz) \eif (z{=}x \eor z{=}y)])
+\end{multline*}
+
+So identity gives us a way to talk about quantities, albeit not a particularly efficient one.
+
+
+
+\section{Definite descriptions}
+\label{sec.defdesc}
+In 1905, Bertrand Russell famously characterized \emph{definite descriptions} in terms of identity. A definite description is a description that implies that only one object satisfies it. Paradigmatically, definite descriptions are ones that use the definite article `the'. If I say `the baby is hungry', I'm saying that the \emph{one and only baby we might be talking about} is hungry. Russell was motivated in part by the apparent fact that one can use this sort of language in a meaningful way even if one is wrong about whether there's any baby around. If there is no baby--- the crying I'm hearing is a recording--- my statement is false, but it's still meaningful. For this reason, Russell was reluctant to suppose that we should understand `the baby' as a name. Remember, in QL, all names have to refer to objects in the UD. Instead, my sentence can be understood as an existentially quantified claim about a unique baby. If I say `the baby is hungry', according to Russell, I'm in effect saying three things: there is a baby, there's no other baby than that one, and that baby is hungry. That second element, the uniqueness claim, can be expressed in QL with identity. 
+
+\begin{ekey}
+\item[UD:]People in this house
+\item[Bx:]$x$ is a baby.
+\item[Hx:]$x$ is hungry.
+\item[j:]Jonathan
+\end{ekey}
+
+A sentence like `Jonathan is hungry' is straightforwardly translated as $Hj$. According to Russell's theory of definite descriptions, `the baby is hungry' has a much more complex logical form: there is a baby $x$, there is no baby other than $x$, and $x$ is hungry.
+
+\begin{equation*}
+\exists x [Bx \eand \enot \exists y (By \eand y {\neq} x) \eand Hx]
+\end{equation*}
+
+One of the interesting features of Russell's theory is that `the baby is not hungry' is not the negation of `the baby is hungry'. Instead, the negation applies only to the hunger predication in the last conjunct:
+
+\begin{equation*}
+\exists x [Bx \eand \enot \exists y (By \eand y {\neq} x) \eand \enot Hx]
+\end{equation*}
+
+The reason Russell designed his theory this way was that he thought that both of these sentences equally implied that there is a baby. If there is no baby, then you'd be mistaken in saying either `the baby is hungry' or `the baby is not hungry'. Consequently, one can't be the negation of the other. As a treatment of the truth conditions of English sentences, Russell's theory is controversial. Some philosophers of language think that sentences that seem to presuppose the existence of something that isn't there aren't straightforwardly false, but are rather defective in some other way--- perhaps they fail to be meaningful at all, or perhaps they take on some truth value other than true or false. These matters are beyond our present scope. We will remain neutral on whether Russell's theory is an accurate treatment of English; it is relevant for us because it provides an interesting and useful case for translation of sentences into QL with identity.
+
+The general statement of Russell's theory of definite descriptions is, if you have a sentence applying a predicate \script{P} to the referent of a definite description \script{D}, translate it thus: there is something \script{x} that is \script{D}, there is nothing other than \script{x} that is \script{D}, and \script{x} is \script{P}.
+
+
+\section{Identity and trees}
+\label{sec.identity.trees}
+
+Because we have extended QL to include claims of identity, we also need to modify our tree system. Notice that if we do not do so, the system will not be complete. For example, the rules offered in Chapter \ref{ch.QLsoundcomplete} do not provide a way to demonstrate that $Fa, \enot Fb, a{=}b \models \bot$, even though those sentences are obviously inconsistent. Since each of those sentences are atoms or negated atoms in QL, there is nothing to resolve, and there is no contradiction to close the tree. We need to add new rules to deal with identity.
+
+Here is an obvious one:
+
+\factoidbox{If a branch contains an identity claim \script{a}{=}\script{b} and some sentence \metaA{}, then you may add \metaA{}\substitute{\script{a}}{\script{b}} or \metaA{}\substitute{\script{b}}{\script{a}} to the branch.}
+
+Recall that `\metaA{}\substitute{\script{a}}{\script{b}}' just means the sentence you get by replacing every `\script{a}' in \metaA{} with `\script{b}'. With this rule, we can easily demonstrate that the set of sentences mentioned above closes:
+
+\begin{prooftree}
+{
+to prove={\{Fa, \enot Fb, a{=}b\} \vdash{}\bot}
+}
+	[Fa
+	[\enot Fb, grouped
+	[a{=}b, grouped
+		[Fb, just={1, 3 =}, close={2, 4}]
+	]
+	]
+	]
+\end{prooftree}
+
+We will add this rule to our tree system. Notice that it is not a \emph{resolution} rule--- we do not put a check mark next to either sentence referenced. They may be used again.
+
+Since our tree system is supposed to be \emph{complete}, we need to \emph{ensure} that the tree will close; it's not enough that we have a rule that allows that it might. So, as in the case of the general rules discussed in Chapter \ref{ch.QLTrees}, we will also add an additional requirement governing branch completion. What we need is to make sure that we've made enough identity substitutions to demonstrate everything that needs demonstrating. The way we'll do this is by requiring, for every identity claim in the branch, that, for at least one of its directions (left-to-right or right-to-left) the substitution has been performed in that direction on every atomic sentence or negated atomic sentence in the branch.
+
+More precisely stated, an open branch is complete only if, for any identity claim $\script{a}{=}\script{b}$ in the branch, either, for any atomic sentence or negated atomic sentence \metaA{} containing \script{a} in the branch, \metaA{}\substitute{\script{a}}{\script{b}} is in the branch, or, for any atomic sentence or negated atomic sentence \metaA{} containing \script{b} in the branch, \metaA{}\substitute{\script{b}}{\script{a}} is in the branch.
+
+So, adding this requirement to the definition of branch completion given on page \pageref{branchcompletion.defined}, we get:
+
+\factoidbox{
+A branch is \define{complete} if and only if either (i) it is closed, or (ii) all of the following conditions are met:
+
+\begin{enumerate}
+\item Every resolvable sentence in the branch has been resolved;
+\item For every general quantified sentence \metaA{} and every name \script{a} in the branch, the \script{a} instance of \metaA{} is in the branch; and
+\item For every identity claim $\script{a}{=}\script{b}$ in the branch, either:
+	\begin{enumerate}
+	\item for every atomic sentence or negated atomic sentence \metaA{} containing \script{a} in the branch, \metaA{}\substitute{\script{a}}{\script{b}} is in the branch, or 
+	\item for every atomic sentence or negated atomic sentence \metaA{} containing \script{b} in the branch, \metaA{}\substitute{\script{b}}{\script{a}} is in the branch.
+	\end{enumerate}
+\end{enumerate}}
+
+We must also add one more rule to our tree system. Previously we said that branches only close when they contain some sentence along with its negation. We add one more condition that suffices for branch closure. If any branch contains a sentence $\script{a}{\neq}\script{a}$, then that branch closes. In no model can something be non-identical with itself.
+
+Adding this to the rule given on page \pageref{branchclosure.defined}:
+
+\factoidbox{
+A branch closes if and only if either (i) it contains some sentence \metaA{} along with its negation, \enot\metaA{}, or (ii) it contains, for some name \script{a}, the sentence $\script{a}{\neq}\script{a}$.
+}
+
+We need this rule, for example, to prove with a tree that $\forall x \:  a{=}x$ is inconsistent with $\exists x \:  x{\neq}a$:
+
+\begin{prooftree}
+{
+to prove={\{\forall x \: a{=}x, \exists x \: x{\neq}a\} \vdash \bot}
+}
+	[\forall x \:  a{=}x, subs={b}
+	[\exists x \:  x{\neq}a, grouped, checked=b
+		[b {\neq} a, just=2 $\exists$
+			[a{=}b, just=1 $\forall$
+				[b{\neq}b, just={3, 4 {=}}, close=4
+				]
+			]
+		]
+	]
+	]
+\end{prooftree}
+
+We must also take care, when constructing models from completed open branches, to respect identity claims. If for example the sentence $b{=}c$ appears in an open branch, we will not construct a model with two different objects, b and c--- instead, we'll just pick one of them as the object indicated, and assign both names to it. For example, consider this tree:
+
+\begin{prooftree}
+{}
+	[\forall x (Rax \eif x{=}b), subs={a, b, c}
+	[\exists x Rax, grouped, checked=c
+		[Rac, just=2 $\exists$
+			[Raa \eif a{=}b, just=1 $\forall$, checked
+			[Rab \eif b{=}b, grouped, just=1 $\forall$, checked
+			[Rac \eif c{=}b, grouped, just=1 $\forall$, checked
+				[\enot Rac, just=6 \eif, close={3, 7}
+				]
+				[c{=}b
+					[Rab, just={3, 7 {=}}
+						[\enot Rab, just=5 \eif, close={8, 9}]
+						[b{=}b
+							[\enot Raa, just=4 \eif, open
+							]
+							[a{=}b
+								[Rbb, just={8, 10 =}
+									[Rbc, just={3, 10 =}, open
+									]
+								]
+							]
+						]
+					]
+				]
+			]
+			]
+			]
+		]
+	]
+	]
+\end{prooftree}
+
+We end up with two open branches. We only need one to demonstrate that the root is satisfiable, but it is useful practice to consider both. Let's begin with the shorter open branch to the left, that completes at line 10. Examining that branch, we see three names, $a$, $b$, and $c$, and three atomic sentences concerning the extension of $R$: $Rac$, $Rab$, and $\enot Raa$. Using our previous method for constructing models, we would have posited a three-object UD and related those objects via $R$ in the appropriate way. Now, however, we also have identity claims to consider. There are two identity claims in the branch. $b{=}b$ doesn't tell us anything interesting--- of \emph{course} that object is identical with itself--- but the presence of $c{=}b$ indicates that our model will not include separate objects b and c. We'll only posit one object in the UD for those two names, and another object for $a$. We can pick either letter for the object; let's call it $b$. (Remember, it doesn't matter what kinds of objects we pick for the UD; it could be Reed Richards for all it matters. We typically pick letters because they are easy to keep track of.)
+
+So the model suggested by the first open branch here is:
+
+\begin{partialmodel}
+	UD & \{a, b\}\\
+	\referent{a} & a\\
+	\referent{b} & b\\
+	\referent{c} & b\\
+	\extension{R} & 
+	\begin{tabular}{l|lllll}
+	$Rxy$   & $a$ & $b$ \\ \hline
+	$a$   & 0 & 1   \\
+	$b$   & - & - \\
+	\end{tabular}
+\end{partialmodel}
+
+The longer open branch includes additional identity claims. It includes $a{=}b$ and $c{=}b$, which of course implies that all three of these names are names for the same object. So the UD for the model corresponding to the right branch will have only one object, which all three names denote.
+
+\begin{partialmodel}
+	UD & \{a\}\\
+	\referent{a} & a\\
+	\referent{b} & a\\
+	\referent{c} & a\\
+	\extension{R} & 
+	\begin{tabular}{l|lll}
+	$Rxy$   & $a$  \\ \hline
+	$a$   & 1    \\
+	\end{tabular}
+\end{partialmodel}
+
+It it sometimes helpful, for an intuitive grip on what is going on in these trees, to think about an English translation alongside the formalisms. For example, suppose that $Rxy$ is interpreted as `$x$ loves $y$'. Line 1 of the tree says that person $a$ loves at most one person; line 2 says that $a$ loves at least one person. The tree works out two ways that might be: the one and only person $a$ loves could be $a$, or it could be someone else.
+
+
+\practiceproblems
+
+\solutions
+\problempart
+\label{pr.QL-ID-spies}
+Using the symbolization key given, translate each English-language sentence into QL with identity. For sentences containing definite descriptions, assume Russell's theory.
+\begin{ekey}
+\item[UD:] people
+\item[Kx:] $x$ knows the combination to the safe.
+\item[Sx:] $x$ is a spy.
+\item[Vx:] $x$ is a vegetarian.
+\item[Txy:] $x$ trusts $y$.
+\item[h:] Hofthor
+\item[i:] Ingmar
+\end{ekey}
+\begin{earg}
+\item Hofthor is a spy, but no vegetarian is a spy.
+\item No one knows the combination to the safe unless Ingmar does.
+\item No spy knows the combination to the safe.
+\item Neither Hofthor nor Ingmar is a vegetarian.
+\item Hofthor trusts a vegetarian.
+\item Everyone who trusts Ingmar trusts a vegetarian.
+\item Everyone who trusts Ingmar trusts someone who trusts a vegetarian.
+\item Only Ingmar knows the combination to the safe.
+\item Ingmar trusts Hofthor, but no one else.
+\item The person who knows the combination to the safe is a vegetarian.
+\item The person who knows the combination to the safe is not a spy.
+\end{earg}
+
+\solutions
+\problempart
+\label{pr.QL-ID-cards}
+Using the symbolization key given, translate each English-language sentence into QL with identity. For sentences containing definite descriptions, assume Russell's theory.
+\begin{ekey}
+\item[UD:] cards in a standard deck
+\item[Bx:] $x$ is black.
+\item[Cx:] $x$ is a club.
+\item[Dx:] $x$ is a deuce.
+\item[Jx:] $x$ is a jack.
+\item[Mx:] $x$ is a man with an axe.
+\item[Ox:] $x$ is one-eyed.
+\item[Wx:] $x$ is wild.
+\end{ekey}
+\begin{earg}
+\item All clubs are black cards.
+\item There are no wild cards.
+\item There are at least two clubs.
+\item There is more than one one-eyed jack.
+\item There are at most two one-eyed jacks.
+\item There are exactly two black jacks.
+\item There are exactly four deuces.
+\item The deuce of clubs is a black card.
+\item One-eyed jacks and the man with the axe are wild.
+\item If the deuce of clubs is wild, then there is exactly one wild card.
+\item The man with the axe is not a jack.
+\item The deuce of clubs is not the man with the axe.
+\end{earg}
+
+\solutions
+\problempart
+\label{pr.QLbuffy}
+Using the symbolization key given, translate each English-language sentence into QL with identity.
+\begin{ekey}
+\item[UD:] people, generations, and monsters
+\item[Gx:] $x$ is a generation.
+\item[Hx:] $x$ is human.
+\item[Sx:] $x$ is a slayer.
+\item[Vx:] $x$ is a vampire.
+\item[Dx:] $x$ is a demon.
+\item[Wx:] $x$ is a werewolf.
+\item[Fx:] $x$ is a force of darkness.
+\item[Axy:] $x$ will stand against $y$.
+\item[Bxy:] $x$ is born in generation $y$.
+\item[Kxy:] $x$ will kick $y$.
+\item[b:] Buffy
+\item[f:] Faith
+\item[w:] Willow
+\end{ekey}
+\begin{earg}
+\item Buffy and Willow were born unto the same generation.
+\item There is no more than one slayer born in each generation.
+\item A slayer other than Buffy is one of the forces of darkness.
+\item Willow will stand against any force of darkness other than a werewolf.
+\item Faith will kick everyone except herself.
+\item Buffy will kick anyone who stands against a slayer, unless they are also kicking vampires or demons.
+\item In every generation a slayer is born.
+\item In every generation a slayer is born. She will stand against the vampires, demons, and forces of darkness.
+\item In every generation a slayer is born. She alone will stand against the vampires, demons, and forces of darkness.
+\end{earg}
+
+
+
+\problempart Using the symbolization key given, translate each English-language sentence into QL with identity. For sentences containing definite descriptions, assume Russell's theory.
+\begin{ekey}
+\item[UD:] animals in the world
+\item[Bx:] $x$ is in Farmer Brown's field.
+\item[Hx:] $x$ is a horse.
+\item[Px:] $x$ is a Pegasus.
+\item[Wx:] $x$ has wings.
+\end{ekey}
+\begin{earg}
+\item There are at least three horses in the world.
+\item There are at least three animals in the world.
+\item There is more than one horse in Farmer Brown's field.
+\item There are three horses in Farmer Brown's field.
+\item There is a single winged creature in Farmer Brown's field; any other creatures in the field must be wingless.
+\item The Pegasus is a winged horse.
+\item The animal in Farmer Brown's field is not a horse.
+\item The horse in Farmer Brown's field does not have wings.
+\end{earg}
+
+\solutions
+\problempart Construct a model to demonstrate each of the following. If you wish, you can draw a tree to help you answer these questions; however, it is good conceptual practice to tackle some of these questions directly by thinking about just what you'd need to put in your model.
+\label{pr.IdentityModels}
+\begin{earg}
+\item Show that $\{{\enot}Raa, \forall x (x{=}a \eor Rxa)\}$
+is consistent.
+%There are many possible answers. Here is one:
+%\begin{partialmodel}
+%UD & \{Harry, Sally\}\\
+%\extension{R} &\{\ntuple{Sally, Harry}\}\\
+%\referent{a} & Harry
+%\end{partialmodel}
+\item\ Show that $\{\forall x\forall y\forall z(x{=}y \eor y{=}z \eor x{=}z),
+\exists x\exists y\ x{\neq} y\}$ is consistent.
+%There are no predicates or constants, so we only need to give a UD.
+%Any UD with 2 members will do.
+\item\ Show that $\{\forall x\forall y\ x{=}y, \exists x\ x {\neq} a\}$ is inconsistent.
+%We need to show that it is impossible to construct a model in which these are both true. Suppose $\exists x\ x {\neq} a\$ is true in a model. There is something in the universe of discourse that is \emph{not} the referent of $a$. So there are at least two things in the universe of discourse: \referent{a} and this other thing. Call this other thing \metaB{}--- we know $a {\neq} \metaB{}$. But if $a {\neq} \metaB{}$, then $\forall x\forall y\ x=y$ is false. So the first sentence must be false if the second sentence is true is true. As such, there is no model in which they are both true. Therefore, they are inconsistent.
+\item Show that $\exists x (x {=} h \eand x {=} i)$ is contingent.
+\item Show that \{$\exists x\exists y(Zx \eand Zy \eand x{=}y)$, $\enot Zd$, $d{=}s$\} is consistent.
+\item Show that `$\forall x(Dx \eif \exists y Tyx)$ \therefore\ $\exists y \exists z\ y{\neq} z$' is invalid.
+\end{earg}
+
+\solutions
+\problempart Construct a tree to test the following entailment claims. If they are false, provide a model that demonstrates this.
+\label{pr.IdentityTrees}
+\begin{earg}
+\item\  $\models \forall x \forall y (x{=}y \eif y{=}x)$
+\item\ $\models \forall x \exists y \: x{=}y$
+\item\  $\models \exists x \forall y \: x{=}y$
+\item   $\exists x \forall y \: x{=}y \models \forall x \forall y (Rxy \eiff Ryx)$
+\item   $\models \enot \forall x \forall y \forall z [(Axy \eand Azx \eand y{=}z) \eif Axx] $
+\item  $\forall x \forall y \: x{=}y \models \exists x Fx \eiff \forall x Fx$
+\item $\forall x (x{=}a \eor x{=}b), Ga \eiff \enot Gb \models \enot \exists x \exists y \exists z (Gx \eand Gy \eand \enot Gz)$
+\item $\forall x (Fx \eif x{=}f), \exists x (Fx \eor \forall y \: y{=}x) \models Ff$
+\item $\exists x \exists y Dxy \models \forall x_{1} \forall x_{2} \forall x_{3} \forall x_{4} [(Dx_{1}x_{2} \eand Dx_{3}x_{4} \eif (x_{2}{\neq}x_{3} \eor Dx_{1}x_{4})]$
+\end{earg}
+
+\problempart In \S \ref{sec.quantity} we looked at two different translations of `Mozart wrote exactly two operas'. Use trees to prove that they are equivalent.
+
+\problempart Translate these arguments into QL with identity, and evaluate them for validity with a tree. (Don't be surprised or discouraged if some of these trees end up very complex.)
+\label{pr.IdentityArguments}
+\begin{earg}
+\item Dudley will threaten anyone who threatens anyone. Therefore, Dudley will threaten himself.
+\item The exam is easy. Therefore every exam Sheila took was easy. (Use Russell's theory of definite descriptions.)
+\item Three wise men visited Jesus. Every wise man who visited Jesus gave Jesus a gift. Therefore, Jesus received more than one gift.
+\item Worf is the only Klingon in Starfleet. Everyone in Starfleet is brave. All brave Klingons are warriors. Therefore, there is at least one brave warrior in Starfleet.
+\item Worf is the only Klingon in Starfleet. Everyone in Starfleet is brave. All brave Klingons are warriors. Therefore, there is exactly one brave warrior in Starfleet.
+\item Every person likes every kind of sandwich that is tasty. Jack is a person. Jack likes exactly one kind of sandwich. Therefore, no more than one kind of sandwich is tasty.
+\end{earg}

@@ -1,0 +1,615 @@
+%!TEX root = forallx-ubc.tex
+\addcontentsline{toc}{chapter}{C\ Quick Reference}
+\pagestyle{plain}
+{\LARGE \bf Quick Reference}
+
+\section*{Characteristic Truth Tables}
+\label{app.CharacteristicTTs}
+
+%\hfill
+%\begin{tabular}{c|c}
+%\metaA{} & \enot\metaA{}\\
+%\hline
+%T & F\\
+%F & T 
+%\end{tabular}
+%\hfill
+%\begin{tabular}{c|c|c|c|c|c}
+%\metaA{} & \metaB{} & \metaA{}\eand\metaB{} & \metaA{}\eor\metaB{} & \metaA{}\eif\metaB{} & \metaA{}\eiff\metaB{}\\
+%\hline
+%T & T & T & T & T & T\\
+%T & F & F & T & F & F\\
+%F & T & F & T & T & F\\
+%F & F & F & F & T & T
+%\end{tabular}
+%\hfill
+
+%\vfill
+
+
+\hfill
+\begin{tabular}{c|c}
+\metaA{} & \enot\metaA{}\\
+\hline
+1 & 0\\
+0 & 1 
+\end{tabular}
+\hfill
+\begin{tabular}{c|c|c|c|c|c}
+\metaA{} & \metaB{} & \metaA{}\eand\metaB{} & \metaA{}\eor\metaB{} & \metaA{}\eif\metaB{} & \metaA{}\eiff\metaB{}\\
+\hline
+1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 1 & 0 & 0\\
+0 & 1 & 0 & 1 & 1 & 0\\
+0 & 0 & 0 & 0 & 1 & 1
+\end{tabular}
+\hfill
+
+\vfill
+
+
+\section*{Symbolization}
+\begin{center}
+\label{app.symbolization}
+\begin{tabular*}{\textwidth}{rl}
+\multicolumn{2}{c}{\textsc{Sentential Connectives} (chapter \ref{ch.SL})}\\ \\
+It is not the case that $P$. & $\enot P$\\
+Either $P$, or $Q$. & $(P \eor Q)$\\
+Neither $P$, nor $Q$. & $\enot(P \eor Q)$\ or \ $(\enot P \eand \enot Q)$\\
+Both $P$, and $Q$. & $(P \eand Q)$\\
+If $P$, then $Q$. & $(P \eif Q)$\\
+$P$ only if $Q$. & $(P \eif Q)$\\
+$P$ if and only if $Q$. & $(P \eiff Q)$\\
+Unless $P$, $Q$. $P$ unless $Q$. & $(P \eor Q)$\\
+\\
+\multicolumn{2}{c}{\label{SymbolizingPredicates}\textsc{Predicates} (chapter \ref{ch.QL})}\\ \\
+All $F$s are $G$s. & $\forall x(Fx \eif Gx)$\\
+Some $F$s are $G$s. & $\exists x(Fx \eand Gx)$\\
+Not all $F$s are $G$s. & $\enot\forall x(Fx \eif Gx)$\ or\ $\exists x(Fx \eand \enot Gx)$\\
+No $F$s are $G$s. & $\forall x(Fx \eif\enot Gx)$\ or\ $\enot\exists x(Fx \eand Gx)$\\
+\\
+\multicolumn{2}{c}{\textsc{Identity} (chapter \ref{ch.identity})}\\ \\
+Only $j$ is $G$. & $\forall x(Gx \eiff x{=}j)$\\
+Everything besides $j$ is $G$. & $\forall x(x {\neq} j \eif Gx)$\\
+%$j$ is more $R$ than anyone else. & $\forall x(x\neq j \eif Rjx)$\\
+The $F$ is $G$. & $\exists x(Fx \eand \forall y(Fy \eif x{=}y) \eand Gx)$\\
+The $F$ is not $G$. & $\exists x(Fx \eand \forall y(Fy \eif x{=}y) \eand \enot Gx)$\\
+%
+%\multicolumn{2}{l}{`The F is not G' can be translated two ways:} \\
+%It is not the case that the F is G. (wide)& $\enot\exists x(Fx \eand \forall y(Fy \eif x{=}y) \eand Gx)$\\
+%The $F$ is non-$G$. (narrow) & $\exists x(Fx \eand \forall y(Fy \eif x{=}y) \eand \enot Gx)$
+\end{tabular*}
+\end{center}
+
+
+\newpage
+
+%  BEGIN: Rules of proof
+% change margins so that all the rules will fit
+\setlength{\topmargin}{0 in}
+\setlength{\headheight}{0 in}
+\setlength{\headsep}{0 in}
+\setlength{\textheight}{9 in}
+\setlength{\evensidemargin}{0.25 in}
+\setlength{\oddsidemargin}{0.25 in}
+\setlength{\textwidth}{6 in}
+
+\pagenumbering{gobble}
+
+\label{Tree Rules}
+{\LARGE \bf Sentential Tree Rules}
+
+
+\begin{multicols}{3}
+
+%row1col1
+\begin{quote}\framebox{\parbox[][75px][c]{\linewidth}{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eand\metaB{}
+	[\metaA{}
+	[\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+}}
+\end{quote}
+
+
+
+%row2col1 - not or
+\begin{quote}\framebox{\parbox[][75px][c]{\linewidth}{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eor\metaB{})
+	[\enot\metaA{}
+	[\enot\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+}}
+\end{quote}
+
+%row3col1 - iff
+\begin{quote}\framebox{\parbox[][75px][c]{\linewidth}{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eiff\metaB{}
+	[\metaA{}
+		[\metaB{}, grouped]
+	]
+	[\enot\metaA{}
+		[\enot\metaB{}, grouped]
+	]
+]
+\end{prooftree}
+\end{center}}}
+\end{quote}
+
+%row1col2
+\begin{quote}\framebox{\parbox[][75px][c]{\linewidth}{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eand\metaB{})
+	[\enot\metaA{}]
+	[\enot\metaB{}]
+]
+\end{prooftree}
+\end{center}
+}}
+\end{quote}
+
+%row2col2 - if
+\begin{quote}\framebox{\parbox[][75px][c]{\linewidth}{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eif\metaB{}
+	[\enot\metaA{}]
+	[\metaB{}]
+]
+\end{prooftree}
+\end{center}}}
+\end{quote}
+
+%row3col2 - not iff
+\begin{quote}\framebox{\parbox[][75px][c]{\linewidth}{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eiff\metaB{})
+	[\metaA{}
+		[\enot\metaB{}, grouped]
+	]
+	[\enot\metaA{}
+		[\metaB{}, grouped]
+	]
+]
+\end{prooftree}
+\end{center}
+}}
+\end{quote}
+
+%row1col3 - or
+\begin{quote}\framebox{\parbox[][75px][c]{\linewidth}{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eor\metaB{}
+	[\metaA{}]
+	[\metaB{}]
+]
+\end{prooftree}
+\end{center}
+}}
+\end{quote}
+
+%row2col3 - not if
+\begin{quote}\framebox{\parbox[][75px][c]{\linewidth}{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eif\metaB{})
+	[\metaA{}
+	[\enot\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+}}
+\end{quote}
+
+%row3col3 dn
+\begin{quote}\framebox{\parbox[][75px][c]{\linewidth}{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot\enot\metaA{}
+	[\metaA{}]
+]
+\end{prooftree}
+\end{center}
+}}
+\end{quote}
+
+
+
+\end{multicols}
+
+{\LARGE \bf Quantifier Tree Rules}
+
+
+\begin{multicols}{2}
+
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\exists\script{x}\metaA{}, checked={\script{a}}
+	[\metaA{}\substitute{\script{x}}{\script{a}}]
+]
+\end{prooftree}
+
+*\script{a} must be new
+\end{center}
+}
+
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\forall\script{x}\metaA{}, subs=\script{a} 
+	[\metaA{}\substitute{\script{x}}{\script{a}}
+	]
+]
+\end{prooftree}
+
+for any \script{a}
+\end{center}
+}
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot\exists\script{x}\metaA{}, subs=\script{a} 
+	[\enot\metaA{}\substitute{\script{x}}{\script{a}}
+	]
+]
+\end{prooftree}
+
+for any \script{a}
+\end{center}
+}
+
+\label{notall-treerule}
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot\forall\script{x}\metaA{}, checked={\script{a}}
+	[\enot\metaA{}\substitute{\script{x}}{\script{a}}
+	]
+]
+\end{prooftree}
+
+*\script{a} must be new
+\end{center}
+}
+
+\end{multicols}
+
+
+
+
+\newpage
+
+
+% This starts a new page and skips a page if necessary so as
+% to start on an even numbered page.
+% That way, the rules of proof will be on facing pages.
+% It fills it in with a somewhat gratuitous reference table.
+%\ifthenelse{\isodd{\thepage}}{
+%	\ \vspace{2 in}\par\centerline{[ This page intentionally left blank. ]}
+%\begin{table}
+%	Sometimes it is easier to show something by providing proofs than it is by providing models. Sometimes it is the other way round.
+%	\begin{center}
+%	\begin{tabular*}{\textwidth}{p{10em}|p{10em}|p{10em}|}
+%	\cline{2-3}
+%	 & {\centerline{YES}} & {\centerline{NO}}\\
+%	\cline{2-3}
+%	Is \metaA{} a tautology? & prove $\vdash\metaA{}$ & give a model in which \metaA{} is false\\
+%	\cline{2-3}
+%	Is \metaA{} a contradiction? &  prove $\vdash\enot\metaA{}$ & give a model in which \metaA{} is true\\
+%	\cline{2-3}
+%	Is \metaA{} contingent? & give a model in which \metaA{} is true and another in which \metaA{} is false & prove $\vdash\metaA{}$ or $\vdash\enot\metaA{}$\\
+%	\cline{2-3}
+%	Are \metaA{} and \metaB{} equivalent? & prove \mbox{$\metaA{}\vdash\metaB{}$} and \mbox{$\metaB{}\vdash\metaA{}$}  & give a model in which \metaA{} and \metaB{} have different truth values\\
+%	\cline{2-3}
+%	Is the set \model{A} consistent? & give a model in which all the sentences in \model{A} are true & taking the sentences in \model{A}, prove \metaB{} and \enot\metaB{}\\
+%	\cline{2-3}
+%	Is the argument \mbox{`\script{P}, \therefore\ \metaC{}'} valid? & prove $\script{P}\vdash\metaC{}$ & give a model in which \script{P} is true and \metaC{} is false\\
+%	\cline{2-3}
+%	\end{tabular*}
+%	\end{center}
+%\end{table}
+%	\newpage
+%}{}
+% eliminate page numbers
+
+
+
+
+
+\pagestyle{empty}
+\twocolumn
+
+
+{\LARGE \bf Natural Deduction Rules}
+\label{nd-proofrules}
+\textsc{Reiteration}
+
+\begin{proof}
+	\have[m]{a}{\metaA{}}
+	\have[\ ]{c}{\metaA{}} \by{R}{a}
+\end{proof}
+
+
+\textsc{Conjunction Introduction}
+
+\begin{proof}
+	\have[m]{a}{\metaA{}}
+	\have[n]{b}{\metaB{}}
+	\have[\ ]{c}{\metaA{}\eand\metaB{}} \ai{a, b}
+\end{proof}
+
+\textsc{Conjunction Elimination}
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eand\metaB{}}
+	\have[\ ]{a}{\metaA{}} \ae{ab}
+	\have[\ ]{b}{\metaB{}} \ae{ab}
+\end{proof}
+
+
+\textsc{Disjunction Introduction}
+
+\begin{proof}
+	\have[m]{a}{\metaA{}}
+	\have[\ ]{ab}{\metaA{}\eor\metaB{}}\oi{a}
+	\have[\ ]{ba}{\metaB{}\eor\metaA{}}\oi{a}
+\end{proof}
+
+\textsc{Disjunction Elimination}
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eor\metaB{}}
+	\have[n]{nb}{\enot\metaB{}}
+	\have[\ ]{a}{\metaA{}} \oe{ab,nb}
+\end{proof}
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eor\metaB{}}
+	\have[n]{na}{\enot\metaA{}}
+	\have[\ ]{b}{\metaB{}} \oe{ab,nb}
+\end{proof}
+
+
+\textsc{Conditional Introduction}
+
+\nopagebreak
+\begin{proof}
+	\open
+		\hypo[m]{a}{\metaA{}} \by{want \metaB{}}{}
+		\have[n]{b}{\metaB{}}
+	\close
+	\have[\ ]{ab}{\metaA{}\eif\metaB{}}\ci{a-b}
+\end{proof}
+
+\pagebreak
+\textsc{Conditional Elimination}
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{a}{\metaA{}}
+	\have[\ ]{b}{\metaB{}} \ce{ab,a}
+\end{proof}
+
+\textsc{Biconditional Introduction}
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{ba}{\metaB{}\eif\metaA{}}
+	\have[\ ]{c}{\metaA{}\eiff\metaB{}} \bi{ab, ba}
+\end{proof}
+
+\textsc{Biconditional Elimination}
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eiff\metaB{}}
+	\have[n]{a}{\metaB{}}
+	\have[\ ]{b}{\metaA{}} \be{ab,a}
+\end{proof}
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eiff\metaB{}}
+	\have[n]{a}{\metaA{}}
+	\have[\ ]{b}{\metaB{}} \be{ab,a}
+\end{proof}
+
+
+
+\textsc{Negation Introduction}
+
+\begin{proof}
+\open
+	\hypo[m]{na}\metaA{}\by{for reductio}{}
+	\have[n]{b}\metaB{}
+	\have[o]{nb}{\enot\metaB{}}
+\close
+\have[p]{a}[\ ]{\enot\metaA{}}\ni{na-b, na-nb}
+\end{proof}
+
+\textsc{Negation Elimination}
+
+\begin{proof}
+\open
+	\hypo[m]{na}{\enot\metaA{}}\by{for reductio}{}
+	\have[n]{b}\metaB{}
+	\have[o]{nb}{\enot\metaB{}}
+\close
+\have[p]{a}[\ ]\metaA{}\ne{na-b, na-nb}
+\end{proof}
+
+
+
+
+
+
+\newpage
+
+{\LARGE \bf Quantifier Rules}
+
+\textsc{Existential Introduction}
+
+\begin{proof}
+	\have[m]{a}{\metaA{}}
+	\have[\ ]{c}{\exists \script{x}\metaA{}\substitutesome{\script{c}^\ast}{\script{x}}} \Ei{a}
+\end{proof}
+
+$^\ast$ \script{x} may replace some or all occurrences of \script{c}.
+
+
+
+\textsc{Existential Elimination}
+
+\begin{proof}
+	\have[m]{a}{\exists \script{x}\metaA{}}
+	\open	
+		\hypo[n]{b}{\metaA{}\substitute{\script{x}}{\script{c}^\ast}}
+		\have[p]{c}{\metaB{}}
+	\close
+	\have[\ ]{d}{\metaB{}} \Ee{a,b-c}
+\end{proof}
+
+$^\ast$ \script{c} must not appear outside the subproof.
+
+\textsc{Universal Introduction}
+
+\begin{proof}
+	\have[m]{a}{\metaA{}}
+	\have[\ ]{c}{\forall \script{x}\metaA{}\substitute{\script{c}}{\script{x}}} \Ai{a}
+\end{proof}
+
+\script{c} must not occur in any undischarged assumptions.
+
+
+\textsc{Universal Elimination}
+
+\begin{proof}
+	\have[m]{a}{\forall \script{x}\metaA{}}
+	\have[\ ]{c}{\metaA{}\substitute{\script{x}}{\script{c}}} \Ae{a}
+\end{proof}
+
+
+
+
+{\LARGE \bf Identity Rules}
+
+\begin{proof}
+	\have[\ \,\,\,]{x}{\script{c}{=}\script{c}} \by{=I}{}
+\end{proof}
+
+\begin{proof}
+	\have[m]{e}{\script{c}{=}\script{d}}
+	\have[n]{a}{\metaA{}}
+	\have[\ ]{ea1}{\metaA{}\substitutesome{c}{d}} \by{=E}{e,a}
+	\have[\ ]{ea2}{\metaA{}\substitutesome{d}{c}} \by{=E}{e,a}
+\end{proof}
+
+One constant may replace some or all occurrences of the other.
+
+
+
+
+
+\newpage
+
+{\LARGE \bf Derived Rules}
+
+\textsc{Dilemma}
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eor\metaB{}}
+	\have[n]{ac}{\metaA{}\eif\metaC{}}
+	\have[p]{bc}{\metaB{}\eif\metaC{}}
+	\have[\ ]{a}{\metaC{}} \by{DIL}{ab,ac,bc}
+\end{proof}
+
+\textsc{Modus Tollens}
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{a}{\enot\metaB{}}
+	\have[\ ]{b}{\enot\metaA{}} \by{MT}{ab,a}
+\end{proof}
+
+\textsc{Hypothetical Syllogism}
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{bc}{\metaB{}\eif\metaC{}}
+	\have[\ ]{ac}{\metaA{}\eif\metaC{}}\by{HS}{ab,bc}
+\end{proof}
+
+
+
+{\LARGE \bf Replacement Rules}
+{
+\center
+
+\textsc{Commutativity} (Comm)\\
+$(\metaA{}\eand\metaB{}) \Longleftrightarrow (\metaB{}\eand\metaA{})$\\
+$(\metaA{}\eor\metaB{}) \Longleftrightarrow (\metaB{}\eor\metaA{})$\\
+$(\metaA{}\eiff\metaB{}) \Longleftrightarrow (\metaB{}\eiff\metaA{})$
+
+\textsc{DeMorgan} (DeM)\\
+$\enot(\metaA{}\eor\metaB{}) \Longleftrightarrow (\enot\metaA{}\eand\enot\metaB{})$\\
+$\enot(\metaA{}\eand\metaB{}) \Longleftrightarrow (\enot\metaA{}\eor\enot\metaB{})$
+
+\textsc{Double Negation} (DN)\\
+$\enot\enot\metaA{} \Longleftrightarrow \metaA{}$
+
+\textsc{Material Conditional} (MC)\\
+$(\metaA{}\eif\metaB{}) \Longleftrightarrow (\enot\metaA{}\eor\metaB{})$\\
+$(\metaA{}\eor\metaB{}) \Longleftrightarrow (\enot\metaA{}\eif\metaB{})$
+
+\textsc{Biconditional Exchange} ({\eiff}{ex})\\
+$[(\metaA{}\eif\metaB{})\eand(\metaB{}\eif\metaA{})] \Longleftrightarrow (\metaA{}\eiff\metaB{})$
+
+\textsc{Quantifier Negation} (QN)\\
+$\enot\forall\script{x}\metaA{} \Longleftrightarrow \exists\script{x}\enot\metaA{}$\\
+$\enot\exists\script{x}\metaA{} \Longleftrightarrow \forall\script{x}\enot\metaA{}$
+
+}
+
+
+

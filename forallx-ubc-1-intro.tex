@@ -1,0 +1,437 @@
+%!TEX root = forallx-ubc.tex
+\chapter{What is logic?}
+\label{ch.intro}
+
+Logic is the business of evaluating arguments, sorting good ones from bad ones. In everyday language, we sometimes use the word `argument' to refer to belligerent shouting matches. If you and a friend have an argument in this sense, things are not going well between the two of you. This is not the kind of `argument' that will concern us. Arguments in the logical sense aren't events that happen between people; a logical argument is structured to give someone a reason to believe some conclusion. Here are two examples of such arguments:
+
+\label{argRaining}
+\begin{earg}
+\item[(1)] It is raining heavily.
+\item[(2)] When it rains, everyone outside without an umbrella gets wet.
+\item[\therefore] You should take an umbrella.
+\end{earg}
+
+
+\label{argSnowing}
+\begin{earg}
+\item[(1)] It is either raining or snowing.
+\item[(2)] If it is colder than -10 degrees, it is not raining.
+\item[(3)] It is -18 degrees.
+\item[\therefore] It is snowing.
+\end{earg}
+ 
+The three dots on the last line of each argument mean `Therefore' and they indicate that the final sentence is the \emph{conclusion} of the argument. The other sentences are \emph{premises} of the argument. If you believe the premises, then the argument provides you with a reason to believe the conclusion.
+
+This chapter discusses some basic logical notions that apply to arguments in a natural language like English. It is important to begin with a clear understanding of what arguments are and of what it means for an argument to be valid. Later we will translate arguments from English into a formal language. We want formal validity, as defined in the formal language, to have at least some of the important features of natural-language validity.
+
+\section{Arguments}
+A crucial part of analyzing an argument is identifying its conclusion. Every argument has a conclusion--- the conclusion is the claim the argument is trying to establish. Premises are starting-points, used to lend support to the conclusion. Often, the conclusion will be signified by words like `so' or `therefore'. Premises might be marked by words like `because'. These words can give a clue as to just what the argument is supposed to be.
+
+\begin{description}
+\item[premise indicators:] since, because, given that
+\item[conclusion indicators:] therefore, hence, thus, then, so
+\end{description}
+\nix{could expand this list}
+
+In a natural language like English, \emph{sometimes}, arguments start with their premises and end with their conclusions, but not always. For some purposes in this course, we will be working with \emph{idealizations} of natural language, where we work as if some generally applicable rules of thumb held without exception. Let's define (a slightly technical notion of) an \define{argument} as a series of sentences. The sentences at the beginning of the series are premises. The final sentence in the series is the conclusion.
+
+Here is an example of an argument:
+
+\begin{earg}
+\item[] People get wet whenever it rains.
+\item[] It often rains in Vancouver.
+\item[\therefore] People often get wet in Vancouver.
+\end{earg}
+
+The idea of an argument is that the premises are supposed to give you reason to accept the conclusion. If I'm trying to convince you that people often get wet in Vancouver--- the conclusion of the argument above--- convincing you of the two premises might be a good way to get you there.
+
+Notice that our definition of an argument is quite general. Consider this example:
+\begin{earg}
+\item[] Vancouver has more churches than any other Canadian city.
+\item[] Two oboes are fighting a duel under the fireworks.
+\item[\therefore] J.\ Edgar Hoover was an honest man.
+\end{earg}
+
+It may seem odd to call this an argument, but that is because it would be a {terrible} argument. The two premises have nothing at all to do with the conclusion. (Moreover, they aren't very plausible.) Nevertheless, given our definition, it still counts as an argument--- albeit a bad one. One of our central aims in formal logic is to provide rigorous, formal tests for evaluating arguments.
+
+
+\section{Sentences and propositions}
+\label{intro.sentences}
+
+The premises and conclusions of arguments are sentences. But not just any English sentence is suitable for figuring into an argument. For example, questions count as grammatical sentences of English, but logical arguments never have questions as premises or conclusions. We are interested especially in sentences that can be true or false. Think of these as the sentences that purport to describe the way things are. Such sentences are sometimes described as expressing \emph{propositions}.
+
+We will not be theorizing in terms of questions and other non-propositional sentences in formal logic. Since we are only interested in sentences that can figure as a premise or conclusion of an argument, we'll define a technical notion of a \define{sentence} as a sentence expressing a proposition, i.e., a sentence that can be true or false.
+
+Don't confuse the idea of a sentence that can be true or false with the difference between fact and opinion. Often, sentences in logic will express things that would count as facts--- such as `Kierkegaard was a hunchback' or `Kierkegaard liked almonds.' They can also express things that you might think of as matters of opinion--- such as, `Almonds are yummy' or `the U.S.\ invasion of Iraq was unjustified'. These are all examples of things that are either true or false.
+
+It is also important to keep clear the distinction between something's being \emph{true} and something's being \emph{known}. A sentence is the kind of thing that can be true or false; that doesn't mean you'll always be able to tell whether it is true or false. For example, `there are an even number of humans on Earth right now' is a sentence. It is either true or false, even though it is pretty much impossible to tell which. Similarly, there are controversial propositions, where people disagree about whether they are true or false, and where it seems very difficult to settle the debate. (I think that `Freedom of expression requires restricting oppressive speech' is an example.) This is either true or false, even if debates about which it is aren't likely to resolve the question. So it counts as a propositional sentence.
+
+What are some examples of grammatical English sentences that do not express propositions? We've discussed one category already:
+
+\paragraph{Questions} In a grammar class, `Are you sleepy yet?' would count as an interrogative sentence. Although you might be sleepy or you might be alert, the question itself is neither true nor false. So `Are you sleepy yet?' is not a sentence in our technical, propositional sense. Suppose you answer the question: `I am not sleepy.' This \emph{is} either true or false, and so it \emph{is} a sentence in the logical sense. Generally, \emph{questions} will not count as sentences, but \emph{answers} will. 
+
+`What is this course about?' is not a sentence. `No one knows what this course is about' is a sentence.
+
+\paragraph{Imperatives} Commands are often phrased as imperatives like `Wake up!', `Sit up straight', and so on. In a grammar class, these would count as imperative sentences. Although it might be good for you to sit up straight or it might not, the command is neither true nor false. Note, however, that commands are not always phrased as imperatives. `You will respect my authority' \emph{is} either true or false--- either you will or you will not--- and so it counts as a sentence in the logical sense.
+
+\paragraph{Exclamations} Expressions like `Ouch!' or `Boo, Yankees!' are sometimes described as exclamatory sentence, but they are neither true nor false. We will treat `Ouch, I hurt my toe!' as meaning the same thing as `I hurt my toe.' The `ouch' does not add anything that could be true or false.
+
+To recap: \emph{sentences}, in the technical sense we're interested in, are claims that can be true or false. One pretty good test you can run to see whether something is a sentence is to ask whether it makes sense to insert `it is true that' or `it is false that' in front of it. It's perfectly fine to say `it is true that Kierkegaard liked almonds' or `it is true that the U.S.\ invasion of Iraq was unjustified'. But it doesn't make sense to say `it is true that are you sleepy yet' or `it is true that sit up straight'.
+
+We will call truth or falsity the \define{truth-value} of a sentence.
+
+
+
+\section{Two ways that arguments can go wrong}
+Consider the argument that you should take an umbrella (on p.~\pageref{argRaining}, above).
+
+\begin{earg}
+\item[(1)] It is raining heavily.
+\item[(2)] When it rains, everyone outside without an umbrella gets wet.
+\item[\therefore] You should take an umbrella.
+\end{earg}
+
+If premise (1) is false--- if it is sunny outside--- then the argument fails. It does not establish that you should take an umbrella. Or suppose that premise (2) is false. Maybe not everyone without an umbrella gets wet. (Maybe some people are able to stay under the awnings.) In this case, too, the argument does not establish its conclusion. Arguments only succeed when all their premises are true.
+
+Suppose both premises \emph{are} true. It really is raining heavily, and we're talking about an area where there's no protection from the rain other than umbrellas, so that anyone outside without an umbrella will get wet when it rains. Now does the argument show you that you should take an umbrella? It certainly seems to lend some support in that direction. But notice that it's still not \emph{conclusive}. There are still \emph{possible} ways the conclusion might be false. For example, suppose you like getting wet. Then, even if it is raining heavily, and even if everyone who goes outside without an umbrella when it rains gets wet, maybe you have no reason to take the umbrella.
+
+A good argument--- or at least, an argument that is good in one particularly interesting way--- \emph{compels} its conclusion.
+
+So it seems that there are two ways an argument could be weak. First, one or more of the premises might be false. An argument gives you a reason to believe its conclusion only if you believe its premises. Second, the premises might fail to support the conclusion, or fail to support it sufficiently strongly. Even if the premises were true, the form of the argument might be weak. The example we just considered is weak in both ways.
+
+Once again, we are working with a particular kind of idealization regarding arguments and what makes them good. Consider another example:
+\begin{earg}
+\item[] You are reading this book.
+\item[] This is a logic book.
+\item[\therefore] You are a logic student.
+\end{earg}
+In a straightforward and ordinary sense, this is not a terrible argument. The premises are true. And they do offer some support for the conclusion. Most people who read this book are logic students. Still, it is \emph{possible} for someone besides a logic student to read this book. If the deans carefully read this book in order to find out whether I'm criticizing the UBC administration, that wouldn't make them logic students. So the premises of this argument, even though they are true, do not guarantee the truth of the conclusion.
+
+By contrast, the sample argument about snow \emph{is} valid. There's just no possible way for all three of its premises to be true without it snowing.
+
+In logic, we are interested in arguments whose premises \emph{guarantee} their conclusions. We call such arguments `deductively valid' or just `valid.' Even though we might count the rain argument, or the logic book argument, as a good argument in some sense, they are not valid; that is, they are `invalid.' One important task of logic is to sort valid arguments from invalid arguments.
+
+\section{Validity}
+\label{sec:validity}
+An argument is deductively \define{valid} if and only if it is impossible for all the premises to be true while the conclusion is false. (We'll say a bit more about just what we mean by `impossible' in \S\ref{sec.impossible} below.)
+
+That's our official \emph{definition} of validity. Once again (get used to this pattern), our formal definition is related to, but not quite the same as, the ordinary colloquial notion with the same name. In ordinary English, to say something is `valid' means, somewhat vaguely, that it is good. (Think of a `valid point' or a `valid perspective'.) In logic, a valid argument is one that has this very specific feature: it's impossible for the premises to be true if the conclusion is false. (Side note: this is a good terminological distinction to keep in mind when writing essays in philosophy courses. Philosophy professors tend to wince and get annoyed when students use the word `valid' in its imprecise sense. You can help stay on their good sides by only saying something is `valid' when you mean that it is an argument whose premises are inconsistent with the falsity of its conclusion.)
+
+Notice that validity does \emph{not} require that the premises be true. Consider this example:
+
+\begin{earg}
+\item[(1)] Oranges are either fruits or musical instruments.
+\item[(2)] Oranges are not fruits.
+\item[\therefore] Oranges are musical instruments.
+\end{earg}
+
+This is a valid argument. It is impossible for the premises to be true if the conclusion is false. Since it has a false premise--- premise (2)--- it does not actually establish its conclusion, but it does have a \emph{valid logical form}. \emph{If} both premises were true, \emph{then} the conclusion would necessarily be true.
+
+Since this is a valid argument that is, in some important sense, a bad argument, this shows that validity isn't the only feature we care about in arguments. An argument is \define{sound} if and only if it is valid and all of its premises are true. For example, this variant argument on the above argument is sound:
+
+\begin{earg}
+\item[(1)] Oranges are either fruits or musical instruments.
+\item[(2)] Oranges are not musical instruments.
+\item[\therefore] Oranges are fruits.
+\end{earg}
+
+ For reasons that will emerge, logic tends to focus primarily on validity, rather than soundness.
+
+We've seen that a valid argument does not need to have true premises or a true conclusion. Conversely, having true premises and a true conclusion is also not enough to make an argument valid. Consider this example:
+
+\begin{earg}
+\item[] Donald Trump is a U.S.\ citizen.
+\item[] Justin Trudeau is a Canadian citizen.
+\item[\therefore] UBC is the largest employer in Vancouver.
+\end{earg}
+
+The premises and conclusion of this argument are, as a matter of fact, all true. Nevertheless, this is quite a poor argument. This is related to the fact that the premises have nothing to do with the conclusion. More precisely, the definition of validity is not satisfied: it is possible for the premises to be true while the conclusion is false. Although the conclusion is \emph{actually} true, it is \emph{possible} for the premises of this argument to be true while the conclusion is false. We may imagine, for example, that Lululemon hired an additional 100,000 employees in Vancouver, while UBC remained the same size, and without any world leaders changing their citizenship statuses. In such a possible scenario, the premises would be true, while the conclusion is false.
+
+The important thing to remember is that validity is not about the actual truth or falsity of the sentences in the argument. Instead, it is about the form of the argument: The truth of the premises is incompatible with the falsity of the conclusion.
+
+Here are some more valid arguments. Can you see why each is valid?
+
+\begin{earg}
+\item Socrates is a man.
+\item All men are carrots.
+\item{\therefore} Socrates is a carrot.
+\end{earg}
+
+
+\begin{earg}
+\item Abe Lincoln was either born in Illinois or he was once president.
+\item Abe Lincoln was never president.
+\item[\therefore] Abe Lincoln was born in Illinois.
+\end{earg}
+
+\begin{earg}
+\item Justin Trudeau is either from France or from Luxemborg.
+\item Justin Trudeau is not from Luxemborg.
+\item[\therefore] Justin Trudeau is from France.
+\end{earg}
+
+
+\begin{earg}
+\item If the world were to end today, then I would not need to get up tomorrow morning.
+\item I will need to get up tomorrow morning.
+\item[\therefore] The world will not end today.
+\end{earg}
+
+
+%\subsection{Inductive arguments}
+%
+%There can be good arguments which nevertheless fail to be deductively valid. Consider this one:
+%
+%\begin{earg}
+%\item[] In January 1997, it rained in San Diego.
+%\item[] In January 1998, it rained in San Diego.
+%\item[] In January 1999, it rained in San Diego.
+%\item[\therefore] It rains every January in San Diego.
+%\end{earg}
+%
+%This is an \define{inductive} argument, because it generalizes from many cases to a conclusion about all cases.
+%
+%Certainly, the argument could be made stronger by adding additional premises: In January 2000, it rained in San Diego. In January 2001$\ldots$ and so on. Regardless of how many premises we add, however, the argument will still not be deductively valid. It is possible, although unlikely, that it will fail to rain next January in San Diego. Moreover, we know that the weather can be fickle. No amount of evidence should convince us that it rains there \emph{every} January. Who is to say that some year will not be a freakish year in which there is no rain in January in San Diego; even a single counter-example is enough to make the conclusion of the argument false.
+%
+%Inductive arguments, even good inductive arguments, are not deductively valid. We will not be interested in inductive arguments in this book.
+
+\section{Impossibility}
+\label{sec.impossible}
+
+The definition of validity centrally invokes the notion of impossibility. What it means for a sentence to be \emph{impossible} is that there is no possible way for it to be true. Impossible sentences don't just \emph{happen} to be false; they \emph{must} be false. Consider the sentence, `The Whitecaps lost their last game.' As it happens, at the time I'm writing, that's false. They actually won. But it's not impossible; they might have lost, if a few things had gone differently. So that sentence is false, but not impossible.
+
+By contrast, blatant contradictions like `the Whitecaps won the game and the Whitecaps lost the game' \emph{are} impossible. This sentence doesn't just \emph{happen} to be false. It couldn't \emph{possibly} be true.
+
+Even falsehoods that are really obviously false, and for which it's hard to imagine how they could be true, might be \emph{possible}. It's not \emph{impossible} that pigs could fly. Someone might invent powerful wings for them. When we're interested in impossible sentences in logic, we really mean \emph{impossible}. The best examples are contradictions.
+
+So to apply the definition of validity, we consider whether there is any possibility, no matter how far-fetched, where the premises are true and the conclusion is false.
+
+\section{Other logical notions}
+
+Here are a few more relevant terms we'll be working with.
+
+\subsection{Logical truth}
+\label{sec-tautologydef}
+In considering arguments formally, we care about what would be true \emph{if} the premises were true. Generally, we are not concerned with the actual truth value of any particular sentences--- whether they are \emph{actually} true or false. (As indicated above, we will be more interested in validity than in soundness.) Yet there are some sentences that must be true, just as a matter of logic.
+
+Compare these sentences:
+\begin{earg}
+\item[\ex{Acontingent}] It is raining.
+\item[\ex{Atautology}] Either it is hot outside, or it is not hot outside.
+\item[\ex{Acontradiction}] There is an earthquake happening here right now and there are never earthquakes here.
+\end{earg}
+Sentence \ref{Acontingent} could be true or it could be false. (As I'm typing these words on a sunny Vancouver summer day, it is false.) Sentences that could be true, or could be false, are called \emph{contingent} sentences.
+
+Sentence \ref{Atautology} is different. Even though I don't know what the weather is like as you're reading this book, I still know that it's true. Sentence \ref{Atautology} \emph{must} be true. This sentence is \emph{logically true}; no matter how the weather or anything else happens to be, this sentence has to be true. We call a sentence like this a \define{logical truth} or a \define{tautology}.
+
+You do not need to check the weather to know about sentence \ref{Acontradiction}, either. It must be false, simply as a matter of logic. There could be an earthquake now, but if so, it couldn't be the case that there are never earthquakes here. Or there might never be any earthquakes, but if so, there couldn't be one now. The third sentence is \define{logically false}; it is false regardless of what the world is like. A logically false sentence is called a \define{contradiction}.
+
+I said above that a contingent sentence could be true and it also could be false. We can also define contingency in terms of tautologies and contradictions thus: a \define{contingent sentence} is a sentence that is neither a tautology nor a contradiction.
+
+%A sentence might \emph{always} be true and still be contingent. For instance, if there never were a time when the universe contained fewer than seven things, then the sentence `At least seven things exist' would always be true. Yet the sentence is contingent; its truth is not a matter of logic. There is no contradiction in considering a possible world in which there are fewer than seven things. The important question is whether the sentence \emph{must} be true, just on account of logic.
+
+\subsection{Logical equivalence}
+We can also ask about the logical relations \emph{between} two sentences. For example:
+\begin{earg}
+\item[] Sunil went to the store after he washed the dishes.
+\item[] Sunil washed the dishes before he went to the store.
+\end{earg}
+These two sentences are both contingent. (Do you see why?) Yet they must have the same truth-value. If either of the sentences is true, then they both are; if either of the sentences is false, then they both are. When two sentences necessarily have the same truth value, we say that they are \define{logically equivalent}.
+
+Notice that both of these arguments are valid:
+
+\begin{earg}
+\item[] Sunil went to the store after he washed the dishes.
+\item[\therefore] Sunil washed the dishes before he went to the store.
+\end{earg}
+
+
+\begin{earg}
+\item[] Sunil washed the dishes before he went to the store.
+\item[\therefore] Sunil went to the store after he washed the dishes.
+\end{earg}
+
+In general, if two sentences are equivalent, then an argument with either one as a premise, and the other as the conclusion, will be valid.
+
+\subsection{Consistency}
+Consider these two sentences:
+\begin{ekey}
+\item[B1] My only brother is taller than I am.
+\item[B2] My only brother is shorter than I am.
+\end{ekey}
+Logic alone cannot tell us which, if either, of these sentences is true. Yet we can say that \emph{if} the first sentence (B1) is true, \emph{then} the second sentence (B2) must be false. And if B2 is true, then B1 must be false. It cannot be the case that both of these sentences are true.
+
+If a set of sentences could not all be true at the same time, like B1--B2, they are said to be \define{inconsistent}. Otherwise, they are \define{consistent}.
+
+We can ask about the consistency of any number of sentences. For example, consider the following list of sentences:
+\label{MartianGiraffes}
+\begin{ekey}
+\item[G1] There are at least four giraffes at the wild animal park.
+\item[G2] There are exactly seven gorillas at the wild animal park.
+\item[G3] There are not more than two Martians at the wild animal park.
+\item[G4] Every giraffe at the wild animal park is a Martian.
+\end{ekey}
+G1 and G4 together imply that there are at least four Martian giraffes at the park. This conflicts with G3, which implies that there are no more than two Martian giraffes there. So the set of sentences G1--G4 is inconsistent. (Notice that in this example the inconsistency has nothing at all to do with G2. G2 just happens to be part of an inconsistent set.)
+
+
+\section{Formal languages}
+
+%Here is a famous valid argument:
+%\begin{earg}
+%\item[] Socrates is a man.
+%\item[] All men are mortal.
+%\item[\therefore] Socrates is mortal.
+%\end{earg}
+%This is an iron-clad argument. The only way you could challenge the conclusion is by denying one of the premises--- the logical form is impeccable. What about this next argument?
+%
+%\begin{earg}
+%\item[] Socrates is a man.
+%\item[] All men are carrots.
+%\item[\therefore] Socrates is a carrot.
+%\end{earg}
+%
+%This argument might be less interesting than the first, because the second premise is obviously false. There is no clear sense in which all men are carrots. Yet the argument is valid. To see this, notice that both arguments have this form:
+%
+%\begin{earg}
+%\item[] $S$ is $M$.
+%\item[] All $M$s are $C$s.
+%\item[\therefore] $S$ is $C$.
+%\end{earg}
+%
+%In both arguments $S$ stands for Socrates and $M$ stands for man. In the first argument, $C$ stands for mortal; in the second, $C$ stands for carrot. Both arguments have this form, and every argument of this form is valid. So both arguments are valid.
+
+%\subsection{Aristotelean logic}
+%
+%What we did here was replace words like `man' or `carrot' with symbols like `M' or `C' so as to make the logical form explicit. This is the central idea behind formal logic. We want to remove irrelevant or distracting features of the argument to make the logical form more perspicuous.
+%
+%Starting with an argument in a \emph{natural language} like English, we translate the argument into a \emph{formal language}. Parts of the English sentences are replaced with letters and symbols. The goal is to reveal the formal structure of the argument, as we did with these two.
+%
+%There are formal languages that work like the symbolization we gave for these two arguments. A logic like this was developed by Aristotle, a philosopher who lived in Greece during the 4th century BC. Aristotle was a student of Plato and the tutor of Alexander the Great. Aristotle's logic, with some revisions, was the dominant logic in the western world for more than two millennia.
+%
+%In Aristotelean logic, categories are replaced with capital letters. Every sentence of an argument is then represented as having one of four forms, which medieval logicians labeled in this way: (A) All $A$s are $B$s. (E) No $A$s are $B$s. (I) Some $A$ is $B$. (O) Some $A$ is not $B$.
+%
+%It is then possible to describe valid \emph{syllogisms}, three-line arguments like the two we considered above. Medieval logicians gave mnemonic names to all of the valid argument forms. The form of our two arguments, for instance, was called \emph{Barbara}. The vowels in the name, all As, represent the fact that the two premises and the conclusion are all (A) form sentences.
+%
+%There are many limitations to Aristotelean logic. One is that it makes no distinction between kinds and individuals. So the first premise might just as well be written `All $S$s are $M$s': All Socrateses are men. Despite its historical importance, Aristotelean logic has been superceded. The remainder of this book will develop two formal languages.
+
+So far, we have been working with arguments expressed in English. But there are some general argumentative structures that transcend English or any other particular natural language. Consider, for example, the following simple argument:
+
+\begin{earg}
+\item[] Vancouver is in Canada.
+\item[] Moscow is in Russia.
+\item[\therefore] Vancouver is in Canada and Moscow is in Russia.
+\end{earg}
+
+Hopefully by now it is obvious to you that this argument is valid. (Not just that--- it is even sound.) That argument has something important in common with this one:
+
+\begin{earg}
+\item[] Vancouver is on Mars.
+\item[] Moscow is on Venus.
+\item[\therefore] Vancouver is on Mars and Moscow is on Venus.
+\end{earg}
+
+Although this one has false premises, and so can't be sound, it is also valid. It is impossible for the premises to be true if the conclusion is false. Not only that--- it seems that the argument is valid in, in a sense to be articulated, \emph{exactly the same way}. The validity of the first argument is very similar to that of the second. Even though they are expressed by different strings of English sentences, it is useful to develop a language in which they are, in an important sense, the same kind of argument. Over the course of this textbook, we'll be developing and working with such a language. We'll begin with a simple version of our logical language, called SL, for \emph{sentential logic}. Later on, we'll develop a more complicated logical language, QL, for \emph{quantified logic}. Both languages are \emph{formal} in the sense that there are precise rules that govern how we should evaluate sentences within them.
+
+%\subsection{Why there are different formal languages}
+%When we translate an argument into a formal language, we hope to make its logical structure clearer. We want to include enough of the structure of the English language argument so that we can judge whether the argument is valid or invalid. If we included every feature of the English language, all of the subtlety and nuance, then there would be no advantage in translating to a formal language. We might as well think about the argument in English.
+%
+%At the same time, we would like a formal language that allows us to represent many kinds of English language arguments. This is one reason to prefer QL to Aristotelean logic; QL can represent every valid argument of Aristotelean logic and more.
+
+English is a natural language, not a formal one. Its rules are vague and messy, and constantly changing. We will spend some time translating between English and our formal languages, but the translations will not always be precise. There is a tension between wanting to capture as much of the structure of English as possible and wanting a simple formal language with tractable rules--- simpler formal languages will approximate natural languages less closely. There is no perfect formal language. Some will do a better job than others in translating particular English-language arguments.
+
+In this book, we make the assumption that \emph{true} and \emph{false} are the only possible truth-values. Logical languages that make this assumption are called \emph{bivalent}, which means \emph{two-valued}. SL and QL are both bivalent, but some philosophers have emphasized limits to the power of bivalent logic. Some logics, beyond the scope of this book, allow for sentences that are neither true nor false. Others allow for sentences that are both true \emph{and} false. Our logical system, which is often called \emph{classical logic}, will give every sentence exactly one truth value: either true or false.
+
+
+\section*{Summary of logical notions}
+\begin{itemize}
+
+\item An \define{argument} is a structured set of sentences, with \emph{premises} intended to offer support for a \emph{conclusion}.
+
+\item A \define{sentence}, in our logical terminology, is a sentence that expresses a proposition, and can be either true or false.
+
+\item An argument is (deductively) \define{valid} if it is impossible for the premises to be true and the conclusion false; it is \define{invalid} otherwise.
+
+\item A \define{tautology} is a sentence that must be true, as a matter of logic.
+
+\item A \define{contradiction} is a sentence that must be false, as a matter of logic.
+
+\item A \define{contingent sentence} is neither a tautology nor a contradiction.
+
+\item Two sentences are \define{logically equivalent} if they necessarily have the same truth value.
+
+\item A set of sentences is \define{consistent} if it is logically possible for all the members of the set to be true at the same time; it is \define{inconsistent} otherwise.
+\end{itemize}
+
+
+
+\practiceproblems
+At the end of each chapter, you will find a series of practice problems that review and explore the material covered in the chapter. There is no substitute for actually working through some problems, because logic is more about a way of thinking than it is about memorizing facts. The answers to some of the problems are provided at the end of the book in appendix \ref{app.solutions}; the problems that are solved in the appendix are marked with a \solutions.
+
+\solutions
+\problempart
+\label{pr.Sentences1}
+Which of the following are `sentences' in the logical sense?
+\begin{earg}
+\item England is smaller than China.
+\item Greenland is south of Jerusalem.
+\item Is New Jersey east of Wisconsin?
+\item The atomic number of helium is 2.
+\item The atomic number of helium is $\pi$.
+\item I hate overcooked noodles.
+\item Blech! Overcooked noodles!
+\item Overcooked noodles are disgusting.
+\item Take your time.
+\item This is the last question.
+\end{earg}
+
+
+\problempart
+\label{pr.EnglishTautology}
+For each of the following: Is it a tautology, a contradiction, or a contingent sentence?
+\begin{earg}
+\item Caesar crossed the Rubicon.
+\item Someone once crossed the Rubicon.
+\item No one has ever crossed the Rubicon.
+\item If Caesar crossed the Rubicon, then someone has.
+\item Even though Caesar crossed the Rubicon, no one has ever crossed the Rubicon.
+\item If anyone has ever crossed the Rubicon, it was Caesar.
+\end{earg}
+
+\solutions
+\problempart
+\label{pr.MartianGiraffes}
+Look back at the sentences G1--G4 on p.~\pageref{MartianGiraffes}, and consider each of the following sets of sentences. Which are consistent? Which are inconsistent?
+\begin{earg}
+\item G2, G3, and G4
+\item G1, G3, and G4
+\item G1, G2, and G4
+\item G1, G2, and G3
+\end{earg}
+
+
+\solutions
+\problempart
+\label{pr.EnglishCombinations}
+Which of the following is possible? If it is possible, give an example. If it is not possible, explain why.
+\begin{earg}
+\item A valid argument that has one false premise and one true premise
+\item A valid argument that has a false conclusion
+\item A valid argument, the conclusion of which is a contradiction
+\item An invalid argument, the conclusion of which is a tautology
+\item A tautology that is contingent
+\item Two logically equivalent sentences, both of which are tautologies
+\item Two logically equivalent sentences, one of which is a tautology and one of which is contingent
+\item Two logically equivalent sentences that together are an inconsistent set
+\item A consistent set of sentences that contains a contradiction
+\item An inconsistent set of sentences that contains a tautology
+\end{earg}
+
+\problempart
+\label{pr.ImpossiblePremises}
+Is this argument valid? Why or why not? (Hint: here and elsewhere in logic, read the definitions of our formal terms literally.)
+\begin{earg}
+\item[(1)] PHIL 220 is a course with a final exam.
+\item[(2)] No courses ever have final exams.
+\item[\therefore] Everyone is going to get an A+ in PHIL 220.
+\end{earg}
+

@@ -1,0 +1,341 @@
+%!TEX root = forallx-ubc.tex
+\chapter{Soundness and Completeness for QL Trees}
+\label{ch.QLsoundcomplete}
+
+In Chapter \ref{ch.SLsoundcomplete} we proved that our SL tree method works the way it is supposed to: any tree that closed was guaranteed to have a root that was unsatisfiable in SL, and any completed tree that remained open was guaranteed to describe an SL model that satisfies the root. These two theorems together are called \emph{soundness} and \emph{completeness}.
+
+\factoidbox{
+\define{soundness}: If a tree closes, that guarantees that its root is unsatisfiable. In other words: $$\metaSetX{}\vdash{}\bot\Rightarrow\metaSetX{}\models{}\bot$$
+\define{completeness}: If a root is unsatisfiable, that guarantees that the tree will close. In other words: $$\metaSetX{}\models\bot{}\Rightarrow\metaSetX{}\vdash{}\bot$$
+}
+
+These definitions were first given on pages \pageref{definesound} and \pageref{definecomplete}. They are equally applicable to our extended tree system for QL. The system introduced in Chapter \ref{ch.QLTrees} is also sound and complete. The rules are designed in a way so as to guarantee that if the tree closes, there is no model for the root (sound), and to guarantee that an open branch describes a model for the root (complete). The proofs for these two theorems are structurally very similar to the proofs given in Chapter \ref{ch.SLsoundcomplete}.
+
+\section{Soundness}
+
+If our tree method is sound, then there is no possible set of QL sentences \metaSetX{} that are satisfiable, where a tree with root \metaSetX{} closes. Not every possible tree method is sound. For example, suppose we dropped the requirement, for a negated universal, that one take an instance with a new name.
+
+In other words, suppose we replaced this rule (introduced on page \pageref{negunrule})
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot\forall\script{x}\metaA{}, checked={\script{a}}
+	[\enot\metaA{}\substitute{\script{x}}{\script{a}}, just=where \script{a} is \emph{new}
+	]
+]
+\end{prooftree}
+\end{center}
+
+with this alternate one:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot\forall\script{x}\metaA{}, checked={\script{a}}
+	[\enot\metaA{}\substitute{\script{x}}{\script{a}}, just=for \emph{any} \script{a}
+	]
+]
+\end{prooftree}
+\end{center}
+
+If we had this rule, there would be counterexamples to soundness--- trees with satisfiable roots, which nevertheless closed. Here is an example:
+
+\begin{prooftree}
+{}
+	[Fa
+	[\enot \forall x Fx, grouped
+		[\enot Fa, just=2 alt\. \enot $\forall$, close={1, 3}]
+	]
+	]
+\end{prooftree}
+
+This tree is a counterexample to the soundness of the alternate tree system just described. To prove that our system is sound is to prove that our actual rules do not allow for this kind of tree. To prove this, we'll begin by assuming that \metaSetX{} is satisfiable, and demonstrate from that assumption that at least one branch of any tree that develops according to our rules will remain open. As in the case of the parallel discussion in Chapter \ref{ch.SLsoundcomplete}, our proof will be a recursive one. We will demonstrate that, if the tree \emph{starts} with a set of satisfiable sentences, then, for each legal way the tree may develop, at least one branch will continue to have a set of satisfiable sentences. This is effectively to show that such a branch will never close, since branches only close when they contain some sentences \metaA{} and \enot\metaA{}, which are of course never jointly satisfiable.
+
+Suppose, then, we have some satisfiable set of sentences \metaSetX{} in the root of a tree. If the root is satisfiable, then there is some model that satisfies it. Call this interpretation $\mathcal{I}$. We prove that, if our tree follows the rules given in Chapter \ref{ch.QLTrees}, then $\mathcal{I}$ doesn't just satisfy the root--- it satisfies every sentence in any completed branch. We will prove this recursively.
+
+\subsection{Root}
+
+We assume that the tree begins with a satisfiable root. Given this assumption, $\mathcal{I}$ is just our name for one of the interpretations we are assuming must exist. So $\mathcal{I}$ trivially satisfies everything in the root.
+
+Now we must prove, for each possible way of developing the tree, that if the sentences in the branch we \emph{begin} with are satisfiable, then the sentences we have after applying the rule are satisfiable too. There are thirteen possible ways a tree can develop, corresponding to the thirteen kinds of non-atomic sentences in QL, each of which has a particular processing rule. The thirteen kinds of sentences are:
+
+\begin{itemize}
+\item double negation
+\item conjunction
+\item negated conjunction
+\item disjunction
+\item negated disjunction
+\item conditional
+\item negated conditional
+\item biconditional
+\item negated biconditional
+\item existential
+\item negated existential
+\item universal
+\item negated universal
+\end{itemize}
+
+Fortunately, we've already proven what we need to prove for the first nine items on the list. Our QL tree method uses all the same rules as the SL method did for the sentential connectives; we proved in \S\ref{sec.sl.soundnessproof.begin}, for each of those rules, that it has the key property: if some interpretation $\mathcal{I}$ satisfies what comes above the rule, then the development below it is also satisfiable. (Indeed, we proved there that the very same interpretation, $\mathcal{I}$, satisfied it.)
+
+So to extend our soundness proof to our QL system, we need only prove the same thing for the four rules for quantifiers. This is the project of the next four subsections.
+
+\subsection{Existentials}
+
+Suppose some satisfiable set of QL sentences \metaSetX{} is developed according to the existential rule:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\exists\script{x}\metaA{}, checked={\script{a}}
+	[\metaA{}\substitute{\script{x}}{\script{a}}, just=where \script{a} is \emph{new}
+	]
+]
+\end{prooftree}
+\end{center}
+
+We assume that $\mathcal{I}$ models \metaSetX{}, which includes some existential $\exists\script{x}\metaA{}$. We want to prove that there is a model for the expanded branch which comprises both \metaSetX{} and $\metaA{}\substitute{\script{x}}{\script{a}}$, i.e.,  $\metaSetX{} \cup \metaA{}\substitute{\script{x}}{\script{a}}$ (the set containing \metaSetX{} and the new development sentence too).  Unlike in the parallel proof for the sentential rules, we cannot assume that $\mathcal{I}$ itself satisfies our new development, because our new development introduces a new name; we cannot assume that $\mathcal{I}$ included any assignment for the new name \script{a}. But we \emph{can} be assured that $\mathcal{I}$ can be expanded into a new, similar interpretation, $\mathcal{I}\mbox{*}$, which does include \script{a}. Moreover, since we know that $\mathcal{I}$ satisfied the existential $\exists\script{x}\metaA{}$, we know that there was some object in $\mathcal{I}$'s domain that satisfied \metaA{}. So it will be possible to construct our new interpretation $\mathcal{I}\mbox{*}$ so that it includes the new name, and assigns it to that object. This will ensure that $\mathcal{I}\mbox{*}(\metaA{}\substitute{\script{x}}{\script{a}})=1$. And since $\mathcal{I}\mbox{*}$ is just like $\mathcal{I}$ with respect to everything other than \script{a}--- and since we are assured that \script{a} was not in \metaSetX{} (the rule requires that it be new)--- $\mathcal{I}\mbox{*}$ will satisfy \metaSetX{} in just the same way that $\mathcal{I}$ did.
+
+In other words, assuming that $\mathcal{I}$ satisfies every sentence in a branch before the existential rule is performed, there is guaranteed to be a new interpretation, $\mathcal{I}\mbox{*}$, which is an extension of $\mathcal{I}$ that includes a new name attached to an object in the UD satisfying the existential, which satisfies everything in the branch up to the point after the existential rule is performed. That is to say, like the nine sentential rules considered in Chapter \ref{ch.SLsoundcomplete}, the existential rule can never take you from a satisfiable branch to an unsatisfiable one.
+
+\subsection{Universals}
+
+Suppose a branch of a tree uses the rule for universals:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\forall\script{x}\metaA{}, subs={\script{a}}
+	[\metaA{}\substitute{\script{x}}{\script{a}}, just=for \emph{any} \script{a}
+	]
+]
+\end{prooftree}
+\end{center}
+
+Assume that the set of QL sentences \metaSetX{} above this development is satisfiable. Then some model $\mathcal{I}$ makes it true. The universal rule allows an instance to be developed using any name, so, as before, we cannot guarantee that $\mathcal{I}$ makes the development true, because $\mathcal{I}$ may or may not interpret the name \script{a}; but as before, we can be assured if it doesn't, we can extend the interpretation to include it. So consider a new model $\mathcal{I}\mbox{*}$, which includes the name \script{a}. If \script{a} wasn't interpreted by $\mathcal{I}$, then it can be assigned to any element of the UD. Since the rest of $\mathcal{I}$ is unchanged, and since $\mathcal{I}(\forall \script{x}\metaA{})=1$, we know that our new extended interpretation will satisfy $\metaA{}\substitute{\script{x}}{\script{a}}$ too.
+
+That is to say, once again, if we assume that $\mathcal{I}$ satisfies every sentence in a branch before the universal rule is performed, there is guaranteed to be a model--- either the very same one, $\mathcal{I}$, or a modification of it, $\mathcal{I}\mbox{*}$, which assigns a new name to any object in the UD, which satisfies everything in the branch up to the point after the universal rule is performed. In other words, the universal rule can never take you from a satisfiable branch to an unsatisfiable one.
+
+Note that the fact that we can perform this rule multiple times does not interfere with the soundness proof. We have proven that \emph{each} time you perform it, you are guaranteed not to switch from a satisfiable branch to an unsatisfiable one. So no matter how many times you take an instance of a universal, you won't be able to go from a satisfiable set of sentences to an unsatisfiable one.
+
+
+\subsection{Negated Existential}
+
+The reasoning behind soundness for the negated existential rule is exactly parallel to that for the universal rule. We begin by assuming that some negated universal $\enot\exists\script{x}\metaA{}$, is satisfied by $\mathcal{I}$. Here is the rule for negated existentials:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot\exists\script{x}\metaA{}, subs={\script{a}}
+	[\enot\metaA{}\substitute{\script{x}}{\script{a}}, just=for \emph{any} \script{a}
+	]
+]
+\end{prooftree}
+\end{center}
+
+We want to prove that the result of this rule is also satisfied, either by $\mathcal{I}$ itself (if \script{a} was interpreted in $\mathcal{I}$), or by an extension of it $\mathcal{I}\mbox{*}$, that preserves the satisfaction of everything above (if \script{a} was a new name). Since $\mathcal{I}$ satisfies $\enot\exists\script{x}\metaA{}$, it makes every substitution instance for \script{x} of \metaA{} false. If \script{a} was interpreted by $\mathcal{I}$ already, then $\mathcal{I}(\metaA{}\substitute{\script{x}}{\script{a}})=0$. If it wasn't, the new model $\mathcal{I}\mbox{*}$ will assign the new name to some object in the UD of the original model; since no object in that model satisfied \metaA{}, \mbox{$\mathcal{I}\mbox{*}(\metaA{}\substitute{\script{x}}{\script{a}})=0$}. Either way, our interpretation falsifies \mbox{\metaA{}\substitute{\script{x}}{\script{a}}}, and so satisfies that sentence's negation, which is the continuation of the branch.
+
+So this rule too can never take us from a satisfiable set of QL sentences to an unsatisfiable one.
+
+\subsection{Negated Universal}
+
+Negated universals are similar to existentials. Assume that a negated universal is part of a set of sentences satisfied by $\mathcal{I}$, and that this rule is then applied:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot\forall\script{x}\metaA{}, checked={\script{a}}
+	[\enot\metaA{}\substitute{\script{x}}{\script{a}}, just=where \script{a} is \emph{new}
+	]
+]
+\end{prooftree}
+\end{center}
+
+Construct a new interpretation $\mathcal{I}\mbox{*}$, which differs from $\mathcal{I}$ only in that it includes an interpretation of the new name \script{a}, and assigns that name to some object that falsifies \metaA{}. We know there is at least one such object because we are assuming that $\mathcal{I}$ satisfies the negated universal. Then our new interpretation $\mathcal{I}\mbox{*}$ satisfies the new development of the branch. It also satisfies everything above the branch, just like $\mathcal{I}$ did, because nothing above the branch included the name \script{a}.
+
+That last bit of reasoning relied centrally on the requirement that we're taking a new name. We saw in the introduction to this chapter that if we do not include that requirement, soundness would be violated.
+
+\subsection{Summarizing the soundness proof}
+
+We have now shown, for our four quantifier rules, that each of them has the following property: you can never start with a branch that is satisfiable, and use that rule to extend that branch into one that is unsatisfiable. Since we've also shown that the nine sentential rules also have this property, we've effectively shown that there is no possible way to start with a satisfiable set of sentences and develop the branch into one that is not satisfiable. This in turn means that if the branch starts with a satisfiable set of sentences, the branch will never close. But that's just what soundness says: if the root is satisfiable, the tree is guaranteed to remain open. Soundness is proven.
+
+
+\section{Completeness}
+
+Completeness says that if a branch of a completed tree remains open, then the root is satisfiable. We prove this by assuming that we have an open completed branch, and use it to construct an interpretation that satisfies every sentence in that branch, which includes the root. The proof for completeness of our QL tree system is structurally just like the one given in Chapter \ref{ch.SLsoundcomplete}.
+
+Given a completed open branch, we construct a model $\mathcal{I}$, based on that branch, as follows: for any predicate $\script{F}$\!, if some QL atom $\script{F}\script{a}_{1}, \ldots, \script{a}_{n}$ is in the branch--- i.e., if $P$ or $Fa$ or $Rab$ is in the branch--- then $\mathcal{I}$ makes that atom true, by putting \ntuple{$\script{a}_{1}$, \ldots, $\script{a}_{n}$} in the extension of $\script{F}$\!. And if $\enot \script{F}\script{a}_{1}, \ldots, \script{a}_{n}$ is in the branch, $\mathcal{I}$ excludes \ntuple{$\script{a}_{1}$, \ldots, $\script{a}_{n}$} from the extension of $\script{F}$\!, thus making the negation of the atom true. This is of course just the way that we construct interpretations from open branches of completed trees.
+
+Now we will prove, for every sentence in QL, that if it is in the open branch, it is made true by $\mathcal{I}$. The QL atoms trivially meet this criterion--- $\mathcal{I}$ was designed precisely to satisfy them. We will prove by induction that every possible QL sentence also meets this criterion. In \S\ref{sec.completenessproof} we showed, for each propositional connective, if you construct a more complex SL sentence out of simpler SL sentences that have this criterion, the more complex one will too. That proof carries on unchanged here. So it remains only to show that the same is true of our four quantifier rules.
+
+\subsection{Existential}
+
+Consider an existential--- a QL sentence of the form $\exists \script{x} \metaA{}$. We need to prove that if it is in the open, completed branch, $\mathcal{I}$ satisfies it. Since the branch is complete, we know that the existential rule has been performed to resolve this sentence. So the branch includes a substitution instance of \metaA{} that used a new name. For our present purposes, it doesn't actually matter whether the name was new--- the fact that there is some instance of \metaA{} in the branch already is enough to prove what we need to prove. Since there is an instance of \metaA{} in the branch, if it is satisfied by $\mathcal{I}$, the existential $\exists \script{x} \metaA{}$ must be satisfied by $\mathcal{I}$ too.
+
+So, just as we showed for the nine sentential rules, the existential rule has this important property: in a completed tree, any interpretation that satisfies the simpler sentences below the existential development, must also satisfy the existential above it.
+
+\subsection{Universal}
+
+Suppose a universal sentence $\forall \script{x} \metaA{}$ appears in a completed open branch. Since the branch is complete, that means that, for every name \script{a} in the branch, \mbox{\metaA{}\substitute{\script{x}}{\script{a}}} is also in the branch. We therefore assume that $\mathcal{I}$ satisfies each \metaA{}\substitute{\script{x}}{\script{a}}; so $\mathcal{I}$ must also satisfy $\forall \script{x} \metaA{}$. Because the UD for $\mathcal{I}$ includes only those names that occur in the branch, every instance of \metaA{} is included, so the universal is true.
+
+Once again, any interpretation that satisfies everything below the universal development, must also satisfy the universal above it.
+
+\subsection{Negated Existential}
+
+Negated existentials work just like universals. If $\enot \exists \script{x} \metaA{}$ is in a completed open branch, then for every name \script{a} in $\mathcal{I}$, 
+\mbox{\enot\metaA{}\substitute{\script{x}}{\script{a}}} is below it in the branch. And if $\mathcal{I}$ satisfies each of these negations, it will also satisfy the negated existential.
+
+\subsection{Negated Universal}
+
+Negated universals work just like existentials. If $\enot \forall \script{x} \metaA{}$ is in the branch, then some instance of the negation \enot \metaA{} is in the branch below. If $\mathcal{I}$ satisfies some instance of \enot \metaA{}, then, given the definition of truth for negation and universals in QL, it will also satisfy $\enot \forall \script{x} \metaA{}$.
+
+\subsection{Summarizing the completeness proof}
+
+The sentence shapes just considered, combined with the nine shapes considered in \S\ref{sec.completenessproof}, correspond to all the possible QL sentences. So we have proven that, for any possible QL sentence \metaA{}, if an interpretation satisfies the simpler sentences below it in the branch, that interpretation also satisfies \metaA{} itself. Since we also have a recipe for constructing an interpretation $\mathcal{I}$ that is guaranteed to satisfy the atoms, we can prove by induction that it can satisfy everything in the branch, including the root. A completed open branch guarantees a satisfiable root. Completeness is proven.
+
+\practiceproblems
+
+\solutions
+\problempart
+\label{pr.QLalttrees-sound}
+Following are possible modifications to our QL tree system. For each, imagine a system that is like the system laid out in this chapter, except for the indicated change. Would the modified tree system be sound? If so, explain how the proof given in this chapter would extend to a system with this rule; if not, give a tree that is a counterexample to the soundness of the modified system.
+\begin{earg}
+\item Change the rule for existentials to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\exists\script{x}\metaA{}, checked={\script{a}}
+		[\metaA{}\substitute{\script{x}}{\script{a}}, just=for \emph{any} \script{a}
+		]
+	]
+	\end{prooftree}
+	\end{center}
+	}
+	
+\item Change the rule for existentials to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\exists\script{x}\metaA{}, checked=d
+		[\metaA{}\substitute{\script{x}}{d}, just=(whether or not $d$ is new)
+		]
+	]
+	\end{prooftree}
+	\end{center}
+	}
+
+\item Change the rule for existentials to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\exists\script{x}\metaA{}, checked
+		[\metaA{}\substitute{\script{x}}{\script{a}}, just={for 3 different names, old or new}
+		[ , grouped
+		[\metaA{}\substitute{\script{x}}{\script{b}}, grouped
+		[ , grouped
+		[\metaA{}\substitute{\script{x}}{\script{c}}, grouped
+		]
+		]
+		]
+		]
+		]
+	]
+	\end{prooftree}
+	\end{center}
+	}
+
+\item Change the rule for universals to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\forall\script{x}\metaA{}, checked
+		[\metaA{}\substitute{\script{x}}{\script{a}}, just={for 3 different names, old or new}
+		[ , grouped
+		[\metaA{}\substitute{\script{x}}{\script{b}}, grouped
+		[ , grouped
+		[\metaA{}\substitute{\script{x}}{\script{c}}, grouped
+		]
+		]
+		]
+		]
+		]
+	]
+	\end{prooftree}
+	\end{center}
+	}
+
+\item Change the rule for existentials to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\exists\script{x}\metaA{}, checked
+		[\metaA{}\substitute{\script{x}}{\script{a}}, just={for 3 new names}
+		[ , grouped
+		[\metaA{}\substitute{\script{x}}{\script{b}}, grouped
+		[ , grouped
+		[\metaA{}\substitute{\script{x}}{\script{c}}, grouped
+		]
+		]
+		]
+		]
+		]
+	]
+	\end{prooftree}
+	\end{center}
+	}
+
+\item Change the rule for universals to this rule:
+	\factoidbox{
+            	\begin{center}
+            \begin{prooftree}
+            {not line numbering}
+            [\forall\script{x}\metaA{}, checked={\script{a}}
+            	[\metaA{}\substitute{\script{x}}{\script{a}}, just=where \script{a} is \emph{new}
+            	]
+            ]
+            \end{prooftree}
+            \end{center}
+	}
+
+\item Change the rule for conjunction to this rule:
+	\factoidbox{
+            	\begin{center}
+            \begin{prooftree}
+            {not line numbering}
+            	[\metaA{} \eand \metaB{}, checked
+            		[\exists \script{x} \metaA{}, just=where \script{x} does not occur in \metaA{}
+			[\metaB{}, grouped
+            		]
+            		]
+		]
+            \end{prooftree}
+            \end{center}
+	}
+
+
+\item Change this requirement (given on page \pageref{branchcompletion.defined})...
+	\factoidbox{A branch is \define{complete} if and only if either (i) it is closed, or (ii) every resolvable sentence in every branch has been resolved, and for every general sentence and every name \script{a} in the branch, the \script{a} instance of that general sentence has been taken.}
+	...to this one:
+	\factoidbox{A branch is \define{complete} if and only if either (i) it is closed, or (ii) every resolvable sentence in every branch has been resolved, and for every general sentence, \emph{at least one instance of} that general sentence has been taken.}
+
+\item Change the branch completion requirement to:
+	\factoidbox{\ldots and for every general sentence and every name \script{a} \emph{that is above that general sentence in the branch}, the \script{a} instance of that general sentence has been taken.}
+
+\item Change the branch completion requirement to:
+	\factoidbox{\ldots and for every general sentence and every name \script{a} in the branch, the \script{a} instance of that general sentence has been taken, \emph{and at least one additional new instance of that general sentence has also been taken}.}
+	
+	\end{earg}
+	
+	
+	
+	
+\solutions
+\problempart
+\label{pr.QLalttrees-complete}
+For each of the rule modifications given in Part \ref{pr.QLalttrees-sound}, would the modified tree system be complete? If so, explain how the proof given in this chapter would extend to a system with this rule; if not, give a tree that is a counterexample to the completeness of the modified system.
+

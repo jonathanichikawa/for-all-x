@@ -1,0 +1,808 @@
+%!TEX root = forallx-ubc.tex
+\chapter{QL Trees}
+\label{ch.QLTrees}
+
+In Chapter \ref{ch.QL.models} we saw that the more structured models of QL make reasoning about all possible models rather complex. In SL, where a model was just an assignment of truth values to atomic sentences, reasoning about all models was relatively straightforward: we could simply survey them via truth tables. In QL there isn't really as simple a method for considering claims about validity or satisfiability as the truth table method. So we must rely more heavily on proof systems.
+
+This chapter considers a tree method for QL. Like the tree method for SL discussed in Chapter \ref{ch.sl.trees}, the QL tree method is a method that attempts to generate an interpretation satisfying a given set of sentences. When it succeeds, it shows a way to satisfy them; when it fails, it shows that they are unsatisfiable. As we did in the initial presentation of trees in Chapter \ref{ch.sl.trees}, we'll begin by working through a couple of examples at an intuitive level, before laying out the formal tree rules.
+
+\section{Trees with fixed domains}
+\label{sec.fixedrules}
+
+Let's begin with a simplifying assumption. Let's suppose that we're only interested in models with particular fixed domain sizes. (By the time we get to the formal tree rules later in this chapter, we'll dispense with this assumption, but it's helpful for introducing the general idea.) Let's confine our attention to models that have two members in the UD. Consider whether there are any such models that satisfy the following QL sentences: $\{\forall x (Fx \eif Gx), \enot\exists x Gx, \exists x (Fx \eor Gx)\}$. To evaluate this question, we put those sentences in the root of a tree.
+
+\begin{prooftree}
+{
+}
+[\forall x (Fx \eif Gx), name=p1, %checked
+[\enot\exists x Gx, grouped, name=p2, %checked
+[\exists x (Fx \eor Gx), grouped, name=p3, %checked
+%	[Fa \eif Ga, checked
+%	[Fb \eif Gb, grouped, checked
+%		[\enot Ga
+%		[\enot Gb, grouped
+%			[\enot Fa
+%				[\enot Fb
+%					[Fa \eor Ga
+%						[Fa, close]
+%						[Ga, close]
+%					]
+%					[Fb \eor Gb
+%						[Fb, close]
+%						[Gb, close]
+%					]
+%				]
+%				[Gb, close]
+%			]
+%			[Ga, close
+%			]
+%		]
+%		]
+%	]
+%	]
+]
+]
+]
+\end{prooftree}
+
+Let's start by considering the universal claim on line 1. A universal says that each of its instances are true. Since at the moment we are assuming that there are two objects in our UD, let's also assume we have just two names, $a$ and $b$, corresponding to our two objects. So we can just write down the two instances as a linear development. We also put a check at line 1 to indicate that we've resolved that sentence.
+
+
+\begin{prooftree}
+{
+}
+[\forall x (Fx \eif Gx), name=p1, checked
+[\enot\exists x Gx, grouped, name=p2, %checked
+[\exists x (Fx \eor Gx), grouped, name=p3, %checked
+	[Fa \eif Ga, %checked
+	[Fb \eif Gb, grouped, %checked
+%		[\enot Ga
+%		[\enot Gb, grouped
+%			[\enot Fa
+%				[\enot Fb
+%					[Fa \eor Ga
+%						[Fa, close]
+%						[Ga, close]
+%					]
+%					[Fb \eor Gb
+%						[Fb, close]
+%						[Gb, close]
+%					]
+%				]
+%				[Gb, close]
+%			]
+%			[Ga, close
+%			]
+%		]
+%		]
+	]
+	]
+]
+]
+]
+\end{prooftree}
+
+
+Next let's consider the negated existential at line 2. It says that each instance is false. So it develops into the negation of both instances, and we add a check mark at line 2.
+
+\begin{prooftree}
+{
+}
+[\forall x (Fx \eif Gx), name=p1, checked
+[\enot\exists x Gx, grouped, name=p2, checked
+[\exists x (Fx \eor Gx), grouped, name=p3, %checked
+	[Fa \eif Ga, %checked
+	[Fb \eif Gb, grouped, %checked
+		[\enot Ga
+		[\enot Gb, grouped
+%			[\enot Fa
+%				[\enot Fb
+%					[Fa \eor Ga
+%						[Fa, close]
+%						[Ga, close]
+%					]
+%					[Fb \eor Gb
+%						[Fb, close]
+%						[Gb, close]
+%					]
+%				]
+%				[Gb, close]
+%			]
+%			[Ga, close
+%			]
+		]
+		]
+	]
+	]
+]
+]
+]
+\end{prooftree}
+
+There is one more quantified sentence to resolve, on line 3, but before we do that, let's handle the conditionals on lines 4 and 5. We do these exactly the same way we handled conditionals in SL trees. They each branch into the negation of the antecedent and the consequent; the latter branch closes each time.
+
+\begin{prooftree}
+{
+}
+[\forall x (Fx \eif Gx), name=p1, checked
+[\enot\exists x Gx, grouped, name=p2, checked
+[\exists x (Fx \eor Gx), grouped, name=p3, %checked
+	[Fa \eif Ga, checked
+	[Fb \eif Gb, grouped, checked
+		[\enot Ga, name=Ga
+		[\enot Gb, grouped, name=Gb
+			[\enot Fa
+				[\enot Fb
+%					[Fa \eor Ga
+%						[Fa, close]
+%						[Ga, close]
+%					]
+%					[Fb \eor Gb
+%						[Fb, close]
+%						[Gb, close]
+%					]
+				]
+				[Gb, close={:Gb, !c}]
+			]
+			[Ga, close={:Ga, !c}
+			]
+		]
+		]
+	]
+	]
+]
+]
+]
+\end{prooftree}
+
+
+Now let's look at line 3. It is an existential claim, so it says that at least one of its instances are true. Again, we're assuming for now that there are only two instances. So we branch into them those two disjunctions at line 10. After that, we apply the approach to disjunctions from SL trees, and the tree closes.
+
+\begin{prooftree}
+{
+}
+[\forall x (Fx \eif Gx), name=p1, checked
+[\enot\exists x Gx, grouped, name=p2, checked
+[\exists x (Fx \eor Gx), grouped, name=p3, %checked
+	[Fa \eif Ga, checked
+	[Fb \eif Gb, grouped, checked
+		[\enot Ga, name=Ga
+		[\enot Gb, grouped, name=Gb
+			[\enot Fa, name=Fa
+				[\enot Fb, name=Fb
+					[Fa \eor Ga
+						[Fa, close={:Fa, !c}]
+						[Ga, close={:Ga, !c}]
+					]
+					[Fb \eor Gb
+						[Fb, close={:Fb, !c}]
+						[Gb, close={:Gb, !c}]
+					]
+				]
+				[Gb, close={:Gb, !c}]
+			]
+			[Ga, close={:Ga, !c}
+			]
+		]
+		]
+	]
+	]
+]
+]
+]
+\end{prooftree}
+
+The closed tree indicates that our attempt to find a model satisfying the root has failed. We're not quite in a position to say that we've proven the root entirely unsatisfiable, because we've been assuming for simplicity that we're only interested in models that have two members of the UD. But we've shown at least that it's impossible to satisfy the root with any model with a two-object domain. We'll consider a more generalized procedure soon. 
+
+Before moving on to the official tree rules, let's look at one more  example that assumes a two-object domain.
+
+Is there any model with a two-object UD that satisfies $\{\forall x Fxa, \forall y (Gy \eif \enot Fya)\}$? To find out, we put both sentences in the root of a tree, and continue as before. We start by taking both instances of each universal claim, then process the two conditionals. This tree remains open.
+
+\begin{prooftree}
+{
+}
+[\forall x Fxa, name=p1, checked
+[\forall y (Gy \eif \enot Fya), grouped, name=p2, checked
+	[Faa, name=Faa
+	[Fba, name=Fba, grouped
+		[Ga \eif \enot Faa, checked
+		[Gb \eif \enot Fba, grouped, checked
+			[\enot Ga
+				[\enot Gb, open]
+				[\enot Fba, close={:Fba, !c}]
+			]
+    			[\enot Faa, close={:Faa, !c}]
+		]
+		]
+	]
+	]
+]
+]
+\end{prooftree}
+
+As in SL trees, a completed QL tree with an open branch describes a way of satisfying the root. We're assuming a two-object UD; for simplicity, let's let our objects be the letters `a' and `b', and have `a' be the referent of the QL name $a$, and `b' be the referent of the QL name $b$. We look to the two QL atoms and two negated QL atoms in the branch; they indicate what needs to be included in the extension of each predicate in our model. Since $Faa$ is in the branch, we need to include \ntuple{a, a} in the extension of $F$. Since \enot $Ga$ is in the branch, we need for a \emph{not} to be in the extension of $G$.
+
+Here is a partial model that suffices to satisfy the root of the above tree:
+
+\begin{partialmodel}
+	UD & $\{a, b\}$\\
+	\extension{G} & \begin{tabular}{l|l}
+	           & $G$ \\ \hline
+		\textbf{a} & 0          \\
+		\textbf{b} & 0         
+		\end{tabular}\\
+	\extension{F} & \begin{tabular}{l|ll} $Fxy$        & \textbf{a} & \textbf{b} \\ \hline
+		\textbf{a} & 1          & -  \\
+		\textbf{b} & 1          &  -
+		\end{tabular}
+
+\end{partialmodel}
+
+Notice that we've put blanks for two of the cells in the extension of $Fxy$. That is to indicate that it doesn't matter whether or not \ntuple{a, b} or \ntuple{b, b} are included in the extension of $Fxy$. (This is also why neither $Fab$, $Fbb$, \enot $Fab$, nor \enot $Fbb$ appeared in the open branch.) So the tree method for QL is similar to that for SL in this respect as well. An open branch in a completed tree describes a way to satisfy the root.
+
+\section{Generalizing the tree method}
+
+Trees are supposed to show something about \emph{all} possible models, not only those with two-object UDs. So we don't want our official tree rules to build in the idea that there are just two objects. For a three-object UD, we'd want our universal statements to develop into all three instances, and we'd want our existentials to branch into the three instances. For a ten-object UD like the one described on page \pageref{10UD}, we'd need to give ten instances. For an infinite UD like the set of all natural numbers, we'd need an \emph{infinite} number of developments. Obviously such rules would be impractical, to say the least. Worse than that, we often won't know at the start of the process what size domain we should be thinking of. So we need a version of the tree rules that is flexible as to domain size.
+
+In order to state our rule formally, we need one new bit of formalism. For any QL wff \metaA{}, a constant \script{c}, and variable \script{x}, define \metaA{}\substitute{\script{x}}{\script{c}} to mean the wff that we get by replacing every occurrence of \script{x} in \metaA{} with \script{c}. So for example, $$Fx\substitute{x}{a} = Fa$$
+
+For any quantified QL sentence $\forall \script{x} \metaA{}$ or $\exists \script{x} \metaA{}$, we call \metaA{}\substitute{\script{x}}{\script{c}} a \define{substitution instance} of $\forall x\metaA{}$ and $\exists x\metaA{}$, and $c$ is called the \define{instantiating constant}.
+
+This, more formally, is the same notion we were working with in our discussion of trees for models with two-object UDs. For example:
+
+\begin{itemize}
+\item $Aa \eif Ba$, $Af \eif Bf$, and $Ak \eif Bk$ are all substitution instances of $\forall x(Ax \eif Bx)$; the instantiating constants are $a$, $f$, and $k$, respectively.
+\item $Raj$, $Rdj$, and $Rjj$ are substitution instances of $\exists zRzj$; the instantiating constants are $a$, $d$, and $j$, respectively.
+\end{itemize}
+
+With this terminology in hand, we can begin with our official tree rules.
+
+\section{Existentials}
+
+This will be our official tree rule for existentials:
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\exists\script{x}\metaA{}, checked={\script{a}}
+	[\metaA{}\substitute{\script{x}}{\script{a}}, just=where \script{a} is new]
+]
+\end{prooftree}
+\end{center}
+}
+
+Just as \metaA{} stands in for any sentence of QL, the \script{x} is meant to stand in for any variable, and \script{a} stands in for any name. The requirement that the name be \emph{new} means that the name chosen for the substitution instance must be a name that has not appeared anywhere in the tree so far. 
+
+What is the rationale for this restriction? The existential claim says that some substitution instance is true, but it doesn't say which one it is. If we knew how many objects we were looking at in the UD, we could make a new branch for each object--- that's what we did in the examples above--- but here we see a different way to model this kind of flexibility. Remember, there is no prohibition in QL of two different names referring to the very same object. So by using an instance involving a new name, we are remaining open-minded about whether it is also a name for some object we've already been discussing.
+
+For example, consider this tree:
+
+\begin{prooftree}
+{
+}
+[Fa
+[\exists x \enot Fx, grouped, name=p2, checked=b
+	[\enot Fb, just=$\exists$:p2]
+]
+]
+\end{prooftree}
+
+The appropriate substitution instance of the existential on line 2 is $Fb$, not $Fa$, because $a$ is a name that is already in use. We want to say that \emph{something} is $F$, not necessarily that $a$ is. Had we taken the $a$ instance, the tree would have closed, even though the root is satisfiable. Note also that in marking the existential as having been processed, we also make a note of the instantiating constant. That's why there is a $b$ next to the check mark in line 2.
+
+\section{Universals}
+
+Here is the tree rule for universals.
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\forall\script{x}\metaA{}, subs=\script{a} 
+	[\metaA{}\substitute{\script{x}}{\script{a}}, just=for any \script{a}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+The universal rule, like the existential rule, invites you to take an instance. But unlike the existential rule, we don't limit ourselves to instances with new names. The other major difference is that one can use this rule multiple times. That makes this rule different from all the other tree rules we've seen so far. You're not necessarily finished processing a universal sentence after you've performed the rule once. We mark this by indicating a $\backslash$ instead of a \checkmark next to the universal sentence.
+
+Here is an example illustrating the importance of taking multiple instances. Here is a partially completed tree.
+
+\begin{prooftree}
+{
+}
+[\forall x (Fx \eand Gx), name=p1, subs={a}
+[\enot Fa \eor \enot Gb, grouped, name=p2
+	[Fa \eand Ga, name=p3, just=$\forall$:p1, checked
+		[Fa, just=$\eand$:p3
+		[Ga, grouped
+			[\enot Fa, just=\eor:p2, close]
+			[\enot Gb
+%				[Fb \eand Gb, just=$\forall$:p1, checked, name=con
+%					[Fb, just=\eand:con
+%					[Gb, grouped, close
+%					]
+%					]
+%				]
+			]
+		]
+		]
+	]
+]
+]
+\end{prooftree}
+
+The root of this tree is pretty obviously unsatisfiable, but so far, the tree hasn't closed. On line 3 we take the $a$ instance of the universal at line 1, but the tree won't close until we take the $b$ instance as well. We can do so at any time. In this way of developing the tree, we take that instance at line 7, and then the tree will close:
+
+
+\begin{prooftree}
+{
+}
+[\forall x (Fx \eand Gx), name=p1, subs={a,b}
+[\enot Fa \eor \enot Gb, grouped, name=p2
+	[Fa \eand Ga, name=p3, just=$\forall$:p1, checked
+		[Fa, just=$\eand$:p3
+		[Ga, grouped
+			[\enot Fa, just=\eor:p2, close]
+			[\enot Gb
+				[Fb \eand Gb, just=$\forall$:p1, checked, name=con
+					[Fb, just=\eand:con
+					[Gb, grouped, close
+					]
+					]
+				]
+			]
+		]
+		]
+	]
+]
+]
+\end{prooftree}
+
+Of course, we could also have taken the $b$ instance at the same time as we took the $a$ instance on line 3, and the tree would have worked just as well. But taking things in this order illustrates that sometimes we can go back to universal claims that have already been considered, to take an additional instance. (Later on, we will see some examples of trees that \emph{require} this kind of backtracking.)
+
+\section{Negated existentials}
+
+Negated existential claims are quite similar to universals. They say that no instance is true, which is another way of saying that every instance is false. So like the universal rule, the negated existential rule will allow us to take as many instances as we like; this time, we take the instances of the \emph{negation} of the wff in the scope of the quantifier.
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot\exists\script{x}\metaA{}, subs=\script{a} 
+	[\enot\metaA{}\substitute{\script{x}}{\script{a}}, just=for any \script{a}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+For example, if $\enot\exists x Fx$ is in the tree, one can use the negated existential rule to develop a tree branch with \enot $Fa$, \enot $Fb$, etc.
+
+\section{Negated universals}
+
+Conversely, a negated universal is similar to an existential. It says that not all instances are true, so at least one instance is false. So like the existential rule, we only perform it once (marking it with a check), and ensuring that we use a new name, so as not to assume anything in particular about the instance chosen.
+
+\label{negunrule}
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot\forall\script{x}\metaA{}, checked={\script{a}}
+	[\enot\metaA{}\substitute{\script{x}}{\script{a}}, just=where \script{a} is \emph{new}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\section{Whither branching?}
+
+When we learned the tree rules for sentential connectives, there was an important distinction between \emph{linear} rules and \emph{branching} rules. We retained this when we assumed two-object domains in \S\ref{sec.fixedrules}, where universal quantifiers had linear rules, and existentials had branching rules. Our new quantifier rules, however, all have the same linear shape. Nothing branches. Why not?
+
+In SL, and for QL models where finite domains were specified in advance, we used branching to represent the particular possible ways one could satisfy the formula above. For some interpretation \script{I} to satisfy $P \eor Q$, either $\script{I}(P)=1$ or $\script{I}(Q)=1$. If we assume there are only two objects, $a$ and $b$, then in order for \script{I} to satisfy $\exists x Fx$, \script{I} must either have $a$ in the extension of $F$ or have $b$ in the extension of $F$. So we can branch the tree to represent those two possibilities.
+
+But if we do not assume anything in particular about the UD, we can't just list all the possible ways to satisfy an existential (or a negated universal). We'd need as many branches as there are objects in the UD. So instead we just take one instance, but give it a new name, which may or may not be co-referential with another name we've already considered. The novelty of the name is playing the functional role of branching.
+
+\section{The other development rules}
+
+So far this chapter we've introduced four tree development rules for QL: we have rules for universals, existentials, negated universals, and negated existentials. There are nine more resolution rules, but they are all familiar: they are the same nine resolution rules given in Chapter \ref{ch.sl.trees}. We'll use all the same resolution rules for conjunction, negated conjunction, disjunction, negated disjunction, conditional, negated conditional, biconditional, negated biconditional, and double negation as we did before. They were introduced on pp.\ \pageref{SL.treerules.start}--\pageref{SL.treerules.end}.
+
+\section{Branch closure rules}
+\label{branchclosure.defined}
+Our branch closure rules also remain unchanged. A branch closes if and only if it contains some sentence \metaA{} along with its negation, \enot\metaA{}. We mark closed branches with an `\ensuremath\times'.
+
+\section{Tree completion rules}
+
+The completion rules, however, require a modification. The SL tree completion rule, given in \S\ref{sec.SL.tree.completion}, said that a branch was complete if every sentence, other than atoms and negated atoms, has been resolved. In the QL tree system we need for our tree completion rules to take account of the fact that some sentences need to be acted on multiple times. The universal rule, for example, lets one take whatever instance one likes; we need our completion rules to ensure that we've taken \emph{enough} instances.
+
+For example, this should not count as a completed tree:
+
+\begin{prooftree}
+{
+}
+[\forall x (Fx \eif Ga), name=p1, subs=a
+[\enot Ga, grouped
+[Fb, grouped
+	[Fa \eif Ga, checked
+		[\enot Fa]
+		[Ga, close]
+	]
+]
+]
+]
+\end{prooftree}
+
+Our universal rule can be processed multiple times. This tree has only taken the $a$ instance of $(Fx \eif Ga)$; if it also took the $b$ instance, the tree would close:
+
+\begin{prooftree}
+{
+}
+[\forall x (Fx \eif Ga), name=p1, subs={a,b}
+[\enot Ga, grouped
+[Fb, grouped
+	[Fa \eif Ga, checked
+		[\enot Fa
+			[Fb \eif Ga
+				[\enot Fb, close]
+				[Ga, close]
+			]
+		]
+		[Ga, close]
+	]
+]
+]
+]
+\end{prooftree}
+
+We don't want this tree to count as complete until it's taken both the $a$ and the $b$ instance. The universal says that every instance must be true; we don't ensure that this is satisfied if only some instances have been taken.
+
+If we knew how many names our model used, we could simply require that every instance be taken. But we don't know in advance how many names our models are going to use. QL trees construct their interpretations as they go. (Remember that resolving existentials and negated universals involves introducing new names.) Here is the requirement we want: we require that we've taken the instance corresponding to \emph{every name in the branch}. If, after taking an instance or two, we go on to introduce a new name within the same branch, that branch isn't complete until we've taken that instance as well. Once again, this is why we use the  $\backslash$ instead of a \checkmark. We can't be sure that we're finished with that line until we've done the rest of the tree.
+
+A wff is \define{resolvable} if it is the kind of wff that gets a check mark upon processing it. (That's everything except for atoms, negated atoms, universals, and negated existentials.) A wff is \define{general} if it is a universal or a negated existential. Here is our new tree completion rule:
+
+\label{branchcompletion.defined}
+\factoidbox{
+A branch is \define{complete} if and only if either (i) it is closed, or (ii) every resolvable sentence in the branch has been resolved, and for every general sentence and every name \script{a} in the branch, the \script{a} instance of that general sentence has been taken.
+
+A tree is complete if and only if every branch in that tree is complete.
+}
+
+
+\section{Resolution order}
+
+As in the SL tree system, the rules do not indicate any particular resolution order. But--- also as in the SL system--- some strategies are going to be more efficient than others. In fact, given the increased complexity of our rules and the fact that some resolutions introduce new names, it is even more important, from an efficiency perspective, than it used to be to employ sensible strategies. It is still a good idea to do linear rules before branching rules, and when possible, to perform a branching rule when you can see that one branch will close right away. Now, we can use similar strategies to take instances from general sentences in a strategic way. If you're not sure which instance to take first, look a step ahead and see if one of the instances will close a branch.
+
+Here is a simple tree illustrating the point. Let's consider whether $Gb \eif \forall x \enot Fx$ and $\exists x Fx$ entail \enot $Gb$. We begin by putting the first two sentences and the negation of the third in the root of a tree:
+
+\begin{prooftree}
+{
+}
+[Gb \eif \forall x \enot Fx, name=p1%, checked
+[\exists x Fx, grouped, name=p2%, checked=a
+[\enot \enot Gb, grouped, name=p3
+%	[\enot Gb, close={:p3, !c}, just=\eif:{p1}
+%	]
+%	[\forall x \enot Fx, subs={a}, name=all
+%		[Fa, just=$\exists$:{p2}, name=fa
+%			[\enot Fa, just=$\forall$:{all}, close={:fa, !c}
+%			]
+%		]
+%	]
+]
+]
+]
+\end{prooftree}
+
+Ordinarily, it is efficient not to branch too early. But in this case, if we look ahead a step, we can see that resolving the conditional on line 1 will close one branch immediately. So that's a good place to start.
+
+\begin{prooftree}
+{
+}
+[Gb \eif \forall x \enot Fx, name=p1, checked
+[\exists x Fx, grouped, name=p2%, checked=a
+[\enot \enot Gb, grouped, name=p3
+	[\enot Gb, close={:p3, !c}, just=\eif:{p1}
+	]
+	[\forall x \enot Fx%, subs={a}, name=all
+%		[Fa, just=$\exists$:{p2}, name=fa
+%			[\enot Fa, just=$\forall$:{all}, close={:fa, !c}
+%			]
+%		]
+	]
+]
+]
+]
+\end{prooftree}
+
+From here we have three choices to consider: lines 2, 3, and 4. Line 3 pretty obviously won't get us anywhere interesting, so let's consider either the existential at line 2 or the universal at line 4. It's usually a good rule of thumb to do the new instances first--- that way we'll have more information when we make decisions about which instances to take for the general rules. So let's take the $a$ instance of line 2.
+
+\begin{prooftree}
+{
+}
+[Gb \eif \forall x \enot Fx, name=p1, checked
+[\exists x Fx, grouped, name=p2, checked=a
+[\enot \enot Gb, grouped, name=p3
+	[\enot Gb, close={:p3, !c}, just=\eif:{p1}
+	]
+	[\forall x \enot Fx%, subs={a}, name=all
+		[Fa, just=$\exists$:{p2}, name=fa
+%			[\enot Fa, just=$\forall$:{all}, close={:fa, !c}
+%			]
+		]
+	]
+]
+]
+]
+\end{prooftree}
+
+Now we turn our attention to the universal at line 4. We can take whatever instance we want. Let's be intelligent about it. The $b$ instance wouldn't do anything interesting; $Fb$ won't interact with that \enot\enot $Gb$ in any helpful way. But the $a$ instance will close the tree. So we take that one.
+
+\begin{prooftree}
+{
+}
+[Gb \eif \forall x \enot Fx, name=p1, checked
+[\exists x Fx, grouped, name=p2, checked=a
+[\enot \enot Gb, grouped, name=p3
+	[\enot Gb, close={:p3, !c}, just=\eif:{p1}
+	]
+	[\forall x \enot Fx, subs={a}, name=all
+		[Fa, just=$\exists$:{p2}, name=fa
+			[\enot Fa, just=$\forall$:{all}, close={:fa, !c}
+			]
+		]
+	]
+]
+]
+]
+\end{prooftree}
+
+Planning ahead can help make your trees more efficient. The general principle you should keep in mind is, if you have a choice for what resolvable sentence to resolve, or what instance of a general sentence to take, make a choice that will allow you to close branches more quickly.
+
+\section{Infinite trees}
+
+In the SL tree system, every development of the tree took us closer to a completed tree, because we checked sentences above as resolved, and wrote simpler sentences in one or two branches below. SL trees are guaranteed to be completed in a finite number of steps--- they will either close, or they will reach a point where everything resolvable has been resolved.
+
+Because of the way our QL system works, it is possible for trees to continue indefinitely without closing. General sentences require that instances be taken for all names in the branch; but the rules for existentials and negated universals require that new names be introduced. Often, we can introduce the new names before dealing with the general instances, as in this completed tree:
+
+\begin{prooftree}
+{
+}
+[\exists x Fx, name=p1, checked=a
+[\forall x Gx, grouped, name=p2, subs={a}
+	[Fa, just=$\exists$:{p1}
+	[Ga, just=$\forall$:{p2}
+	]
+	]
+]
+]
+\end{prooftree}
+
+In this tree, we introduce the name $a$ for the existential, then take the instance for the one and only name in the branch for the universal, and the tree is complete. But things won't always be so simple. Consider a tree with this single sentence in its root: $\forall x \exists y Rxy$. In this case, we must begin by performing the universal rule, as our one and only sentence is a universal. This rule allows us to take an instance with any name. Ordinarily, we use the names that already exist in the branch, but since there are no names, we'll just take the $a$ instance from the start, putting that instance--- an existential--- on line 2.
+
+To resolve that existential, we must use a new name. So on line 3, we take the $b$ instance from line 2.
+
+\begin{prooftree}
+{
+}
+[\forall x \exists y Rxy, name=p1, subs={a}
+	[\exists y Ray, just=1 $\forall$, checked=b
+		[Rab, just=2 $\exists$
+		]
+	]
+]
+\end{prooftree}
+
+This tree has not closed, but note that it is not complete. We haven't taken the $b$ instance of the universal on line 1. When we do so, we will find ourselves with another existential on line 4; it in turn requires an instance involving a new name, and the process will continue indefinitely.
+
+\begin{prooftree}
+{
+}
+[\forall x \exists y Rxy, name=p1, subs={a,b,c}
+	[\exists y Ray, just=1 $\forall$, checked=b
+		[Rab, just=2 $\exists$
+			[\exists y Rby, just=1 $\forall$, checked=c
+				[Rbc, just=4 $\exists$
+					[\exists y Rcy, just=1 $\forall$, checked=d
+						[Rcd, just=5 $\exists$
+							[\vdots]
+						]
+					]
+				]
+			]
+		]
+	]
+]
+\end{prooftree}
+
+As the pattern makes clear, this tree will never close, but it will also never be complete. It will just keep taking instances of an existential with new names, then taking those instances of the universal, which in turn require a new existential, and so on. (Eventually we will run out of letters, but we have subscripts available too, so we'll never run out of names.) Because the tree will never close, its open branch is describing a model that satisfies the root, but the model suggested is an infinite one. Line 3 tells us that \ntuple{a, b} should be in the extension of $R$; line 5 says that \ntuple{b, c} should too. There is a clear pattern that tells us what $R$'s extension must be like:
+
+\begin{partialmodel}
+	\extension{R} & $ \{\ntuple{a, b}, \ntuple{b, c}, \ntuple{c, d}, \ntuple{d, e}, \ldots\}$
+\end{partialmodel}
+
+Or we can represent it graphically, thus: 
+
+\begin{partialmodel}
+	\extension{R} & \begin{tabular}{l|lllll}
+$Rxy$   & a & b & c & d & \ldots \\ \hline
+a   & - & 1 & - & - & -   \\
+b   & - & - & 1 & - & -   \\
+c   & - & - & - & 1 & -   \\
+d   & - & - & - & - & 1   \\
+\vdots & - & - & - & - & -
+\end{tabular}
+\end{partialmodel}
+
+
+
+The blanks indicate that it doesn't matter whether those pairs fall under the extension of $R$ or not.
+
+What this suggests is that if one had a UD comprising an infinite list of objects, with each object related via $R$ to the next item in the list, this model would satisfy the root of the tree. For example, suppose that our UD were the set of all natural numbers, and that we interpreted $Rxy$ as $x+1=y$. For every number $x$, there is a number $y$ that is equal to $x+1$.
+
+Note, however, that this is only one of many possible ways to construct a model meeting the constraint described. In fact, we don't necessarily require that our UD be infinite. Our tree ended up using an infinite number of names, but there's no rule requiring that each name be assigned to a unique object.
+
+The extension of $R$ requires that certain pairs be included. Note that it doesn't require that any pairs be excluded. There are no 0s in the chart above. The blanks mean it doesn't matter whether you include them. A model that included every ordered pair in the extension of $R$ would be an example of the kind of model indicated:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{l|lllll}
+$Rxy$   & a & b & c & d & \ldots \\ \hline
+a   & 1 & 1 & 1 & 1 & 1  \\
+b   & 1 & 1 & 1 & 1 & 1  \\
+c   & 1 & 1 & 1 & 1 & 1   \\
+d   & 1 & 1 & 1 & 1 & 1   \\
+\vdots & 1 & 1 & 1 & 1 & 1
+\end{tabular}
+\end{table}
+
+Once we put it this way, we can see that the $R$ predicate needn't draw any distinctions between the various objects in the domain. Each object could be the same, as far as $R$ is concerned. So we could even offer a simpler model, with a UD comprising a simple object that is $R$-related to itself.
+
+\begin{partialmodel}
+	UD & \{a\}\\
+	\extension{R} & \{\ntuple{a, a}\}
+\end{partialmodel}
+
+
+When a tree continues indefinitely, the root is satisfiable; you can describe a model for it using an infinite domain, taking advantage of the pattern indicated by the infinite branch; or you can often find a way to simplify it into a model with a finite UD.
+
+Let's consider another example of an infinite tree. This time, we'll use names with subscripts. Everything is straightforward up until line 6; at line 7, we need to go back and take a second instance of line 2, and the infinite cycle begins.
+
+\begin{prooftree}
+{
+}
+[\exists x \forall y \exists z (\enot Rxy \eand Rzx), checked={a_{1}}
+	[\forall y \exists z (\enot Ra_{1}y \eand Rza_{1}), just=1 $\exists$, subs={a_{1}, a_{2}, a_{3}}
+		[\exists z (\enot Ra_{1}a_{1} \eand Rza_{1}), just=2 $\forall$, checked={a_{2}}
+			[\enot Ra_{1}a_{1} \eand Ra_{2}a_{1}, just=3 $\exists$, checked
+				[\enot Ra_{1}a_{1}, just=4 \eand
+				[Ra_{2}a_{1}, grouped
+					[\exists z (\enot Ra_{1}a_{2} \eand Rza_{1}), just=2 $\forall$, checked={a_{3}}
+						[\enot Ra_{1}a_{2} \eand Ra_{3}a_{1}, just=8 $\exists$, checked
+							[\enot Ra_{1}a_{2}, just=9 \eand
+							[Ra_{3}a_{1}, grouped
+								[\exists z (\enot Ra_{1}a_{3} \eand Rza_{1}), just=2 $\forall$, checked={a_{4}}
+									[\enot Ra_{1}a_{3} \eand Ra_{4}a_{1}, just=11 $\exists$, checked
+										[\enot Ra_{1}a_{3}, just=9 \eand
+										[Ra_{4}a_{1}, grouped
+											[\vdots]	
+										]
+										]
+									]
+								]
+							]
+							]
+						]
+					]
+				]
+				]
+			]
+		]
+	]
+]
+\end{prooftree}
+
+If we continued drawing the tree, we'd take the $a_{4}$ instance of the universal at line 2 on line 15, then introduce a new name by resolving that universal. The tree will continue forever, again with a clear pattern. Lines 5, 9, 13, etc.\ tell us that for every integer $i$, $Ra_{1}a_{i}$=0. Lines 6, 10, 14, etc.\ tell us that for every $i > 1$, $Ra_{i}a_{1}$=1. Or in chart form:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{l|lllll}
+$Rxy$   & $a_{1}$ & $a_{2}$ & $a_{3}$ & $a_{4}$ & \ldots \\ \hline
+$a_{1}$   & 0 & 0 & 0 & 0 & 0  \\
+$a_{2}$   & 1 & - & - & - & -  \\
+$a_{3}$  & 1 & - & - & - & -   \\
+$a_{4}$   & 1 & - & - & - & -   \\
+\vdots & 1 & - & - & - & -
+\end{tabular}
+\end{table}
+
+This chart describes the extension of $R$ that, as part of a model with the infinite UD \{$a_{1}$, $a_{2}$, $a_{3}$, \ldots\}, would satisfy $\exists x \forall y \exists z (\enot Rxy \eand Rzx)$. As in the previous example, we do not \emph{need} an infinite model to satisfy this sentence; the extension of $R$ here can be collapsed into a finite one. In the previous example, our extension required no distinctions between any of the objects; here, we do have some required differences. $Ra_{1}a_{1}=0$, but $Ra_{1}a_{2}=1$. So our model is treating $a_{1}$ and $a_{2}$ differently. But it requires no further distinctions than that. Every object after $a_{2}$ can be the same as $a_{2}$, as far as this model is concerned.  So a two-object model would also suffice to satisfy this sentence. Here is a graphical representation of the denotation for $R$:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{l|lllll}
+$Rxy$   & $a_{1}$ & $a_{2}$ \\ \hline
+$a_{1}$   & 0 & 0   \\
+$a_{2}$   & 1 & - \\
+\end{tabular}
+\end{table}
+
+Or, describing the model in question with sets and n-tuples:
+
+
+\begin{partialmodel}
+	UD & \{$a_{1}$, $a_{2}$\}\\
+	\extension{R} & \{\ntuple{$a_{2}$, $a_{1}$}\}
+\end{partialmodel}
+
+
+The reasoning involved in collapsing models with infinite domains into finite ones centrally involves reasoning about what distinctions are required: do we need to suppose that the objects named are \emph{different objects}, or can we treat it as a case of multiple names for the \emph{same thing}. In Chapter \ref{ch.identity}, we'll foreground this kind of question in more detail, and introduce a way to talk about it in QL.
+
+Note that, for purposes of answering questions about entailment, you needn't go through the reasoning that allows you to move from infinite models to finite ones that would serve just as well. The tree method, most fundamentally, is a question about whether there is any possible model of the root. If a tree continues infinitely, then it is answering that question: yes, there is an infinite model for it. It's not necessary, for the question of whether there is any model satisfying the root, to determine whether there is a \emph{finite} model that does so.
+
+\section{Common student errors}
+
+\subsection{Using old names}
+
+The most frequent errors for trees in QL involve ignoring the restrictions on names involved in taking instances. Particular sentences (existentials and negated universals) require a \emph{new} name--- if the name appears anywhere in the branch at the time the existential is taken (including below it), it is not suitable for substitution via these rules.
+
+For example, this tree is a mistake:
+
+\begin{prooftree}
+{
+}
+[\forall x \exists y \enot Rxy, subs={a}
+[Rab, grouped
+	[\exists y \enot Ray, just=1 $\forall$, checked=b
+		[\enot Rab, just=3 $\exists$, close={2, 4}
+		]
+	]
+]
+]
+\end{prooftree}
+
+Line 3 here is fine; but at line 4, this tree takes the $b$ instance of the existential on line 3, even though $b$ appeared in line 2. The existential rule requires a new name. The correct version of this tree will remain open. (It will extend infinitely.)
+
+\subsection{Main Connectives}
+
+Always work on the main connectives. If you have a sentence like $$\forall x \exists y \enot Ryx \eand (Fa \eif Fb)$$ don't use the universal rule. This sentence is a conjunction, so you must perform the conjunction rule on it. That will give you a universal, at which point you can take an instance.
+
+\practiceproblems
+
+\solutions
+\problempart
+\label{pr.QL.trees.tautology}
+Use a tree to test whether the following sentences are tautologies. If they are not tautologies, describe a model on which they are false.
+\begin{earg}
+\item $\forall x \forall y (Gxy \eif \exists z Gxz)$
+\item $\forall x Fx \eor \forall x (Fx \eif Gx)$
+\item $\forall x (Fx \eif (\enot Fx \eif \forall y Gy))$
+\item $\exists x (Fx \eor \enot Fx)$
+\item $\exists x Jx \eiff \enot \forall x \enot Jx$
+\item $\forall x (Fx \eor Gx) \eif (\forall y Fy \eor \exists x Gx)$
+\end{earg}
+
+\solutions
+\problempart
+\label{pr.QL.trees.validity}
+Use a tree to test whether the following arguments are valid. If they are not, give a model as a counterexample.
+\begin{earg}
+\item $Fa$, $Ga$, \therefore\ $\forall x (Fx \eif Gx)$
+\item $Fa$, $Ga$, \therefore\ $\exists x (Fx \eand Gx)$
+\item $\forall x \exists y Lxy$, \therefore\ $\exists x \forall y Lxy$
+\item $\exists x (Fx \eand Gx)$, $Fb \eiff Fa$, $Fc \eif Fa$, \therefore\ $Fa$
+\item $\forall x \exists y Gyx$, \therefore\ $\forall x \exists y (Gxy \eor Gyx)$
+\end{earg}
+
+\problempart
+\label{pr.QL.trees.translation.and.validity}
+Translate each argument into QL, specifying a UD, then use a tree to evaluate for validity. If they are invalid, give a model as a counterexample.
+\begin{earg}
+\item Every logic student is studying. Deborah is not studying. Therefore, Deborah is not a logic student.
+\item Kirk is a white male Captain. Therefore, some Captains are white.
+\item The Red Sox are going to win the game. Every team who wins the game will be celebrated. Therefore, the Red Sox will be celebrated.
+\item The Red Sox are going to win the game. Therefore, the Yankees are not going to win the game.
+\item All cats make Frank sneeze, unless they are hairless. Some hairless cats are cuddly. Therefore, some cuddly things make Frank sneeze.
+\end{earg}

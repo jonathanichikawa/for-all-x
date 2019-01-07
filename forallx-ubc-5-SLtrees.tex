@@ -1,0 +1,773 @@
+%!TEX root = forallx-ubc.tex
+\chapter{SL Trees}
+\label{ch.sl.trees}
+
+So far we have learned one way to evaluate SL arguments for validity: an argument is valid just in case no interpretation satisfies the premises but falsifies the conclusion. We can check to see whether an argument is valid by constructing truth tables, representing all of the possible interpretations, and checking to see whether any of them do so. This method has two main advantages: one is that it can be done in a formal and formulaic way--- it requires no particular rational insight, just a straightforward application of the rules of SL. Another is that, assuming you follow the rules correctly, it will always succeed in identifying whether the argument is valid or not.
+
+The truth-table method also has a significant disadvantage, however: it rapidly becomes extremely cumbersome for evaluating arguments using more than two or three atomic sentence-letters. To evaluate an argument like this one, you'd need to consider four rows of a truth-table:
+
+\begin{earg}
+\item[] $P\eiff Q$
+\item[] $\enot Q$
+\item[] $\enot Q \eor (P \eif \enot Q)$
+\item[\therefore] $\enot P \eif Q$
+\end{earg}
+
+But change just two of the atoms to new letters, and the required table will grow exponentially. For this argument, you'd need sixteen rows.
+
+\begin{earg}
+\item[] $P\eiff Q$
+\item[] $\enot A$
+\item[] $\enot Q \eor (A \eif \enot B)$
+\item[\therefore] $\enot P \eif B$
+\end{earg}
+
+For this one, you'd need two hundred fifty-six!
+\label{8letterargument}
+\begin{earg}
+\item[] $A\eiff B$
+\item[] $\enot B \eif (C \eor D)$
+\item[] $E \eif \enot C$
+\item[] $(\enot D \eand F) \eor G$
+\item[] $\enot A \eand E$
+\item[\therefore] $H \eor G$
+\end{earg}
+
+So it is useful to have alternate ways of proving entailments. In this chapter we will introduce a \emph{proof system} for SL. The proofs we will construct in this chapter are called \define{analytic tableaux}. Another name for them is \define{trees}, because of the way they `branch' out to represent possibilities. In Ch.\ \ref{ch.ND.proofs} we will examine a different proof system.
+
+\section{Satisfiability and entailment}
+
+The method of trees is most directly a way to test for satisfiability of a set of SL sentences. Since validity is definable in terms of satisfiability, it also gives a way to test for validity.
+
+Recall from \S\ref{sec.semanticsSL} the definition of entailment in SL: $\metaSetX{}\models\metaA{}$ means that there is no interpretation that satisfies every sentence in \metaSetX{} but falsifies \metaA{}. (Remember, `\metaSetX{}' can stand for any set of SL sentences.) This in turn is equivalent to the claim that there is no interpretation that satisfies $\{\metaSetX{},\enot\metaA{}\}$. Unsatisfiability can be represented with a double-turnstile with $\bot$ on the right-hand side.
+
+\factoidbox{
+In general, $\metaSetX{}\models\metaB{}$ is equivalent to $\metaSetX{},\enot\metaB{}\models\bot$.
+}
+
+So if you want to tell whether an argument in SL is valid, check to see whether the premises, along with the negation of the conclusion, are jointly satisfiable. If they are, the argument is invalid. If they're not, the argument is valid. This is the basic idea of the tree method. We'll write down the sentences we're attempting to satisfy, and then we'll work through their consequences, in order to see whether it's possible to complete the task.
+
+Let's begin by working through an example that illustrates the general idea, then come back to give precise rules for the tree method.
+
+\section{An example: proving validity}
+
+Let's attempt to prove whether this is valid in SL:
+
+\begin{earg}
+\item[] $A\eand B$
+\item[] $\enot(C\eor D)$
+\item[] $(\enot B \eor C) \eor E$
+\item[\therefore] $E$
+\end{earg}
+
+To evaluate this argument, we consider whether it's possible to satisfy the three premises along with the negation of the conclusion. We begin by writing down the sentences we're going to attempt to satisfy.
+
+\begin{prooftree}
+{ % begin tree preamble
+single branches,
+close with=\ensuremath{\times},
+%to prove={\{A\eand B, \enot(C\eor D), (\enot B\eor C)\eor E\} \vdash{} E}
+} % end tree preamble
+[A\eand B
+[\enot(C\eor D), grouped
+[(\enot B \eor C) \eor E, grouped
+[\enot E, grouped, name=negconc
+%	[A
+%	[B, grouped
+%		[\enot C
+%		[\enot D, grouped
+%			[\enot B \eor C
+%				[\enot B, close]
+%				[C, close]
+%			]
+%			[E, close]					
+%		]
+%		]
+%	]
+%	]
+]
+]
+]
+]
+\end{prooftree}
+
+Notice that we're putting the \emph{negation} of the conclusion here in line (4), since we're looking to see whether it's possible to satisfy the premises and \emph{falsify} the conclusion. The sentences we write down at the beginning of the tree, we call the \define{root}. Trees are designed to show whether the root is satisfiable, and if so, how.
+
+With proof trees, the idea is to continue writing down that which our previous lines \emph{already commit us to}. Consider the first line, $A \eand B$. For this conjunction to be true, both conjuncts must be true. So any interpretation that satisfies the top four lines must also satisfy both $A$ and $B$; the truth of those sentences is a commitment of what we already have. Each follow from what is already written down. We represent this by continuing the tree with those sentences:
+
+
+\begin{prooftree}
+{ % begin tree preamble
+single branches,
+close with=\ensuremath{\times},
+%to prove={\{A\eand B, \enot(C\eor D), (\enot B\eor C)\eor E\} \vdash{} E}
+} % end tree preamble
+[A\eand B, checked
+[\enot(C\eor D), grouped
+[(\enot B \eor C) \eor E, grouped
+[\enot E, grouped
+	[A
+	[B, grouped
+%		[\enot C
+%		[\enot D, grouped
+%			[\enot B \eor C
+%				[\enot B, close]
+%				[C, close]
+%			]
+%			[E, close]					
+%		]
+%		]
+	]
+	]
+]
+]
+]
+]
+\end{prooftree}
+
+In addition to introducing lines (5) and (6), we also add a check mark on (1), to indicate that we've now considered it and represented its consequences. Think of the check mark as saying that we've extended the tree in a way that encodes the information from this line.
+
+Now consider line (2). This is a negated disjunction. Disjunctions are true any time either disjunct is true, so this \emph{negated} disjunction can only be true if \emph{both} disjuncts are \emph{false}. So we include new lines for \enot $C$ and \enot $D$, adding a check mark on line (2):
+
+\begin{prooftree}
+{ % begin tree preamble
+single branches,
+close with=\ensuremath{\times},
+%to prove={\{A\eand B, \enot(C\eor D), (\enot B\eor C)\eor E\} \vdash{} E}
+} % end tree preamble
+[A\eand B, checked
+[\enot(C\eor D), grouped, checked
+[(\enot B \eor C) \eor E, grouped
+[\enot E, grouped
+	[A
+	[B, grouped
+		[\enot C
+		[\enot D, grouped
+%			[\enot B \eor C
+%				[\enot B, close]
+%				[C, close]
+%			]
+%			[E, close]					
+		]
+		]
+	]
+	]
+]
+]
+]
+]
+\end{prooftree}
+
+Line (3) is a disjunction. Unlike the previous two cases, it doesn't tell us what categorically \emph{must} be the case; it says that one of two possibilities must be met. We represent this in our tree by \emph{branching} into two different columns:
+
+\begin{prooftree}
+{ % begin tree preamble
+single branches,
+close with=\ensuremath{\times},
+%to prove={\{A\eand B, \enot(C\eor D), (\enot B\eor C)\eor E\} \vdash{} E}
+} % end tree preamble
+[A\eand B, checked
+[\enot(C\eor D), grouped, checked
+[(\enot B \eor C) \eor E, grouped, checked
+[\enot E, grouped
+	[A
+	[B, grouped
+		[\enot C
+		[\enot D, grouped
+			[\enot B \eor C
+%				[\enot B, close]
+%				[C, close]
+			]
+			[E]					
+		]
+		]
+	]
+	]
+]
+]
+]
+]
+\end{prooftree}
+
+Think of these two branches as representing the idea that the root implies that at least one of these ways of continuing the tree must be possible.
+
+So now we have two branches to consider. Start by examining the right branch. It gives an atomic sentence, $E$. Notice, however, that line (4) was \enot $E$. So if we're looking for a way to satisfy (1)-(4), this right branch isn't a possible interpretation. It requires $E$ to be true, and it also requires \enot $E$ to be true. If a branch contains any sentence and also contains its negation, we know that branch doesn't correspond to a possible interpretation. We'll consider this branch \emph{closed}, and mark this with an `\ensuremath\times'.
+
+The left branch is another disjunction. It too branches out into its two disjuncts:
+
+\begin{prooftree}
+{ % begin tree preamble
+single branches,
+close with=\ensuremath{\times},
+%to prove={\{A\eand B, \enot(C\eor D), (\enot B\eor C)\eor E\} \vdash{} E}
+} % end tree preamble
+[A\eand B, checked
+[\enot(C\eor D), grouped, checked
+[(\enot B \eor C) \eor E, grouped, checked
+[\enot E, grouped
+	[A
+	[B, grouped
+		[\enot C
+		[\enot D, grouped
+			[\enot B \eor C
+				[\enot B, close]
+				[C, close]
+			]
+			[E, close]					
+		]
+		]
+	]
+	]
+]
+]
+]
+]
+\end{prooftree}
+
+Both of these disjuncts also result in closed branches. The left branch at (10) is the negation of (6), and the right branch is the negation of (7). Now every branch in this tree is closed. This corresponds to the idea that every possible way there could be to satisfy (1)-(4) ended up requiring a contradiction. There is no interpretation that satisfies (1)-(4). In other words, the argument we began with was valid.
+
+In the previous chapter we used the double turnstile, `$\models$', to represent entailment. In this chapter we will use a different but related symbol, the \define{single turnstile}, which looks like this: `$\vdash$'. Think of this symbol as representing \emph{provability}. So in proving that $E$ follows from the premises above, we're showing that {\{$A\eand B$, \enot$(C\eor D)$, $(\enot B\eor C)\eor E\} \vdash{} E$}.
+
+Obviously provability and entailment are closely connected; we'll consider that connection in more detail in Chapter \ref{ch.SLsoundcomplete}.
+
+\section{An example: proving invalidity}
+\label{sec.SLinvalidtree}
+
+Let's work through another example to further illustrate the idea. In \S\ref{sec.SLtreerules} we'll learn the formal rules for trees in SL. Consider this argument form:
+
+\begin{earg}
+\item[] $(D\eor A) \eand \enot N$
+\item[] $N \eor \enot A$
+\item[\therefore] $\enot N \eand A$
+\end{earg}
+
+As before, we'll construct a tree that includes the premises and the negation of the conclusion at the top, and we'll attempt to find an interpretation satisfying those three lines. By convention, we write the claim we're attempting to prove at the top of the tree. We begin by processing line (1), which is a conjunction; its conjuncts are given in (4) and (5). Line (6) processes the disjunction in line (2), and the left branch closes.
+
+\begin{prooftree}
+{
+to prove={\{(D\eor A) \eand \enot N, N \eor \enot A\} \vdash{} \enot N \eand A},
+single branches,
+close with=\ensuremath{\times},
+}
+[(D\eor A) \eand \enot N, checked
+[N \eor \enot A, grouped, checked
+[\enot (\enot N \eand A), grouped%, checked
+	[D \eor A%, checked
+	[\enot N, grouped
+		[N, close
+		]
+		[\enot A
+%			[\enot\enot N, close
+%			]
+%			[\enot A
+%				[D]
+%				[A, close]
+%			]
+		]
+	]
+	]
+]
+]
+]
+\end{prooftree}
+
+Line (3) is a negated conjunction. A conjunction is true if and only if both conjuncts are true, so it is false if at least one conjunct is false. So to resolve (3), line (7) branches into the negation of each conjunct, \enot\enot$N$ and \enot$A$. The former closes because it's the negation of line (5). The final sentence requiring resolution is the disjunction on line (4); it branches, and one branch closes.
+
+\begin{prooftree}
+{
+to prove={\{(D\eor A) \eand \enot N, N \eor \enot A\} \vdash{} \enot N \eand A},
+single branches,
+close with=\ensuremath{\times},
+}
+[(D\eor A) \eand \enot N, checked
+[N \eor \enot A, grouped, checked
+[\enot (\enot N \eand A), grouped, checked
+	[D \eor A, checked
+	[\enot N, grouped
+		[N, close
+		]
+		[\enot A
+			[\enot \enot N, close
+			]
+			[\enot A
+				[D, open]
+				[A, close]
+			]
+		]
+	]
+	]
+]
+]
+]
+\end{prooftree}
+
+The $\uparrow$ indicates that the open branch ending in $D$ is a \emph{completed} branch. (We'll precisely define `completion' in \S\ref{sec.SLtreerules}.) What this means is that this branch represents a way to satisfy all three sentences at the root of the tree. In other words, this argument form is \emph{not} valid in SL. Furthermore, examining the open branch demonstrates an interpretation that satisfies the root. The branch includes three wffs that are either atoms or negated atoms: \enot $A$, $D$, and \enot $N$. So it suggests this interpretation:
+
+\begin{displaymath}
+\script{I} =
+\left\{
+	\begin{array}{ll}
+	A = 0\\
+	D = 1\\
+	N = 0
+	\end{array}
+\right.
+\end{displaymath}
+
+You can verify this result by evaluating the premises and the conclusion of the argument we began with on this interpretation. Since there is an interpretation that satisfies the premises and falsifies the conclusion, our tree system proves the argument invalid.
+
+\section{Resolution rules for SL trees}
+\label{sec.SLtreerules}
+
+Hopefully the examples we've worked through have given you a decent intuitive sense of the tree method for SL. Now let's get more precise about it, by giving formal rules for trees. You should be able to recognize the following rules as a generalization of the steps of the proofs given above.
+
+We begin with \define{resolution} rules. These rules identify ways that tree branches can be extended, given sentences that are already in that branch. The rules depend on the main connective of the sentence in question. (If the main connective is negation, then they also depend on the main connective of the negand.)
+\label{SL.treerules.start}
+\subsection{Conjunction}
+
+The rule for conjunction is that if you have a conjunction in a branch, you may make a linear extension of the branch that includes each conjunct, adding a check mark next to the conjunction. Using our Greek symbols once again as variables to stand in for any sentence of SL, any time you have this,
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eand\metaB{}%, checked
+%	[\metaA{}
+%	[\metaB{}, grouped
+%	]
+%	]
+]
+\end{prooftree}
+\end{center}
+
+you may extend each open branch of the tree to this:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eand\metaB{}, checked
+	[\metaA{}
+	[\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+
+It is important to remember once again that \metaA{} and \metaB{} here can stand for \emph{any} sentences of SL, including complex ones.
+
+If you have extended a tree branch using the conjunction rule, we say that you have \emph{resolved} the conjunction. When sentences are resolved, they are marked with a check. In stating the resolution rules, we'll typically omit the check mark; here is the conjunction rule:
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eand\metaB{}
+	[\metaA{}
+	[\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\subsection{Negated conjunction}
+
+If you have a negated conjunction, you may resolve it by branching into the negation of each conjunct. This makes sense because there are two ways for a negated conjunct to be true--- either conjunct can be false.
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eand\metaB{})
+	[\enot\metaA{}]
+	[\enot\metaB{}]
+]
+\end{prooftree}
+\end{center}
+}
+
+\subsection{Disjunction}
+\label{subsec.DisjunctionTreeRule}
+
+Disjunctions branch into each disjunct.
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eor\metaB{}
+	[\metaA{}]
+	[\metaB{}]
+]
+\end{prooftree}
+\end{center}
+}
+
+\subsection{Negated disjunction}
+
+Since disjunctions are true any time either disjunct is true, they are only false if both disjuncts are false. So negated disjunctions are resolved with a linear development containing the negation of each disjunct.
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eor\metaB{})
+	[\enot\metaA{}
+	[\enot\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\subsection{Conditional}
+
+Recall the characteristic truth table for the conditional in SL:
+
+\begin{center}
+\begin{tabular}{c|c|c}
+\metaA{} & \metaB{} & \metaA{}\eif\metaB{}\\
+\hline
+1 & 1 & 1\\
+1 & 0 & 0\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{tabular}
+\end{center}
+
+Conditionals are true any time the antecedent is false, and also any time the consequent is true. We can represent this with a branching tree development, similar to a disjunction.
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eif\metaB{}
+	[\enot\metaA{}]
+	[\metaB{}]
+]
+\end{prooftree}
+\end{center}
+}
+
+\subsection{Negated conditional}
+
+As in the case of disjunction, the negation of a conditional is a relatively strong claim--- the only way for a conditional to be false is for its antecedent to be true \emph{and} for its consequent to be false. We represent this with a linear development:
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eif\metaB{})
+	[\metaA{}
+	[\enot\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\subsection{Biconditional}
+
+Biconditionals require a slightly different structure. A biconditional says that two sentences have the same truth value: either both are true, or both are false. Since these represent two different ways a biconditional can be true, our tree rules will develop biconditionals into two new branches. But unlike in the case of our other rules, each new branch will contain two sentences. One branch will have both sides of the biconditional; the other will have both sides' \emph{negations}:
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eiff\metaB{}
+	[\metaA{}
+		[\metaB{}, grouped]
+	]
+	[\enot\metaA{}
+		[\enot\metaB{}, grouped]
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\subsection{Negated biconditional}
+
+Negated biconditionals yield the same structure, but instead of new branches where each subsentence has the same truth value, they yield branches in which the subsentences have opposite values.
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eiff\metaB{})
+	[\metaA{}
+		[\enot\metaB{}, grouped]
+	]
+	[\enot\metaA{}
+		[\metaB{}, grouped]
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\subsection{Double negation}
+
+There is one more resolution rule, for double-negated sentences. One resolves a double negation by developing a linear branch where both negations are removed.
+
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering, single branches}
+[\enot\enot\metaA{}
+	[\metaA{}]
+]
+\end{prooftree}
+\end{center}
+}
+\label{SL.treerules.end}
+\subsection{Resolution rules summary}
+
+These nine resolution rules describe, in purely formal terms, how to resolve most sentences of SL. The only exceptions are atomic sentences, and atomic sentences with a single negation sign in front of them. In our formal proof system, atoms and negated atoms have a special role to play; they are not resolved. In developing a tree proof, you may apply any of these rules to any unresolved sentence (other than an atom or negated atom) in the branch. Mark resolved sentences with a check.
+
+Note that it is \emph{not} a rule that sentences must be resolved in the order in which they appear in the tree; one can save sentences and come back later to resolve them. However, if you are resolving a sentence after the tree has already done some branching, you must perform the resolution rule under \emph{each} open branch that includes that sentence. Here is a tree illustrating the issue.
+
+\begin{prooftree}
+{
+}
+[(D \eand \enot R) \eor Q, name={p1}, checked
+[\enot Q \eor R, grouped, name={p2}
+	[D \eand \enot R, just={\eor}:p1, name={and}, checked
+		[\enot Q, just={\eor}:p2
+			[D, just={\eand}:and
+				[\enot R, grouped, open]
+			]
+		]
+		[R, name={R}
+			[D, just={\eand}:and
+				[\enot R, grouped, close={:R,!c}]
+			]
+		]
+	]
+	[Q
+		[\enot Q, close={:!u,!c}
+		]
+		[R, open
+		]
+	]
+]
+]
+\end{prooftree}
+
+This tree has two disjunctions in the root, so it will involve branching multiple times. We could start with either one, but this tree resolved line (1) first, branching into the two disjuncts at line (3). The `1 \eor' to the right at that line is the explanation for what is happening there: it indicates that the disjunction rule was applied to line (1). When the second disjunction is processed at line (4), it needs to be done on both branches, since both branches include line (2). That's why our two branches split into four at line (4). One branch closes at that point. At line (5), the conjunction at line (3) is processed. This needs to be done on both branches that include that disjunction, but not the right-most branch, which does not include it. Resolving a sentence affects everything below it in the tree in its own descendent branches, but it doesn't affect branches that are off to the side.
+
+Besides the tree resolution rules, there are two more rules to our proof system.
+
+\section{Branch closure rules}
+
+In the tree examples above, we \emph{closed} branches when they contained sentences along with their negations. Here is our general rule for tree closure:
+
+\factoidbox{
+If any branch contains some formula \metaA{}, and also contains \enot\metaA{}, that branch is \define{closed}. Any branch that is not closed is \define{open}. We mark closed branches with the `\ensuremath{\times}' symbol.
+
+A tree is \define{closed} if and only if every branch in that tree is closed. A tree is \define{open} if and only if it is not closed.
+}
+
+If every branch is closed, the method proves that the root is unsatisfiable.
+
+Note that `\metaA{}' stands in for \emph{any} sentence of SL; it is not part of the closure rule that one must have an atomic sentence and its negation. Consider for example this tree:
+
+\begin{prooftree}
+{
+}
+[(\enot\enot S \eand T) \eif (\enot P \eiff (Q \eor R)), checked
+[\enot\enot S \eand T, grouped, name={p2}
+[\enot (\enot P \eiff (Q\eor R)), grouped, name={p3}
+	[\enot(\enot\enot S \eand T), close={:p2,!c}
+	]
+	[(\enot P \eiff (Q \eor R)), close={:p3,!c}
+	]
+]
+]
+]
+\end{prooftree}
+
+In this tree, we only resolved the first sentence, using the conditional rule, and the tree immediately closed. The line numbers under the closure symbols specify exactly why the branches close: the left branch developed into the negation of (2), and the right branch developed into the negation of (3). Notice that we \emph{could} have developed lines (2) and (3), using the conjunction or negated biconditional rules, respectively, but this would have resulted in a more complicated tree that ultimately yielded the same result. Similarly, if we hadn't noticed that both branches close at line (4), we could have continued processing the tree, developing the left branch using the negated conjunction rule on (4), and developing the right branch using the biconditionals rule. But this too would have involved needless complication for no benefit. (Eventually, the tree would have closed with simpler sentences too.) You can save yourself a lot of work by noticing when branches are ready to mark as closed, and by thinking a bit strategically about which sentences to resolve first.
+
+\section{Branch completion rules}
+\label{sec.SL.tree.completion}
+Here is the final piece of our formal proof system. In our examples above we have used `$\uparrow$' to indicate that an open branch is complete. We need a formal characterization of branch completion.
+
+In SL, a \define{resolvable} wff is a wff for which we have a resolution rule. That is, anything other than an atom or a negated atom.
+
+\factoidbox{
+A branch is \define{complete} if and only if either it is closed, or every resolvable sentence in that branch has been resolved.
+
+A tree is complete if and only if every branch in that tree is complete.}
+
+If there is at least one open branch in a completed tree, the tree method indicates that that branch corresponds to an interpretation that satisfies the root.
+
+We use the `$\vdash{}$' symbol to indicate tree closure. `$\metaSetX{}\vdash{} \bot$' means that a tree with root \metaSetX{} closes. We use `$\nvdash{}\bot$' to indicate that a completed tree remains open.
+
+We will also define our single turnstile symbol so that $\metaSetX{}\vdash{} \metaA{}$ is equivalent to $\metaSetX{}, \enot\metaA{}\vdash{}\bot$. We've been using this implicit definition already, by testing validity by putting the negation of the conclusion along with the premises in the root.
+
+This completes the introduction of the formal rules for the SL tree proof system. In the remainder of this chapter, we'll work through some more examples and provide some advice for working through trees more efficiently. In Chapter \ref{ch.SLsoundcomplete} we'll explain why the tree method works, and prove why it's a good one.
+
+\section{Resolution order}
+
+The resolution rules do not specify the order in which you should resolve sentences in a tree; you are free to resolve in any order you like. But some ways of processing trees are more efficient than others. Here is an example to illustrate. Suppose we want to consider whether $\{\enot (C \eand A), D \eiff C, A \eor B, \enot B\}\vdash{}\bot$. So we put those sentences in the root of a tree. Here's what happens if we resolve the sentences in the order in which they're given:
+
+\begin{prooftree}
+{
+}
+[\enot (C \eand A), checked, name=p1
+[D \eiff C, checked, grouped, name=p2
+[A \eor B, grouped, checked, name=p3
+[\enot B, grouped, name=p4
+	[\enot C, just={\enot\eand}:p1
+		[D, just={\eiff}:p2
+			[C, grouped, close]
+		]
+		[\enot D
+			[\enot C, grouped
+				[A, just={\eor}:p3, open]
+				[B, close]
+			]
+		]
+	]
+	[\enot A
+		[D
+			[C, grouped
+				[A, close]
+				[B, close]
+			]
+		]
+		[\enot D
+			[\enot C, grouped
+				[A, close]
+				[B, close]
+			]
+		]
+	]
+]
+]
+]
+]
+\end{prooftree}
+
+Again, the justifications for particular steps are added to the right of the tree for clarity. For example, `1\enot\eand{}' indicates that line (5) was produced by performing the negated conjunction resolution rule on line (1). This tree remains open, offering this interpretation that satisfies the root:
+
+\begin{displaymath}
+\script{I} =
+\left\{
+	\begin{array}{ll}
+	A = 1\\
+	B = 0\\
+	C = 0\\
+	D = 0
+	\end{array}
+\right.
+\end{displaymath}
+
+This tree reminds us again that if a sentence in a tree has multiple open branches below it, then resolving that sentence requires that the resolution be performed in \emph{each} open branch below. That's why, for example, resolving line (3) at line (8) requires three different new branchings. (We do not resolve under the left-most column, because it is already closed.) So when there are more open branches, resolving sentences requires more work on the tree. Consequently, it is sometimes a good idea to think a bit strategically, and close off parts of the tree earlier, to save yourself some work.
+
+The example above is a perfectly fine instance of a completed tree, and it does yield the correct answer. However, it's possible to get there with less work, by choosing to resolve sentences that will close off branches right away. Here is another way of developing a tree with the same root as in the previous example. This version begins by resolving line (3), because doing so will close off one of its new branches immediately. It then continues to resolve in the most efficient order:
+
+\begin{prooftree}
+{
+}
+[\enot (C \eand A), checked, name=p1
+[D \eiff C, checked, grouped, name=p2
+[A \eor B, grouped, checked, name=p3
+[\enot B, grouped, name=p4
+	[A, just={\eor:p3}
+		[\enot C, just={\enot\eand:p1}
+			[D, just={\eiff:p2}
+				[C, grouped, close]]
+			[\enot D
+				[\enot C, grouped, open]]
+		]
+		[\enot A, close]
+	]
+	[B, close]
+]
+]
+]
+]
+\end{prooftree}
+
+This tree gets us to the same result much more quickly, pointing to the same interpretation that satisfies the root. As a general rule of thumb, it's good advice to look a step ahead, and resolve sentences that won't lead to new open branches, before resolving ones that will. For just the same reason, it is usually more efficient to resolve those sentences that have linear rules before those that have branching rules.
+
+\section{Choosing the right root}
+\label{sec.sl.treeroots}
+
+Trees are used to indicate whether the root is satisfiable. We test arguments for validity with a tree by putting their premises along with the negation of their conclusions in the root; if the tree remains open, indicating that the set is satisfiable, that means it's possible to satisfy the premises while falsifying the conclusion, which means the argument is invalid. If the tree closes, that suggests the argument is invalid.
+
+But trees can be used to evaluate many other kinds of questions, aside from validity. Any question that can be converted into a question about satisfiability can be answered with a tree. For example, if you want to find out whether a set of sentences is consistent, put that set of sentences into the tree. A set of sentences is consistent if and only if there is an interpretation satisfying it, so you can use a tree to find out.
+
+What if you want to find out whether a sentence is a tautology? A tautology is a sentence that is satisfied by \emph{every} interpretation. To test this claim with a tree, we'll attempt to find an interpretation that falsifies it, by putting its \emph{negation} in the root. If this tree remains open, it shows us how to satisfy the negation, which means that the sentence is \emph{not} a tautology. If it closes, then the negation is unsatisfiable, which means the sentence \emph{is} a tautology.
+
+To find out whether a sentence is a contradiction, check and see whether it is possible to satisfy it, by putting it in the root of the tree. If the tree remains open, the sentence is satisfiable, which means it's not a contradiction. If the tree closes, then it is a contradiction.
+
+To use a tree to answer a question, the first step is always to convert the question into a question about whether some sentence, or set of sentences, is satisfiable. 
+
+
+\practiceproblems
+If you want additional practice, you can construct trees for any of the SL arguments and entailment claims in the exercises for the previous two chapters.
+
+\solutions
+\problempart 
+\label{pr.sl.treeroot}
+To evaluate each of the following claims with a tree, (a) what would you put in the root of the tree?, and (b) if the tree closes, does that show that the claim is true or false?
+\begin{earg}
+\item $\{P, P \eif Q, Q \eif \enot P\} \vdash{}\bot$
+%(a) $\{P, P \eif Q, Q \eif \enot P\}$, (b) true
+\item $(P \eif Q) \eiff (Q \eif P)$ is a tautology.
+%(a) $\enot((P \eif Q) \eiff (Q \eif P))$, (b) true
+\item The following argument is valid:
+	\begin{ekey}
+		\item[] $P \eand Q$
+		\item[] $\enot R \eif \enot Q$
+		\item[\therefore] $P \eand R$
+	\end{ekey}
+%(a) $\{P \eand Q, \enot R \eif \enot Q, \enot (P \eand R)\}$, (b) true
+\item There is no interpretation that satisfies $A \eor B$, $B \eif C$, and $A \eiff C$ without also satisfying C.
+%$\{A \eor B, B \eif C, A \eiff C, \enot C\}, (b) true
+\item $A \eiff \enot A$ is a contradiction.
+%(a) $A \eiff \enot A$, (b) false
+\item Every interpretation satisfying $P$, $P \eif Q$, and $\enot Q$ also satisfies $A$.
+%(a) $\{P, P \eif Q, \enot Q, \enot A\}$
+\item There is at least one interpretation that satisfies $P \eif Q$, $\enot P \eor \enot Q$, and $Q \eif P$.
+%(a) $\{P \eif Q, \enot P \eor \enot Q, Q \eif P\}, (b) false.
+ \end{earg}
+
+\solutions
+\problempart 
+\label{pr.sl.agtree}
+Evaluate the argument given on p.\ \pageref{8letterargument} by constructing a tree. If it is invalid, give a model demonstrating it so.
+
+\solutions
+\problempart Evaluate each claim from Part \ref{pr.sl.treeroot} by constructing a tree. If applicable, give the interpretation that demonstrates the claim true or false.
+\label{tree.examples}
+
+\problempart Recall the discussion of the Sheffer stroke in Chapter \ref{ch.TruthTables}, page \pageref{pr.altConnectives}.  That connective, if added to SL, would have this characteristic truth table:
+
+\begin{center}
+\begin{tabular}{c|c|c}
+\metaA{} & \metaB{} & \metaA{}$|$\metaB{}\\
+\hline
+1 & 1 & 0\\
+1 & 0 & 1\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{tabular}
+\end{center}
+
+What would be appropriate tree resolution rules for the Sheffer stroke, or the negated Sheffer stroke?

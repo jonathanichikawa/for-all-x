@@ -1,0 +1,597 @@
+%!TEX root = forallx-ubc.tex
+\chapter{Truth tables}
+\label{ch.TruthTables}
+
+This chapter introduces a way of evaluating sentences and arguments of SL. The truth table method is a purely mechanical procedure that requires no intuition or special insight. Given the (albeit imprecise) translatability between SL and natural languages, this also amounts to a formal way of evaluating some natural language arguments.
+
+\section{Truth-functional connectives}
+
+Any non-atomic sentence of SL is composed of atomic sentences with sentential connectives. In Ch. \ref{ch.SL}, we offered \emph{characteristic truth tables} for each connective. Although we didn't emphasize it at the time, the fact that it is possible to give truth tables like this is very significant. It means that our connectives are \define{truth-functional}. That is to say, the only thing that matters for determining the truth value of a given sentence of SL is the truth values of its constituent parts. To determine the truth value of a sentence \enot\metaA{}, the only thing that matters is the truth value of \metaA{}. You don't have to know what \metaA{} means, or where it came from, or what evidence there is for it and what that evidence might depend on. The truth-value of \enot\metaA{} is a \emph{function} of the truth-value of \metaA{}. And so likewise for the other connectives.
+
+This is a very interesting feature of SL. It is not inevitable. The syntax of English, for example, permits one to make a new, more complex English declarative sentence by prefixing the phrase `Donald Trump cares whether' in front of any declarative English sentence. In this respect this phrase is syntactically similar to `\enot' in SL. But it is impossible to give a truth-functional characterization of the `Donald Trump cares whether' operator in English. If you want to know whether Donald Trump cares whether  the Canadian dollar is getting stronger, it's not enough to know whether the Canadian dollar is getting stronger. If it is, he might or might not care; if it isn't, he might or might not care. `Donald Trump cares whether' is not truth-functional. But all the connectives of SL are.
+
+For this reason, we can construct truth tables to determine the logical features of SL sentences.
+
+\section{Complete truth tables}
+The truth-value of sentences which contain only one connective are given by the characteristic truth table for that connective. Truth tables list out all the possible combinations of truth values for the atomic wffs at play; each row corresponds to an \define{interpretation}--- a possible way of assigning truth values to atomic sentence. (\{$P=1$, $Q=0$\} is an example of an interpretation.)
+
+In the previous chapter, we wrote the characteristic truth tables with `1' for true and `0' for false. It is important to note, however, that this is not about truth in any deep or cosmic sense. Philosophical investigation into the nature of truth is a worthy project in its own right, but the truth functions in SL are just rules which transform input values into output values. (This is part of the reason why, in this book, we usually write `1' and `0' instead of `T' and `F'.) Even though we interpret `1' as meaning `true' and `0' as meaning `false', computers can be programmed to fill out truth tables in a purely mechanical way. In a machine, `1' might mean that a register is switched on and `0' that the register is switched off. Mathematically, they are just the two possible values that a sentence of SL can have. The truth tables for the connectives of SL, written in terms of 1s and 0s, are given in table \ref{table.CharacteristicTTs}.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{c|c}
+\metaA{} & \enot\metaA{}\\
+\hline
+1 & 0\\
+0 & 1 
+\end{tabular}
+\ \ \ \ 
+\begin{tabular}{c|c|c|c|c|c}
+\metaA{} & \metaB{} & \metaA{}\eand\metaB{} & \metaA{}\eor\metaB{} & \metaA{}\eif\metaB{} & \metaA{}\eiff\metaB{}\\
+\hline
+1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 1 & 0 & 0\\
+0 & 1 & 0 & 1 & 1 & 0\\
+0 & 0 & 0 & 0 & 1 & 1
+\end{tabular}
+\end{center}
+\caption{The characteristic truth tables for the connectives of SL.}
+\label{table.CharacteristicTTs}
+\end{table}
+
+
+
+The characteristic truth table for conjunction, for example, gives the truth conditions for any sentence of the form $(\metaA{}\eand\metaB{})$. Even if the conjuncts \metaA{} and \metaB{} are long, complicated sentences, the conjunction is true if and only if both \metaA{} and \metaB{} are true.
+
+
+Let's construct a truth table for a more complicated sentence. Consider the sentence $(H\eand I)\eif H$. We consider all the possible combinations of true and false for $H$ and $I$, which gives us four rows. We then copy the truth-values for the sentence letters and write them underneath the letters in the sentence.
+\begin{center}
+\begin{tabular}{c|c|@{\TTon}*{5}{c}@{\TToff}}
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\hline
+ 1 & 1 & \TTbf{1} & & \TTbf{1} & & \TTbf{1}\\
+ 1 & 0 & \TTbf{1} & & \TTbf{0} & & \TTbf{1}\\
+ 0 & 1 & \TTbf{0} & & \TTbf{1} & & \TTbf{0}\\
+ 0 & 0 & \TTbf{0} & & \TTbf{0} & & \TTbf{0}
+\end{tabular}
+\end{center}
+So far all we've done is duplicate the first two columns. We've written the `H' column twice--- once under each `H', and the `I' column once, under the `I'.
+
+Now consider the subsentence $H\eand I$. This is a conjunction \metaA{}\eand\metaB{} with $H$ as \metaA{} and with $I$ as \metaB{}. $H$ and $I$ are both true on the first row. Since a conjunction is true when both conjuncts are true, we write a 1 underneath the conjunction symbol. In the other three rows, at least one of the conjuncts is false, so the conjunction $(H \eand I)$ is false. So we write 0s under the conjunction symbol on those rows:
+\begin{center}
+\begin{tabular}{c|c|@{\TTon}*{5}{c}@{\TToff}}
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\hline
+ & & \metaA{} & \eand & \metaB{} & & \\
+ 1 & 1 & 1 & \TTbf{1} & 1 & & 1\\
+ 1 & 0 & 1 & \TTbf{0} & 0 & & 1\\
+ 0 & 1 & 0 & \TTbf{0} & 1 & & 0\\
+ 0 & 0 & 0 & \TTbf{0} & 0 & & 0
+\end{tabular}
+\end{center}
+The entire sentence is a conditional \metaA{}\eif\metaB{} with $(H \eand I)$ as \metaA{} and with $H$ as \metaB{}. On the second row, for example, $(H\eand I)$ is false and $H$ is true. Since a conditional is true when the antecedent is false, we write a 1 in the second row underneath the conditional symbol. We continue for the other three rows and get this:
+\begin{center}
+\begin{tabular}{c|c|@{\TTon}*{5}{c}@{\TToff}}
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\hline
+ & &  & \metaA{} &  &\eif &\metaB{} \\
+ 1 & 1 &  & {1} &  &\TTbf{1} & 1\\
+ 1 & 0 &  & {0} &  &\TTbf{1} & 1\\
+ 0 & 1 &  & {0} &  &\TTbf{1} & 0\\
+ 0 & 0 &  & {0} &  &\TTbf{1} & 0
+\end{tabular}
+\end{center}
+The column of 1s underneath the conditional tells us that the sentence \mbox{$(H \eand I)\eif I$} is true regardless of the truth-values of $H$ and $I$. They can be true or false in any combination, and the compound sentence still comes out true. It is crucial that we have considered all of the possible combinations. If we only had a two-line truth table, we could not be sure that the sentence was not false for some other combination of truth-values.
+
+In this example, we have not repeated all of the entries in every successive table, so that it's easier for you to see which parts are new. When actually writing truth tables on paper, however, it is impractical to erase whole columns or rewrite the whole table for every step. Although it is more crowded, the truth table can be written in this way:
+\begin{center}
+\begin{tabular}{c|c|@{\TTon}*{5}{c}@{\TToff}}
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\hline
+ 1 & 1 & 1 & {1} & 1 &\TTbf{1} & 1\\
+ 1 & 0 & 1 & {0} & 0 &\TTbf{1} & 1\\
+ 0 & 1 & 0 & {0} & 1 &\TTbf{1} & 0\\
+ 0 & 0 & 0 & {0} & 0 &\TTbf{1} & 0
+\end{tabular}
+\end{center}
+Most of the columns underneath the sentence are only there for bookkeeping purposes. When you become more adept with truth tables, you will probably no longer need to copy over the columns for each of the sentence letters. In any case, the truth-value of the sentence on each row is just the column underneath the main logical operator of the sentence; in this case, the column underneath the conditional. We've marked it in bold.
+
+A \define{complete truth table} has a row for all the possible combinations of 1 and 0 for all of the sentence letters. The size of the complete truth table depends on the number of different sentence letters in the table. A sentence that contains only one sentence letter requires only two rows, as in the characteristic truth table for negation. This is true even if the same letter is repeated many times, as in the sentence
+$[(C\eiff C) \eif C] \eand \enot(C \eif C)$.
+The complete truth table requires only two lines because there are only two possibilities: $C$ can be true or it can be false. A single sentence letter can never be marked both 1 and 0 on the same row. The truth table for this sentence looks like this:
+\begin{center}
+\begin{tabular}{c|@{\TTon}*{15}{c}@{\TToff}}
+$C$&$[($&$C$&\eiff&$C$&$)$&\eif&$C$&$]$&\eand&\enot&$($&$C$&\eif&$C$&$)$\\
+\hline
+ 1 &    & 1 &  1  & 1 &   & 1  & 1 & &\TTbf{0}&  0& &   1 &  1  & 1 &   \\
+ 0 &    & 0 &  1  & 0 &   & 0  & 0 & &\TTbf{0}&  0& &   0 &  1  & 0 &   \\
+\end{tabular}
+\end{center}
+Looking at the column underneath the main connective, we see that the sentence is false on both rows of the table; i.e., it is false regardless of whether $C$ is true or false. So it is a contradiction. (See \S\ref{sec-tautologydef}.)
+
+A sentence that contains two sentence letters requires four lines for a complete truth table, as in the other characteristic truth tables and the table for $(H \eand I)\eif I$ above.
+
+A sentence that contains three sentence letters requires eight lines. For example:
+\begin{center}
+\begin{tabular}{c|c|c|@{\TTon}*{5}{c}@{\TToff}}
+$M$&$N$&$P$&$M$&\eand&$(N$&\eor&$P)$\\
+\hline
+%           M        &     N   v   P
+1 & 1 & 1 & 1 & \TTbf{1} & 1 & 1 & 1\\
+1 & 1 & 0 & 1 & \TTbf{1} & 1 & 1 & 0\\
+1 & 0 & 1 & 1 & \TTbf{1} & 0 & 1 & 1\\
+1 & 0 & 0 & 1 & \TTbf{0} & 0 & 0 & 0\\
+0 & 1 & 1 & 0 & \TTbf{0} & 1 & 1 & 1\\
+0 & 1 & 0 & 0 & \TTbf{0} & 1 & 1 & 0\\
+0 & 0 & 1 & 0 & \TTbf{0} & 0 & 1 & 1\\
+0 & 0 & 0 & 0 & \TTbf{0} & 0 & 0 & 0
+\end{tabular}
+\end{center}
+From this table, we know that the sentence $M\eand(N\eor P)$ might be true or false, depending on the truth-values of $M$, $N$, and $P$.
+
+A complete truth table for a sentence that contains four different sentence letters requires 16 lines. In general, if a complete truth table has $n$ different sentence letters, then it must have $2^n$ rows.
+
+In order to fill in the columns of a complete truth table, begin with the right-most sentence letter and alternate 1s and 0s. In the next column to the left, write two 1s, write two 0s, and repeat. For the third sentence letter, write four 1s followed by four 0s. This yields an eight line truth table like the one above. For a 16 line truth table, the next column of sentence letters should have eight 1s followed by eight 0s. For a 32 line table, the next column would have 16 1s followed by 16 0s. And so on.
+
+\section{Using truth tables}
+\label{sec.usingtruthtables}
+
+\subsection{Tautologies, contradictions, and contingent sentences}
+Recall from \S\ref{sec-tautologydef} that an English sentence is a tautology if it must be true as a matter of logic. With a complete truth table, we consider all of the ways that the world might be. If the sentence is true on every line of a complete truth table, then it is true as a matter of logic, regardless of what the world is like.
+
+So a sentence is a \define{tautology in SL} if the column under its main connective is 1 on every row of a complete truth table.
+
+Conversely, a sentence is a \define{contradiction in SL} if the column under its main connective is 0 on every row of a complete truth table.
+
+A sentence is \define{contingent in SL} if it is neither a tautology nor a contradiction; i.e. if it is 1 on at least one row and 0 on at least one row.
+
+From the truth tables in the previous section, we know that $(H\eand I)\eif H$ is a tautology, that $[(C\eiff C) \eif C] \eand \enot(C \eif C)$ is a contradiction, and that $M \eand (N \eor P)$ is contingent.
+
+
+\subsection{Logical equivalence}
+Two sentences are logically equivalent in English if they have the same truth value as a matter of logic. Once again, truth tables allow us to define an analogous concept for SL: Two sentences are \define{logically equivalent in SL} if they have the same truth-value on every row of a complete truth table.
+
+Consider the sentences $\enot(A \eor B)$ and $\enot A \eand \enot B$. Are they logically equivalent? To find out, we construct a truth table.
+\begin{center}
+\begin{tabular}{c|c|@{\TTon}*{4}{c}@{\TToff}|@{\TTon}*{5}{c}@{\TToff}}
+$A$&$B$&\enot&$(A$&\eor&$B)$&\enot&$A$&\eand&\enot&$B$\\
+\hline
+ 1 & 1 & \TTbf{0} & 1 & 1 & 1 & 0 & 1 & \TTbf{0} & 0 & 1\\
+ 1 & 0 & \TTbf{0} & 1 & 1 & 0 & 0 & 1 & \TTbf{0} & 1 & 0\\
+ 0 & 1 & \TTbf{0} & 0 & 1 & 1 & 1 & 0 & \TTbf{0} & 0 & 1\\
+ 0 & 0 & \TTbf{1} & 0 & 0 & 0 & 1 & 0 & \TTbf{1} & 1 & 0
+\end{tabular}
+\end{center}
+Look at the columns for the main connectives; negation for the first sentence, conjunction for the second. On the first three rows, both are 0. On the final row, both are 1. Since they match on every row, the two sentences are logically equivalent.
+
+\subsection{Consistency}
+A set of sentences in English is consistent if it is logically possible for them all to be true at once.
+A set of sentences is \define{logically consistent in SL} if there is at least one line of a complete truth table on which all of the sentences are true. It is \define{inconsistent} otherwise.
+
+Look again at the truth table above. We can see that $\enot(A \eor B)$ and $\enot A \eand \enot B$ are consistent, because there is at least one row, namely the last one, where both are assigned true.
+
+Are $A$, $B$, and $\enot A \eand \enot B$ logically consistent? No. If they were, there would have to be a row where all three sentences are assigned true. But examination of the truth table reveals that there is no such row.
+
+\subsection{Validity}
+An argument in English is valid if it is logically impossible for the premises to be true and for the conclusion to be false at the same time.
+An argument is \define{valid in SL} if there is no row of a complete truth table on which the premises are all 1 and the conclusion is 0; an argument is \define{invalid in SL} if there is such a row.
+
+Consider this argument:
+\begin{earg}
+\item[] $\enot L \eif (J \eor L)$
+\item[] $\enot L$
+\item[\therefore] $J$
+\end{earg}
+Is it valid? To find out, we construct a truth table.
+\begin{center}
+\begin{tabular}{c|c|@{\TTon}*{6}{c}@{\TToff}|@{\TTon}*{2}{c}@{\TToff}|@{\TTon}c@{\TToff}}
+$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&L&J\\
+\hline
+%J   L   -   L      ->     (J   v   L)
+ 1 & 1 & 0 & 1 & \TTbf{1} & 1 & 1 & 1 & \TTbf{0} & 1 & \TTbf{1}\\
+ 1 & 0 & 1 & 0 & \TTbf{1} & 1 & 1 & 0 & \TTbf{1} & 0 & \TTbf{1}\\
+ 0 & 1 & 0 & 1 & \TTbf{1} & 0 & 1 & 1 & \TTbf{0} & 1 & \TTbf{0}\\
+ 0 & 0 & 1 & 0 & \TTbf{0} & 0 & 0 & 0 & \TTbf{1} & 0 & \TTbf{0}
+\end{tabular}
+\end{center}
+To determine whether the argument is valid, check to see whether there are any rows on which both premises are assigned 1, but where the conclusion is assigned 0. There are no such rows. The only row on which both the premises are 1 is the second row, and on that row the conclusion is also 1. So the argument form is valid in SL.
+
+Here is another example. Is this argument valid?
+
+\begin{earg}
+\item[] $P \eif Q$
+\item[] $\enot P$
+\item[\therefore] $\enot Q$
+\end{earg}
+
+To evaluate it, construct a truth table and see whether there is a row that assigns 1 to the premises and 0 to the conclusion:
+
+\begin{center}
+\begin{tabular}{@{ }c@{ }@{ }c | c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c | c@{ }@{ }c | c@{ }@{ }c}
+$P$ & $Q$ &  & $P$ & $\eif$ & $Q$ &  & $\enot$ & $P$ & $\enot$ & $Q$\\
+\hline 
+1 & 1 &  & 1 & \TTbf{1} & 1 &  & \TTbf{0} & 1 & \TTbf{0} & 1\\
+1 & 0 &  & 1 & \TTbf{0} & 0 &  & \TTbf{0} & 1 & \TTbf{1} & 0\\
+0 & 1 &  & 0 & \TTbf{1} & 1 &  & \TTbf{1} & 0 & \TTbf{0} & 1\\
+0 & 0 &  & 0 & \TTbf{1} & 0 &  & \TTbf{1} & 0 & \TTbf{1} & 0\\
+\end{tabular}
+\end{center}
+
+There is. On the third row, the premises are true and the conclusion is false. So the argument is invalid.
+
+\section{Partial truth tables}
+In order to show that a sentence is a tautology, we need to show that it is assigned 1 on every row. So we need a complete truth table. To show that a sentence is \emph{not} a tautology, however, we only need one line: a line on which the sentence is 0. Therefore, in order to show that something is not a tautology, it is enough to provide a one-line \emph{partial truth table}--- regardless of how many sentence letters the sentence might have in it.
+
+Consider, for example, the sentence $(U \eand T) \eif (S \eand W)$. We want to show that it is \emph{not} a tautology by providing a partial truth table. We fill in 0 for the entire sentence. The main connective of the sentence is a conditional. In order for the conditional to be false, the antecedent must be true (1) and the consequent must be false (0). So we fill these in on the table:
+\begin{center}
+\begin{tabular}{c|c|c|c|@{\TTon}*{7}{c}@{\TToff}}
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\hline
+   &   &   &   &    &  1  &    &\TTbf{0}&    &   0 &   
+\end{tabular}
+\end{center}
+In order for the $(U\eand T)$ to be true, both $U$ and $T$ must be true. So we put a 1 under those letters:
+\begin{center}
+\begin{tabular}{c|c|c|c|@{\TTon}*{7}{c}@{\TToff}}
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\hline
+   & 1 & 1 &   &  1 &  1  & 1  &\TTbf{0}&    &   0 &   
+\end{tabular}
+\end{center}
+Remember that each instance of a given sentence letter must be assigned the same truth value in a given row of a truth table. You can't assign 1 to one instance of $U$ and 0 to another instance of $U$ in the same row. So here we put a 1 under \emph{each} instance of $U$ and $T$.
+
+Now we just need to make $(S\eand W)$ false. To do this, we need to make at least one of $S$ and $W$ false. We can make both $S$ and $W$ false if we want. All that matters is that the whole sentence turns out false on this line. Making an arbitrary decision, we finish the table in this way:
+\begin{center}
+\begin{tabular}{c|c|c|c|@{\TTon}*{7}{c}@{\TToff}}
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\hline
+ 0 & 1 & 1 & 0 &  1 &  1  & 1  &\TTbf{0}&  0 &   0 & 0  
+\end{tabular}
+\end{center}
+
+Showing that something is a tautology requires a complete truth table. Showing that something is \emph{not} a tautology requires only a one-line partial truth table, where the sentence is false on that one line. That's what we've just done. In the same way, to show that something is a contradiction, you must show that it is false on every row; to show that it is not a contradiction, you need only find one row where it is true.
+
+A sentence is contingent if it is neither a tautology nor a contradiction. So showing that a sentence is contingent requires a \emph{two-line} partial truth table: The sentence must be true on one line and false on the other. For example, we can show that the sentence above is contingent with this truth table:
+\begin{center}
+\begin{tabular}{c|c|c|c|@{\TTon}*{7}{c}@{\TToff}}
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\hline
+ 0 & 1 & 1 & 0 &  1 &  1  & 1  &\TTbf{0}&  0 &   0 & 0 \\
+ 0 & 1 & 0 & 0 &  0 &  0  & 1  &\TTbf{1}&  0 &   0 & 0
+\end{tabular}
+\end{center}
+Note that there are many combinations of truth values that would have made the sentence true, so there are many ways we could have written the second line.
+
+Showing that a sentence is \emph{not} contingent requires providing a complete truth table, because it requires showing that the sentence is a tautology or that it is a contradiction.  If you do not know whether a particular sentence is contingent, then you do not know whether you will need a complete or partial truth table. You can always start working on a complete truth table. If you complete rows that show the sentence is contingent, then you can stop. If not, then complete the truth table. Even though two carefully selected rows will show that a contingent sentence is contingent, there is nothing wrong with filling in more rows.
+
+Showing that two sentences are logically equivalent requires providing a complete truth table. Showing that two sentences are \emph{not} logically equivalent requires only a one-line partial truth table: Make the table so that one sentence is true and the other false.
+
+Showing that a set of sentences is consistent requires providing one row of a truth table on which all of the sentences are true. The rest of the table is irrelevant, so a one-line partial truth table will do. Showing that a set of sentences is inconsistent, on the other hand, requires a complete truth table: You must show that on every row of the table at least one of the sentences is false.
+
+Showing that an argument is valid requires a complete truth table. Showing that an argument is \emph{invalid} only requires providing a one-line truth table: If you can produce a line on which the premises are all true and the conclusion is false, then the argument is invalid.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{c|c|c|}
+\cline{2-3}
+ & YES & NO\\
+\cline{2-3}
+tautology? & complete truth table & one-line partial truth table\\
+contradiction? &  complete truth table  & one-line partial truth table\\
+contingent? & two-line partial truth table & complete truth table\\
+equivalent? & complete truth table & one-line partial truth table\\
+consistent? & one-line partial truth table & complete truth table\\
+valid? & complete truth table & one-line partial truth table\\
+\cline{2-3}
+\end{tabular}
+\end{center}
+\caption{Do you need a complete truth table or a partial truth table? It depends on what you are trying to show.}
+\label{table.CompleteVsPartial}
+\end{table}
+
+Table \ref{table.CompleteVsPartial} summarizes when a complete truth table is required and when a partial truth table will do. If you are trying to remember whether you need a complete truth table or not, the general rule is, if you're looking to establish a claim about \emph{every} interpretation, you need a complete table.
+
+%\section{The material conditional}
+%\label{MaterialConditional}
+
+%The material conditional has some odd properties. For one thing, it does not require that the antecedent and consequent are related in any way.
+
+%contradiction in the antecedent
+
+%tautology in the consequent
+
+
+%\fix{Summary of test conditions}
+
+\section{Evaluating English arguments via SL}
+\label{sec:forms}
+Recall from \S\ref{sec:validity} that a natural language argument is valid if and only if it is impossible for the premises to be true while the conclusion is false. This notion is rather closely related to validity in SL, which obtains if and only if there is no assignment of truth values to atomic sentences on which the premises are assigned `1' and the conclusion is assigned `0'. This is of course by design. In many cases, validity in SL is a good indication of validity in English. Consider for example this English argument:
+
+\begin{earg}
+\item Either the butler is the murderer or the gardener isn't who he says he is.
+\item The gardener is who he says he is.
+\item[\therefore] The butler is the murderer.
+\end{earg}
+
+This argument is valid. There's no way for the conclusion to be false if both premises are true. Let's translate this argument into SL, and evaluate the resulting formal argument for validity with a truth table. We begin with a symbolization key:
+
+\begin{ekey}
+\item[B:] The butler is the murderer.
+\item[G:] The gardener is who he says he is.
+\end{ekey}
+
+With this key, the argument, rendered in SL, looks like this:
+
+\begin{earg}
+\item $(B\eor\enot G)$
+\item $G$
+\item[\therefore] $B$
+\end{earg}
+
+We can evaluate this formal argument for validity using a truth table. We'll set up a table with two atomic sentences, and check to see whether there is a row that assigns `1' to both premises and assigns `0' to the conclusion. The completed truth table looks like this:
+
+\begin{center}
+\begin{tabular}{c|c|@{\TTon}*{4}{c}@{\TToff}|@{\TTon}c@{\TToff}|@{\TTon}c@{\TToff}}
+$B$&$G$&$(B$&\eor&\enot&$G$)&$G$&$B$\\
+\hline
+1 & 1 & 1 & \TTbf{1} & 0 & 1 & \TTbf{1} & \TTbf{1}\\
+1 & 0 & 1 & \TTbf{1} & 1 & 0 & \TTbf{0} & \TTbf{1}\\
+0 & 1 & 0 & \TTbf{0} & 0 & 1 & \TTbf{1} & \TTbf{0}\\
+0 & 0 & 0 & \TTbf{1} & 1 & 0 & \TTbf{0} & \TTbf{0}\\
+\end{tabular}
+\end{center}
+
+If the argument form were invalid, there'd be a line on which the first two bold values are `1' but the third is `0'. There is no such line, so the argument form is valid. This helps explain why the English version of the argument is also valid: it is an argument that has a valid form in SL.
+
+There are at least two advantages to evaluating natural language argument for validity by translating it into SL. For one thing, using truth tables to evaluate arguments is a formal method that does not require any particular rational insight or intuition. It is often relatively easy to tell whether the informal definition of validity is met--- most of us have a good sense of what is and isn't possible. But it is an advantage to have an operationalized set of rules that a simple computer could apply. A second advantage, alluded to in Chapter \ref{ch.SL}, is that talking about valid SL forms provides a nice way to explain what various valid English arguments have in common with one another. The validity of the argument form
+
+\begin{earg}
+\item $(B\eor\enot G)$
+\item $G$
+\item[\therefore] $B$
+\end{earg}
+
+helps explain why the butler argument is valid, but the explanation does not depend on any of the specifics of what the individual letters stand for. It would be a perfectly good explanation for why \emph{any} argument of this form would have to be valid. For example, consider this argument:
+
+\begin{earg}
+\item Either Barney is a purple dinosaur or I don't have a really weird-looking cat.
+\item I do have a really weird-looking cat.
+\item[\therefore] Barney is a purple dinosaur.
+\end{earg}
+
+That argument can be translated into the same SL argument just evaluated, using this symbolization key:
+
+\begin{ekey}
+\item[B:] Barney is a purple dinosaur.
+\item[G:] I have a really weird-looking cat.
+\end{ekey}
+
+Since it too has a valid form in SL, it too must be a valid argument. \emph{Any} argument with this form will be a valid argument.
+
+\factoidbox{
+If you have an argument form that is valid in SL, then \emph{any} English argument that is properly translatable into that argument form will be valid.
+}
+
+Note that this is even true for arguments that have a more complex internal structure, like this strange argument:
+
+\begin{earg}
+\item Either Canada is a democracy if and only if Poland is neither part of the European Union nor majority Catholic, or my dog is not not lazy.
+\item My dog is not lazy.
+\item[\therefore] Canada is a democracy if and only if Poland is neither part of the European Union nor majority Catholic.
+\end{earg}
+
+One could translate this argument in to a relatively complex argument in SL. (If you did, the first premise would probably be a disjunction with a complex biconditional as one disjunct, and a negated negation as the other; the conclusion would probably be a biconditional with an atom on one side, and a negated disjunction on the other.) In this instance, however, that extra structure isn't needed to explain the validity of the argument. For this argument too has the same valid form as the previous ones, as can be seen via this symbolization key:
+
+\begin{ekey}
+\item[B:] Canada is a democracy if and only if Poland is neither part of the European Union nor majority Catholic.
+\item[G:] My dog is not lazy.
+\end{ekey}
+
+For many purposes, this would be a poor choice of symbolization keys. It ignores the internal structure of two central sentences. But if, as here, that structure is irrelevant, you can save yourself some work by engaging at a higher level of abstraction.
+
+Note also that it's an implication of what we've just illustrated that there's not just one SL argument that is \emph{the} argument form for a given argument in English. One can formalize arguments in various ways. If an argument has a valid argument form in SL, that's a guarantee that the argument is valid. But it is important not to invert this relationship--- it does \emph{not} follow from the fact that an argument has an \emph{invalid} form, that the argument is invalid. One reason this is so is that it is possible for some arguments to have valid forms \emph{and} invalid forms.
+
+\section{Common student mistakes}
+
+Here are a couple of issues that often come up when I teach this material to students.
+
+\subsection{Validity is not relative to particular interpretations}
+
+Truth in SL is relative to an interpretation. A given wff is true on some interpretations, and false on others. For example, $P \eiff Q$ is true when \{$P=1$, $Q=1$\}, and false when \{$P=1$, $Q=0$\}. But validity, unlike truth, is a claim about \emph{all} interpretations.
+
+Let's use a truth table to evaluate whether $P\eor Q$, $\enot P$ \therefore\ $P \eiff Q$ is a valid argument form. To do this, we can draw the complete truth table for those three wffs:
+
+\begin{center}
+\begin{tabular}{@{ }c@{ }@{ }c | c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c | c@{ }@{ }c | c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c}
+$P$ & $Q$ &  & $P$ & $\eor$ & $Q$ &  & $\enot$ & $P$ &  & $P$ & $\eiff$ & $Q$ & \\
+\hline 
+1 & 1 &  & 1 & \TTbf{1} & 1 &  & \TTbf{0} & 1 &  & 1 & \TTbf{1} & 1 & \\
+1 & 0 &  & 1 & \TTbf{1} & 0 &  & \TTbf{0} & 1 &  & 1 & \TTbf{0} & 0 & \\
+0 & 1 &  & 0 & \TTbf{1} & 1 &  & \TTbf{1} & 0 &  & 0 & \TTbf{0} & 1 & \\
+0 & 0 &  & 0 & \TTbf{0} & 0 &  & \TTbf{1} & 0 &  & 0 & \TTbf{1} & 0 & \\
+\end{tabular}
+\end{center}
+
+We then check to see whether there is any row where the disjunction and the negation are true and the biconditional is false. Row three, \{$P=0$, $Q=1$\}, is such a row, so the argument is invalid.
+
+Here is a common mistake. Students sometimes draw the truth table accurately, and correctly note that line three is inconsistent with the argument's validity, but misdescribe the situation, saying something like this: \emph{`The argument is invalid when $P=0$, $Q=1$.'} This is a mistake because the argument isn't only invalid \emph{in that row}--- the argument in invalid, \emph{period}. That interpretation \emph{explains why} the argument is invalid, but validity and invalidity are claims about \emph{all} interpretations. So we shouldn't say the argument is invalid `when' $P=0$, $Q=1$; it's invalid always, because of the interpretation where $P=0$, $Q=1$.
+
+This sounds like a small and fussy point about speaking precisely about logic. It is. But careful language here can help lead to careful thought. It is important, to thinking clearly about validity, to remember that validity, unlike truth, is a feature that arguments have or lack intrinsically. It is not something that an argument has in some interpretations and lacks in others.
+
+The same goes for tautologies, contradictions, and contingent sentences. A sentence isn't a tautology on some interpretations and not on others; it either simply is, or it simply is not, a tautology.
+
+\subsection{Valid arguments with invalid forms}
+
+Here is a question students sometimes get wrong: \emph{Provide (in English) a valid argument of the form $P$ \therefore\ $P \eand Q$, or explain why it is impossible to do so.} Students often think this is impossible, because $P$ \therefore\ $P \eand Q$ is an invalid argument form. That certainly is an invalid argument form. The premise is true, and the conclusion false, when $P=1$, $Q=0$. But that doesn't mean there can be no valid argument with this form.
+
+A valid argument form is a form that guarantees that any argument of that form is valid. Since this form is invalid, it is going to be possible to find invalid arguments of that form. For example, we could interpret $P$ and $Q$ thus:
+
+\begin{ekey}
+\item[P:] Captain Hook is angry.
+\item[Q:] Captain Hook has at least two daughters.
+\end{ekey}
+
+And of course the English argument, \emph{Captain Hook is angry, therefore Captain Hook is angry and he has at least two daughters} is obviously invalid. But that doesn't mean there couldn't be \emph{other} arguments of this form that \emph{are} valid. The form doesn't guarantee that they'll be valid, but they may be valid nevertheless. Consider this symbolization key:
+
+\begin{ekey}
+\item[P:] Captain Hook has three daughters.
+\item[Q:] Captain Hook has at least two daughters.
+\end{ekey}
+
+The resulting argument is valid: \emph{Captain Hook has three daughters. Therefore, Captain Hook has three daughters and he has at least two daughters.} It is impossible for the premise to be true without the conclusion also being true, so it satisfies the definition of validity given in Chapter \ref{ch.intro}. This argument is valid, even though it has an SL argument form that is invalid. We will be particularly interested in arguments whose validity can be explained by their forms, but the definition of validity in English is more general.
+
+\practiceproblems
+If you want additional practice, you can construct truth tables for any of the sentences and arguments in the exercises for the previous chapter.
+
+\solutions
+\problempart
+\label{pr.TT.TTorC}
+Determine whether each sentence is a tautology, a contradiction, or a contingent sentence. Justify your answer with a complete or partial truth table where appropriate.
+\begin{earg}
+\item $A \eif A$ %taut
+\item $\enot B \eand B$ %contra
+\item $C \eif\enot C$ %contingent
+\item $\enot D \eor D$ %taut
+\item $(A \eiff B) \eiff \enot(A\eiff \enot B)$ %tautology
+\item $(A\eand B) \eor (B\eand A)$ %contingent
+\item $(A \eif B) \eor (B \eif A)$ % taut
+\item $\enot[A \eif (B \eif A)]$ %contra
+\item $(A \eand B) \eif (B \eor A)$  %taut
+\item $A \eiff [A \eif (B \eand \enot B)]$ %contra
+\item $\enot(A \eor B) \eiff (\enot A \eand \enot B)$ %taut
+\item $\enot(A\eand B) \eiff A$ %contingent
+\item $\bigl[(A\eand B) \eand\enot(A\eand B)\bigr] \eand C$ %contradiction
+\item $A\eif(B\eor C)$ %contingent
+\item $[(A \eand B) \eand C] \eif B$ %taut
+\item $(A \eand\enot A) \eif (B \eor C)$ %tautology
+\item $\enot\bigl[(C\eor A) \eor B\bigr]$ %contingent
+\item $(B\eand D) \eiff [A \eiff(A \eor C)]$%contingent
+\end{earg}
+
+
+\solutions
+\problempart
+\label{pr.TT.equiv}
+Determine whether each pair of sentences is logically equivalent. Justify your answer with a complete or partial truth table where appropriate.
+\begin{earg}
+\item $A$, $\enot A$ %No
+\item $A$, $A \eor A$ %Yes
+\item $A\eif A$, $A \eiff A$ %No
+\item $A \eor \enot B$, $A\eif B$ %No
+\item $A \eand \enot A$, $\enot B \eiff B$ %Yes
+\item $\enot(A \eand B)$, $\enot A \eor \enot B$ %Yes
+\item $\enot(A \eif B)$, $\enot A \eif \enot B$ %No
+\item $(A \eif B)$, $(\enot B \eif \enot A)$ %Yes
+\item $[(A \eor B) \eor C]$, $[A \eor (B \eor C)]$ %Yes
+\item $[(A \eor B) \eand C]$, $[A \eor (B \eand C)]$ %No
+\end{earg}
+
+\solutions
+\problempart
+\label{pr.TT.consistent}
+Determine whether each set of sentences is consistent or inconsistent. Justify your answer with a complete or partial truth table where appropriate.
+\begin{earg}
+\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ %consistent
+\item $A \eand B$, $C\eif \enot B$, $C$ %inconsistent
+\item $A\eor B$, $A\eif C$, $B\eif C$ %consistent
+\item $A\eif B$, $B\eif C$, $A$, $\enot C$ %inconsistent
+\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$  %inconsistent
+\item $A \eor B$, $B\eor C$, $C\eif \enot A$ %consistent
+\item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$ %consistent
+\item $A$, $B$, $C$, $\enot D$, $\enot E$, $F$ %consistent
+\end{earg}
+
+\solutions
+\problempart
+\label{pr.TT.valid}
+Determine whether each argument is valid or invalid. Justify your answer with a complete or partial truth table where appropriate.
+\begin{earg}
+\item $A\eif A$ \therefore\ $A$ %invalid
+\item $A\eor\bigl[A\eif(A\eiff A)\bigr]$ \therefore\ A %invalid
+\item $A\eif(A\eand\enot A)$ \therefore\ $\enot A$ %valid
+\item $A\eiff\enot(B\eiff A)$ \therefore\ $A$ %invalid
+\item $A\eor(B\eif A)$ \therefore\ $\enot A \eif \enot B$ %valid
+\item $A\eif B$, $B$ \therefore\ $A$ %invalid
+\item $A\eor B$, $B\eor C$, $\enot A$ \therefore\ $B \eand C$ %invalid
+\item $A\eor B$, $B\eor C$, $\enot B$ \therefore\ $A \eand C$ %valid
+\item $(B\eand A)\eif C$, $(C\eand A)\eif B$ \therefore\ $(C\eand B)\eif A$ %invalid
+\item $A\eiff B$, $B\eiff C$ \therefore\ $A\eiff C$ %valid
+\end{earg}
+
+\solutions
+\problempart
+\label{pr.TT.concepts}
+Answer each of the questions below and justify your answer.
+\begin{earg}
+\item Suppose that \metaA{} and \metaB{} are logically equivalent. What can you say about $\metaA{}\eiff\metaB{}$?
+%\metaA{} and \metaB{} have the same truth value on every line of a complete truth table, so $\metaA{}\eiff\metaB{}$ is true on every line. It is a tautology.
+\item Suppose that $(\metaA{}\eand\metaB{})\eif\metaC{}$ is contingent. What can you say about the argument ``\metaA{}, \metaB{}, \therefore\metaC{}''?
+%The sentence is false on some line of a complete truth table. On that line, \metaA{} and \metaB{} are true and \metaC{} is false. So the argument is invalid.
+\item Suppose that $\{\metaA{},\metaB{}, \metaC{}\}$ is inconsistent. What can you say about $(\metaA{}\eand\metaB{}\eand\metaC{})$?
+%Since there is no line of a complete truth table on which all three sentences are true, the conjunction is false on every line. So it is a contradiction.
+\item Suppose that \metaA{} is a contradiction. What can you say about the argument ``\metaA{}, \metaB{}, \therefore\metaC{}''?
+%Since \metaA{} is false on every line of a complete truth table, there is no line on which \metaA{} and \metaB{} are true and \metaC{} is false. So the argument is valid.
+\item Suppose that \metaC{} is a tautology. What can you say about the argument ``\metaA{}, \metaB{}, \therefore\metaC{}''?
+%Since \metaC{} is true on every line of a complete truth table, there is no line on which \metaA{} and \metaB{} are true and \metaC{} is false. So the argument is valid.
+\item Suppose that \metaA{} and \metaB{} are logically equivalent. What can you say about $(\metaA{}\eor\metaB{})$?
+%Not much. $(\metaA{}\eor\metaB{})$ is a tautology if \metaA{} and \metaB{} are tautologies; it is a contradiction if they are contradictions; it is contingent if they are contingent.
+\item Suppose that \metaA{} and \metaB{} are \emph{not} logically equivalent. What can you say about $(\metaA{}\eor\metaB{})$?
+%\metaA{} and \metaB{} have different truth values on at least one line of a complete truth table, and $(\metaA{}\eor\metaB{})$ will be true on that line. On other lines, it might be true or false. So $(\metaA{}\eor\metaB{})$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
+\end{earg}
+
+\problempart
+\phantomsection\label{pr.altConnectives}
+We could leave the biconditional (\eiff) out of the language. If we did that, we could still write `$A\eiff B$' so as to make sentences easier to read, but that would be shorthand for $(A\eif B) \eand (B\eif A)$. The resulting language would be formally equivalent to SL, since $A\eiff B$ and $(A\eif B) \eand (B\eif A)$ are logically equivalent in SL. If we valued formal simplicity over expressive richness, we could replace more of the connectives with notational conventions and still have a language equivalent to SL. 
+
+There are a number of equivalent languages with only two connectives. It would be enough to have only negation and the material conditional. Show this by writing sentences that are logically equivalent to each of the following using only parentheses, sentence letters, negation (\enot), and the material conditional (\eif).
+\begin{earg}
+\item\leftsolutions\ $A\eor B$
+%$\enot A \eif B$
+\item\leftsolutions\ $A\eand B$
+%$\enot(A \eif \enot B)$
+\item\leftsolutions\ $A\eiff B$
+%$\enot [(A\eif B) \eif \enot(B\eif A)]$
+\end{earg}
+%...
+% Break out of the {earg} environment to give new instructions. 
+
+We could have a language that is equivalent to SL with only negation and disjunction as connectives. Show this: Using only parentheses, sentence letters, negation (\enot), and disjunction (\eor), write sentences that are logically equivalent to each of the following.
+% Resume the {earg} environment and restore the counter.
+%...
+\begin{earg}
+\setcounter{eargnum}{\arabic{OLDeargnum}}
+\item $A \eand B$
+%$\enot(\enot A \eor \enot B)$
+\item $A \eif B$
+%$\enot A \eor B$
+\item $A \eiff B$
+%$\enot(\enot A \eor \enot B) \eor \enot(A \eor B)$
+\end{earg}
+%...
+The \emph{Sheffer stroke} is a logical connective with the following characteristic truthtable:
+\begin{center}
+\begin{tabular}{c|c|c}
+\metaA{} & \metaB{} & \metaA{}$|$\metaB{}\\
+\hline
+1 & 1 & 0\\
+1 & 0 & 1\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{tabular}
+\end{center}
+%...
+\begin{earg}
+\setcounter{eargnum}{\arabic{OLDeargnum}}
+\item Write a sentence using the connectives of SL that is logically equivalent to $(A|B)$.
+\end{earg}
+%...
+Every sentence written using a connective of SL can be rewritten as a logically equivalent sentence using one or more Sheffer strokes. Using no connectives other than the Sheffer stroke, write sentences that are equivalent to each of the following. 
+%...
+\begin{earg}
+\setcounter{eargnum}{\arabic{OLDeargnum}}
+\item $\enot A$
+\item $(A\eand B)$
+\item $(A\eor B)$
+\item $(A\eif B)$
+\item $(A\eiff B)$
+\end{earg}

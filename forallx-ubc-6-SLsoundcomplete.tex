@@ -1,0 +1,715 @@
+%!TEX root = forallx-ubc.tex
+\chapter{Soundness and Completeness for SL Trees}
+\label{ch.SLsoundcomplete}
+
+In Chapter \ref{ch.sl.trees} we introduced a proof system for SL. Trees provide a method for answering the question of whether a given set of SL sentences is jointly satisfiable. Our focus last chapter was on \emph{using} trees to answer those questions; this chapter we turn to the study of the proof system itself. This chapter engages in a project of \emph{metalogic}. In particular, we aim to first precisify, then answer, this question: is the tree method a good method?
+
+It might not be obvious at first that there is even a genuine question here. The tree method is a formal method, with precisely defined rules. You might be tempted to think that, \emph{by definition}, following the rules makes it a good method. There is one sense in which that is right--- the rules laid out last chapter \emph{tell you} to follow the rules laid out last chapter, so following the rules is doing what the system tells you to do. But there is also a deeper question to be asked. The rules were not selected at random. They were designed to do something in particular: namely, to tell whether a set of sentences is satisfiable. This isn't a question about trees. (Note that we were considering this question back in Chapter \ref{ch.SLmodels}, before we had even introduced the idea of trees.) So there is a question to be asked about whether the tree method actually does what it's supposed to do.
+
+Recall the distinction between our two turnstiles: we use `$\metaSetX{}\models{}\bot$' to mean that no interpretation satisfies \metaSetX{}; `$\metaSetX{}\vdash{}\bot$' means that a tree with root \metaSetX{} closes. We interpret the latter as our proof system \emph{saying} that nothing satisfies the root. Our question now is, can our proof system be trusted? Is it reliable? The main project of this chapter is to prove in a rigorous way that it can, and is.
+
+\section{Informal proof}
+
+In Chapter \ref{ch.sl.trees} we learned a formal proof system. This chapter, we will prove important results \emph{about} that system. It is important to emphasize, however, that the formal proof system isn't the only way to `prove' things. In particular, the tree method is \emph{not} an appropriate methodology for the task of this chapter. When we say we wish to prove that the tree method is good, we don't mean that we will put the negation of that claim--- i.e., that the tree method is not good--- in the root of a tree. That would get us nowhere.
+
+Instead, we will be engaging in an \emph{informal} proof \emph{about} the formal system. An informal proof needn't be any less conclusive or compelling than a formal proof is, but evaluating it makes use of our general ability to recognize what follows from what, rather than working through a list of syntactically-defined rules.
+
+\section{Soundness}
+
+If a tree with root \metaSetX{} closes, we interpret that as the system telling us that \metaSetX{} is unsatisfiable. If our system is a good one, then a tree will never mislead us in this respect. Tree closure should guarantee unsatisfiability. We call this property \define{soundness}. The soundness of our SL tree system is the first important metalogical theorem we will prove in this chapter. (A `metalogical' theorem is a theorem \emph{about} logic.)
+
+\label{definesound}
+\factoidbox{
+\define{soundness}: If a tree closes, that guarantees that its root is unsatisfiable. In other words: $$\metaSetX{}\vdash{}\bot\Rightarrow\metaSetX{}\models\bot{}$$
+}
+
+Here is a way to illustrate that soundness is a substantive result, and to clarify what it is we're trying to prove. Recall the resolution rule for disjunction (see p.\ \pageref{subsec.DisjunctionTreeRule}):
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eor\metaB{}
+	[\metaA{}]
+	[\metaB{}]
+]
+\end{prooftree}
+\end{center}
+
+Let's suppose for the purpose of argument that we had a different disjunction rule instead of this one. Suppose, for example, that our rule for disjunction had been this:
+\label{unsoundrule}
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eor\metaB{}
+	[\metaA{}
+	[\metaB{}, grouped]]
+]
+\end{prooftree}
+\end{center}
+
+If this had been our disjunction rule, and all the other rules remained the same, our tree system would have been unsound. It would have been possible for satisfiable roots to result in closed trees. That is to say, there would have been possible sets of sentences \metaSetX{} such that $\metaSetX{}\vdash{}\bot$, even though $\metaSetX{}\not\models{}\bot$. Consider for example these sentences:
+
+\begin{earg}
+	\item[] $P$
+	\item[] $\enot P \eor Q$
+\end{earg}
+
+These sentences are obviously jointly satisfiable, by an interpretation that assigns 1 to $P$ and 1 to $Q$. But if we used the tree system with the alternate disjunction rule above, the tree would close:
+
+\begin{prooftree}
+{
+}
+[P, name={P1}
+	[\enot P \eor Q, grouped, checked, name={disj}
+		[\enot P, just={alt.\eor:disj}
+			[Q, grouped, close={:P1, !u}]
+		]
+	]
+]		
+\end{prooftree}
+
+This would be a counterexample to the soundness of the SL tree system. This explains what's wrong with the alternate disjunction rule--- it would allow trees to `prove' that a root is unsatisfiable, even if it really is satisfiable. In considering the soundness of our system, we are investigating whether our actual proof system is defective in the same way this hypothetical modification of the system would have been. We will prove that it is not.
+
+\section{Recursive proofs}
+Our proof of soundness will be a \emph{recursive} proof. A recursive proof is a proof that proceeds stepwise: one first demonstrates that the claim to be proven holds for some simple case, and then shows that, \emph{if} it holds for some case, then it also holds for some other, slightly more complicated case. More ways of complicating cases may also be discussed, each along with the assurance that if the claim holds for a simpler case, then it will also hold for each more complex one. Finally, if one can demonstrate that the ways of complicating cases considered are \emph{exhaustive}--- that is, if these represent the only possible cases--- then this has been shown for every possible case. You may be familiar with recursive proofs already in the form of \emph{mathematical induction}. (This is a topic that comes up in many high school algebra classes.)
+
+Here is an example illustrating proof by induction. Suppose that Sir Roderic Murgatroyd has been cursed. The curse is subject to the following rules:
+
+\begin{enumerate}
+	\item The only way for someone to escape the curse is to transfer it to someone else.
+	\item There are only three ways to transfer the curse to someone else:
+		\begin{enumerate}
+			\item One may transfer it to one's parent.
+			\item One may transfer it to one's child.
+			\item One may transfer it to one's sibling.
+		\end{enumerate}
+\end{enumerate}
+
+Given these rules, it's not difficult to see that the Murgatroyd curse will never leave the family. We know that Sir Roderic has the curse. He could transfer it to a parent, a child, or a sibling, but none of those actions would remove the curse from the family, since one's parents, one's children, and one's siblings are all family members. And any of \emph{those} people, if \emph{they} had the curse, can only transfer it to someone else within the family. No curse transfer can get the curse outside the family. So someone in the family will remain cursed forever.
+
+Slightly more precisely: we're attempting to prove that the curse will always be in the family. Roderic is in the family. And, for any person, if they are in the family, then they cannot get rid of the curse without transferring it to another member of the family. The proof is perfectly general; it applies to Roderic's great-great-great-grandchildren just as well as it applies to Sir Roderic himself. This is a simple example of a recursive proof. The proof of the soundness of the SL tree method is more complex, but it has the same basic structure.
+
+\section{Proving soundness}
+
+Soundness is the claim that any time a tree closes, the root must be unsatisfiable. This is equivalent to the claim that any time the root \emph{is} satisfiable, the tree \emph{won't} close. (Compare: if every new citizen swears loyalty to the Queen, then everyone who \emph{doesn't} swear loyalty to the Queen must \emph{not} be a new citizen.) So to prove soundness, we can assume that the root is satisfiable, and show that it follows that the tree doesn't close.
+
+Suppose, then, we have some satisfiable set of sentences \metaSetX{} in the root of a tree. If the root is satisfiable, then there is some interpretation that satisfies it. (Recall that an interpretation in SL is an assignment of truth values to atomic sentences.) Call this interpretation $\mathcal{I}$. We will begin by proving that, if our tree follows the rules given in Chapter \ref{ch.sl.trees}, then $\mathcal{I}$ doesn't just satisfy the root--- it satisfies every sentence in some branch of the completed tree. Once we establish that claim, it's only a short step to demonstrate that this branch doesn't close. Branches only close when they contain some formula and its negation. But no interpretation can satisfy a formula and its negation; so if $\mathcal{I}$ satisfies every formula in the branch, that means that branch must not contain any formula along with its negation. So the tree will remain open.
+
+This is the broad structure of our proof. The key step is in proving that $\mathcal{I}$ has the property mentioned above--- that it satisfies every sentence in an open branch. We will prove this recursively.
+
+\subsection{Root}
+
+Start with the root, \metaSetX{}. This is trivial. We are \emph{assuming} that our tree begins with a satisfiable root, because we are trying to prove what follows from that assumption. (Namely, that the tree won't close.) $\mathcal{I}$ is just our name for one of the interpretations we are assuming must exist. So $\mathcal{I}$ satisfies everything in the root. This is a reasonable thing to assume, when proving soundness, because soundness only tells us what happens when the root is satisfiable: namely, that the tree won't close. Soundness doesn't say anything about what happens if the root is unsatisfiable.
+
+We want our proof to be perfectly general, so we don't want to make any particular assumptions about what the tree does beyond the root. But, given the resolution rules outlined in \S\ref{sec.SLtreerules}, there are only nine possible ways the tree might develop at each step. (Compare the three possible ways the curse might move in the Murgatroyd example.) We will prove, for each of these nine resolution rules, the following: if $\mathcal{I}$ satisfies all the sentences in the branch \emph{above}, then $\mathcal{I}$ also satisfies at least one branch of what comes \emph{below}. In other words, we'll prove, for each inference rule, that that rule cannot take you from a satisfiable branch to a tree with no satisfiable branches.
+
+\subsection{Conjunction}
+\label{sec.sl.soundnessproof.begin}
+Suppose that a tree develops via the conjunction rule: 
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+}
+[\metaA{}\eand\metaB{}
+	[\metaA{}
+	[\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+
+We assume that $\mathcal{I}$ satisfies the branch above the development. So in particular, $\mathcal{I}$ must satisfy \metaA{}\eand\metaB{}. We may write this as $$\mathcal{I}(\metaA{}\eand\metaB{})=1$$ We know from the definition of truth in SL that any interpretation that assigns 1 to a conjunction must assign 1 to each conjunct. (See page \pageref{truthdefinition}.) So: $$\mathcal{I}(\metaA{})=1$$ $$\mathcal{I}(\metaB{})=1$$
+
+What we've just shown is that, if $\mathcal{I}$ satisfies the branch above this development, then it also satisfies everything in the new development. The conjunction rule will never take us from a satisfiable branch to an unsatisfiable one. We need to prove that \emph{every} possible way of developing the tree is like that.
+
+\subsection{Negated conjunction}
+
+Negated conjunctions develop in our system with a branching rule:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eand\metaB{})
+	[\enot\metaA{}]
+	[\enot\metaB{}]
+]
+\end{prooftree}
+\end{center}
+
+Once again, we are assuming for the purpose of argument that our interpretation $\mathcal{I}$ satisfies everything up until this development. So $\mathcal{I}(\enot(\metaA{}\eand\metaB{}))=1$. Since $\mathcal{I}$ satisfies that negation, $\mathcal{I}(\metaA{}\eand\metaB{})=0$. Given our definition of truth in SL, any interpretation that assigns 0 to this conjunction must assign 0 to at least one of its conjuncts. So \emph{either} $\mathcal{I}(\metaA{})=0$ \emph{or} $\mathcal{I}(\metaB{})=0$. (It might assign 0 to both, but what we know for sure is that it assigns 0 to at least one.) If $\mathcal{I}(\metaA{})=0$, then $\mathcal{I}(\enot\metaA{})=1$, and so the new left branch is satisfied. If $\mathcal{I}(\metaB{})=0$, then $\mathcal{I}(\enot\metaB{})=1$, and so the new right branch is satisfied. Since (at least) one of these must be the case, we know that $\mathcal{I}$ satisfies at least one branch of our extended tree, assuming it satisfied that which came before the extension. So the negated conjunction rule will never take us from a satisfiable branch to an unsatisfiable one.
+
+\subsection{Disjunction}
+
+Disjunctions branch according to this rule:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eor\metaB{}
+	[\metaA{}]
+	[\metaB{}]
+]
+\end{prooftree}
+\end{center}
+
+Assume $\mathcal{I}(\metaA{}\eor\metaB{})=1$. Then either $\mathcal{I}(\metaA{})=1$ or $\mathcal{I}(\metaB{})=1$. If $\mathcal{I}(\metaA{})=1$, then $\mathcal{I}$ satisfies the left branch. If $\mathcal{I}(\metaB{})=1$, then $\mathcal{I}$ satisfies the right branch. So, assuming that $\mathcal{I}$ satisfies the sentences above this resolution rule, it must satisfy at least one branch below it. So the disjunction rule will never take us from a satisfiable branch to an unsatisfiable one.
+
+Hopefully the pattern is becoming clear by now. We've proven, for three of our nine rules, that they cannot take us from a satisfiable branch to an unsatisfiable one. Six resolution rules remain to be considered.
+
+Consider again the variant disjunction rule hypothesized above:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eor\metaB{}
+	[\metaA{}
+	[\metaB{}, grouped]]
+]
+\end{prooftree}
+\end{center}
+
+If we attempted to go through the same reasoning we've been going through, we'd fail. Assume $\mathcal{I}(\metaA{}\eor\metaB{})=1$. By the definition of truth in SL, we know that $\mathcal{I}$ assigns 1 to at least one of \metaA{} and \metaB{}, but there is no guarantee that it will satisfy \emph{both}. So we have no assurance that, if one follows this rule, $\mathcal{I}$ will satisfy the development of the tree, even if we assume it satisfies the sentences above. We cannot prove that the use of this rule will never lead to an inappropriate tree closure. \label{soundprooffailure}
+
+\subsection{Negated Disjunction}
+
+Here is the rule for negated disjunctions:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eor\metaB{})
+	[\enot\metaA{}
+	[\enot\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+
+Suppose that $\mathcal{I}(\enot(\metaA{}\eor\metaB{}))=1$. Given the definition of negation, this means that $\mathcal{I}(\metaA{}\eor\metaB{})=0$. This in turn means, given the definition of disjunction, that $\mathcal{I}$ must assign 0 to both \metaA{} and \metaB{}. And so of course, given the definition of negation again, we know that $\mathcal{I}$ assigns 1 to \enot\metaA{}, and also assigns 1 to \enot\metaB{}. Therefore, if we began with a satisfiable tree branch, invoking this rule, like the other good rules we've considered, will preserve satisfiability; the negated disjunction rule will never take one from a satisfiable branch to an unsatisfiable one.
+
+\subsection{Conditional}
+
+The conditional rule is:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eif\metaB{}
+	[\enot\metaA{}]
+	[\metaB{}]
+]
+\end{prooftree}
+\end{center}
+
+As before, assume that the material above the branch is satisfiable; so some interpretation $\mathcal{I}$ satisfies it. Any interpretation that satisfies a conditional must assign 0 to the antecedent, or 1 to the consequent (or both). If $\mathcal{I}$ assigns 0 to the antecedent, then it satisfies the left development of the tree. If $\mathcal{I}$ assigns 1 to the consequent, then it satisfies the right development of the tree. So, given that it satisfies the conditional, $\mathcal{I}$ is guaranteed to satisfy at least one branch of the tree as developed by the conditional rule.
+
+\subsection{Negated Conditional}
+
+The rule given in Chapter \ref{ch.sl.trees} for negated conditionals was this:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eif\metaB{})
+	[\metaA{}
+	[\enot\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+
+I hope the procedure is feeling a bit tedious by now. As before, we assume that the negated conditional is satisfiable, and prove that the tree as developed by this rule will remain satisfiable. Since we're assuming that \enot(\metaA{}\eif\metaB{}) is satisfiable, it follows that some interpretation $\mathcal{I}$ satisfies it. But $\mathcal{I}(\enot(\metaA{}\eif\metaB{}))$ only if $\mathcal{I}(\metaA{})=1$ and $\mathcal{I}(\metaB{})=0$. So $\mathcal{I}$ will satisfy \metaA{} and \enot\metaB{}. That is to say, it will satisfy the continuation of the branch given this rule. The negated conditional rule can never take one from a satisfiable root to an unsatisfiable tree.
+
+We have three more rules to consider.
+
+\subsection{Biconditional}
+
+Here is the biconditional rule:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eiff\metaB{}
+	[\metaA{}
+		[\metaB{}, grouped]
+	]
+	[\enot\metaA{}
+		[\enot\metaB{}, grouped]
+	]
+]
+\end{prooftree}
+\end{center}
+
+Assuming that $\mathcal{I}$ satisfies \metaA{}\eiff\metaB{}, it must either assign 1 to both \metaA{} and \metaB{}, or it must assign 0 to both \metaA{} and \metaB{}. If the former, $\mathcal{I}$ will satisfy the left branch of the new development from this rule. If the latter, it will satisfy the right branch, since any interpretation that assigns 0 to a sentence must assign 1 to its negation. So this rule too can never take one from a satisfiable root to an unsatisfiable tree.
+
+\subsection{Negated biconditional}
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eiff\metaB{})
+	[\metaA{}
+		[\enot\metaB{}, grouped]
+	]
+	[\enot\metaA{}
+		[\metaB{}, grouped]
+	]
+]
+\end{prooftree}
+\end{center}
+
+The reasoning is much as before. If our interpretation satisfies the negated biconditional, then it must assign opposite values to each side; i.e., either $\mathcal{I}(\metaA{})=1$ and $\mathcal{I}(\metaB{})=0$, or $\mathcal{I}(\metaA{})=0$ and $\mathcal{I}(\metaB{})=1$. If the former, $\mathcal{I}$ satisfies the left branch; if the latter, $\mathcal{I}$ satisfies the right branch. So if the negated biconditional is satisfiable, this rule will never result in an unsatisfiable tree.
+
+\subsection{Double negation}
+
+Here is our final tree resolution rule:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering, single branches}
+[\enot\enot\metaA{}
+	[\metaA{}]
+]
+\end{prooftree}
+\end{center}
+
+One last time, we assume that we begin with something satisfiable; so we allow that some interpretation $\mathcal{I}$ assigns 1 to \enot\enot\metaA{}. If it assigns 1 to this negation, then it must assign 0 to its negand, \enot\metaA{}. That is to say, $\mathcal{I}(\enot\metaA{})=0$. And since it assigns 0 to \emph{this} negation, it must assign 1 to \emph{its} negand: $\mathcal{I}(\metaA{})=1$. But this just is the new branch development. So if we began with something satisfiable, this rule will result in 
+something satisfiable.
+\label{sec.sl.soundnessproof.end}
+\subsection{Taking stock}
+
+We've shown, for the nine resolution rules in our tree system, that they each have the following important feature: if you begin with a satisfiable set of sentences, applying the rule will always result in at least one continuation of the tree that is also satisfiable. And since these nine rules are the only ways one can develop a tree, we've proven that there is no possible way, consistent with the tree rules, for a tree with a satisfiable root to develop into a tree with no satisfiable branches.
+
+Branches can only be closed if they contain a sentence and its negation, which a satisfiable branch will never have. So, assuming we started with a satisfiable root, the rules will never result in a tree with all branches closed. Satisfiable roots will always result in open trees. The tree method will never erroneously ``prove" that a root is unsatisfiable. Equivalently, tree closure guarantees unsatisfiability of the root. The tree method is sound.
+
+\factoidbox{
+\define{soundness}: If a tree closes, that guarantees that its root is unsatisfiable. In other words: $$\metaSetX{}\vdash{}\bot\Rightarrow\metaSetX{}\models{}\bot$$
+}
+
+\section{Completeness}
+
+Soundness is the first of two important metalogical theorems considered in this chapter. The second is \define{completeness}. One can think of soundness as a guarantee against a system proving \emph{too much}; in proving soundness, we were assuring ourselves that a tree would close \emph{only if} the root was unsatisfiable. Completeness, as the name suggests, concerns whether our system proves \emph{enough}. We want our system to be sure to close, if the root is unsatisfiable. Remember, we take open branches in completed trees as an indication that the root is satisfiable. Completeness is about ensuring that this is a warranted conclusion.
+
+\label{definecomplete}
+\factoidbox{
+\define{completeness}: If a root is unsatisfiable, that guarantees that the tree will close. In other words: $$\metaSetX{}\models{}\bot\Rightarrow\metaSetX{}\vdash{}\bot$$
+}
+
+Consider the unsatisfiable set of sentences, $\{\enot Q, P \eand Q\}$. Given our conjunction rule, a tree with this root will close:
+
+\begin{prooftree}
+{
+}
+[\enot Q, name={q}
+[P \eand Q, checked, grouped
+	[P, just={\eand: !u}
+	[Q, grouped, close={:q, !c}
+	]
+	]
+]
+]
+\end{prooftree}
+
+In proving completeness, we wish to demonstrate that this will always be the case: \emph{whenever} we begin with an unsatisfiable root, the entire tree will eventually close. Notice that if we had a different conjunction rule that called for a branching development instead of a linear one, completeness would fail. Suppose we had this rule:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eand\metaB{}
+	[\metaA{}]
+	[\metaB{}]
+]
+\end{prooftree}
+\end{center}
+
+Using this rule, the tree with root $\{\enot Q, P \eand Q\}$ would remain open:
+
+
+
+
+\begin{prooftree}
+{
+}
+[\enot Q, name={q}
+[P \eand Q, checked, grouped
+	[P, just={alt.\ \eand: !u}, open
+	]
+	[Q, close={:q, !c}
+	]
+]
+]
+\end{prooftree}
+
+The right branch closes, but this tree has a left branch that remains open, even though the root is unsatisfiable. So if we modified our proof system by using this rule instead of the linear rule for conjunction, we would have a system that fails completeness. We wish to prove that, given the actual rules, our system is complete.
+
+\section{Proving completeness}
+\label{sec.completenessproof}
+Completeness is the claim that any time a set of sentences is unsatisfiable, a completed tree with that set as its root will close. This is equivalent to the claim that if a completed tree has a branch that remains open, then the root is satisfiable. To prove completeness, we will assume that a completed tree has a branch that remains open, and prove that, on this assumption, the root is satisfiable. In fact, we will prove something stronger than that: we will prove that \emph{every} formula in a completed open branch is satisfiable, by demonstrating a recipe for constructing an interpretation that satisfies it. Since the root is part of every branch of the tree, this will suffice for proving completeness.
+
+As in the case of our soundness proof, we will be giving an \emph{informal} proof \emph{about} our formal system.
+
+Here is the broad shape of the proof. Suppose that a completed tree has at least one open branch. Then we can construct an interpretation, $\mathcal{I}$, based on that branch, as follows: if any atomic sentence \metaA{} is in the branch, then $\mathcal{I}(\metaA{})=1$. If any negated atomic sentence \enot\metaB{} is in the branch, then $\mathcal{I}(\metaB{})=0$. Let these assignments exhaust $\mathcal{I}$. We can guarantee that there will be a coherent interpretation like this. This recipe for constructing interpretations will fail only if some atomic sentence \emph{and} its negation are \emph{both} in the branch. But if a sentence and a negation are both in the branch, then that branch will close; by hypothesis, we're considering a completed branch that remains open. So we know it contains no explicit contradictions of this kind.
+
+Now we want to prove that $\mathcal{I}$ satisfies every formula in the branch (including the root). We know it satisfies every atomic formula and every negated atomic formula in the branch, given the way it was constructed. We'll now show that it must satisfy every other formula too. We'll exploit the recursive rules for SL grammaticality: there are only a certain number of ways that sentences can be created from simpler sentences. We'll show, for every sentence form, that if $\mathcal{I}$ satisfies a branch downstream of a sentence of that form in a completed branch, then it satisfies that sentence too.
+
+We begin with conjunction.
+
+\subsection{Conjunction}
+\label{conjunctionsound}
+Suppose our completed, open branch contains a conjunction of the form \metaA{}\eand\metaB{}. Since it is a \emph{completed} branch, this means that the conjunction resolution rule must have been applied to this conjunction. (Remember, a branch isn't completed until every complex formula has a check mark next to it.) So, given the conjunction rule,
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eand\metaB{}
+	[\metaA{}
+	[\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+
+we know that the branch must also contain \metaA{} and \metaB{}. If we assume that $\mathcal{I}$ satisfies both these sentences, then we know from the definition of the truth of a conjunction in SL that $\mathcal{I}$ satisfies (\metaA{}\eand\metaB{}) too. In other words, there's no way to satisfy the simpler sentences that come after this resolution rule, without also satisfying the conjunction.
+
+
+
+\subsection{Negated conjunction}
+
+Suppose a negated conjunction appears in the open branch. Since the branch is complete, you know that the negated conjunction rule has been applied:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\enot(\metaA{}\eand\metaB{})
+	[\enot\metaA{}]
+	[\enot\metaB{}]
+]
+\end{prooftree}
+\end{center}
+
+We are assuming that the negated conjunction is in an open branch. This is consistent with either one of the branches below closing, but they cannot both close. If they did, the negated conjunction would not be in an open branch. So we know that at least one branch is open. So either $\mathcal{I}(\metaA{})=0$ (if the left branch is our open branch) or $\mathcal{I}(\metaB{})=0$ (if the right branch is the open branch). Since at least one of these sentences is assigned 0, their conjunction must also be assigned 0, which means the negated conjunction we're considering is assigned 1. So once again, if the material in at least one branch below the resolution rule is satisfied, then the negated conjunction is satisfied too.
+
+\subsection{Disjunction}
+
+Disjunctions are very similar to negated conjunctions. Since the tree is complete, any disjunction $\metaA{}\eor\metaB{}$ has a branch below it containing \metaA{}, and one containing \metaB{}. Whichever of these disjuncts is in the open branch, $\mathcal{I}$ satisfies that disjunct, and so satisfies the disjunction too.
+
+\subsection{Negated disjunction}
+
+Negated disjunctions are similar to conjunctions. If a negated disjunction is in an open branch, then the negation of each disjunct is also in that branch. So, suppose that $\mathcal{I}$ assigns 0 to each disjunct. Then it also assigns 0 to their disjunction. So once again, if the material below the negated disjunction is satisfied, then so is the negated disjunction itself.
+
+\subsection{Conditional}
+
+If a conditional is in a completed open branch, then it has been resolved by this branching rule:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eif\metaB{}
+	[\enot\metaA{}]
+	[\metaB{}]
+]
+\end{prooftree}
+\end{center}
+
+If the left development is the open branch, then we suppose that  $\mathcal{I}(\metaA{})=0$, which means that $\mathcal{I}(\metaA{}\eif\metaB{})=1$. If this right development is the open branch, then we suppose that $\mathcal{I}(\metaB{})=1$, which \emph{also} means that $\mathcal{I}(\metaA{}\eif\metaB{})=1$. So if the material below in at least one branch is satisfied, then the conditional is satisfied too.
+
+\subsection{Negated conditional}
+
+If a negated conditional \enot(\metaA{}\eif\metaB{}) is in the open branch, then so too are \metaA{} and \enot\metaB{}. So $\mathcal{I}(\metaA{})=1$ and $\mathcal{I}(\metaB{})=0$. So $\mathcal{I}$ falsifies the conditional, satisfying the negated conditional.
+
+There are three more kinds of sentences that exist in SL.
+
+\subsection{Biconditional}
+
+Suppose a biconditional is in an open branch. If the branch is completed, then this rule has been performed:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eiff\metaB{}
+	[\metaA{}
+		[\metaB{}, grouped]
+	]
+	[\enot\metaA{}
+		[\enot\metaB{}, grouped]
+	]
+]
+\end{prooftree}
+\end{center}
+
+One of these developments is the open branch. If it's the left branch, then, supposing that $\mathcal{I}$ assigns 1 to both \metaA{} and \metaB{}, $\mathcal{I}$ must also assign 1 to the biconditional $\metaA{}\eiff\metaB{}$. If it's the right branch, then, supposing that $\mathcal{I}$ assigns 0 to both \metaA{} and \metaB{}, this also means that $\mathcal{I}$ must also assign 1 to the biconditional $\metaA{}\eiff\metaB{}$. So whichever branch is satisfied by $\mathcal{I}$, the biconditional is also satisfied.
+
+\subsection{Negated biconditional}
+
+Exactly the same reasoning as above applies to negated biconditionals, except this time, the branches each assign \emph{opposite} truth values to \metaA{} and \metaB{}. So for our interpretation to satisfy either branch, it must falsify the biconditional, thus satisfying the negated biconditional.
+
+\subsection{Double negation}
+
+Finally, suppose there is a double-negated sentence in our completed open branch. Then this rule has been performed:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering, single branches}
+[\enot\enot\metaA{}
+	[\metaA{}]
+]
+\end{prooftree}
+\end{center}
+
+If $\mathcal{I}(\metaA{})=1$, then, given the definition of truth in SL, $\mathcal{I}(\enot\metaA{})=0$, and $\mathcal{I}(\enot\enot\metaA{})=1$. So once again, if our interpretation satisfies what comes below, then it satisfies the double-negation above.
+
+\subsection{Summarizing the completeness proof}
+
+What we've just shown is that, for any sentence of SL, if it has one of the nine structures just canvassed--- if it's a conjunction, a negated conjunction, a disjunction, etc.--- then, if it is in a completed open branch where the sentences below it are satisfied by $\mathcal{I}$, then it too is satisfied by $\mathcal{I}$. Given the way that $\mathcal{I}$ was selected, we know that $\mathcal{I}$ must satisfy every atomic sentence, and every negated atomic sentence, in the open branch. And since the nine structures considered are the only ways to develop more complex sentences, this implies that \emph{every} SL sentence in the open branch is satisfied by $\mathcal{I}$. This includes the root. Since interpretation $\mathcal{I}$ satisfies the root, this of course means that the root is satisfiable. That is to say, if a completed branch remains open, this guarantees that the root is satisfiable. Equivalently, if the root is unsatisfiable, a completed tree is guaranteed to close. Completeness is proven.
+
+\section{Testing alternate rules}
+
+We can use the reasoning involved in the soundness and completeness proofs above to consider various alternative tree rules. We saw one example of this on p.\ \pageref{unsoundrule} above, when we observed that an alternate, linear rule for disjunctions would result in an unsound tree system. Here again was the rule we considered:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eor\metaB{}
+	[\metaA{}
+	[\metaB{}, grouped]]
+]
+\end{prooftree}
+\end{center}
+
+Note, however, that if we think through the \emph{completeness} reasoning, we'll find that the completeness proof would still hold. If we assume that some interpretation $\mathcal{I}$ satisfies both \metaA{} and \metaB{}, we can be assured that it also satisfies the disjunction $\metaA{}\eor\metaB{}$. So changing the disjunction rule to this linear one would \emph{not} interfere with the completeness of our tree system. Our trees would still close any time they began with unsatisfiable roots. But as we saw on p.\ \pageref{soundprooffailure}, the soundness proof would fail, which is why a system with this rule could start in a satisfiable root, and result in a closed tree.
+
+When either the soundness or the completeness proof fails, you know you are working with an inappropriate rule. To conclusively demonstrate this, you can provide a counterexample to the failed metalogical theorem. A counterexample to soundness would be a tree with a satisfiable root that closes. A counterexample to completeness would be a a completed tree, with an unsatisfiable root, that remains open. The rule above violates soundness, so using that rule we can construct a tree with a satisfiable root, that closes. Constructing the right counterexample takes a bit of thought. The rule puts both disjuncts into a single branch below, and we want it to close, despite having a satisfiable root. So adding the negation of just one of the disjuncts to the root will close the tree, without making the root unsatisfiable:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[A \eor B
+[\enot A, grouped
+	[A
+	[B, grouped, close]]
+]
+]
+\end{prooftree}
+\end{center}
+
+This tree is a counterexample to soundness, using the hypothetical rule mentioned above. Note that a counterexample is a tree that uses SL sentences, not the Greek letters \metaA{} and \metaB{} that we use in the statements of the rules.
+
+Let's work through one more example. Suppose we changed the conjunction rule to this one:
+
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\metaA{}\eand\metaB{}
+		[\metaA{}
+		[\metaB{}, grouped
+		]
+		]
+		[\metaB{}]
+	]
+\end{prooftree}
+\end{center}
+
+Would our system still be sound? To answer this, we assume that the conjunction $\metaA{}\eand\metaB{}$ is satisfiable, and ask whether this guarantees that at least one branch below is also satisfiable. It does. (In fact, both branches are guaranteed to be satisfiable.) So the system will still be sound.
+
+Would the system still be complete? To answer this, we ask whether each branch is such that, if we assume that an interpretation satisfies the developments below, it is guaranteed to satisfy the conjunction above. Begin with the left branch. If some interpretation satisfies both \metaA{} and \metaB{}, then it will certainly satisfy the conjunction $\metaA{}\eand\metaB{}$. So that branch looks fine. (Indeed, that branch is exactly the same as the linear development of our actual conjunction rule, so this reasoning is the same as that on p.\ \pageref{conjunctionsound}.)
+
+But what of the right branch? Assume that some interpretation satisfies \metaB{}; does that guarantee that it satisfies $\metaA{}\eand\metaB{}$? Certainly not. So if the right branch is our open branch, a completed tree using this rule may remain open, even if its root is satisfiable. Completeness will be violated. Let's construct a counterexample that form. We want a tree that includes a conjunction, whose root is unsatisfiable, but whose right branch remains open. Notice that the right branch `ignores' the first conjunct; this is a clue that a good way to construct a counterexample will be to locate the unsatisfiability within that first conjunct. Suppose, for example, that we let \metaA{} itself stand for a contradiction. If so, any conjunction with \metaA{} as a conjunct will be unsatisfiable. But if \metaB{} is not a contradiction, then a tree with root $\metaA{}\eand\metaB{}$ will remain open. Let's develop a tree with this root: $(P \eiff \enot P) \eand Q$. Note that this sentence has a contradictory first conjunct, and a contingent, atomic second conjunct.
+
+\begin{center}
+\begin{prooftree}
+	{not line numbering}
+	[(P \eiff \enot P) \eand Q, checked
+		[(P \eiff \enot P), checked
+		[Q, grouped
+			[P
+			[\enot P, grouped, close
+			]
+			]
+			[\enot P
+			[\enot\enot P, grouped, close
+			]
+			]
+		]
+		]
+		[Q, open]
+	]
+\end{prooftree}
+\end{center}
+
+The left branch closes after we perform the unchanged biconditional rule on the contradictory first conjunct, but the right branch remains open. Since this is a completed tree with an open branch and an unsatisfiable root, it is a counterexample to completeness.
+
+Remember that we are considering a modification to the tree system that uses a different conjunction rule. In this example I used $P \eiff \enot P$ as my \metaA{}, which let me use the unchanged biconditional rule. But if I had used a contradiction that used a conjunction, like $P \eand \enot P$, I would have had to used the revised rule within the left branch too.
+
+It is also possible to construct counterexamples using simpler sentences if you add to the root. Instead of introducing a contradictory conjunct, we could have simply added to the root, in a way that makes the root unsatisfiable, but leaves the right branch open. Suppose for instance we put both $P \eand Q$ and $\enot P$ in the root. Then we'd have an unsatisfiable root, but the right branch would remain open:
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[P\eand Q
+	[\enot P, grouped
+		[P
+		[Q, grouped, close
+		]
+		]
+		[Q, open]
+	]
+	]
+\end{prooftree}
+\end{center}
+
+This too is a counterexample to completeness, given the rule in question. So we see here two different kinds of strategies for generating counterexamples to completeness.
+
+\practiceproblems
+
+\solutions
+\problempart
+\label{pr.SL.soundness-resolutions}
+Following are possible modifications to our SL tree system. For each, imagine a system that is like the system laid out in this chapter, except for the indicated change. Would the modified tree system be sound? If so, explain how the proof given in this chapter would extend to a system with this rule; if not, give a tree that is a counterexample to the soundness of the modified system.
+\begin{earg}
+\item Change the rule for conjunctions to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\metaA{}\eand\metaB{}
+		[\metaA{}]
+		[\metaB{}]
+	]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for conjunctions to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\metaA{}\eand\metaB{}
+		[\metaA{}]
+	]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for conjunctions to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\metaA{}\eand\metaB{}
+		[\metaA{}
+		[\enot\metaB{}, grouped
+		]
+		]
+	]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for disjunctions to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\metaA{}\eor\metaB{}
+		[\metaA{}
+		[\metaB{}, grouped
+		]
+		]
+	]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for disjunctions to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\metaA{}\eor\metaB{}
+		[\metaA{}]
+		[\metaB{}]
+		[\metaA{} \eand \metaB{}]
+	]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for conditionals to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\metaA{}\eif\metaB{}
+		[\enot\metaA{}]
+		[\metaB{}\eor\metaA{}]
+	]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for conditionals to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\metaA{}\eif\metaB{}
+		[\enot\metaA{}\eor\metaB{}]
+	]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for biconditionals to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\metaA{}\eiff\metaB{}
+		[\metaA{}
+		[\metaB{}, grouped
+		]
+		]
+	]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for disjunction to this rule:
+	\factoidbox{
+	\begin{center}
+	\begin{prooftree}
+	{not line numbering}
+	[\metaA{}\eor\metaB{}
+		[\metaA{}]
+		[\metaB{}]
+		[\metaC{}]
+	]
+\end{prooftree}
+\end{center}
+(This would mean that one can put whatever SL sentence one likes in the rightmost branch.)
+}
+
+\end{earg}
+
+\problempart
+\label{pr.SL.completenessresolutions}
+For each of the rule modifications given in Part \ref{pr.SL.soundness-resolutions}, would the modified tree system be complete? If so, explain how the proof given in this chapter would extend to a system with this rule; if not, give a tree that is a counterexample to the completeness of the modified system.
