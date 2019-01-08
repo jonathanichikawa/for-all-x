@@ -1,8 +1,6 @@
 
 [Source](http://jichikawa.net/forall-x-ubc-edition/ "Permalink to forall x: UBC edition — Jonathan Jenkins Ichikawa")
 
-# forall x: UBC edition — Jonathan Jenkins Ichikawa
-
 # _forall x: UBC edition_
 
 _forall x: UBC edition _is an open-access introductory logic textbook. I developed this text, based on [P. D. Magnus's _forall x_][16], in 2017–18, for particular use in PHIL 220: Introduction to Formal Logic at UBC, a course that I have been teaching since 2011. It is produced under a Creative Commons License, and is free for all students and instructors worldwide.
