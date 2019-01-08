@@ -3,7 +3,7 @@
 
 # _forall x: UBC edition_
 
-_forall x: UBC edition _is an open-access introductory logic textbook. I developed this text, based on [P. D. Magnus's _forall x_][16], in 2017–18, for particular use in PHIL 220: Introduction to Formal Logic at UBC, a course that I have been teaching since 2011. It is produced under a Creative Commons License, and is free for all students and instructors worldwide.
+_forall x: UBC edition_ is an open-access introductory logic textbook. I developed this text, based on [P. D. Magnus's _forall x_][16], in 2017–18, for particular use in PHIL 220: Introduction to Formal Logic at UBC, a course that I have been teaching since 2011. It is produced under a Creative Commons License, and is free for all students and instructors worldwide.
 
 The full book is available for pdf download [here][17]. I plan to make a printed version available as well, although that work is still in progress. If you'd like to modify it and know LaTeX, you can also download the [LaTeX source code][18].
 
