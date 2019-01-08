@@ -74,7 +74,7 @@ I'm grateful to the students in my PHIL 220 in the fall semesters of 2017 and 20
 [16]: https://www.fecundity.com/logic/
 [17]: https://philpapers.org/rec/MAGFXU
 [18]: http://jichikawa.net/s/forallx-ubc-sourcecode-10.zip
-[19]: http://bit.ly/forallx-errors
-[20]: http://bit.ly/phil220
+[19]: https://github.com/mavaddat/for-all-x/issues
+[20]: https://github.com/mavaddat/for-all-x/blob/master/PHIL220syllabus.md
 [21]: https://static1.squarespace.com/static/555e10cde4b0c3b8337f5e3d/t/5c27f9406d2a73e6a9a28d82/1546123627110/forallxp92
 [22]: https://static1.squarespace.com/static/555e10cde4b0c3b8337f5e3d/t/5c27f9fbaa4a995f08a1eff7/1546123787522/forallxp217 
