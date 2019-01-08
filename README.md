@@ -56,8 +56,6 @@ Many thanks, first and foremost, to P.D. Magnus for providing this wonderful res
 
 I'm grateful to the students in my PHIL 220 in the fall semesters of 2017 and 2018 at UBC, who had an in-progress version of this book as their course textbook. They patiently and helpfully found and pointed out mistakes as I wrote them (incentivized, perhaps, by an offer of extra credit); this version has many fewer errors than it otherwise would have had. Thanks also to Cavell Chan and Joey Deeth, who did careful proofreading, and generated many solutions to exercises for the answer key, supported by a UBC Library Open Access Grant in 2018.
 
-All photography © Jonathan Ichikawa, except as indicated. Site powered by [Squarespace][23]. 
-
 [1]: http://jichikawa.net/
 [2]: http://jichikawa.net/research/
 [3]: http://jichikawa.net/contextualising-knowledge/
@@ -79,7 +77,4 @@ All photography © Jonathan Ichikawa, except as indicated. Site powered by [Squa
 [19]: http://bit.ly/forallx-errors
 [20]: http://bit.ly/phil220
 [21]: https://static1.squarespace.com/static/555e10cde4b0c3b8337f5e3d/t/5c27f9406d2a73e6a9a28d82/1546123627110/forallxp92
-[22]: https://static1.squarespace.com/static/555e10cde4b0c3b8337f5e3d/t/5c27f9fbaa4a995f08a1eff7/1546123787522/forallxp217
-[23]: http://squarespace.com
-
-  
+[22]: https://static1.squarespace.com/static/555e10cde4b0c3b8337f5e3d/t/5c27f9fbaa4a995f08a1eff7/1546123787522/forallxp217 
