@@ -28,7 +28,7 @@ I reproduce the preface to the book below.
 
 This preface outlines my approach to teaching logic, and explains the way this version of _forall x_ differs from Magnus's original. The preface is intended more for instructors than for students.
 
-> If you teach with this or another free book instead, you'll save your students $50,000 over ten years.
+> &#34;If you teach with this or another free book instead, you'll save your students $50,000 over ten years.&#34;
 
 I have been teaching logic at the University of British Columbia since 2011; starting in 2017, I decided to prepare this textbook, based on and incorporating much of P. D. Magnus's _forall x_, which has been freely available for use and modification since 2005. Preparing this text had two main advantages for me: it allowed me to tailor the text precisely to my teaching preferences and emphasis, and, because it is available for free, it is saving money for students. (I encourage instructors to take this latter consideration pretty seriously. If you have a hundred students a year, requiring them each to buy a $50 textbook takes $5,000 out of students' pockets each year. If you teach with this or another free book instead, you'll save your students $50,000 over ten years. It can be sort of annoying to switch textbooks if you're used to something already. But is staying the course worth $50,000 of your students' money?)
 
