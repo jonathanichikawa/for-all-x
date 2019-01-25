@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  28 DEC 2018 20:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  25 JAN 2019 10:47
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **forallx-ubc.tex
 (./forallx-ubc.tex
@@ -947,9 +946,9 @@ Package: placeins 2005/04/18  v 2.2
 
 Package hyperref Warning: Invalid value `0 0 0 0'
 (hyperref)                for option `pdfborder'.
-(hyperref)                Option setting is ignored on input line 4.
+(hyperref)                Option setting is ignored on input line 6.
 
-Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 4.
+Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 6.
 (./forallx-ubc.aux (./forallx-ubc-frontmatter.aux) (./forallx-ubc-preface.aux)
 (./forallx-ubc-knownerrors.aux) (./forallx-ubc-1-intro.aux)
 (./forallx-ubc-2-sentential.aux) (./forallx-ubc-3-truthtables.aux)
@@ -962,22 +961,22 @@ Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 4.
 (./forallx-ubc-app-quickreference.aux) (./forallx-ubc-backmatter.aux))
 \openout1 = `forallx-ubc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
 \AtBeginShipoutBox=\box102
-Package hyperref Info: Link coloring OFF on input line 24.
+Package hyperref Info: Link coloring OFF on input line 26.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -987,9 +986,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count285
 )
-LaTeX Info: Redefining \ref on input line 24.
-LaTeX Info: Redefining \pageref on input line 24.
-LaTeX Info: Redefining \nameref on input line 24.
+LaTeX Info: Redefining \ref on input line 26.
+LaTeX Info: Redefining \pageref on input line 26.
+LaTeX Info: Redefining \nameref on input line 26.
 
 (./forallx-ubc.out) (./forallx-ubc.out)
 \@outlinefile=\write5
@@ -2413,7 +2412,7 @@ l.487 \newpage
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.53 \include{forallx-ubc-app-quickreference}
+l.55 \include{forallx-ubc-app-quickreference}
                                               [3]
 \openout2 = `forallx-ubc-backmatter.aux'.
 
@@ -2431,14 +2430,14 @@ Underfull \hbox (badness 3460) in paragraph at lines 23--23
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.54 \include{forallx-ubc-backmatter}
+l.56 \include{forallx-ubc-backmatter}
                                       [4
 
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 56.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 56.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 58.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 58.
  (./forallx-ubc.aux
 (./forallx-ubc-frontmatter.aux) (./forallx-ubc-preface.aux)
 (./forallx-ubc-knownerrors.aux) (./forallx-ubc-1-intro.aux)
@@ -2450,15 +2449,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 56.
 (./forallx-ubc-12-identity.aux) (./forallx-ubc-13-QLND.aux)
 (./forallx-ubc-app-notation.aux) (./forallx-ubc-app-solutions.aux)
 (./forallx-ubc-app-quickreference.aux) (./forallx-ubc-backmatter.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 56.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 56.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 58.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 58.
 Package rerunfilecheck Info: File `forallx-ubc.out' has not changed.
 (rerunfilecheck)             Checksum: 776F233E9357436AC0B761FB43BB4815;9058.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 56.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 58.
  ) 
 Here is how much of TeX's memory you used:
  54698 strings out of 492995
@@ -2490,7 +2489,7 @@ t/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2017/texmf-dist
 onts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2017/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2017/texm
 f-dist/fonts/type1/urw/zapfchan/uzcmi8a.pfb>
-Output written on forallx-ubc.pdf (294 pages, 1012666 bytes).
+Output written on forallx-ubc.pdf (294 pages, 1013002 bytes).
 PDF statistics:
  3772 PDF objects out of 4296 (max. 8388607)
  3420 compressed objects within 35 object streams
