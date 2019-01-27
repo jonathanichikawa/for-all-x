@@ -19,3 +19,9 @@ Here are a few points of information about the book:
 * emphasis on translation and laying the groundwork for metatheory; a lesser emphasis than some textbooks give on the ('puzzle-solving') details and mechanics of constructing proofs
 * conversational style with fun examples; intended to be relatively accessible to the technically anxious
 * free for anyone to use or modify
+
+	[16]: https://www.fecundity.com/logic/
+	[17]: https://philpapers.org/rec/MAGFXU
+	[19]: https://github.com/mavaddat/for-all-x/issues
+	[20]: https://docs.google.com/document/d/e/2PACX-1vSL1KcB-CF-LA6MJqGYj2oFwxhF07ciBcwjgZEepbWbkPxrsOq7YwQ00KRXXR-BdwxcEQoLb-WOhFFA/pub 
+	
