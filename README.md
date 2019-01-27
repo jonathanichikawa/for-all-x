@@ -9,8 +9,6 @@ The full book is available for pdf download [here][17]. Professor Ichikawa plans
 
 This repo is maintaining a list of know errors [here][19].
 
-If you are enrolled in [Professor Ichikawa's PHIL 220 in January 2019][20], this will be your course textbook.
-
 Here are a few points of information about the book:
 
 * designed for a 13-week, introductory logic course with no prerequisites
@@ -20,8 +18,7 @@ Here are a few points of information about the book:
 * conversational style with fun examples; intended to be relatively accessible to the technically anxious
 * free for anyone to use or modify
 
-	[16]: https://www.fecundity.com/logic/
-	[17]: https://philpapers.org/rec/MAGFXU
-	[19]: https://github.com/mavaddat/for-all-x/issues
-	[20]: https://docs.google.com/document/d/e/2PACX-1vSL1KcB-CF-LA6MJqGYj2oFwxhF07ciBcwjgZEepbWbkPxrsOq7YwQ00KRXXR-BdwxcEQoLb-WOhFFA/pub 
+[16]: https://www.fecundity.com/logic/
+[17]: https://philpapers.org/rec/MAGFXU
+[19]: https://github.com/mavaddat/for-all-x/issues
 	
