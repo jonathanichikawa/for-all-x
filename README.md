@@ -21,7 +21,7 @@ Here are a few points of information about the book:
 Thank you to [Mavaddat Javid][4] for creating this repository.
 
 [1]: https://www.fecundity.com/logic/
-[2]: https://philpapers.org/rec/MAGFXU
+[2]: ../Latex-Files/forallx-ubc.pdf
 [3]: https://github.com/mavaddat/for-all-x/issues
 [4]: https://github.com/mavaddat
 	
