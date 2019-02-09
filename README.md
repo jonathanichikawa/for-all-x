@@ -3,11 +3,11 @@
 
 # _forall x: UBC edition_
 
-_forall x: UBC edition_ is an open-access introductory logic textbook. Professor Jonathan Ichikawa developed this text, based on [P. D. Magnus's _forall x_][16], in 2017–18, for use in PHIL 220: Introduction to Formal Logic at UBC, a course that he has been teaching since 2011. This text is produced under a Creative Commons License, and is free for all students and instructors worldwide.
+_forall x: UBC edition_ is an open-access introductory logic textbook. Professor Jonathan Ichikawa developed this text, based on [P. D. Magnus's _forall x_][1], in 2017–18, for use in PHIL 220: Introduction to Formal Logic at UBC, a course that he has been teaching since 2011. This text is produced under a Creative Commons License, and is free for all students and instructors worldwide.
 
-The full book is available for pdf download [here][17]. Professor Ichikawa plans to make a printed version available as well, work in progress. If you'd like to modify it and know LaTeX, you may issue a pull request.
+The full book is available for pdf download [here][2]. Professor Ichikawa plans to make a printed version available as well, work in progress. If you'd like to modify it and know LaTeX, you may issue a pull request.
 
-This repo is maintaining a list of know errors [here][19].
+This repo is maintaining a list of know errors [here][3].
 
 Here are a few points of information about the book:
 
@@ -18,7 +18,10 @@ Here are a few points of information about the book:
 * conversational style with fun examples; intended to be relatively accessible to the technically anxious
 * free for anyone to use or modify
 
-[16]: https://www.fecundity.com/logic/
-[17]: https://philpapers.org/rec/MAGFXU
-[19]: https://github.com/mavaddat/for-all-x/issues
+Thank you to [Mavaddat Javid][4] for creating this repository.
+
+[1]: https://www.fecundity.com/logic/
+[2]: https://philpapers.org/rec/MAGFXU
+[3]: https://github.com/mavaddat/for-all-x/issues
+[4]: https://github.com/mavaddat
 	
