@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  11 FEB 2019 10:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  11 FEB 2019 10:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2155,7 +2155,7 @@ t/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2017/texmf-dist
 onts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2017/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2017/texm
 f-dist/fonts/type1/urw/zapfchan/uzcmi8a.pfb>
-Output written on forallx-ubc.pdf (293 pages, 1016959 bytes).
+Output written on forallx-ubc.pdf (293 pages, 1016909 bytes).
 PDF statistics:
  3835 PDF objects out of 4296 (max. 8388607)
  3484 compressed objects within 35 object streams
