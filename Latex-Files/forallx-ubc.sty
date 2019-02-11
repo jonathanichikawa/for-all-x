@@ -1,7 +1,16 @@
 %!TEX root = forallx-ubc.tex
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{forallx}[2011/10/29 support for a logic textbook]
-\RequirePackage{amssymb,amsmath,hyperref,multicol,ifthen,prooftrees-mod}
+\usepackage[dvipsnames]{xcolor}
+\RequirePackage{amssymb,amsmath,multicol,ifthen,prooftrees-mod,hyperref}
+\definecolor{URLblue}{RGB}{0,0,175}
+\hypersetup{
+	colorlinks   = true, 	% Use colored links instead of boxes
+  	urlcolor      =  URLblue, 	% Color for external hyperlinks
+  	linkcolor    = URLblue, 	% Color of internal links
+  	citecolor   = red 	% Color of citations
+	}
+
 
 % The original forallx.sty was written in 2005
 
@@ -134,11 +143,11 @@
 %    ****************************************
 %    *          PRACTICE PROBLEMS           *
 %    ****************************************
-\newcounter{ProbPart}
+\newcounter{ProbPart}[chapter]
 \renewcommand{\theProbPart}{\Alph{ProbPart}}
 % This inserts a heading and resets the counter:
 \newcommand*{\practiceproblems}{
-	\setcounter{ProbPart}{0}\section*{Practice Exercises}%
+	%\setcounter{ProbPart}{0}\section*{Practice Exercises}%
 	\addcontentsline{toc}{section}{Practice Exercises}
 }
 % This starts a new section which is automatically numbered:
