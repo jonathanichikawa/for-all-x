@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  11 FEB 2019 10:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  15 FEB 2019 22:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1887,7 +1887,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [261]
 [262] [263]
-Overfull \hbox (0.51913pt too wide) in paragraph at lines 1267--1268
+Overfull \hbox (0.51913pt too wide) in paragraph at lines 1266--1267
 []\OT1/cmr/m/n/10 Of the ex-pres-sions listed, only $\OMS/cmsy/m/n/10 8\OML/cmm
 /m/it/10 yLby$ \OT1/cmr/m/n/10 is a sub-sti-tu-tion in-stance of $\OMS/cmsy/m/n
 /10 9\OML/cmm/m/it/10 x\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 yLxy$\OT1/cmr/m/n/10 
@@ -1904,7 +1904,7 @@ Underfull \vbox (badness 5741) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [268]
-Overfull \hbox (8.2374pt too wide) in paragraph at lines 1664--1698
+Overfull \hbox (8.2374pt too wide) in paragraph at lines 1663--1697
 []$\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 x\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 yLxy$
 \OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 : [] :$ $\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10
  x\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 yLxy$ \OT1/cmr/m/n/10 is in-valid.   [] 
@@ -1915,7 +1915,7 @@ Overfull \hbox (8.2374pt too wide) in paragraph at lines 1664--1698
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [270] [271] [272] [273] [274]
-Overfull \hbox (21.97035pt too wide) in paragraph at lines 2478--2480
+Overfull \hbox (21.97035pt too wide) in paragraph at lines 2477--2479
 []$\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 x[]\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 x[]
 \OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 x[]\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 x[][]D
 x[] \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 Dx[] \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 
@@ -1928,12 +1928,12 @@ cmr/m/n/10 =
  []
 
 [275]
-Overfull \hbox (37.65967pt too wide) in paragraph at lines 2602--2603
+Overfull \hbox (37.65967pt too wide) in paragraph at lines 2601--2602
 [][] 
  []
 
 [276]
-Overfull \hbox (36.45013pt too wide) in paragraph at lines 2664--2665
+Overfull \hbox (36.45013pt too wide) in paragraph at lines 2663--2664
 [][] 
  []
 
@@ -1955,7 +1955,7 @@ Missing character: There is no a in font nullfont!
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [279]
-Overfull \hbox (36.30315pt too wide) in paragraph at lines 2876--2877
+Overfull \hbox (36.30315pt too wide) in paragraph at lines 2875--2876
 [][] 
  []
 
@@ -1963,7 +1963,7 @@ Overfull \hbox (36.30315pt too wide) in paragraph at lines 2876--2877
 Underfull \vbox (badness 2772) has occurred while \output is active []
 
  [280]
-Overfull \hbox (48.68117pt too wide) in paragraph at lines 2888--2897
+Overfull \hbox (48.68117pt too wide) in paragraph at lines 2887--2896
 [][] 
  []
 
@@ -2126,10 +2126,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 54827 strings out of 492995
- 1215629 string characters out of 6132704
- 1110993 words of memory out of 5000000
- 56325 multiletter control sequences out of 15000+600000
+ 54826 strings out of 492995
+ 1215619 string characters out of 6132704
+ 1110990 words of memory out of 5000000
+ 56324 multiletter control sequences out of 15000+600000
  23522 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  610i,18n,517p,10435b,10103s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2155,7 +2155,7 @@ t/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2017/texmf-dist
 onts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2017/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2017/texm
 f-dist/fonts/type1/urw/zapfchan/uzcmi8a.pfb>
-Output written on forallx-ubc.pdf (293 pages, 1016909 bytes).
+Output written on forallx-ubc.pdf (293 pages, 1017197 bytes).
 PDF statistics:
  3835 PDF objects out of 4296 (max. 8388607)
  3484 compressed objects within 35 object streams
