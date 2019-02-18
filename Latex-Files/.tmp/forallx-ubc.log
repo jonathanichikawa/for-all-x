@@ -1,9 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  11 FEB 2019 10:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  17 FEB 2019 15:38
 entering extended mode
- restricted \write18 enabled.
- file:line:error style messages enabled.
+ \write18 enabled.
  %&-line parsing enabled.
-**forallx-ubc.tex
+**forallx-ubc
 (./forallx-ubc.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
@@ -962,16 +961,17 @@ Package hyperref Warning: Invalid value `0 0 0 0'
 (hyperref)                Option setting is ignored on input line 6.
 
 Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 6.
-(./forallx-ubc.aux (./forallx-ubc-frontmatter.aux) (./forallx-ubc-preface.aux)
-(./forallx-ubc-knownerrors.aux) (./forallx-ubc-1-intro.aux)
-(./forallx-ubc-2-sentential.aux) (./forallx-ubc-3-truthtables.aux)
-(./forallx-ubc-4-SLmodels.aux) (./forallx-ubc-5-SLtrees.aux)
-(./forallx-ubc-6-SLsoundcomplete.aux) (./forallx-ubc-7-SLND.aux)
-(./forallx-ubc-8-predicate.aux) (./forallx-ubc-9-QLmodels.aux)
-(./forallx-ubc-10-QLtrees.aux) (./forallx-ubc-11-QLsoundcomplete.aux)
-(./forallx-ubc-12-identity.aux) (./forallx-ubc-13-QLND.aux)
-(./forallx-ubc-app-notation.aux) (./forallx-ubc-app-solutions.aux)
-(./forallx-ubc-app-quickreference.aux) (./forallx-ubc-backmatter.aux))
+(.tmp/forallx-ubc.aux (.tmp/forallx-ubc-frontmatter.aux)
+(.tmp/forallx-ubc-preface.aux) (.tmp/forallx-ubc-knownerrors.aux)
+(.tmp/forallx-ubc-1-intro.aux) (.tmp/forallx-ubc-2-sentential.aux)
+(.tmp/forallx-ubc-3-truthtables.aux) (.tmp/forallx-ubc-4-SLmodels.aux)
+(.tmp/forallx-ubc-5-SLtrees.aux) (.tmp/forallx-ubc-6-SLsoundcomplete.aux)
+(.tmp/forallx-ubc-7-SLND.aux) (.tmp/forallx-ubc-8-predicate.aux)
+(.tmp/forallx-ubc-9-QLmodels.aux) (.tmp/forallx-ubc-10-QLtrees.aux)
+(.tmp/forallx-ubc-11-QLsoundcomplete.aux) (.tmp/forallx-ubc-12-identity.aux)
+(.tmp/forallx-ubc-13-QLND.aux) (.tmp/forallx-ubc-app-notation.aux)
+(.tmp/forallx-ubc-app-solutions.aux) (.tmp/forallx-ubc-app-quickreference.aux)
+(.tmp/forallx-ubc-backmatter.aux))
 \openout1 = `forallx-ubc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
@@ -1035,7 +1035,7 @@ LaTeX Info: Redefining \ref on input line 22.
 LaTeX Info: Redefining \pageref on input line 22.
 LaTeX Info: Redefining \nameref on input line 22.
 
-(./forallx-ubc.out) (./forallx-ubc.out)
+(.tmp/forallx-ubc.out) (.tmp/forallx-ubc.out)
 \@outlinefile=\write5
 \openout5 = `forallx-ubc.out'.
 
@@ -1109,7 +1109,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-] (./forallx-ubc.toc
+] (.tmp/forallx-ubc.toc
 Underfull \vbox (badness 1052) has occurred while \output is active []
 
  [7
@@ -1993,86 +1993,21 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 \openout2 = `forallx-ubc-app-quickreference.aux'.
 
  (./forallx-ubc-app-quickreference.tex
-Underfull \hbox (badness 10000) in alignment at lines 54--81
+Underfull \hbox (badness 10000) in alignment at lines 56--83
 [][]
  []
 
 [289
 
 
-]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 118--119
-[][] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 137--138
-[][] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 155--156
-[][] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 170--171
-[][] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 184--185
-[][] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 203--204
-[][] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 218--219
-[][] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 235--236
-[][] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 248--249
-[][] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 272--272
-[][] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 287--287
-[][] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 301--301
-[][] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 316--316
-[][] 
- []
-
-[1]
+] [1]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.487 \newpage
+l.491 \newpage
                [2
 
 ])pdfTeX warning (ext4): destination with the same identifier (name{page.}) has
@@ -2105,34 +2040,34 @@ l.52 \include{forallx-ubc-backmatter}
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 54.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 54.
- (./forallx-ubc.aux
-(./forallx-ubc-frontmatter.aux) (./forallx-ubc-preface.aux)
-(./forallx-ubc-knownerrors.aux) (./forallx-ubc-1-intro.aux)
-(./forallx-ubc-2-sentential.aux) (./forallx-ubc-3-truthtables.aux)
-(./forallx-ubc-4-SLmodels.aux) (./forallx-ubc-5-SLtrees.aux)
-(./forallx-ubc-6-SLsoundcomplete.aux) (./forallx-ubc-7-SLND.aux)
-(./forallx-ubc-8-predicate.aux) (./forallx-ubc-9-QLmodels.aux)
-(./forallx-ubc-10-QLtrees.aux) (./forallx-ubc-11-QLsoundcomplete.aux)
-(./forallx-ubc-12-identity.aux) (./forallx-ubc-13-QLND.aux)
-(./forallx-ubc-app-notation.aux) (./forallx-ubc-app-solutions.aux)
-(./forallx-ubc-app-quickreference.aux) (./forallx-ubc-backmatter.aux))
+ (.tmp/forallx-ubc.aux
+(.tmp/forallx-ubc-frontmatter.aux) (.tmp/forallx-ubc-preface.aux)
+(.tmp/forallx-ubc-knownerrors.aux) (.tmp/forallx-ubc-1-intro.aux)
+(.tmp/forallx-ubc-2-sentential.aux) (.tmp/forallx-ubc-3-truthtables.aux)
+(.tmp/forallx-ubc-4-SLmodels.aux) (.tmp/forallx-ubc-5-SLtrees.aux)
+(.tmp/forallx-ubc-6-SLsoundcomplete.aux) (.tmp/forallx-ubc-7-SLND.aux)
+(.tmp/forallx-ubc-8-predicate.aux) (.tmp/forallx-ubc-9-QLmodels.aux)
+(.tmp/forallx-ubc-10-QLtrees.aux) (.tmp/forallx-ubc-11-QLsoundcomplete.aux)
+(.tmp/forallx-ubc-12-identity.aux) (.tmp/forallx-ubc-13-QLND.aux)
+(.tmp/forallx-ubc-app-notation.aux) (.tmp/forallx-ubc-app-solutions.aux)
+(.tmp/forallx-ubc-app-quickreference.aux) (.tmp/forallx-ubc-backmatter.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 54.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 54.
 Package rerunfilecheck Info: File `forallx-ubc.out' has not changed.
-(rerunfilecheck)             Checksum: 2FDE151CCB159D22BC5E3968BB81BD96;9057.
+(rerunfilecheck)             Checksum: <no file>.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 54827 strings out of 492995
- 1215629 string characters out of 6132704
- 1110993 words of memory out of 5000000
+ 54829 strings out of 492995
+ 1216015 string characters out of 6132704
+ 1110953 words of memory out of 5000000
  56325 multiletter control sequences out of 15000+600000
  23522 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 610i,18n,517p,10435b,10103s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 610i,18n,517p,10431b,10103s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
 xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/tex
@@ -2155,10 +2090,10 @@ t/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2017/texmf-dist
 onts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2017/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2017/texm
 f-dist/fonts/type1/urw/zapfchan/uzcmi8a.pfb>
-Output written on forallx-ubc.pdf (293 pages, 1016909 bytes).
+Output written on .tmp/forallx-ubc.pdf (293 pages, 1016579 bytes).
 PDF statistics:
- 3835 PDF objects out of 4296 (max. 8388607)
- 3484 compressed objects within 35 object streams
- 1513 named destinations out of 1728 (max. 500000)
+ 3836 PDF objects out of 4296 (max. 8388607)
+ 3485 compressed objects within 35 object streams
+ 1514 named destinations out of 1728 (max. 500000)
  1101 words of extra memory for PDF output out of 10000 (max. 10000000)
 
