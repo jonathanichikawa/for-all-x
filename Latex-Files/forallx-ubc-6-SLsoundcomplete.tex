@@ -502,7 +502,7 @@ When either the soundness or the completeness proof fails, you know you are work
 \begin{prooftree}
 {not line numbering,
 single branches}
-[A \eor B
+[A \eor B, checked
 [\enot A, grouped
 	[A
 	[B, grouped, close]]
@@ -532,7 +532,7 @@ Would our system still be sound? To answer this, we assume that the conjunction 
 
 Would the system still be complete? To answer this, we ask whether each branch is such that, if we assume that an interpretation satisfies the developments below, it is guaranteed to satisfy the conjunction above. Begin with the left branch. If some interpretation satisfies both \metaA{} and \metaB{}, then it will certainly satisfy the conjunction $\metaA{}\eand\metaB{}$. So that branch looks fine. (Indeed, that branch is exactly the same as the linear development of our actual conjunction rule, so this reasoning is the same as that on p.\ \pageref{conjunctionsound}.)
 
-But what of the right branch? Assume that some interpretation satisfies \metaB{}; does that guarantee that it satisfies $\metaA{}\eand\metaB{}$? Certainly not. So if the right branch is our open branch, a completed tree using this rule may remain open, even if its root is satisfiable. Completeness will be violated. Let's construct a counterexample that form. We want a tree that includes a conjunction, whose root is unsatisfiable, but whose right branch remains open. Notice that the right branch `ignores' the first conjunct; this is a clue that a good way to construct a counterexample will be to locate the unsatisfiability within that first conjunct. Suppose, for example, that we let \metaA{} itself stand for a contradiction. If so, any conjunction with \metaA{} as a conjunct will be unsatisfiable. But if \metaB{} is not a contradiction, then a tree with root $\metaA{}\eand\metaB{}$ will remain open. Let's develop a tree with this root: $(P \eiff \enot P) \eand Q$. Note that this sentence has a contradictory first conjunct, and a contingent, atomic second conjunct.
+But what of the right branch? Assume that some interpretation satisfies \metaB{}; does that guarantee that it satisfies $\metaA{}\eand\metaB{}$? Certainly not. So if the right branch is our open branch, a completed tree using this rule may remain open, even if its root is unsatisfiable. Completeness will be violated. Let's construct a counterexample that form. We want a tree that includes a conjunction, whose root is unsatisfiable, but whose right branch remains open. Notice that the right branch `ignores' the first conjunct; this is a clue that a good way to construct a counterexample will be to locate the unsatisfiability within that first conjunct. Suppose, for example, that we let \metaA{} itself stand for a contradiction. If so, any conjunction with \metaA{} as a conjunct will be unsatisfiable. But if \metaB{} is not a contradiction, then a tree with root $\metaA{}\eand\metaB{}$ will remain open. Let's develop a tree with this root: $(P \eiff \enot P) \eand Q$. Note that this sentence has a contradictory first conjunct, and a contingent, atomic second conjunct.
 
 \begin{center}
 \begin{prooftree}
@@ -563,7 +563,7 @@ It is also possible to construct counterexamples using simpler sentences if you 
 	\begin{center}
 	\begin{prooftree}
 	{not line numbering}
-	[P\eand Q
+	[P\eand Q, checked
 	[\enot P, grouped
 		[P
 		[Q, grouped, close

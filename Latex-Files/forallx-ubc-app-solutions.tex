@@ -354,7 +354,7 @@ to prove={\{A \eiff B, \enot B \eif (C \eor D), E \eif \enot C, (\enot D \eand F
 						[\enot A
 						[\enot B, grouped
 							[\enot \enot B, close, just={\eif}:p2]
-							[C \eor D
+							[C \eor D, checked
 								[C, close, just={\eor}:!u]
 								[D, close]
 							]
@@ -755,7 +755,7 @@ $\{P=0, Q=1\}$ and $\{P=1, Q=0\}$ each falsify $((P \eif Q) \eiff (Q \eif P))$, 
 \begin{prooftree}
 {not line numbering,
 single branches}
-[P \eiff Q
+[P \eiff Q, checked
 [\enot P, grouped
 	[P
 	[Q, grouped, close
@@ -2860,7 +2860,7 @@ UD & \{a\}\\
 [Dab, just=3 $\exists$, grouped
 [\enot \forall x_{2} \forall x_{3} \forall x_{4} ((Dcx_{2} \eand Dx_{3}x_{4}) \eif (x_{2}{\neq}x_{3} \eor Dcx_{4})), just=2 \enot $\forall$, checked=d
 [\enot \forall x_{3} \forall x_{4} ((Dcd \eand Dx_{3}x_{4}) \eif (d{\neq}x_{3} \eor Dcx_{4})), checked=e, just=5 \enot $\forall$,grouped
-[\enot \forall x_{4} ((Dcd \eand Dex_{4} \eif (d{\neq}e \eor Dcx_{4})), checked=f, just=6 \enot $\forall$, grouped
+[\enot \forall x_{4} ((Dcd \eand Dex_{4}) \eif (d{\neq}e \eor Dcx_{4})), checked=f, just=6 \enot $\forall$, grouped
 [\enot ((Dcd \eand Def) \eif (d{\neq}e \eor Dcf)), checked, just=7 \enot $\forall$, grouped
 [Dcd \eand Def, checked, just=8 \enot \eif
 [\enot (d{\neq}e \eor Dcf), checked, grouped

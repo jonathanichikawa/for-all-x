@@ -209,7 +209,7 @@ close with=\ensuremath{\times},
 	[B, grouped
 		[\enot C
 		[\enot D, grouped
-			[\enot B \eor C
+			[\enot B \eor C, checked
 				[\enot B, close]
 				[C, close]
 			]
@@ -543,7 +543,7 @@ Note that it is \emph{not} a rule that sentences must be resolved in the order i
 {
 }
 [(D \eand \enot R) \eor Q, name={p1}, checked
-[\enot Q \eor R, grouped, name={p2}
+[\enot Q \eor R, grouped, checked, name={p2}
 	[D \eand \enot R, just={\eor}:p1, name={and}, checked
 		[\enot Q, just={\eor}:p2
 			[D, just={\eand}:and
