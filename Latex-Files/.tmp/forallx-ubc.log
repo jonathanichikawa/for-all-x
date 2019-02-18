@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  17 FEB 2019 15:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  15 FEB 2019 22:15
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -593,7 +593,7 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
 (/usr/local/texlive/2017/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (/usr/local/texlive/2017/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2017/05/13 L3 programming layer (loader) 
+Package: expl3 2017/05/13 L3 programming layer (loader)
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/l3kernel/expl3-code.tex
 Package: expl3 2017/05/13 L3 programming layer (code)
@@ -711,12 +711,12 @@ Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
 \ID@usercommands=\toks36
 .................................................
 . LaTeX info: "xparse/define-command"
-. 
+.
 . Defining command \useforestlibrary with sig. 's O{} m' on line 166.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
-. 
+.
 . Defining command \ProvidesForestLibrary with sig. 'm O{}' on line 176.
 .................................................
 \safeloop@depth=\count173
@@ -741,12 +741,12 @@ Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
 \forest@node@maxid=\count187
 .................................................
 . LaTeX info: "xparse/define-command"
-. 
+.
 . Defining command \forestdebugtypeouttrees with sig. 'o' on line 2303.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
-. 
+.
 . Defining command \forestdebugtypeouttree with sig. 'd() O{\forest@cn }' on
 . line 2348.
 .................................................
@@ -775,12 +775,12 @@ Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
 \forest@copy@out=\write4
 .................................................
 . LaTeX info: "xparse/define-environment"
-. 
+.
 . Defining environment 'forest' with sig. 'D(){}' on line 8503.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
-. 
+.
 . Defining command \Forest with sig. 's D(){} m' on line 8508.
 .................................................
 \forest@externalize@max@outer@n=\count197
@@ -1152,32 +1152,32 @@ Chapter 2.
 
 ] [25] [26]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 125--125
-[][] 
+[][]
  []
 
 [27] [28] [29]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 204--204
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 215--215
-[][] 
+[][]
  []
 
 [30] [31]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 273--273
-[][] 
+[][]
  []
 
 [32] [33] [34]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 340--340
-[][] 
+[][]
  []
 
 [35] [36] [37]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 451--451
-[][] 
+[][]
  []
 
 [38] [39] [40] [41] [42] [43] [44]) [45]
@@ -1191,7 +1191,7 @@ Chapter 3.
 
 ] [47]
 Overfull \hbox (6.9586pt too wide) in paragraph at lines 84--85
-\OT1/cmr/m/n/10 The col-umn of 1s un-der-neath the con-di-tional tells us that 
+\OT1/cmr/m/n/10 The col-umn of 1s un-der-neath the con-di-tional tells us that
 the sen-tence []
  []
 
@@ -1201,23 +1201,23 @@ Underfull \vbox (badness 5274) has occurred while \output is active []
  [51]
 [52] [53] [54] [55] [56]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 373--373
-[][] 
+[][]
  []
 
 [57] [58] [59] [60]
 Overfull \hbox (11.63692pt too wide) in paragraph at lines 530--532
-[]\OT1/cmr/m/n/10 Suppose that $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 ^^H[]; 	[]; 
+[]\OT1/cmr/m/n/10 Suppose that $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 ^^H[]; 	[];
 
 []\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 is in-con-sis-tent. What can you say abou
 t $(\OML/cmm/m/it/10 ^^H[] \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 	[] \OT1/cmr/m/n/
-10 & \OML/cmm/m/it/10 
-[]\OT1/cmr/m/n/10 )$? 
+10 & \OML/cmm/m/it/10
+[]\OT1/cmr/m/n/10 )$?
  []
 
 [61]
 Overfull \hbox (15.8792pt too wide) in paragraph at lines 571--572
 \OT1/cmr/m/n/10 The \OT1/cmr/m/it/10 Shef-fer stroke \OT1/cmr/m/n/10 is a log-i
--cal con-nec-tive with the fol-low-ing char-ac-ter-is-tic truthtable: 
+-cal con-nec-tive with the fol-low-ing char-ac-ter-is-tic truthtable:
  []
 
 ) [62]
@@ -1249,7 +1249,7 @@ Chapter 5.
 
 ]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 46--46
-[][] 
+[][]
  []
 
 [73] [74]
@@ -1264,17 +1264,17 @@ Underfull \vbox (badness 1014) has occurred while \output is active []
 
  [78]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 374--374
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 391--391
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 409--409
-[][] 
+[][]
  []
 
 
@@ -1282,27 +1282,27 @@ Underfull \vbox (badness 2435) has occurred while \output is active []
 
  [79]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 428--428
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 458--458
-[][] 
+[][]
  []
 
 [80]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 477--477
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 498--498
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 519--519
-[][] 
+[][]
  []
 
 
@@ -1310,7 +1310,7 @@ Underfull \vbox (badness 7631) has occurred while \output is active []
 
  [81]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 534--534
-[][] 
+[][]
  []
 
 
@@ -1318,12 +1318,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [82]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 581--581
-[][] 
+[][]
  []
 
 [83]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 613--613
-[][] 
+[][]
  []
 
 [84]
@@ -1344,7 +1344,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 24--24
-[][] 
+[][]
  []
 
 [90] [91] [92]
@@ -1353,12 +1353,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [93]
 [94] [95] [96] [97]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 299--299
-[][] 
+[][]
  []
 
 [98]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 308--308
-[][] 
+[][]
  []
 
 [99]
@@ -1370,47 +1370,47 @@ Underfull \vbox (badness 1424) has occurred while \output is active []
  [101]
 [102] [103] [104] [105] [106]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 598--598
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 610--610
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 625--625
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 640--640
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 654--654
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 667--667
-[][] 
+[][]
  []
 
 [107]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 679--679
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 694--694
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 709--709
-[][] 
+[][]
  []
 
 ) [108]
@@ -1497,7 +1497,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
 [138] [139] [140] [141] [142] [143] [144]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 352--352
-[][] 
+[][]
  []
 
 [145] [146] [147] [148] [149] [150] [151] [152] [153] [154] [155] [156]
@@ -1625,12 +1625,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [185]
 [186]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 273--273
-[][] 
+[][]
  []
 
 [187]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 307--307
-[][] 
+[][]
  []
 
 
@@ -1638,12 +1638,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [188]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 380--380
-[][] 
+[][]
  []
 
 [189]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 399--399
-[][] 
+[][]
  []
 
 [190]
@@ -1651,7 +1651,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [191]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 471--471
-[][] 
+[][]
  []
 
 
@@ -1684,7 +1684,7 @@ Overfull \hbox (4.65802pt too wide) in paragraph at lines 749--750
 Chapter 11.
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 10--10
-[][] 
+[][]
  []
 
 
@@ -1701,57 +1701,57 @@ Underfull \vbox (badness 2111) has occurred while \output is active []
  [205]
 [206] [207] [208] [209]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 214--214
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 227--227
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 248--248
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 269--269
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 290--290
-[][] 
+[][]
  []
 
 [210]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 303--303
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 318--318
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 322--322
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 324--324
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 327--327
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 330--330
-[][] 
+[][]
  []
 
 [211]) [212]
@@ -1769,33 +1769,33 @@ Underfull \vbox (badness 4416) has occurred while \output is active []
  [216]
 [217]
 Overfull \hbox (2.41794pt too wide) in paragraph at lines 171--171
-[]\OT1/cmr/bx/n/14.4 Identical ob-jects sat-isfy iden-ti-cal pred-i-cates 
+[]\OT1/cmr/bx/n/14.4 Identical ob-jects sat-isfy iden-ti-cal pred-i-cates
  []
 
 [218] [219]
 Underfull \hbox (badness 10000) detected at line 226
- []$[]  \OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 x\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 
+ []$[]  \OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 x\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10
 y\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]y \OT
 1/cmr/m/n/10 & \OML/cmm/m/it/10 x[]z \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 y[]z \O
 T1/cmr/m/n/10 & \OML/cmm/m/it/10 Ox \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 Oy \OT1/
 cmr/m/n/10 & \OML/cmm/m/it/10 Oz \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 Cmx \OT1/cm
 r/m/n/10 & \OML/cmm/m/it/10 Cmy \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 Cmz\OT1/cmr/
-m/n/10 )  $ 
+m/n/10 )  $
  []
 
 [220] [221]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 282--282
-[][] 
+[][]
  []
 
 [222]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 318--318
-[][] 
+[][]
  []
 
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 326--326
-[][] 
+[][]
  []
 
 [223]
@@ -1869,7 +1869,7 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
 
 ] [249] [250] [251] [252] [253] [254] [255]
 Overfull \hbox (26.07053pt too wide) in paragraph at lines 824--842
-[]$[]$ 
+[]$[]$
  []
 
 [256]
@@ -1887,11 +1887,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [261]
 [262] [263]
-Overfull \hbox (0.51913pt too wide) in paragraph at lines 1267--1268
+Overfull \hbox (0.51913pt too wide) in paragraph at lines 1266--1267
 []\OT1/cmr/m/n/10 Of the ex-pres-sions listed, only $\OMS/cmsy/m/n/10 8\OML/cmm
 /m/it/10 yLby$ \OT1/cmr/m/n/10 is a sub-sti-tu-tion in-stance of $\OMS/cmsy/m/n
-/10 9\OML/cmm/m/it/10 x\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 yLxy$\OT1/cmr/m/n/10 
-. 
+/10 9\OML/cmm/m/it/10 x\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 yLxy$\OT1/cmr/m/n/10
+.
  []
 
 [264] [265]
@@ -1904,10 +1904,10 @@ Underfull \vbox (badness 5741) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [268]
-Overfull \hbox (8.2374pt too wide) in paragraph at lines 1664--1698
+Overfull \hbox (8.2374pt too wide) in paragraph at lines 1663--1697
 []$\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 x\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 yLxy$
 \OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 : [] :$ $\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10
- x\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 yLxy$ \OT1/cmr/m/n/10 is in-valid.   [] 
+ x\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 yLxy$ \OT1/cmr/m/n/10 is in-valid.   []
  []
 
 [269]
@@ -1915,26 +1915,26 @@ Overfull \hbox (8.2374pt too wide) in paragraph at lines 1664--1698
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [270] [271] [272] [273] [274]
-Overfull \hbox (21.97035pt too wide) in paragraph at lines 2478--2480
+Overfull \hbox (21.97035pt too wide) in paragraph at lines 2477--2479
 []$\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 x[]\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 x[]
 \OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 x[]\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 x[][]D
-x[] \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 Dx[] \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 
+x[] \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 Dx[] \OT1/cmr/m/n/10 & \OML/cmm/m/it/10
 Dx[] \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 Dx[] \OT1/cmr/m/n/10 & \OML/cmm/m/it/10
  x[] \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = \OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 &
- \OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = \OML/cmm/m/it/10 x[] 
+ \OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = \OML/cmm/m/it/10 x[]
 \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = \OML
 /cmm/m/it/10 x[] \OT1/cmr/m/n/10 & \OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 6\OT1/
 cmr/m/n/10 =
  []
 
 [275]
-Overfull \hbox (37.65967pt too wide) in paragraph at lines 2602--2603
-[][] 
+Overfull \hbox (37.65967pt too wide) in paragraph at lines 2601--2602
+[][]
  []
 
 [276]
-Overfull \hbox (36.45013pt too wide) in paragraph at lines 2664--2665
-[][] 
+Overfull \hbox (36.45013pt too wide) in paragraph at lines 2663--2664
+[][]
  []
 
 
@@ -1955,16 +1955,16 @@ Missing character: There is no a in font nullfont!
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [279]
-Overfull \hbox (36.30315pt too wide) in paragraph at lines 2876--2877
-[][] 
+Overfull \hbox (36.30315pt too wide) in paragraph at lines 2875--2876
+[][]
  []
 
 
 Underfull \vbox (badness 2772) has occurred while \output is active []
 
  [280]
-Overfull \hbox (48.68117pt too wide) in paragraph at lines 2888--2897
-[][] 
+Overfull \hbox (48.68117pt too wide) in paragraph at lines 2887--2896
+[][]
  []
 
 
@@ -2005,15 +2005,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
-<to be read again> 
-                   \relax 
+<to be read again>
+                   \relax
 l.491 \newpage
                [2
 
 ])pdfTeX warning (ext4): destination with the same identifier (name{page.}) has
  been already used, duplicate ignored
-<to be read again> 
-                   \relax 
+<to be read again>
+                   \relax
 l.51 \include{forallx-ubc-app-quickreference}
                                               [3]
 \openout2 = `forallx-ubc-backmatter.aux'.
@@ -2028,10 +2028,10 @@ Underfull \hbox (badness 3460) in paragraph at lines 23--23
 \OT1/cmr/m/n/10 Jonathan Ichikawa is an as-so-ciate pro-fes-sor
  []
 
-)pdfTeX warning (ext4): destination with the same identifier (name{page.}) has 
+)pdfTeX warning (ext4): destination with the same identifier (name{page.}) has
 been already used, duplicate ignored
-<to be read again> 
-                   \relax 
+<to be read again>
+                   \relax
 l.52 \include{forallx-ubc-backmatter}
                                       [4
 
@@ -2059,12 +2059,12 @@ Package rerunfilecheck Info: File `forallx-ubc.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
- ) 
+ )
 Here is how much of TeX's memory you used:
- 54829 strings out of 492995
- 1216015 string characters out of 6132704
- 1110953 words of memory out of 5000000
- 56325 multiletter control sequences out of 15000+600000
+ 54826 strings out of 492995
+ 1215619 string characters out of 6132704
+ 1110990 words of memory out of 5000000
+ 56324 multiletter control sequences out of 15000+600000
  23522 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  610i,18n,517p,10431b,10103s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2090,10 +2090,9 @@ t/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2017/texmf-dist
 onts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2017/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2017/texm
 f-dist/fonts/type1/urw/zapfchan/uzcmi8a.pfb>
-Output written on .tmp/forallx-ubc.pdf (293 pages, 1016579 bytes).
+Output written on forallx-ubc.pdf (293 pages, 1017197 bytes).
 PDF statistics:
  3836 PDF objects out of 4296 (max. 8388607)
  3485 compressed objects within 35 object streams
  1514 named destinations out of 1728 (max. 500000)
  1101 words of extra memory for PDF output out of 10000 (max. 10000000)
-

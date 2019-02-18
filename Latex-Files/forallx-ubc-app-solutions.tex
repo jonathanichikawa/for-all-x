@@ -886,7 +886,7 @@ single branches}
 	\have{a3}{P} \andE{a1}
 	\have{a4}{\enot R} \ifE{a2,a3}
 	\have{a5}{Q\eor R} \andE{a1}
-	\have{a6}{Q} \orE{a5,a4}
+	\have{a6}{Q} \orE{a4,a5}
 	\have{c}{Q\eor E} \orI{a6}
 \end{proof}
 \end{solutioninlist}
@@ -932,7 +932,7 @@ single branches}
 		\have{b5}{X} \ae{b4}
 		\have{b6}{\enot X} \by{R}{b1}
 	\close
-	\have{c}{X} \ne{b1-b6}
+	\have{c}{X} \ne{b1-b5, b1-b6}
 	\open
 		\hypo{d1}{\enot M} \by{for reductio}{}
 		\have{d2}{D} \oe{a3,d1}
@@ -968,19 +968,18 @@ single branches}
 		\have{n}{\enot N}\ae{nnnn}
 		\have{nn}{\enot\enot N}\ae{nnnn}
 	\close
-	\have{nonn}{N \eor \enot N}\ni{nnon-n,nnon-nn}
+	\have{nonn}{N \eor \enot N}\ne{nnon-n,nnon-nn}
 \end{proof}
 \end{solutioninlist}
 \item %$\enot(P\eand \enot P)$
 \begin{solutioninlist}
 \begin{proof}
 	\open
-		\hypo{nnpanp}{\enot \enot (P \eand \enot P)}\by{for reductio}{}
-		\have{panp}{P \eand \enot P}\by{DN}{nnpanp}
+		\hypo{panp}{P \eand \enot P}\by{for reductio}{}
 		\have{p}{P}\ae{panp}
 		\have{np}{\enot P}\ae{panp}
 	\close
-	\have{npanp}{\enot (P \eand \enot P)}\ni{nnpanp-p,nnpanp-np}
+	\have{npanp}{\enot (P \eand \enot P)}\ni{panp-p,panp-np}
 \end{proof}
 \end{solutioninlist}
 \item %$\enot(A \eif \enot C) \eif (A \eif C)$
@@ -997,7 +996,7 @@ single branches}
 		\close
 		\have{aic}{A \eif C}\ci{a-c}
 	\close
-	\have{nainciaic}{\enot (A \eif \enot C) \eif (A \eif C) }\ci{o1-o2}
+	\have{nainciaic}{\enot (A \eif \enot C) \eif (A \eif C) }\ci{nainc-aic}
 \end{proof}
 \end{solutioninlist}
 \item %$J \eiff [J\eor (L\eand\enot L)]$
@@ -1005,7 +1004,7 @@ single branches}
 \begin{proof}
 \open
 		\hypo{j}{J}\want {J\eor (L\eand\enot L)}
-		\have{joblah}{J\eor (L\eand\enot L}\oi{j}
+		\have{joblah}{J\eor (L\eand\enot L)}\oi{j}
 	\close
 	\have{jijblah}{J \eif [J\eor (L\eand\enot L)]}\ci{j-joblah}
 	\open
@@ -1080,7 +1079,7 @@ single branches}
 	\hypo{2}{X \eif Y}
 	\hypo{3}{\enot Z}
 	\open
-		\hypo{4}{\enot (W \eor Y)))}\by{for reductio}{}
+		\hypo{4}{\enot (W \eor Y)}\by{for reductio}{}
 		\have{5}{\enot W \eand \enot Y}\by{DeM}{4}
 		\have{6}{\enot Y}\ae{5}
 		\have{7}{\enot W}\ae{5}
