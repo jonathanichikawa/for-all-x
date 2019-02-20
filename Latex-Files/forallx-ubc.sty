@@ -2,9 +2,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{forallx}[2011/10/29 support for a logic textbook]
 \usepackage[dvipsnames]{xcolor}
-\RequirePackage{amssymb,amsmath,multicol,ifthen,prooftrees-mod}
+\RequirePackage{amssymb,amsmath,multicol,ifthen,prooftrees-mod,titlesec, apptools}
 \usepackage[linktocpage=true]{hyperref}
-\definecolor{URLblue}{RGB}{0,0,175}
+\definecolor{URLblue}{RGB}{0,0,150}
 \hypersetup{
 	colorlinks   = true, 	% Use colored links instead of boxes
   	urlcolor      =  URLblue, 	% Color for external hyperlinks
@@ -14,7 +14,6 @@
 
 
 % The original forallx.sty was written in 2005
-
 %    ****************************************
 %    *            LOGICAL SYMBOLS           *
 %    ****************************************
@@ -74,6 +73,16 @@
 	\ifthenelse{\day<10}{0}{}\number\day%
 }  
 
+%    ****************************************
+%    *       APPENDIX FORMATTING      *
+%    ****************************************
+%
+% Uses the apptools and titlesec packages to remove the additional
+% white space normally included at the start of an appendix. This
+% allows the quick reference appendix to be more printer friendly.
+\AtAppendix{%
+	\titleformat{\chapter}[display]{\vspace*{-50pt}\bfseries\huge}{Appendix~\thechapter}{0.5em}{}
+	\titlespacing*{\chapter}{0pt}{0pt}{1em}}%
 
 
 %    ****************************************

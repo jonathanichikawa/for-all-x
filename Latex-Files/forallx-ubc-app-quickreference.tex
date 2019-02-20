@@ -1,9 +1,7 @@
 %!TEX root = forallx-ubc.tex
-\addcontentsline{toc}{chapter}{Quick Reference}
 \pagestyle{plain}
-{\LARGE \bf Appendix C}\\
-\vspace{0.8cm}\\
-{\Huge \bf Quick Reference}
+\chapter[Quick Reference]{Quick Reference}
+\label{app.quickreference}
 
 \section*{Characteristic Truth Tables}
 \label{app.CharacteristicTTs}
@@ -48,7 +46,6 @@
 %\hfill
 
 \vfill
-
 
 \section*{Symbolization}
 %\begin{center}
@@ -98,8 +95,8 @@ The $F$ is not $G$. & $\exists x(Fx \eand \forall y(Fy \eif x{=}y) \eand \enot G
 
 \pagenumbering{gobble}
 
-\label{Tree Rules}
-{\LARGE \bf Sentential Tree Rules}
+\label{Basic Rules}
+{\LARGE \bf Basic Rules}
 
 
 \begin{multicols}{3}
@@ -364,7 +361,9 @@ for any \script{a}
 
 
 \pagestyle{empty}
-\twocolumn[\section*{\Large \bf Natural Deduction Rules}]
+\twocolumn[\section*{\LARGE \bf Natural Deduction Rules} 
+				{\Large \bf Basic Rules} 
+				\vspace{1em}]
 
 
 %{\LARGE \bf Natural Deduction Rules}
@@ -490,7 +489,7 @@ for any \script{a}
 
 \newpage
 
-{\LARGE \bf Quantifier Rules}
+{\Large \bf Quantifier Rules}
 
 \textsc{Existential Introduction}
 
@@ -536,7 +535,7 @@ $^\ast$ \script{c} must not appear outside the subproof.
 
 
 
-{\LARGE \bf Identity Rules}
+{\Large \bf Identity Rules}
 
 \begin{proof}
 	\have[\ \,\,\,]{x}{\script{c}{=}\script{c}} \by{=I}{}
@@ -557,7 +556,7 @@ One constant may replace some or all occurrences of the other.
 
 \newpage
 
-{\LARGE \bf Derived Rules}
+{\Large \bf Derived Rules}
 
 \textsc{Dilemma}
 
@@ -586,7 +585,7 @@ One constant may replace some or all occurrences of the other.
 
 
 
-{\LARGE \bf Replacement Rules}
+{\Large \bf Replacement Rules}
 
 \textsc{Commutativity} (Comm)\\
 $(\metaA{}\eand\metaB{}) \Longleftrightarrow (\metaB{}\eand\metaA{})$\\
