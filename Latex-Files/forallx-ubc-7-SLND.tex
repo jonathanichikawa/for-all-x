@@ -112,7 +112,7 @@ The rule {\eand}I requires that we have each of the conjuncts available somewher
 
 	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
 	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
-	\have{ba}{{[}(E \eor F) \eif (G\eor H){]} \eand {[}(A\eor B)\eif(C\eor D){]}} \ai{b,a}
+	\have{ba}{{[}(E \eor F) \eif (G\eor H){]} \eand {[}(A\eor B)\eif(C\eor D){]}} \ai{a,b}
 \end{proof}
 
 This proof is not terribly interesting, but it shows how we can use rules of proof together to demonstrate the validity of an argument form. Note also that using a truth table to show that this argument is valid would have required a staggering 256 lines, since there are eight sentence letters in the argument. A proof via trees would be less unwieldy than that, but it would be less simple and elegant than this one. (Constructing such a proof would be a good exercise for tree review.)
@@ -138,7 +138,8 @@ It may seem odd that just by knowing $M$ we can derive a conclusion that include
 
 Now consider the disjunction elimination rule. What can you conclude from $M \eor N$? You cannot conclude $M$. It might be $M$'s truth that makes $M \eor N$ true, as in the example above, but it might not. From $M \eor N$ alone, you cannot conclude anything about either $M$ or $N$ specifically. If you also knew that $N$ was false, however, then you would be able to conclude $M$.
 
-This is just disjunctive syllogism, it will be the disjunction elimination rule ({\eor}E).
+This is the disjunctive syllogism rule mentioned in the introduction. It will be our official disjunction elimination rule ({\eor}E). If you have a disjunction and also the negation of one of its disjuncts, you may conclude the other disjunct.
+
 \begin{multicols}{2}
 \begin{proof}
 	\have[m]{ab}{\metaA{}\eor\metaB{}}
@@ -153,6 +154,8 @@ This is just disjunctive syllogism, it will be the disjunction elimination rule 
 \end{proof}
 
 \end{multicols}
+
+We represent two different inference patterns here, because the rule allows you to conclude \emph{either} disjunct from the negation of the other. If we'd only listed the left version of the rule above, then {\eor}E would've only permited one to conclude the \emph{first} disjunct from the negation of the \emph{second} one, along with the disjunction. Our rule lets us work with either disjunction. (If you want to be very fussy about it, you could think of these as two different rules with a strong conceptual similarity that happen to have the same name.)
 
 \subsection{Conditional}
 
@@ -483,7 +486,7 @@ $\enot(\metaA{}\eand\metaB{}) \Longleftrightarrow (\enot\metaA{}\eor\enot\metaB{
 \end{tabular}
 \end{center}
 
-Because $\metaA{}\eif\metaB{}$ is a \emph{material conditional}, it is equivalent to $\enot\metaA{}\eor\metaB{}$. A further replacement rule captures this equivalence. We abbreviate the rule MC, for `material conditional.' It takes two forms:
+As we have seen, $\metaA{}\eif\metaB{}$ is equivalent to $\enot\metaA{}\eor\metaB{}$. A further replacement rule captures this equivalence. We abbreviate the rule MC, for `material conditional.' It takes two forms:
 
 \begin{center}
 \begin{tabular}{rl}
@@ -494,7 +497,7 @@ $(\metaA{}\eor\metaB{}) \Longleftrightarrow (\enot\metaA{}\eif\metaB{})$ & MC
 
 Now consider this argument: $\enot(P \eif Q)$, \therefore\ $P \eand \enot Q$
 
-As always, we could prove this argument using only the basic rules. With rules of replacement, though, the proof is much simpler:
+As always, we could prove this argument valid using only the basic rules. With rules of replacement, though, the proof is much simpler:
 
 \begin{proof}
 	\hypo{1}{\enot(P \eif Q)}
@@ -624,7 +627,7 @@ The {double turnstile} symbol `$\models$', remains unchanged. It stands for sema
 
 When we write $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash_{ND}\metaB{}$, this means that it is possible to give a natural deduction proof of \metaB{} with $\metaA{}_1$,$\metaA{}_2$,$\ldots$ as premises. With just one premise, we leave out the curly braces, so $\metaA{}\vdash\metaB{}$ means that there is a proof of \metaB{} with \metaA{} as a premise. Naturally, $\vdash\metaA{}$ means that there is a proof of \metaA{} that has no premises. You can think of it as shorthand for $\emptyset\vdash\metaA{}$. 
 
-For notational completeness, we can understand $\metaSetX{}\vdash\bot$ to mean that from \metaSetX{}, we could prove an arbitrary contradiction. In other words, $\metaSetX{}$ is inconsistent.
+For notational completeness, we can understand $\metaSetX{}\vdash\bot$ to mean that from \metaSetX{}, we could prove an arbitrary contradiction. In other words, $\metaSetX{}$ is an inconsistent set.
 
 Logical proofs are sometimes called \emph{derivations}. So $\metaA{}\vdash\metaB{}$ can be read as `\metaB{} is derivable from \metaA{}.'
 
@@ -636,7 +639,7 @@ Two sentences \metaA{} and \metaB{} are \define{provably equivalent} if and only
 
 It is relatively easy to show that two sentences are provably equivalent--- it just requires a pair of proofs. Showing that sentences are \emph{not} provably equivalent would be much harder. It would be just as hard as showing that a sentence is not a theorem. (In fact, these problems are interchangeable. Can you think of a sentence that would be a theorem if and only if \metaA{} and \metaB{} were provably equivalent?)
 
-The set of sentences $\{\metaA{}_1,\metaA{}_2,\ldots\}$ is \define{provably inconsistent} if and only if a contradiction is derivable from it; i.e., for some sentence \metaB{}, $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash\metaB{}$ and $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash\enot \metaB{}$. This is equivalent to $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash\bot$.
+The set of sentences $\{\metaA{}_1,\metaA{}_2,\ldots\}$ is \define{provably inconsistent} if and only if contradictory sentences are derivable from it; i.e., for some sentence \metaB{}, $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash\metaB{}$ and $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash\enot \metaB{}$. This is equivalent to $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash\bot$.
 
 It is easy to show that a set is provably inconsistent: You just need to assume the sentences in the set and prove a contradiction. Showing that a set is \emph{not} provably inconsistent will be much harder. It would require more than just providing a proof or two; it would require showing that proofs of a certain kind are \emph{impossible}.
 
@@ -697,7 +700,7 @@ Is the argument \mbox{`\metaA{}, \metaB{} \ldots \therefore\ \metaC{}'} valid? &
 
 Chapter \ref{ch.SLsoundcomplete} considered the soundness and completeness of the tree method at length; it proved that this method was both sound ($\metaSetX{}\vdash_{T}\metaA{}$ only if $\metaSetX{}\models{}$\metaA{}) and complete ($\metaSetX{}\models{}$\metaA{} only if $\metaSetX{}\vdash_{T}\metaA{}$). The natural deduction system of this chapter is also both sound and complete for SL. In other words, $\metaSetX{}\vdash_{ND}\metaA{}$ if and only if $\metaSetX{}\models{}\metaA{}.$ Given the soundness and completeness of the tree method, this also means that our two proof systems are equivalent in the sense that anything provable in one is also provable in the other ($\metaSetX{}\vdash_{T}\metaA{})$ iff ($\metaSetX{}\vdash_{ND}\metaA{}$).
 
-How can we know that our natural deduction method is sound? A proof system is \define{sound} if there are no proofs of invalid arguments. Demonstrating that the proof system is sound would require showing that \emph{any} possible proof in our system is the proof of a valid argument. There is a way of approaching this in a step-wise fashion. If using the {\eand}E rule on the last line of a proof could never change a valid argument into an invalid one, then using the rule many times could not make an argument invalid. Similarly, if using the {\eand}E and {\eor}E rules individually on the last line of a proof could never change a valid argument into an invalid one, then using them in combination could not either.
+How can we know that our natural deduction method is sound? A proof system is \define{sound} if there are no derivations corresponding to invalid arguments. Demonstrating that the proof system is sound would require showing that any possible proof in our system is the proof of a valid argument. There is a fairly simple way of approaching this in a step-wise fashion. If using the {\eand}E rule on the last line of a proof could never change a valid argument into an invalid one, then using the rule many times could not make an argument invalid. Similarly, if using the {\eand}E and {\eor}E rules individually on the last line of a proof could never change a valid argument into an invalid one, then using them in combination could not either.
 
 The strategy is to show for every rule of inference that it alone could not make a valid argument into an invalid one. It follows that the rules used in combination would not make a valid argument invalid. Since a proof is just a series of lines, each justified by a rule of inference, this would show that every provable argument is valid.
 

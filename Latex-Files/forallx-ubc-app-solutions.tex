@@ -396,8 +396,8 @@ to prove={\{A \eiff B, \enot B \eif (C \eor D), E \eif \enot C, (\enot D \eand F
 	to prove={\{P, P \eif Q, Q \eif \enot P\} \vdash{}\bot},
 	}
 	[P, name=p1
-	[P \eif Q, checked, name=p2
-	[Q \eif \enot P, checked, name=p3
+	[P \eif Q, checked, name=p2, grouped
+	[Q \eif \enot P, checked, name=p3, grouped
 		[\enot P, close]
 		[Q
 			[\enot Q, close]
