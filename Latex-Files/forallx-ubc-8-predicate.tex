@@ -28,7 +28,7 @@ Expressions like `no one', `everyone', and `anyone' are called \emph{quantifiers
 \item[]$L$
 \item[\therefore]$\enot B \eif N$
 \end{earg}
-This is a valid argument in SL. (You can construct a truth table, a tree, or a natural deduction proof to confirm this.) 
+This is a valid argument form in SL. (You can construct a truth table, a tree, or a natural deduction proof to confirm this.) 
 
 Now consider another argument. This one is also valid in English.
 
@@ -52,7 +52,7 @@ Now we symbolize the argument:
 \item[\therefore] $F$
 \end{earg}
 
-This is pretty obviously \emph{invalid} in SL. Nevertheless, this is clearly a valid argument in English. It's impossible for the premises to be true without the conclusion also being true. But the SL symbolization leaves out all quantificational structure in virtue of which it is valid. The sentence `All logicians wear funny hats' says something specific about both logicians and hat-wearing. By not translating this structure, we lose the connection between Willard's being a logician and Willard's wearing a hat.
+This is pretty obviously an \emph{invalid} SL form. Nevertheless, this is clearly a valid argument in English. It's impossible for the premises to be true without the conclusion also being true. But the SL symbolization leaves out all quantificational structure in virtue of which it is valid. The sentence `All logicians wear funny hats' says something specific about both logicians and hat-wearing. By not translating this structure, treating the whole sentence as an atom, we lose the connection between Willard's being a logician and Willard's wearing a hat.
 
 Some arguments with quantifier structure can be captured in SL, like the first example, even though SL ignores the quantifier structure. Other arguments' validity cannot be captured in SL, like the second example. Notice that the problem is not that we have made a mistake while symbolizing the second argument. We gave a perfectly appropriate translation; indeed, these are the best symbolizations we can give for these arguments \emph{in SL}.
 
@@ -64,7 +64,7 @@ In order to symbolize arguments that rely on quantifier structure, we need to de
 
 \section{Building blocks of QL}
 
-Our first key notion in QL will be \define{predicates}. A predicate is analogous to an English description--- an expression like `is a dog' or `has black fur'. These descriptions are not a sentence on their own. They are neither true nor false. They are descriptions that apply to some objects, but not to others. In order to be true or false, we need to specify an object: Who or what is it that is said to be a dog, or to have black fur?
+Our first key notion in QL will be \define{predicates}. A predicate is analogous to an English description--- an expression like `is a dog' or `has black fur'. Such descriptions are not sentences on their own. They are neither true nor false. They are descriptions that apply to some objects, but not to others. In order to be true or false, we need to specify an object: Who or what is it that is said to be a dog, or to have black fur? In SL, we have no way to give meaningful translations to English terms that are not full sentences. In QL, we will.
 
 The details of this will be explained in the rest of the chapter, but here is the basic idea: In QL, we will represent predicates with capital letters. For instance, we might let $D$ stand for `\blank\ is a dog.' We will use lower-case letters as the names of specific things. For instance, we might let $b$ stand for Bertie. The expression $Db$ will be a sentence in QL. Given this symbolization, $Db$ is a translation of the sentence `Bertie is a dog.'
 
@@ -78,7 +78,7 @@ In English, a \define{singular term} is a word or phrase that refers to a \emph{
 
 A \define{proper name} is a singular term that picks out an individual directly. The name `Emerson' is a proper name, and the name alone does not tell you anything about Emerson. Of course, some names are traditionally given to boys, and others are traditionally given to girls. If `Jack Hathaway' is used as a singular term, you might guess that it refers to a man. However, the name does not necessarily mean that the person referred to is a man--- or even that the creature referred to is a person. Jack might be a giraffe for all you could tell just from the name. There is a great deal of philosophical action surrounding this issue, but the important point here is that a name is a singular term because it picks out a single, specific individual.
 
-Other singular terms more obviously convey information about the thing to which they refer. For instance, you can tell without being told anything further that `Jonathan's dog Mezzo' is a singular term that refers to a dog. A \define{definite description} picks out an individual by means of a unique description. In English, definite descriptions are often phrases of the form `the such-and-so.' They refer to \emph{the} specific thing that matches the given description. For example, `the tallest member of Monty Python' and `the first emperor of China' are definite descriptions. A description that does not pick out a specific individual is not a definite description. `A member of Monty Python' and `an emperor of China' are not definite descriptions.
+Other singular terms more obviously convey information about the thing to which they refer. For instance, you can tell without being told anything further that `Jonathan's dog Mezzo' is a singular term that refers to a dog. A \define{definite description} picks out an individual by means of a unique description. In English, definite descriptions are often phrases of the form `the such-and-so.' They refer to \emph{the} specific thing that matches the given description. For example, `the tallest member of Monty Python' and `the first emperor of China' are definite descriptions. A description that does not pick out a specific individual is not a definite description. `A member of Monty Python' and `an emperor of China' are not definite descriptions. We'll discuss definite descriptions in more detail in Chapter \ref{ch.identity}.
 
 In English, the specification of a singular term may depend on context; `Willard' means a specific person and not just someone named Willard; `P.D. Magnus' as a logical singular term means the original author of this textbook, not the other person who has the same name. We live with this kind of ambiguity in English, but it is important to keep in mind that singular terms in QL must refer to just one specific thing.
 
@@ -178,7 +178,7 @@ We are now ready to introduce quantifiers. Consider these sentences:
 
 It might be tempting to translate sentence \ref{q.a} as $Hd \eand Hg \eand Hm$. Yet this would only say that Donald, Gregor, and Marybeth are happy. We want to say that \emph{everyone} is happy, even if we have not defined a constant to name them. In order to do this, we introduce the `$\forall$' symbol. This is called the \define{universal quantifier}.
 
-A quantifier always comes along with an associated variable. It is placed in front of a formula that it binds. Typically that formula will include the same variable. We can translate sentence \ref{q.a} as $\forall x Hx$. Paraphrased partially into English, this means `For all $x$, $x$ is happy.'
+A quantifier is placed in front of the formula that it binds. It always comes along with an associated variable. Typically that formula will include the same variable. We can translate sentence \ref{q.a} as $\forall x Hx$. Paraphrased partially into English, this means `For all $x$, $x$ is happy.'
 %\nix{This may be too soon:}
 We call $\forall x$ an \emph{x-quantifier}. The formula that follows the quantifier is called the \emph{scope} of the quantifier. We will give a formal definition of scope later, but intuitively it is the part of the sentence that the quantifier quantifies over. In $\forall x Hx$, the scope of the universal quantifier is $Hx$.
 
@@ -268,9 +268,9 @@ In providing a symbolization key, we need to specify a UD. Since we are talking 
 \item[Lx:] $x$ is a loonie.
 \item[Dx:] $x$ is a dime.
 \end{ekey}
-Sentence \ref{quan1} is most naturally translated with a universal quantifier. The universal quantifier says something about everything in the UD, not just about the coins in my pocket. Sentence \ref{quan1} means that (for any coin) \emph{if} that coin is in my pocket, \emph{then} it is a quarter. So we can translate it as $\forall x(Px \eif Lx)$.
+Sentence \ref{quan1} is most naturally translated with a universal quantifier. The universal quantifier says something about everything in the UD, not just about the coins in my pocket. Sentence \ref{quan1} means that (for any coin) \emph{if} that coin is in my pocket, \emph{then} it is a loonie. So we can translate it as $\forall x(Px \eif Lx)$.
 
-Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} that are loonies, it might be tempting to translate it using a conjunction. However, the sentence $\forall x(Px \eand Lx)$ would mean that everything in the UD is both in my pocket and a quarter: All the coins that exist are loonies in my pocket. This would be nice, but it means something very different than sentence \ref{quan1}.
+Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} that are loonies, it might be tempting to translate it using a conjunction. However, the sentence $\forall x(Px \eand Lx)$ would mean that everything in the UD is both in my pocket and a loonie: All the coins that exist are loonies in my pocket. This would be nice, but it means something very different than sentence \ref{quan1}.
 
 Sentence \ref{quan2} is most naturally translated with an existential quantifier. It says that there is some coin which is both on the table and which is a dime. So we can translate it as $\exists x(Tx \eand Dx)$.
 

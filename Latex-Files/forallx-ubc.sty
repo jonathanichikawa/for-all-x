@@ -1,10 +1,19 @@
 %!TEX root = forallx-ubc.tex
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{forallx}[2011/10/29 support for a logic textbook]
-\RequirePackage{amssymb,amsmath,hyperref,multicol,ifthen,prooftrees-mod}
+\usepackage[dvipsnames]{xcolor}
+\RequirePackage{amssymb,amsmath,multicol,ifthen,prooftrees-mod,titlesec, apptools}
+\usepackage[linktocpage=true]{hyperref}
+\definecolor{URLblue}{RGB}{0,0,150}
+\hypersetup{
+	colorlinks   = true, 	% Use colored links instead of boxes
+  	urlcolor      =  URLblue, 	% Color for external hyperlinks
+  	linkcolor    = URLblue, 	% Color of internal links
+  	citecolor   = red 	% Color of citations
+	}
+
 
 % The original forallx.sty was written in 2005
-
 %    ****************************************
 %    *            LOGICAL SYMBOLS           *
 %    ****************************************
@@ -64,6 +73,16 @@
 	\ifthenelse{\day<10}{0}{}\number\day%
 }  
 
+%    ****************************************
+%    *       APPENDIX FORMATTING      *
+%    ****************************************
+%
+% Uses the apptools and titlesec packages to remove the additional
+% white space normally included at the start of an appendix. This
+% allows the quick reference appendix to be more printer friendly.
+\AtAppendix{%
+	\titleformat{\chapter}[display]{\vspace*{-50pt}\bfseries\huge}{Appendix~\thechapter}{0.5em}{}
+	\titlespacing*{\chapter}{0pt}{0pt}{1em}}%
 
 
 %    ****************************************
@@ -134,11 +153,11 @@
 %    ****************************************
 %    *          PRACTICE PROBLEMS           *
 %    ****************************************
-\newcounter{ProbPart}
+\newcounter{ProbPart}[chapter]
 \renewcommand{\theProbPart}{\Alph{ProbPart}}
 % This inserts a heading and resets the counter:
 \newcommand*{\practiceproblems}{
-	\setcounter{ProbPart}{0}\section*{Practice Exercises}%
+	%\setcounter{ProbPart}{0}\section*{Practice Exercises}%
 	\addcontentsline{toc}{section}{Practice Exercises}
 }
 % This starts a new section which is automatically numbered:
@@ -214,7 +233,7 @@
 
 \newcommand*{\TTon}{\hspace{1.5em}\extracolsep{-1em}}
 \newcommand*{\TToff}{\extracolsep{-1em}\hspace{.3em}}
-\newcommand*{\TTbf}[1]{\textbf{\large #1}}
+\newcommand*{\TTbf}[1]{\textbf{#1}}
 
 
 

@@ -496,13 +496,13 @@ single branches}
 
 Note, however, that if we think through the \emph{completeness} reasoning, we'll find that the completeness proof would still hold. If we assume that some interpretation $\mathcal{I}$ satisfies both \metaA{} and \metaB{}, we can be assured that it also satisfies the disjunction $\metaA{}\eor\metaB{}$. So changing the disjunction rule to this linear one would \emph{not} interfere with the completeness of our tree system. Our trees would still close any time they began with unsatisfiable roots. But as we saw on p.\ \pageref{soundprooffailure}, the soundness proof would fail, which is why a system with this rule could start in a satisfiable root, and result in a closed tree.
 
-When either the soundness or the completeness proof fails, you know you are working with an inappropriate rule. To conclusively demonstrate this, you can provide a counterexample to the failed metalogical theorem. A counterexample to soundness would be a tree with a satisfiable root that closes. A counterexample to completeness would be a a completed tree, with an unsatisfiable root, that remains open. The rule above violates soundness, so using that rule we can construct a tree with a satisfiable root, that closes. Constructing the right counterexample takes a bit of thought. The rule puts both disjuncts into a single branch below, and we want it to close, despite having a satisfiable root. So adding the negation of just one of the disjuncts to the root will close the tree, without making the root unsatisfiable:
+When either the soundness or the completeness proof fails, you know you are working with an inappropriate rule. To conclusively demonstrate this, you can provide a counterexample to the failed metalogical theorem. A counterexample to soundness would be a tree with a satisfiable root that closes. A counterexample to completeness would be a completed tree, with an unsatisfiable root, that remains open. The rule above violates soundness, so using that rule we can construct a tree with a satisfiable root, that closes. Constructing the right counterexample takes a bit of thought. The rule puts both disjuncts into a single branch below, and we want it to close, despite having a satisfiable root. So adding the negation of just one of the disjuncts to the root will close the tree, without making the root unsatisfiable:
 
 \begin{center}
 \begin{prooftree}
 {not line numbering,
 single branches}
-[A \eor B
+[A \eor B, checked
 [\enot A, grouped
 	[A
 	[B, grouped, close]]
@@ -532,7 +532,7 @@ Would our system still be sound? To answer this, we assume that the conjunction 
 
 Would the system still be complete? To answer this, we ask whether each branch is such that, if we assume that an interpretation satisfies the developments below, it is guaranteed to satisfy the conjunction above. Begin with the left branch. If some interpretation satisfies both \metaA{} and \metaB{}, then it will certainly satisfy the conjunction $\metaA{}\eand\metaB{}$. So that branch looks fine. (Indeed, that branch is exactly the same as the linear development of our actual conjunction rule, so this reasoning is the same as that on p.\ \pageref{conjunctionsound}.)
 
-But what of the right branch? Assume that some interpretation satisfies \metaB{}; does that guarantee that it satisfies $\metaA{}\eand\metaB{}$? Certainly not. So if the right branch is our open branch, a completed tree using this rule may remain open, even if its root is satisfiable. Completeness will be violated. Let's construct a counterexample that form. We want a tree that includes a conjunction, whose root is unsatisfiable, but whose right branch remains open. Notice that the right branch `ignores' the first conjunct; this is a clue that a good way to construct a counterexample will be to locate the unsatisfiability within that first conjunct. Suppose, for example, that we let \metaA{} itself stand for a contradiction. If so, any conjunction with \metaA{} as a conjunct will be unsatisfiable. But if \metaB{} is not a contradiction, then a tree with root $\metaA{}\eand\metaB{}$ will remain open. Let's develop a tree with this root: $(P \eiff \enot P) \eand Q$. Note that this sentence has a contradictory first conjunct, and a contingent, atomic second conjunct.
+But what of the right branch? Assume that some interpretation satisfies \metaB{}; does that guarantee that it satisfies $\metaA{}\eand\metaB{}$? Certainly not. So if the right branch is our open branch, a completed tree using this rule may remain open, even if its root is unsatisfiable. Completeness will be violated. Let's construct a counterexample that form. We want a tree that includes a conjunction, whose root is unsatisfiable, but whose right branch remains open. Notice that the right branch `ignores' the first conjunct; this is a clue that a good way to construct a counterexample will be to locate the unsatisfiability within that first conjunct. Suppose, for example, that we let \metaA{} itself stand for a contradiction. If so, any conjunction with \metaA{} as a conjunct will be unsatisfiable. But if \metaB{} is not a contradiction, then a tree with root $\metaA{}\eand\metaB{}$ will remain open. Let's develop a tree with this root: $(P \eiff \enot P) \eand Q$. Note that this sentence has a contradictory first conjunct, and a contingent, atomic second conjunct.
 
 \begin{center}
 \begin{prooftree}
@@ -557,13 +557,13 @@ But what of the right branch? Assume that some interpretation satisfies \metaB{}
 
 The left branch closes after we perform the unchanged biconditional rule on the contradictory first conjunct, but the right branch remains open. Since this is a completed tree with an open branch and an unsatisfiable root, it is a counterexample to completeness.
 
-Remember that we are considering a modification to the tree system that uses a different conjunction rule. In this example I used $P \eiff \enot P$ as my \metaA{}, which let me use the unchanged biconditional rule. But if I had used a contradiction that used a conjunction, like $P \eand \enot P$, I would have had to used the revised rule within the left branch too.
+Remember that we are considering a modification to the tree system that uses a different conjunction rule. In this example I used $P \eiff \enot P$ as my \metaA{}, which let me use the unchanged biconditional rule. But if I had used a contradiction that used a conjunction, like $P \eand \enot P$, I would have had to have used the revised rule within the left branch too.
 
 It is also possible to construct counterexamples using simpler sentences if you add to the root. Instead of introducing a contradictory conjunct, we could have simply added to the root, in a way that makes the root unsatisfiable, but leaves the right branch open. Suppose for instance we put both $P \eand Q$ and $\enot P$ in the root. Then we'd have an unsatisfiable root, but the right branch would remain open:
 	\begin{center}
 	\begin{prooftree}
 	{not line numbering}
-	[P\eand Q
+	[P\eand Q, checked
 	[\enot P, grouped
 		[P
 		[Q, grouped, close
@@ -693,7 +693,7 @@ Following are possible modifications to our SL tree system. For each, imagine a 
 \end{center}
 }
 
-\item Change the rule for disjunction to this rule:
+\item Change the rule for disjunctions to this rule:
 	\factoidbox{
 	\begin{center}
 	\begin{prooftree}
