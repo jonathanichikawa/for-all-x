@@ -135,8 +135,8 @@ In QL, we symbolize predicates with capital letters $A$ through $Z$, with or wit
 \begin{ekey}
 \item[Ax:] $x$ is angry.
 \item[Hx:] $x$ is happy.
-\item[T$_1$xy:] $x$ is as tall or taller than $y$.
-\item[T$_2$xy:] $x$ is as tough or tougher than $y$.
+\item[T$_1$xy:] $x$ is at least as tall as $y$.
+\item[T$_2$xy:] $x$ is at least as tough as $y$.
 \item[Bxyz:] $y$ is between $x$ and $z$.
 \item[d:] Donald
 \item[g:] Gregor
@@ -268,9 +268,9 @@ In providing a symbolization key, we need to specify a UD. Since we are talking 
 \item[Lx:] $x$ is a loonie.
 \item[Dx:] $x$ is a dime.
 \end{ekey}
-Sentence \ref{quan1} is most naturally translated with a universal quantifier. The universal quantifier says something about everything in the UD, not just about the coins in my pocket. Sentence \ref{quan1} means that (for any coin) \emph{if} that coin is in my pocket, \emph{then} it is a quarter. So we can translate it as $\forall x(Px \eif Lx)$.
+Sentence \ref{quan1} is most naturally translated with a universal quantifier. The universal quantifier says something about everything in the UD, not just about the coins in my pocket. Sentence \ref{quan1} means that, for any coin, \emph{if} that coin is in my pocket, \emph{then} it is a loonie. So we can translate it as $\forall x(Px \eif Lx)$.
 
-Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} that are loonies, it might be tempting to translate it using a conjunction. However, the sentence $\forall x(Px \eand Lx)$ would mean that everything in the UD is both in my pocket and a quarter: All the coins that exist are loonies in my pocket. This would be nice, but it means something very different than sentence \ref{quan1}.
+Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} that are loonies, it might be tempting to translate it using a conjunction. However, the sentence $\forall x(Px \eand Lx)$ would mean that everything in the UD is both in my pocket and a loonie: All the coins that exist are loonies in my pocket. This would be nice, but it means something very different than sentence \ref{quan1}.
 
 Sentence \ref{quan2} is most naturally translated with an existential quantifier. It says that there is some coin which is both on the table and which is a dime. So we can translate it as $\exists x(Tx \eand Dx)$.
 
@@ -428,13 +428,13 @@ Sentence \ref{pronoun2} must be paraphrased differently: `If a person can play g
 Consider these further sentences:
 
 \begin{earg}
-\item[\ex{anyone1}] If anyone can play guitar, then Chris can.
+\item[\ex{anyone1}] If anyone can play guitar, then Lemmy can.
 \item[\ex{anyone2}] If anyone can play guitar, then they are a rock star.
 \end{earg}
 
 These two sentences have the same antecedent (`If anyone can play guitar$\ldots$'), but they have different logical structures.
 
-Sentence \ref{anyone1} can be paraphrased, `If someone can play guitar, then Chris can play guitar.' The antecedent and consequent are separate sentences, so it can be symbolized with a conditional as the main logical operator: $\exists x Gx \eif Gc$.
+Sentence \ref{anyone1} can be paraphrased, `If someone can play guitar, then Lemmy can play guitar.' The antecedent and consequent are separate sentences, so it can be symbolized with a conditional as the main logical operator: $\exists x Gx \eif Gl$.
 
 Sentence \ref{anyone2} can be paraphrased, `For anyone, if that one can play guitar, then that one is a rock star.' It would be a mistake to symbolize this with an existential quantifier, because it is talking about everybody. The sentence is equivalent to `All guitar players are rock stars.' It is best translated as $\forall x(Gx \eif Rx)$.
 
@@ -443,7 +443,7 @@ The English words `any' and `anyone' should typically be translated using quanti
 
 \section{Quantifiers and scope}
 
-In the sentence $\exists x Gx \eif Gc$, the scope of the existential quantifier is the expression $Gx$. Would it matter if the scope of the quantifier were the whole sentence? That is, does the sentence $\exists x (Gx \eif Gc)$ mean something different?
+In the sentence $\exists x Gx \eif Gl$, the scope of the existential quantifier is the expression $Gx$. Would it matter if the scope of the quantifier were the whole sentence? That is, does the sentence $\exists x (Gx \eif Gl)$ mean something different?
 
 With the key given above, $\exists x Gx \eif Gl$ means that if there is some guitarist, then Lemmy is a guitarist. $\exists x (Gx \eif Gl)$ would mean that there is some person such that if that person were a guitarist, then Lemmy would be a guitarist. Recall that the conditional here is a material conditional; the conditional is true any time the antecedent is false. Let the constant $p$ denote the author of this book, someone who is certainly not a guitarist. The sentence $Gp \eif Gl$ is true because $Gp$ is false. Since someone (namely $p$) satisfies the sentence, then $\exists x (Gx \eif Gl)$ is true. The sentence is true because there is a non-guitarist, regardless of Lemmy's skill with the guitar.
 
