@@ -55,7 +55,7 @@ The formal significance of a predicate is determined by its extension, but what 
 
 \section{Sets}
 
-We use curly brackets `\{' and `\}' to denote sets. The members of the set can be listed in any order, separated by commas. The fact that sets can be in any order is important, because it means that \{foo, bar\} and \{bar, foo\} are the same set.
+We use curly brackets `\{' and `\}' to denote sets. The members of the set can be listed in any order, separated by commas. This means that \{foo, bar\} and \{bar, foo\} are the same set.
 
 It is possible to have a set with no members in it. This is called the \define{empty set}. The empty set is sometimes written as \{\}, but usually it is written as the single symbol $\emptyset$.
 
@@ -73,7 +73,7 @@ Given some basic mathematical knowledge, it is obvious that $Pn_{4}$ is false. L
 
 \begin{partialmodel}
 	UD & $\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$\\
-	\extension{P} & \{1, 2, 3, 5, 7\}\\
+	\extension{P} & \{2, 3, 5, 7\}\\
 	\referent{n_{4}} & 4
 \end{partialmodel}
 
@@ -98,7 +98,7 @@ Sometimes it will be convenient to represent extensions graphically, similar to 
 \centering
 \begin{tabular}{l|l|l|l}
             & $P$ & $E$ & $N$ \\ \hline
-\textbf{1}  & 1  & 0          & 0          \\
+\textbf{1}  & 0  & 0          & 0          \\
 \textbf{2}  & 1  & 1          & 0          \\
 \textbf{3}  & 1  & 0          & 0          \\
 \textbf{4}  & 0  & 1          & 0          \\
