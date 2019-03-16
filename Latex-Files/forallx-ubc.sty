@@ -80,9 +80,15 @@
 % Uses the apptools and titlesec packages to remove the additional
 % white space normally included at the start of an appendix. This
 % allows the quick reference appendix to be more printer friendly.
+% Also reduces the size of section titles to make the answer key more 
+% readable. 
 \AtAppendix{%
 	\titleformat{\chapter}[display]{\vspace*{-50pt}\bfseries\huge}{Appendix~\thechapter}{0.5em}{}
-	\titlespacing*{\chapter}{0pt}{0pt}{1em}}%
+	\titlespacing*{\chapter}{0pt}{0pt}{1em}
+
+	\titleformat*{\section}{\large \bfseries}
+	\titleformat*{\subsection}{\bfseries}
+	}%
 
 
 %    ****************************************
@@ -157,7 +163,7 @@
 \renewcommand{\theProbPart}{\Alph{ProbPart}}
 % This inserts a heading and resets the counter:
 \newcommand*{\practiceproblems}{
-	%\setcounter{ProbPart}{0}\section*{Practice Exercises}%
+	\setcounter{ProbPart}{0}\section*{Practice Exercises}
 	\addcontentsline{toc}{section}{Practice Exercises}
 }
 % This starts a new section which is automatically numbered:
@@ -171,12 +177,17 @@
 % star is placed left of the problem number.
 \newcommand*{\leftsolutions}{\hspace{-2.2em}\makebox[2em][l]{\solutions}}
 
-% This is used at the beginning of a section in the solutions
-% appendix.
-\newcommand*{\solutionsection}[2]{%
-	\textbf{\textsc{Chapter {\ref{#1}} Part {\ref{#2}}}}%
+% This is used at the beginning of a sections and subsection in the solutions
+\newcommand*{\solutionsection}[1]{%
+	\section*{Chapter {\ref{#1}}}%
+	\addcontentsline{toc}{section}{Chapter {\ref{#1}}}%
 	\markright{solutions for ch.~\ref{#1}}%
 	\setcounter{countSeq}{0}
+}
+
+\newcommand*{\solutionpart}[2]{%
+	\subsection*{Chapter {\ref{#1}} Part {\ref{#2}}}%
+	\addcontentsline{toc}{subsection}{Chapter {\ref{#1}} Part {\ref{#2}}}%
 }
 
 % This is used to enumerate things that have a given property.
@@ -197,8 +208,8 @@
 %    ****************************************
 %    *         TABLE OF CONTENTS, ETC.      *
 %    ****************************************
-\setcounter{tocdepth}{1}
-\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
 \renewcommand{\thechapter}{\arabic{chapter}}
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 %\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
