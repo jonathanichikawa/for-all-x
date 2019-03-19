@@ -314,7 +314,7 @@ Here is an example illustrating the importance of taking multiple instances. Her
 {
 }
 [\forall x (Fx \eand Gx), name=p1, subs={a}
-[\enot Fa \eor \enot Gb, grouped, name=p2
+[\enot Fa \eor \enot Gb, grouped, name=p2, checked
 	[Fa \eand Ga, name=p3, just=$\forall$:p1, checked
 		[Fa, just=$\eand$:p3
 		[Ga, grouped
@@ -341,7 +341,7 @@ The root of this tree is pretty obviously unsatisfiable, but so far, the tree ha
 {
 }
 [\forall x (Fx \eand Gx), name=p1, subs={a,b}
-[\enot Fa \eor \enot Gb, grouped, name=p2
+[\enot Fa \eor \enot Gb, grouped, name=p2, checked
 	[Fa \eand Ga, name=p3, just=$\forall$:p1, checked
 		[Fa, just=$\eand$:p3
 		[Ga, grouped
@@ -445,7 +445,7 @@ Our universal rule can be processed multiple times. This tree has only taken the
 [Fb, grouped
 	[Fa \eif Ga, checked
 		[\enot Fa
-			[Fb \eif Ga
+			[Fb \eif Ga, checked
 				[\enot Fb, close]
 				[Ga, close]
 			]
@@ -718,7 +718,7 @@ $a_{4}$   & 1 & - & - & - & -   \\
 \end{tabular}
 \end{table}
 
-This chart describes the extension of $R$ that, as part of a model with the infinite UD \{$a_{1}$, $a_{2}$, $a_{3}$, \ldots\}, would satisfy $\exists x \forall y \exists z (\enot Rxy \eand Rzx)$. As in the previous example, we do not \emph{need} an infinite model to satisfy this sentence; the extension of $R$ here can be collapsed into a finite one. In the previous example, our extension required no distinctions between any of the objects; here, we do have some required differences. $Ra_{1}a_{1}=0$, but $Ra_{1}a_{2}=1$. So our model is treating $a_{1}$ and $a_{2}$ differently. But it requires no further distinctions than that. Every object after $a_{2}$ can be the same as $a_{2}$, as far as this model is concerned.  So a two-object model would also suffice to satisfy this sentence. Here is a graphical representation of the denotation for $R$:
+This chart describes the extension of $R$ that, as part of a model with the infinite UD \{$a_{1}$, $a_{2}$, $a_{3}$, \ldots\}, would satisfy $\exists x \forall y \exists z (\enot Rxy \eand Rzx)$. As in the previous example, we do not \emph{need} an infinite model to satisfy this sentence; the extension of $R$ here can be collapsed into a finite one. In the previous example, our extension required no distinctions between any of the objects; here, we do have some required differences. $Ra_{1}a_{1}=0$, but $Ra_{2}a_{1}=1$. So our model is treating $a_{1}$ and $a_{2}$ differently. But it requires no further distinctions than that. Every object after $a_{2}$ can be the same as $a_{2}$, as far as this model is concerned.  So a two-object model would also suffice to satisfy this sentence. Here is a graphical representation of the denotation for $R$:
 
 \begin{table}[h!]
 \centering
