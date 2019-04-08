@@ -177,7 +177,7 @@ $\enot\exists \script{x}\enot\metaA{}$ is logically equivalent to $\forall \scri
 			\have{nAa}{\enot\forall \script{x} \metaA{}}\ni{Aa2-nc2}
 			\have{Aa3}{\forall \script{x} \metaA{}}\by{R}{Aa}
 		\close
-		\have{nAa3}{\enot\forall \script{x} \metaA{}}\Ee{nc-nAa}
+		\have{nAa3}{\enot\forall \script{x} \metaA{}}\Ee{Ena, nc-nAa}
 	\close
 	\have{nEna}{\enot\exists \script{x}\enot \metaA{}}\ni{Ena-Aa3, Ena-nAa3}
 \end{proof}
@@ -200,7 +200,7 @@ This is a proof \emph{schema}--- it is not itself a proof in QL, as its lines ar
 			\have{nAa}{\enot\forall y Ay}\ni{Aa2-nc2}
 			\have{Aa3}{\forall y Ay}\by{R}{Aa}
 		\close
-		\have{nAa3}{\enot\forall y Ay}\Ee{nc-nAa}
+		\have{nAa3}{\enot\forall y Ay}\Ee{Ena, nc-nAa}
 	\close
 	\have{nEna}{\enot\exists y\enot Ay}\ni{Ena-Aa3, Ena-nAa3}
 \end{proof}
@@ -265,7 +265,7 @@ We begin by defining a symbolization key:
 \end{ekey}
 Because we have no need to discuss anything other than buttons in my pocket, we've restricted the UD accordingly. If we included other things (buttons elsewhere and/or things other than buttons), we'd need predicates corresponding to being a button and things' locations. The simple version here is adequate for our present needs. The argument is translated as:
 \begin{earg}
-\item{} $\forall x \forall y x{=}y$
+\item{} $\forall x \forall y\ x{=}y$
 \item{} $\exists x Bx$
 \item{\therefore} $\enot \exists x \enot Bx$
 \end{earg}
