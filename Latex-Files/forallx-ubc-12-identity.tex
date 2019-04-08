@@ -335,7 +335,7 @@ to prove={\{\forall x \: a{=}x, \exists x \: x{\neq}a\} \vdash \bot}
 	[\exists x \:  x{\neq}a, grouped, checked=b
 		[b {\neq} a, just=2 $\exists$
 			[a{=}b, just=1 $\forall$
-				[b{\neq}b, just={3, 4 {=}}, close=4
+				[b{\neq}b, just={3, 4 {=}}, close=5
 				]
 			]
 		]
@@ -558,7 +558,7 @@ is consistent.
 \item  $\forall x \forall y \: x{=}y \models \exists x Fx \eiff \forall x Fx$
 \item $\forall x (x{=}a \eor x{=}b), Ga \eiff \enot Gb \models \enot \exists x \exists y \exists z (Gx \eand Gy \eand \enot Gz)$
 \item $\forall x (Fx \eif x{=}f), \exists x (Fx \eor \forall y \: y{=}x) \models Ff$
-\item $\exists x \exists y Dxy \models \forall x_{1} \forall x_{2} \forall x_{3} \forall x_{4} [(Dx_{1}x_{2} \eand Dx_{3}x_{4} \eif (x_{2}{\neq}x_{3} \eor Dx_{1}x_{4})]$
+\item $\exists x \exists y Dxy \models \forall x_{1} \forall x_{2} \forall x_{3} \forall x_{4} [(Dx_{1}x_{2} \eand Dx_{3}x_{4}) \eif (x_{2}{\neq}x_{3} \eor Dx_{1}x_{4})]$
 \end{earg}
 
 \problempart In \S \ref{sec.quantity} we looked at two different translations of `Mozart wrote exactly two operas'. Use trees to prove that they are equivalent.
