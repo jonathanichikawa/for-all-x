@@ -3056,12 +3056,10 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{solutioninlist}
 \begin{proof}
 	\open
-		\hypo{p1}{\enot(\forall x Fx \eor \enot\forall x Fx)} \by{for reductio}{}
-		\have{s1}{\enot\forall x Fx \eand \enot\enot\forall x Fx} \by{DeM}{p1}
-		\have{s2}{\enot \forall x Fx}\ae{s1}
-		\have{s3}{\enot\enot\forall x Fx}\ae{s1}
-	\close
-	\have{c}{\forall x Fx \eor \enot\forall x Fx} \ne{p1-s2, p1-s3}
+		\hypo{1}{\forall x \forall y Gxy}
+		\have{2}{\forall x Gxa} \Ae{1}
+		\have{3}{Gaa}\Ae{2}
+		\have{4}{\exists x Gxx}\Ei{3}
 \end{proof}
 \end{solutioninlist}
 \item %$\forall x \forall y (Gxy \eif Gyx) \vdash \forall x\forall y (Gxy \eiff Gyx)$
@@ -3080,45 +3078,44 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \item %3 $\{\forall x(Ax\eif Bx), \exists x Ax\} \vdash \exists x Bx$
 \begin{solutioninlist}
 \begin{proof}
-	\hypo{a1}{\forall x(\enot Mx \eor Ljx)}
-	\hypo{a2}{\forall x(Bx \eif Ljx)}
-	\hypo{a3}{\forall x(Mx \eor Bx)} \by{want $\forall x Ljx$}{}
-	\have{a4}{\enot Ma \eor Lja} \Ae{a1}
-	\have{a5}{Ma \eif Lja} \by{MC}{a4}
-	\have{a6}{Ba \eif Lja} \Ae{a2}
-	\have{a7}{Ma \eor Ba} \Ae{a3}
-	\have{a8}{Lja}  \by{DIL}{a7, a5, a6}
-	\have{a9}{\forall x Ljx} \Ai{a8}
+	\hypo{a1}{\forall x(Ax \eif Bx)}
+	\hypo{a2}{\exists x Ax} \by{want $\exists x Bx$}{}
+	\open
+		\hypo{a3}{Aa} \by{for {$\exists$}E}{} 
+		\have{a4}{Aa \eif Ba} \Ae{a1}
+		\have{a5}{Ba} \ce{a3, a4}
+		\have{a6}{\exists x Bx} \Ei{a5}
+	\close
+	\have{a7}{\exists x Bx} \Ee{a3-a6}
 \end{proof}
 \end{solutioninlist}
 \item %$4 $\{Na \eif \forall x(Mx \eiff Ma), Ma, \enot Mb\}\vdash \enot Na$
 \begin{solutioninlist}
 \begin{proof}
-	\hypo{a1}{\forall x(Cx \eand Dt)} \by{want $\forall x Cx \eand Dt$}{}
-	\have{a2}{Ca \eand Dt} \Ae{a1}
-	\have{a3}{Ca} \ae{a2}
-	\have{a4}{\forall x Cx} \Ai{a3}
-	\have{a5}{Dt} \ae{a2}
-	\have{a6}{\forall x Cx \eand Dt} \ai{a4, a5}
+	\hypo{1}{Na \eif \forall x(Mx \eiff Ma)}
+	\hypo{2}{Ma}
+	\hypo{3}{\enot Mb} \by{want $\enot Na$}{}
+	\open
+		\hypo{4}{Na} \by{for reductio}{}
+		\have{5}{\forall x (Mx \eiff Ma)} \ce{1, 4}
+		\have{6}{Mb \eiff Ma} \Ae{5}
+		\have{7}{Mb} \be{2, 6}
+		\have{8}{\enot Mb} \by{R}{3}
+	\close
+	\have{9}{\enot Na} \ni{4-7, 4-8}
 \end{proof}
 \end{solutioninlist}
 \item %5 $\vdash\forall z (Pz \eor \enot Pz)$
 \begin{solutioninlist}
 \begin{proof}
-	\hypo{a1}{\exists x(Cx \eor Dt)} \by{want $\exists x Cx \eor Dt$}{}
 	\open
-		\hypo{a2}{Ca \eor Dt} \by{for {$\exists$}E}{}
-		\open
-			\hypo{a3}{\enot(\exists x Cx \eor Dt)} \by{for reductio}{}
-			\have{a4}{\enot\exists x Cx \eand \enot Dt} \by{DeM}{a3}
-			\have{a5}{\enot Dt} \ae{a4}
-			\have{a6}{Ca} \oe{a2,a5}
-			\have{a7}{\exists x Cx} \Ei{a6}
-			\have{a8}{\enot\exists x Cx} \ae{a4}
-		\close
-		\have{a9}{\exists x Cx \eor Dt} \ne{a3-a7, a3-a8}
+		\hypo{1}{Pa} \by{want $Pa$}{}
+		\have{2}{Pa} \by{R}{1}
 	\close
-	\have{a10}{\exists x Cx \eor Dt} \Ee{a1,a2-a9}
+	\have{3}{Pa \eif Pa} \ci{1-2}
+	\have{4}{\enot Pa \eor Pa}\by{MC}{3}
+	\have{5}{Pa \eor \enot Pa}\by{Comm}{4}	
+	\have{6}{\forall z (Pz \eor \enot Pz)}\Ai{5}	
 \end{proof}
 \end{solutioninlist}
 \item %6 $\vdash\forall x Rxx\eif \exists x \exists y Rxy$
@@ -3135,20 +3132,6 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \end{solutioninlist}
 \item %7 $\vdash\forall y \exists x (Qy \eif Qx)$
 \begin{solutioninlist}
-%\begin{proof}
-%\open
-%	\hypo{1}{\enot \forall y\exists x(Qy \eif Qx)}\by{for reductio}{}
-%	\have{2}{\exists y \enot \exists x(Qy \eif Qx)}\by{QN}{1}
-%	\have{3}{\enot \exists x (Qa \eif Qx)}\Ee{2}
-%	\have{4}{\forall x\enot(Qa \eif Qx)}\by{QN}{3}
-%	\have{5}{\enot (Qa \eif Qa)}\Ae{4}
-%	\have{6}{\enot (\enot Qa \eor Qa)}\by{MC}{5}
-%	\have{7}{\enot \enot Qa \eand \enot Qa}\by{DeM}{6}
-%	\have{8}{\enot \enot Qa}\ae{7}
-%	\have{9}{\enot Qa}\ae{7}
-%\close
-%\have{10}{\forall y\exists x(Qy \eif Qx)}\ne{1-8,1-9}
-%\end{proof}
 
 
 \begin{proof}
@@ -3243,3 +3226,4 @@ are valid. Here are complete answers for some of them:
 	\end{proof}
 	\end{solutioninlist}
 \end{earg}
+
