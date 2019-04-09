@@ -47,10 +47,10 @@ This is the existential introduction rule ($\exists$I):
 
 \begin{proof}
 	\have[m]{a}{\metaA{}}
-	\have[\ ]{c}{\exists \script{x}\metaA{}\substitutesome{x}{c}} \Ei{a}
+	\have[\ ]{c}{\exists \script{x}\metaA{}\substitutesome{c}{x}} \Ei{a}
 \end{proof}
 
-It is important to notice that \metaA{}\substitutesome{x}{c} is not necessarily a substitution instance. We write it with double boxes to show that the variable \script{x} does not need to replace all occurrences of the constant \script{c}. You can decide which occurrences to replace and which to leave in place. For example, each of lines 2--6 can be justified by $\exists${}I:
+It is important to notice that \metaA{}\substitutesome{c}{x} is not necessarily a substitution instance. We write it with double boxes to show that the variable \script{x} does not need to replace all occurrences of the constant \script{c}. You can decide which occurrences to replace and which to leave in place. For example, each of lines 2--6 can be justified by $\exists${}I:
 
 
 \begin{proof}
@@ -175,10 +175,10 @@ $\enot\exists \script{x}\enot\metaA{}$ is logically equivalent to $\forall \scri
 				\have{nc2}{\enot \metaA{\substitute{\script{x}}{\script{a}^\ast}}}\by{R}{nc}
 			\close
 			\have{nAa}{\enot\forall \script{x} \metaA{}}\ni{Aa2-nc2}
-			\have{Aa3}{\forall \script{x} \metaA{}}\by{R}{Aa}
 		\close
 		\have{nAa3}{\enot\forall \script{x} \metaA{}}\Ee{Ena, nc-nAa}
-	\close
+		\have{Aa3}{\forall \script{x} \metaA{}}\by{R}{Aa}
+		\close
 	\have{nEna}{\enot\exists \script{x}\enot \metaA{}}\ni{Ena-Aa3, Ena-nAa3}
 \end{proof}
 $^\ast$ Where name \script{a} does not appear outside the subproof.
@@ -198,9 +198,9 @@ This is a proof \emph{schema}--- it is not itself a proof in QL, as its lines ar
 				\have{nc2}{\enot Ac}\by{R}{nc}
 			\close
 			\have{nAa}{\enot\forall y Ay}\ni{Aa2-nc2}
-			\have{Aa3}{\forall y Ay}\by{R}{Aa}
 		\close
 		\have{nAa3}{\enot\forall y Ay}\Ee{Ena, nc-nAa}
+		\have{Aa3}{\forall y Ay}\by{R}{Aa}
 	\close
 	\have{nEna}{\enot\exists y\enot Ay}\ni{Ena-Aa3, Ena-nAa3}
 \end{proof}

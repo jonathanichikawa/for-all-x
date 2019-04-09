@@ -3135,20 +3135,32 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \end{solutioninlist}
 \item %7 $\vdash\forall y \exists x (Qy \eif Qx)$
 \begin{solutioninlist}
+%\begin{proof}
+%\open
+%	\hypo{1}{\enot \forall y\exists x(Qy \eif Qx)}\by{for reductio}{}
+%	\have{2}{\exists y \enot \exists x(Qy \eif Qx)}\by{QN}{1}
+%	\have{3}{\enot \exists x (Qa \eif Qx)}\Ee{2}
+%	\have{4}{\forall x\enot(Qa \eif Qx)}\by{QN}{3}
+%	\have{5}{\enot (Qa \eif Qa)}\Ae{4}
+%	\have{6}{\enot (\enot Qa \eor Qa)}\by{MC}{5}
+%	\have{7}{\enot \enot Qa \eand \enot Qa}\by{DeM}{6}
+%	\have{8}{\enot \enot Qa}\ae{7}
+%	\have{9}{\enot Qa}\ae{7}
+%\close
+%\have{10}{\forall y\exists x(Qy \eif Qx)}\ne{1-8,1-9}
+%\end{proof}
+
+
 \begin{proof}
 \open
-	\hypo{1}{\enot \forall y\exists x(Qy \eif Qx)}\by{for reductio}{}
-	\have{2}{\exists y \enot \exists x(Qy \eif Qx)}\by{QN}{1}
-	\have{3}{\enot \exists x (Qa \eif Qx)}\Ee{2}
-	\have{4}{\forall x\enot(Qa \eif Qx)}\by{QN}{3}
-	\have{5}{\enot (Qa \eif Qa)}\Ae{4}
-	\have{6}{\enot (\enot Qa \eor Qa)}\by{MC}{5}
-	\have{7}{\enot \enot Qa \eand \enot Qa}\by{DeM}{6}
-	\have{8}{\enot \enot Qa}\ae{7}
-	\have{9}{\enot Qa}\ae{7}
-\close
-\have{10}{\forall y\exists x(Qy \eif Qx)}\ne{1-8,1-9}
+		\hypo{1}{Qa}\by{want $Qa$}{}
+		\have{2}{Qa}\by{R}{1}
+	\close
+	\have{3}{Qa \eif Qa}\ci{1-2}
+	\have{4}{\exists x (Qa \eif Qx)}\Ei{3}
+	\have{5}{\forall y \exists x (Qy \eif Qx)}\Ai{4}
 \end{proof}
+
 \end{solutioninlist}
 \end{earg}
 
