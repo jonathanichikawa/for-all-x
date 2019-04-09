@@ -3057,7 +3057,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 	\open
 		\hypo{1}{\forall x \forall y Gxy}
-		\have{2}{\forall x Gxa} \Ae{1}
+		\have{2}{\forall y Gay} \Ae{1}
 		\have{3}{Gaa}\Ae{2}
 		\have{4}{\exists x Gxx}\Ei{3}
 \end{proof}
@@ -3086,7 +3086,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 		\have{a5}{Ba} \ce{a3, a4}
 		\have{a6}{\exists x Bx} \Ei{a5}
 	\close
-	\have{a7}{\exists x Bx} \Ee{a3-a6}
+	\have{a7}{\exists x Bx} \Ee{a2, a3-a6}
 \end{proof}
 \end{solutioninlist}
 \item %$4 $\{Na \eif \forall x(Mx \eiff Ma), Ma, \enot Mb\}\vdash \enot Na$
