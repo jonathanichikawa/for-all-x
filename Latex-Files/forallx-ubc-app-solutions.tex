@@ -2480,9 +2480,9 @@ $\exists x \exists y(Jx \eand Ox \eand Jy \eand Oy \eand x{\neq} y)$
 \item %There are at most two one-eyed jacks.
 $\forall x\forall y\forall z\bigl[(Jx \eand Ox \eand Jy \eand Oy \eand Jz \eand Oz)\eif(x{=}y \eor x{=}z \eor y{=}z)\bigr]$
 \item %There are exactly two black jacks.
-$\exists x\exists y\bigl(Jx \eand Bx \eand Jy \eand By \eand x \neq y\eand \forall z[(Jz \eand Bz) \eif (x{=}z \eor y{=}z)]\bigr)$
+$\exists x\exists y\bigl(Jx \eand Bx \eand Jy \eand By \eand x {\neq} y\eand \forall z[(Jz \eand Bz) \eif (x{=}z \eor y{=}z)]\bigr)$
 \item %There are exactly four deuces.
-$\exists x_1\exists x_2\exists x_3\exists x_4\bigl[Dx_1 \eand Dx_2 \eand Dx_3 \eand Dx_4 \eand x_1 \neq x_2 \eand x_1 \neq x_3 \eand x_1 \neq x_4 \eand x_2 \neq x_3 \eand x_2 \neq x_4 \eand x_3 \neq x_4  \eand \enot\exists y(Dy \eand y\neq x_1 \eand y\neq x_2 \eand y\neq x_3 \eand y\neq x_4)\bigr]$
+$\exists x_1\exists x_2\exists x_3\exists x_4 (Dx_1 \eand Dx_2 \eand Dx_3 \eand Dx_4 \eand x_1 {\neq} x_2 \eand x_1 {\neq} x_3 \eand x_1 {\neq} x_4 \eand x_2 {\neq} x_3 \eand x_2 {\neq} x_4 \eand x_3 {\neq} x_4 \\  \eand \enot\exists y(Dy \eand y{\neq} x_1 \eand y{\neq}x_2 \eand y{\neq} x_3 \eand y{\neq} x_4))$
 \item %The deuce of clubs is a black card.
 $\exists x\bigl(Dx \eand Cx \eand \forall y[(Dy\eand Cy) \eif x{=}y] \eand Bx\bigr)$
 \item %One-eyed jacks and the man with the axe are wild.
@@ -2492,7 +2492,7 @@ $\exists x\bigl(Dx \eand Cx \eand \forall y[(Dy\eand Cy) \eif x{=}y] \eand Wx\bi
 \item %The man with the axe is not a jack.
 $\exists x\bigl[Mx \eand \forall y(My \eif x{=}y) \eand \enot Jx\bigr]$
 \item %The deuce of clubs is not the man with the axe.
-$\exists x\exists z\bigl(Dx \eand Cx \eand Mz \eand \forall y[(Dy\eand Cy) \eif x{=}y]  \eand \forall y[(My \eif z{=}y) \eand x\neq z]\bigr)$
+$\exists x\exists z\bigl(Dx \eand Cx \eand Mz \eand \forall y[(Dy\eand Cy) \eif x{=}y]  \eand \forall y[(My \eif z{=}y) \eand x{\neq} z]\bigr)$
 \end{earg}
 
 
@@ -2644,7 +2644,7 @@ $\exists x \forall y \: x{=}y \models \forall x \forall y (Rxy \eiff Ryx)$ is tr
 {}
 [\exists x \forall y \: x{=}y, checked=a
 [\enot \forall x \forall y (Rxy \eiff Ryx), checked=b, grouped
-	[\forall y \: a{=}y, subs={b, c}, just=1 $\forall$
+	[\forall y \: a{=}y, subs={b, c}, just=1 $\exists$
 		[\enot \forall y (Rby \eiff Ryb), checked=c, just=2 $\enot \forall$
 			[\enot (Rbc \eiff Rcb), checked, just=4 \enot $\forall$, grouped
 				[a{=}b, just=3 $\forall$
