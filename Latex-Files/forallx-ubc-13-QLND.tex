@@ -187,7 +187,7 @@ This is a proof \emph{schema}--- it is not itself a proof in QL, as its lines ar
 
 
 \begin{proof}
-	\hypo{Aa}{\forall y Ay} \by{want $\enot\exists x\enot Ay$}{}
+	\hypo{Aa}{\forall y Ay} \by{want $\enot\exists y\enot Ay$}{}
 	\open
 		\hypo{Ena}{\exists y\enot Ay}\by{for reductio}{}
 		\open
@@ -205,7 +205,7 @@ This is a proof \emph{schema}--- it is not itself a proof in QL, as its lines ar
 	\have{nEna}{\enot\exists y\enot Ay}\ni{Ena-Aa3, Ena-nAa3}
 \end{proof}
 
-(Note that this proof encodes the same form of reasoning one would employ to demonstrate via a tree that $\forall y Ay \models \enot \exists y \enot Ay$. As an exersise: draw out the tree to compare it.)
+(Note that this proof encodes the same form of reasoning one would employ to demonstrate via a tree that $\forall y Ay \models \enot \exists y \enot Ay$. As an exercise: draw out the tree to compare it.)
 
 In order to fully demonstrate that $\enot\exists \script{x}\enot\metaA{}$ is logically equivalent to $\forall \script{x}\metaA{}$, we would also need a second proof that assumes $\enot\exists \script{x}\enot\metaA{}$ and derives $\forall \script{x}\metaA{}$. We leave that proof as an exercise for the reader.
 
