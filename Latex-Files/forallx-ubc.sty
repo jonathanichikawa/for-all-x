@@ -1,8 +1,8 @@
 %!TEX root = forallx-ubc.tex
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{forallx}[2011/10/29 support for a logic textbook]
+\ProvidesPackage{forallx-ubc}[2011/10/29 support for a logic textbook]
 \usepackage[dvipsnames]{xcolor}
-\RequirePackage{amssymb,amsmath,multicol,ifthen,prooftrees-mod,titlesec, apptools}
+\RequirePackage{amssymb,amsmath,microtype,multicol,ifthen,prooftrees,titlesec, apptools}
 \usepackage[linktocpage=true]{hyperref}
 \definecolor{URLblue}{RGB}{0,0,150}
 \hypersetup{
@@ -39,13 +39,8 @@
 % negation: {\sim} gives the swung dash 
 \def\enot{\ensuremath{\neg}}
 
-
-
-
-
 \let\oldemptyset\emptyset
 \let\emptyset\varnothing
-
 
 % metalanguage variables: change greek to A and B if you prefer
 \def\metaA{\ensuremath{\varPhi}}
@@ -55,6 +50,9 @@
 \def\metaSetY{\ensuremath{\mathcal{Y}}}
 \def\metaSetZ{\ensuremath{\mathcal{Z}}}
 
+% Latex's hyphenation algorithm cannot decide how to hyphenate
+% some common words in the book. The definitions below define 
+% acceptable hyphenations.
 
 %    ****************************************
 %    *        TITLE AND VERSION DATA        *
@@ -149,7 +147,7 @@
 % \factoidbox{...} produces an inset paragraph of text with a line around it
 % Neither for lists nor an environment, but it really didn't
 % belong anywhere else.
-\newcommand{\factoidbox}[1]{\begin{quote}\framebox{\parbox{\linewidth}{#1}}\end{quote}}
+\newcommand{\factoidbox}[1]{\begin{quote}\framebox{\parbox{\dimexpr\linewidth-3\fboxsep\relax}{#1}}\end{quote}}
 
 % \tablefbox{...} is used in certain tables to put a box around the contents of specific table cells without having lines that run the whole length of the table
 \newcommand{\tablefbox}[1]{\multicolumn{1}{|p{10em}|}{#1}}
