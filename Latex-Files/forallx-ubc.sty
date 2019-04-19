@@ -189,7 +189,8 @@
 	% between the hyperref and titlesec packages.
 	\phantomsection%
 	\subsection*{Chapter {\ref{#1}} Part {\ref{#2}}}%
-	\addcontentsline{toc}{subsection}{Part {\ref{#2}}}%
+	% This adds a line to the table of contents for each solution part
+	% \addcontentsline{toc}{subsection}{Part {\ref{#2}}}%
 }
 
 % This is used to enumerate things that have a given property.

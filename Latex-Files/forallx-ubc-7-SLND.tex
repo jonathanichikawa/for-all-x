@@ -668,7 +668,7 @@ In this way, proofs and models give us a versatile toolkit for working with argu
 \begin{tabular*}{\textwidth}{p{10em}|p{10em}|p{10em}|}
 \cline{2-3}
 
- & {\centerline{YES}} & {\centerline{NO}}\\
+ & \multicolumn{1}{|c|}{YES} & \multicolumn{1}{|c|}{NO}\\
 \cline{2-3}
 
 Is \metaA{} a tautology? & prove $\vdash\metaA{}$ & give a model in which \metaA{} is false\\
@@ -686,7 +686,7 @@ Are \metaA{} and \metaB{} equivalent? & prove \mbox{$\metaA{}\vdash\metaB{}$} an
 Is the set \model{A} consistent? & give a model in which all the sentences in \model{A} are true & taking the sentences in \model{A}, prove \metaB{} and \enot\metaB{}\\
 \cline{2-3}
 
-Is the argument \mbox{`\metaA{}, \metaB{} \ldots \therefore\ \metaC{}'} valid? & prove $\metaA{}, \metaB{}, \ldots \vdash\metaC{}$ & give a model in which \{\metaA{}, \metaB{}, \ldots \} is satisfied and \metaC{} is falsified\\
+Is the argument `\metaA{}, \metaB{}, \ldots \mbox{\therefore\ \metaC{}'} valid? & prove $\metaA{}, \metaB{}, \ldots \vdash\metaC{}$ & give a model in which \{\metaA{}, \metaB{}, \ldots \} is satisfied and \metaC{} is falsified\\
 \cline{2-3}
 \end{tabular*}
 \end{center}
