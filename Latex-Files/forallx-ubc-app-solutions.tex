@@ -334,6 +334,7 @@ $\enot [(A\eif B) \eif \enot(B\eif A)]$
 
 
 % Chapter 5 Part B
+\begin{groupitems}
 \solutionpart{ch.sl.trees}{pr.sl.agtree}
 
 The argument is valid.
@@ -387,12 +388,14 @@ to prove={\{A \eiff B, \enot B \eif (C \eor D), E \eif \enot C, (\enot D \eand F
 ]
 ]
 \end{prooftree}
+\end{groupitems}
 
 % Chapter 5 Part C
 \solutionpart{ch.sl.trees}{tree.examples}
 \begin{earg}
 
-\item True.
+\item \begin{groupitems}
+	True.
 
 	\begin{prooftree}
 	{
@@ -410,8 +413,10 @@ to prove={\{A \eiff B, \enot B \eif (C \eor D), E \eif \enot C, (\enot D \eand F
 	]
 	]
 	\end{prooftree}
+	\end{groupitems}
 
-\item False.
+\item \begin{groupitems}
+	False.
 
 	\begin{prooftree}
 	{
@@ -439,6 +444,7 @@ to prove={\{A \eiff B, \enot B \eif (C \eor D), E \eif \enot C, (\enot D \eand F
 		]
 	]
 	\end{prooftree}
+	\end{groupitems}
 
 $\{P=0, Q=1\}$ and $\{P=1, Q=0\}$ each falsify $((P \eif Q) \eiff (Q \eif P))$, so it is not a tautology.
 
@@ -450,7 +456,8 @@ $\{P=0, Q=1\}$ and $\{P=1, Q=0\}$ each falsify $((P \eif Q) \eiff (Q \eif P))$, 
 %		\item[\therefore] $P \eand R$
 %	\end{ekey}
 
-\item True.
+\item \begin{groupitems}
+	True.
 
 	\begin{prooftree}
 	{
@@ -471,12 +478,13 @@ $\{P=0, Q=1\}$ and $\{P=1, Q=0\}$ each falsify $((P \eif Q) \eiff (Q \eif P))$, 
 	]
 	]
 	\end{prooftree}
-	
+	\end{groupitems}
 
 
 %\item There is no interpretation that satisfies $A \eor B$, $B \eif C$, and $A \eiff C$ without also satisfying C.
 
-\item True.
+\item \begin{groupitems}
+	True.
 
 	\begin{prooftree}
 	{
@@ -504,11 +512,13 @@ $\{P=0, Q=1\}$ and $\{P=1, Q=0\}$ each falsify $((P \eif Q) \eiff (Q \eif P))$, 
 	]
 	]
 	\end{prooftree}
+	\end{groupitems}
 
 
 %\item $A \eiff \enot A$ is a contradiction.
 
-\item True.
+\item \begin{groupitems}
+	True.
 
 \begin{prooftree}
 {
@@ -524,10 +534,11 @@ $\{P=0, Q=1\}$ and $\{P=1, Q=0\}$ each falsify $((P \eif Q) \eiff (Q \eif P))$, 
 	]
 ]
 \end{prooftree}
-
+\end{groupitems}
 %\item Every interpretation satisfying $P$, $P \eif Q$, and $\enot Q$ also satisfies $A$.
 
-\item True.
+\item \begin{groupitems}
+	True.
 
 \begin{prooftree}
 {
@@ -543,10 +554,12 @@ $\{P=0, Q=1\}$ and $\{P=1, Q=0\}$ each falsify $((P \eif Q) \eiff (Q \eif P))$, 
 ]
 ]
 \end{prooftree}
+\end{groupitems}
 
 %\item There is at least one interpretation that satisfies $P \eif Q$, $\enot P \eor \enot Q$, and $Q \eif P$.
 
-\item True. $\{P=0, Q=0\}$ satisfies these sentences.
+\item \begin{groupitems}
+True. $\{P=0, Q=0\}$ satisfies these sentences.
 
 \begin{prooftree}
 {
@@ -575,14 +588,7 @@ $\{P=0, Q=1\}$ and $\{P=1, Q=0\}$ each falsify $((P \eif Q) \eiff (Q \eif P))$, 
 ]
 ]
 \end{prooftree}
-
-%
-%
-%
-%
-
-
-
+\end{groupitems}
 \end{earg}
 
 
@@ -953,8 +959,8 @@ single branches}
 \solutionpart{ch.ND.proofs}{pr.SLND.theorems}
 
 \begin{earg}
-\item %$O \eif O$
-\begin{solutioninlist}
+\item \begin{solutioninlist}
+$O \eif O$
 \begin{proof}
 	\open
 		\hypo{o1}{O}\want{O}
@@ -963,8 +969,8 @@ single branches}
 	\have{o3}{O \eif O}\ci{o1-o2}
 \end{proof}
 \end{solutioninlist}
-\item %$N \eor \enot N$
-\begin{solutioninlist}
+\item \begin{solutioninlist}
+$N \eor \enot N$
 \begin{proof}
 	\open
 		\hypo{nnon}{\enot (N \eor \enot N)}\by{for reductio}{}
@@ -975,8 +981,8 @@ single branches}
 	\have{nonn}{N \eor \enot N}\ne{nnon-n,nnon-nn}
 \end{proof}
 \end{solutioninlist}
-\item %$\enot(P\eand \enot P)$
-\begin{solutioninlist}
+\item \begin{solutioninlist}
+$\enot(P\eand \enot P)$
 \begin{proof}
 	\open
 		\hypo{panp}{P \eand \enot P}\by{for reductio}{}
@@ -1477,7 +1483,8 @@ There are many possible correct answers. Here are some:
 \solutionpart{ch.QLTrees}{pr.QL.trees.tautology}
 
 \begin{earg}
-\item $\forall x \forall y (Gxy \eif \exists z Gxz)$ is a tautology.
+\item \begin{groupitems}
+	$\forall x \forall y (Gxy \eif \exists z Gxz)$ is a tautology.
 
 	\begin{prooftree}
 	{
@@ -1495,9 +1502,10 @@ There are many possible correct answers. Here are some:
 		]
 	]
 	\end{prooftree}
+	 \end{groupitems}
 
-
-\item $\forall x Fx \eor \forall x (Fx \eif Gx)$ is not a tautology.
+\item \begin{groupitems}
+	$\forall x Fx \eor \forall x (Fx \eif Gx)$ is not a tautology.
 
 	\begin{prooftree}
 	{
@@ -1517,11 +1525,13 @@ There are many possible correct answers. Here are some:
 		]
 	]
 	\end{prooftree}
-
+	
 UD=\{a, b\}, extension($F$)=\{b\}, extension($G$)=$\emptyset$
+\end{groupitems}
 
 
-\item $\forall x (Fx \eif (\enot Fx \eif \forall y Gy))$ is a tautology.
+\item  \begin{groupitems}
+	$\forall x (Fx \eif (\enot Fx \eif \forall y Gy))$ is a tautology.
 
 	\begin{prooftree}
 	{
@@ -1539,13 +1549,14 @@ UD=\{a, b\}, extension($F$)=\{b\}, extension($G$)=$\emptyset$
 		]
 	]
 	\end{prooftree}
+	 \end{groupitems}
 
 
 
 
 
-
-\item $\exists x (Fx \eor \enot Fx)$ is a tautology.
+\item  \begin{groupitems}
+	 $\exists x (Fx \eor \enot Fx)$ is a tautology.
 
 	\begin{prooftree}
 	{
@@ -1559,9 +1570,11 @@ UD=\{a, b\}, extension($F$)=\{b\}, extension($G$)=$\emptyset$
 		]
 	]
 	\end{prooftree}
+	 \end{groupitems}
 
 
-\item $\exists x Jx \eiff \enot \forall x \enot Jx$ is a tautology.
+\item  \begin{groupitems}
+	$\exists x Jx \eiff \enot \forall x \enot Jx$ is a tautology.
 
 	\begin{prooftree}
 	{
@@ -1586,11 +1599,12 @@ UD=\{a, b\}, extension($F$)=\{b\}, extension($G$)=$\emptyset$
 		]
 	]
 	\end{prooftree}
+	 \end{groupitems}
 
 
 
-
-\item $\forall x (Fx \eor Gx) \eif (\forall y Fy \eor \exists x Gx)$ is a tautology.
+\item  \begin{groupitems}
+	$\forall x (Fx \eor Gx) \eif (\forall y Fy \eor \exists x Gx)$ is a tautology.
 
 \begin{prooftree}
 	{
@@ -1614,7 +1628,7 @@ UD=\{a, b\}, extension($F$)=\{b\}, extension($G$)=$\emptyset$
 		]
 	]
 \end{prooftree}
-
+\end{groupitems}
 \end{earg}
 
 
@@ -1623,8 +1637,8 @@ UD=\{a, b\}, extension($F$)=\{b\}, extension($G$)=$\emptyset$
 % Chapter 10 Part B
 \solutionpart{ch.QLTrees}{pr.QL.trees.validity}
 \begin{earg}
-\item $Fa$, $Ga$, \therefore\ $\forall x (Fx \eif Gx)$ is invalid.
-
+\item  \begin{groupitems}
+	$Fa$, $Ga$, \therefore\ $\forall x (Fx \eif Gx)$ is invalid.
 
 \begin{prooftree}
 	{
@@ -1644,12 +1658,12 @@ UD=\{a, b\}, extension($F$)=\{b\}, extension($G$)=$\emptyset$
 \end{prooftree}
 
 UD=\{a, b\}, extension($F$)=\{a, b\}, extension($G$)=\{a\}
+ \end{groupitems}
 
 
 
-
-\item $Fa$, $Ga$, \therefore\ $\exists x (Fx \eand Gx)$ is valid.
-
+\item  \begin{groupitems}
+	$Fa$, $Ga$, \therefore\ $\exists x (Fx \eand Gx)$ is valid.
 
 \begin{prooftree}
 	{}
@@ -1664,9 +1678,11 @@ UD=\{a, b\}, extension($F$)=\{a, b\}, extension($G$)=\{a\}
 	]
 	]
 \end{prooftree}
+\end{groupitems}
 
+\item  \begin{groupitems}
+$\forall x \exists y Lxy$, \therefore\ $\exists x \forall y Lxy$ is invalid.
 
-\item $\forall x \exists y Lxy$, \therefore\ $\exists x \forall y Lxy$ is invalid.
 \begin{prooftree}
 	{}
 	[\forall x \exists y Lxy, subs={a, b, c, ...}
@@ -1700,6 +1716,7 @@ UD=\{a, b\}, extension($F$)=\{a, b\}, extension($G$)=\{a\}
 	]
 	]
 \end{prooftree}
+\end{groupitems}
 
 This tree continues in an infinite way; each new name requires additional instances at line 1 and line 2, which in turn require two more new names. We can represent a model with an infinite UD, giving the extension of $L$ as either a chart or an infinite set of ordered pairs. It is also possible to collapse this interpretation into a finite one; examining the chart, we can see that there is no reason the names couldn't be repeating names for the same two objects; we could let $d$ and $e$ be additional names for $b$ and $c$, respectively, and so on for $f$ and $g$, etc. So a two-object model will also suffice to satisfy the premises and falsify the conclusion, with UD=\{b, c\} and extension($L$)=\{\ntuple{b, b}, \ntuple{c, b}\}. This is also shown in a second chart.
 
@@ -1724,7 +1741,8 @@ $Lxy$        & \textbf{b} & \textbf{c} \\ \hline
 \end{tabular}
 \end{table}
 
-\item $\exists x (Fx \eand Gx)$, $Fb \eiff Fa$, $Fc \eif Fa$, \therefore\ $Fa$ is invalid.
+\item  \begin{groupitems}
+	$\exists x (Fx \eand Gx)$, $Fb \eiff Fa$, $Fc \eif Fa$, \therefore\ $Fa$ is invalid.
 
 \begin{prooftree}
 	{
@@ -1756,11 +1774,12 @@ $Lxy$        & \textbf{b} & \textbf{c} \\ \hline
 \end{prooftree}
 
 UD=\{a, b, c, d\}, extension($F$)=\{d\}, extension($G$)=\{d\}
+ \end{groupitems}
 
 
 
-
-\item $\forall x \exists y Gyx$, \therefore\ $\forall x \exists y (Gxy \eor Gyx)$ is valid.
+\item  \begin{groupitems}
+$\forall x \exists y Gyx$, \therefore\ $\forall x \exists y (Gxy \eor Gyx)$ is valid.
 
 \begin{prooftree}
 	{
@@ -1782,6 +1801,7 @@ UD=\{a, b, c, d\}, extension($F$)=\{d\}, extension($G$)=\{d\}
 	]
 	]
 \end{prooftree}
+ \end{groupitems}
 \end{earg}
 
 
@@ -2591,7 +2611,7 @@ UD & \{Dorothy\}\\
 \solutionpart{ch.identity}{pr.IdentityTrees}
 
 \begin{earg}
-\item \begin{multicols}{2}
+\item  \begin{groupitems}
 $\models \forall x \forall y (x{=}y \eif y{=}x)$ is true.
 
 \begin{prooftree}
@@ -2608,9 +2628,10 @@ $\models \forall x \forall y (x{=}y \eif y{=}x)$ is true.
 	]
 ]
 \end{prooftree}
-\end{multicols}
+ \end{groupitems}
 
-\item \begin{multicols}{2} $\models \forall x \exists y \: x{=}y$ is true.
+\item  \begin{groupitems} 
+$\models \forall x \exists y \: x{=}y$ is true.
 
 \begin{prooftree}
 {}
@@ -2620,9 +2641,9 @@ $\models \forall x \forall y (x{=}y \eif y{=}x)$ is true.
 	]
 ]
 \end{prooftree}
-\end{multicols}
+ \end{groupitems}
 
-\item \begin{multicols}{2} $\models \exists x \forall y \: x{=}y$ is false.
+\item \begin{groupitems}$\models \exists x \forall y \: x{=}y$ is false.
 
 \begin{prooftree}
 {}
@@ -2636,9 +2657,9 @@ $\models \forall x \forall y (x{=}y \eif y{=}x)$ is true.
 \begin{partialmodel}
 	UD & \{a, b\}\\
 \end{partialmodel}
-\end{multicols}
-
-\item \begin{multicols}{2}
+ \end{groupitems}
+ 
+\item \begin{groupitems}
 $\exists x \forall y \: x{=}y \models \forall x \forall y (Rxy \eiff Ryx)$ is true.
 
 \begin{prooftree}
@@ -2670,9 +2691,10 @@ $\exists x \forall y \: x{=}y \models \forall x \forall y (Rxy \eiff Ryx)$ is tr
 ]
 ]
 \end{prooftree}
-\end{multicols}
+ \end{groupitems}
 
-\item $\models \enot \forall x \forall y \forall z [(Axy \eand Azx \eand y{=}z) \eif Axx]$ is false.
+\item  \begin{groupitems} 
+$\models \enot \forall x \forall y \forall z [(Axy \eand Azx \eand y{=}z) \eif Axx]$ is false.
 
 \begin{prooftree}
 {}
@@ -2693,7 +2715,7 @@ $\exists x \forall y \: x{=}y \models \forall x \forall y (Rxy \eiff Ryx)$ is tr
 	]
 ]
 \end{prooftree}
-
+\end{groupitems}
 This tree is complete. Three open branches describe these two models:
 
 \begin{multicols}{2}
@@ -2708,7 +2730,8 @@ UD & \{a\}\\
 \end{partialmodel}
 \end{multicols}
 
-\item $\forall x \forall y \: x{=}y \models \exists x Fx \eiff \forall x Fx$ is true.
+\item \begin{groupitems} 
+$\forall x \forall y \: x{=}y \models \exists x Fx \eiff \forall x Fx$ is true.
 
 \begin{prooftree}
 {}
@@ -2739,9 +2762,10 @@ UD & \{a\}\\
 ]
 ]
 \end{prooftree}
+\end{groupitems}
 
-
-\item $\forall x (x{=}a \eor x{=}b), Ga \eiff \enot Gb \models \enot \exists x \exists y \exists z (Gx \eand Gy \eand \enot Gz)$ is false.
+\item  \begin{groupitems}
+$\forall x (x{=}a \eor x{=}b), Ga \eiff \enot Gb \models \enot \exists x \exists y \exists z (Gx \eand Gy \eand \enot Gz)$ is false.
 
 \begin{prooftree}
 {}
@@ -2804,7 +2828,8 @@ UD & \{a\}\\
 ]
 ]
 \end{prooftree}
-
+\end{groupitems}
+ 
 This tree will end up with multiple open branches; since one open branch is enough to falsify the entailment claim, this version focuses on the left-most open branch at every point, leaving the other open branches incomplete. It describes this model:
 
 \begin{partialmodel}
@@ -2818,7 +2843,8 @@ UD & \{a, b\}\\
 \end{partialmodel}
 
 
-\item $\forall x (Fx \eif x{=}f), \exists x (Fx \eor \forall y \: y{=}x) \models Ff$ is false.
+\item  \begin{groupitems}
+$\forall x (Fx \eif x{=}f), \exists x (Fx \eor \forall y \: y{=}x) \models Ff$ is false.
 
 \begin{prooftree}
 {}
@@ -2849,7 +2875,7 @@ UD & \{a, b\}\\
 ]
 ]
 \end{prooftree}
-
+\end{groupitems}
 We have one completed open branch. (Another open branch has not been completed.) It gives this model:
 
 \begin{partialmodel}
@@ -2859,7 +2885,8 @@ UD & \{a\}\\
 \extension{F} & $\emptyset$
 \end{partialmodel}
 
-\item $\exists x \exists y Dxy \models \forall x_{1} \forall x_{2} \forall x_{3} \forall x_{4} [(Dx_{1}x_{2} \eand Dx_{3}x_{4}) \eif (x_{2}{\neq}x_{3} \eor Dx_{1}x_{4})]$ is false.
+\item  \begin{groupitems}
+$\exists x \exists y Dxy \models \forall x_{1} \forall x_{2} \forall x_{3} \forall x_{4} [(Dx_{1}x_{2} \eand Dx_{3}x_{4}) \eif (x_{2}{\neq}x_{3} \eor Dx_{1}x_{4})]$ is false.
 
 \begin{prooftree}
 {}
@@ -2882,6 +2909,7 @@ UD & \{a\}\\
 [Dce, just={=: dcd, ee}, grouped, open
 ]]]]]]]]]]]]]]]]]
 \end{prooftree}
+\end{groupitems}
 
 \begin{multicols}{2}
 \begin{partialmodel}

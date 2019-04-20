@@ -2,7 +2,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{forallx-ubc}[2011/10/29 support for a logic textbook]
 \usepackage[dvipsnames]{xcolor}
-\RequirePackage{amssymb,amsmath,microtype,multicol,ifthen,prooftrees,titlesec, apptools}
+\RequirePackage{adjustbox, amssymb,amsmath,microtype,multicol,ifthen,prooftrees,titlesec, apptools}
 \usepackage[linktocpage=true]{hyperref}
 \definecolor{URLblue}{RGB}{0,0,150}
 \hypersetup{
@@ -203,9 +203,13 @@
 
 % This is used to place (eg) a partial model or proof as an item
 % in a list. Without it, the item tag will be vertically centered next
-% to the model or proof.
-%		--- doesn't actually work yet ---
-\newenvironment{solutioninlist}{}{}%{~\vspace{-1.6em}}{}
+% to the model or proof. 
+\newenvironment{solutioninlist}{\begin{adjustbox}{valign=t}}{\end{adjustbox}}%
+
+% This creates a minipage which keeps items in the environment grouped together.
+% Use this if an example should not be broken or if text should be grouped with an example.
+\newenvironment{groupitems}{\begin{minipage}[t]{\textwidth}}{\end{minipage}}
+
 
 
 %    ****************************************

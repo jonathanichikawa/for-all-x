@@ -547,8 +547,6 @@ Second, it can sometimes be confusing to look at long sentences with nested sets
 $$(((H \eif I) \eor (I \eif H)) \eand (J \eor K))$$
 could be written in this way, omitting the outer parentheses and using square brackets to make the inner structure easier to see:
 $$\bigl[(H \eif I) \eor (I \eif H)\bigr] \eand (J \eor K)$$
-
-
 Third, we will sometimes want to translate the conjunction of three or more sentences. For the sentence `Alice, Bob, and Candice all went to the party', suppose we let $A$ mean `Alice went', $B$ mean `Bob went', and $C$ mean `Candice went.' The definition only allows us to form a conjunction out of two sentences, so we can translate it as $(A \eand B) \eand C$ or as $A \eand (B \eand C)$. There is no reason to distinguish between these, since the two translations are logically equivalent. There is no logical difference between the first, in which $(A \eand B)$ is conjoined with $C$, and the second, in which $A$ is conjoined with $(B \eand C)$.  So we might as well just write $A \eand B \eand C$. As a matter of convention, we can leave out parentheses when we conjoin three or more sentences.
 
 Fourth, a similar situation arises with multiple disjunctions. `Either Alice, Bob, or Candice went to the party' can be translated as $(A \eor B) \eor C$ or as $A \eor (B \eor C)$. Since these two translations are logically equivalent, we may write $A \eor B \eor C$.

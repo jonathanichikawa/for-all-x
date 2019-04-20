@@ -223,7 +223,6 @@ Is there any model with a two-object UD that satisfies $\{\forall x Fxa, \forall
 As in SL trees, a completed QL tree with an open branch describes a way of satisfying the root. We're assuming a two-object UD; for simplicity, let's let our objects be the letters `a' and `b', and have `a' be the referent of the QL name $a$, and `b' be the referent of the QL name $b$. We look to the two QL atoms and two negated QL atoms in the branch; they indicate what needs to be included in the extension of each predicate in our model. Since $Faa$ is in the branch, we need to include \ntuple{a, a} in the extension of $F$. Since \enot $Ga$ is in the branch, we need for a \emph{not} to be in the extension of $G$.
 
 Here is a partial model that suffices to satisfy the root of the above tree:
-
 \begin{partialmodel}
 	UD & $\{a, b\}$\\
 	\extension{G} & \begin{tabular}{l|l}
@@ -235,7 +234,6 @@ Here is a partial model that suffices to satisfy the root of the above tree:
 		\textbf{a} & 1          & -  \\
 		\textbf{b} & 1          &  -
 		\end{tabular}
-
 \end{partialmodel}
 
 Notice that we've put blanks for two of the cells in the extension of $Fxy$. That is to indicate that it doesn't matter whether or not \ntuple{a, b} or \ntuple{b, b} are included in the extension of $Fxy$. (This is also why neither $Fab$, $Fbb$, \enot $Fab$, nor \enot $Fbb$ appeared in the open branch.) So the tree method for QL is similar to that for SL in this respect as well. An open branch in a completed tree describes a way to satisfy the root.

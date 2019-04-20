@@ -219,7 +219,6 @@ $$\exists x \exists y (x {\neq} y \eand [(Ox \eand Oy) \eand (Cmx \eand Cmy)])$$
 In sentences like these--- and the longer ones listing more conditions that will feature soon--- it is usually preferable for readability to leave these internal brackets out. We will write as if our system allows arbitrary numbers of conjuncts, with the understanding that, should the need arise, we could always put them back in explicitly. (We'll rarely have occasion to do so.)
 
 This sentence says that Mozart wrote at least two operas. To say that he wrote at least \emph{three} operas would require another quantifier with a new variable $z$, and the specification that $z$ be an opera, written by Mozart, and non-identical to both of the ones previously mentioned:
-
 \begin{multline*}
 \exists x \exists y \exists z (x {\neq} y \eand x {\neq} z \eand y {\neq} z \eand 
 Ox \eand Oy \eand Oz \eand Cmx \eand Cmy \eand Cmz)
@@ -228,16 +227,13 @@ Ox \eand Oy \eand Oz \eand Cmx \eand Cmy \eand Cmz)
 As you can see, these sentences get long and complicated rather quickly.
 
 Suppose we wanted to say that Mozart composed \emph{exactly} two operas--- no more, and no fewer. There are two reasonably natural choices for how to say that. One is to conjoin the first QL sentence of this section--- Mozart composed at least two operas--- with the negation of the second--- Mozart did not compose at least three operas. The result is:
-
 \begin{multline*}
 \exists x \exists y (x {\neq} y \eand Ox \eand Oy \eand Cmx \eand Cmy) \eand \\ \enot \exists x \exists y \exists z (x {\neq} y \eand x {\neq} z \eand y {\neq} z \eand Ox \eand Oy \eand Oz \eand Cmx \eand Cmy \eand Cmz)
 \end{multline*}
 
 A slightly more efficient way of saying the same thing, rather than conjoining a new negated triple existential, would be to add, within the scope of the first two quantifiers, a conjunct to the effect that every opera composed by Mozart is one of the two mentioned in that first conjunction. To say that any opera composed by Mozart is either $x$ or $y$ is to say that, for any $z$, if $z$ is an opera composed by Mozart, then it is either $x$ or $y$. In other words: $\forall z [(Oz \eand Cmz) \eif (z{=}x \eor z{=}y)]$. So another way to say that Mozart composed exactly two operas is:
-
 \begin{multline*}
-\exists x \exists y ((x {\neq} y  \eand  Ox \eand Oy \eand  Cmx \eand Cmy) \eand \\
-\forall z [(Oz \eand Cmz) \eif (z{=}x \eor z{=}y)])
+\exists x \exists y ((x {\neq} y  \eand  Ox \eand Oy \eand  Cmx \eand Cmy) \eand \forall z [(Oz \eand Cmz) \eif (z{=}x \eor z{=}y)])
 \end{multline*}
 
 So identity gives us a way to talk about quantities, albeit not a particularly efficient one.

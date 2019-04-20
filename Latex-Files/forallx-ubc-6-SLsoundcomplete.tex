@@ -514,7 +514,6 @@ single branches}
 This tree is a counterexample to soundness, using the hypothetical rule mentioned above. Note that a counterexample is a tree that uses SL sentences, not the Greek letters \metaA{} and \metaB{} that we use in the statements of the rules.
 
 Let's work through one more example. Suppose we changed the conjunction rule to this one:
-
 	\begin{center}
 	\begin{prooftree}
 	{not line numbering}
@@ -527,7 +526,6 @@ Let's work through one more example. Suppose we changed the conjunction rule to 
 	]
 \end{prooftree}
 \end{center}
-
 Would our system still be sound? To answer this, we assume that the conjunction $\metaA{}\eand\metaB{}$ is satisfiable, and ask whether this guarantees that at least one branch below is also satisfiable. It does. (In fact, both branches are guaranteed to be satisfiable.) So the system will still be sound.
 
 Would the system still be complete? To answer this, we ask whether each branch is such that, if we assume that an interpretation satisfies the developments below, it is guaranteed to satisfy the conjunction above. Begin with the left branch. If some interpretation satisfies both \metaA{} and \metaB{}, then it will certainly satisfy the conjunction $\metaA{}\eand\metaB{}$. So that branch looks fine. (Indeed, that branch is exactly the same as the linear development of our actual conjunction rule, so this reasoning is the same as that on p.\ \pageref{conjunctionsound}.)
