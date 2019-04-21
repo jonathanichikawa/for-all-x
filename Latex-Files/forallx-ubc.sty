@@ -2,7 +2,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{forallx-ubc}[2011/10/29 support for a logic textbook]
 \usepackage[dvipsnames]{xcolor}
-\RequirePackage{adjustbox, amssymb,amsmath,microtype,multicol,ifthen,prooftrees,titlesec, apptools}
+\RequirePackage{adjustbox, amssymb,amsmath,lmodern,microtype,multicol,ifthen,prooftrees,titlesec, apptools}
 \usepackage[linktocpage=true]{hyperref}
 \definecolor{URLblue}{RGB}{0,0,150}
 \hypersetup{
@@ -208,7 +208,7 @@
 
 % This creates a minipage which keeps items in the environment grouped together.
 % Use this if an example should not be broken or if text should be grouped with an example.
-\newenvironment{groupitems}{\begin{minipage}[t]{\textwidth}}{\end{minipage}}
+\newenvironment{groupitems}{\begin{minipage}[t]{\linewidth}}{\end{minipage}}
 
 
 
@@ -226,6 +226,13 @@
 {\textrm{ch.~\thechapter\ \lowercase{#1}}}%
 }
 \renewcommand{\sectionmark}[1]{}
+
+% Slightly decrease the spacing between the numbers of (sub)sections
+% and the name of the (sub)section to avoid overfull hboxes.
+% \titlespacing*{\section}{0ex}{*1}{*1}%
+% \titlespacing*{\subsection}{0ex}{*1}{*1}%
+\titleformat{\section}{\bfseries\Large}{~\thesection}{0.5em}{}%
+\titleformat{\subsection}{\bfseries\large}{~\thesubsection}{0.5em}{}%
 
 
 
