@@ -1,5 +1,16 @@
 %!TEX root = forallx-ubc.tex
 \pagestyle{plain}
+% change margins so that all the rules will fit
+\setlength{\topmargin}{0 in}
+\setlength{\headheight}{0 in}
+\setlength{\headsep}{0 in}
+\setlength{\textheight}{9 in}
+\setlength{\evensidemargin}{0.25 in}
+\setlength{\oddsidemargin}{0.25 in}
+\setlength{\textwidth}{6 in}
+
+\pagenumbering{gobble}
+
 \chapter[Quick Reference]{Quick Reference}
 \label{app.quickreference}
 
@@ -83,23 +94,13 @@ The $F$ is not $G$. & $\exists x(Fx \eand \forall y(Fy \eif x{=}y) \eand \enot G
 
 \newpage
 
-%  BEGIN: Rules of proof
-% change margins so that all the rules will fit
-\setlength{\topmargin}{0 in}
-\setlength{\headheight}{0 in}
-\setlength{\headsep}{0 in}
-\setlength{\textheight}{9 in}
-\setlength{\evensidemargin}{0.25 in}
-\setlength{\oddsidemargin}{0.25 in}
-\setlength{\textwidth}{6 in}
-
-\pagenumbering{gobble}
-
-\label{Basic Rules}
-{\LARGE \bf Basic Rules}
+\label{Tree Rules}
+{\LARGE \bf Tree Rules}
 
 
-\begin{multicols}{3}
+\textbf{\large Sentential Rules} (chapter \ref{ch.sl.trees})
+
+\begin{multicols}{5}
 
 %row1col1
 %\begin{quote}\framebox{\parbox[][75px][c]{\linewidth}{
@@ -253,10 +254,9 @@ single branches}
 
 \end{multicols}
 
-{\LARGE \bf Quantifier Tree Rules}
+\textbf{\large Quantifier Rules} (chapter \ref{ch.QL})
 
-
-\begin{multicols}{2}
+\begin{multicols}{4}
 
 
 %\factoidbox{
@@ -318,11 +318,24 @@ for any \script{a}
 
 \end{multicols}
 
+\textbf{\large Identity Rules} (chapter \ref{ch.identity})
 
 
+If a branch contains an identity claim \script{a}{=}\script{b} and some sentence \metaA{}, then you may add \metaA{}\substitute{\script{a}}{\script{b}} or \metaA{}\substitute{\script{b}}{\script{a}} to the branch.
 
+A branch is \define{complete} if and only if either (i) it is closed, or (ii) all of the following conditions are met:
+\begin{enumerate}
+\item Every resolvable sentence in the branch has been resolved;
+\item For every general quantified sentence \metaA{} and every name \script{a} in the branch, the \script{a} instance of \metaA{} is in the branch; and
+\item For every identity claim $\script{a}{=}\script{b}$ in the branch, either:
+	\begin{enumerate}
+	\item for every atomic sentence or negated atomic sentence \metaA{} containing \script{a} in the branch, \metaA{}\substitute{\script{a}}{\script{b}} is in the branch, or 
+	\item for every atomic sentence or negated atomic sentence \metaA{} containing \script{b} in the branch, \metaA{}\substitute{\script{b}}{\script{a}} is in the branch.
+	\end{enumerate}
+\end{enumerate}
+
+A branch closes if and only if either (i) it contains some sentence \metaA{} along with its negation, \enot\metaA{}, or (ii) it contains, for some name \script{a}, the sentence $\script{a}{\neq}\script{a}$.
 \newpage
-
 
 % This starts a new page and skips a page if necessary so as
 % to start on an even numbered page.
@@ -362,7 +375,7 @@ for any \script{a}
 
 \pagestyle{empty}
 \twocolumn[\section*{\LARGE \bf Natural Deduction Rules} 
-				{\Large \bf Basic Rules} 
+				{\large \bf Basic Rules} 
 				\vspace{1em}]
 
 
@@ -489,7 +502,7 @@ for any \script{a}
 
 \newpage
 
-{\Large \bf Quantifier Rules}
+{\large \bf Quantifier Rules}
 
 \textsc{Existential Introduction}
 
@@ -535,7 +548,7 @@ $^\ast$ \script{c} must not appear outside the subproof.
 
 
 
-{\Large \bf Identity Rules}
+{\large \bf Identity Rules}
 
 \begin{proof}
 	\have[\ \,\,\,]{x}{\script{c}{=}\script{c}} \by{=I}{}
@@ -556,7 +569,7 @@ One constant may replace some or all occurrences of the other.
 
 \newpage
 
-{\Large \bf Derived Rules}
+{\large \bf Derived Rules}
 
 \textsc{Dilemma}
 
@@ -585,7 +598,7 @@ One constant may replace some or all occurrences of the other.
 
 
 
-{\Large \bf Replacement Rules}
+{\large \bf Replacement Rules}
 
 \textsc{Commutativity} (Comm)\\
 $(\metaA{}\eand\metaB{}) \Longleftrightarrow (\metaB{}\eand\metaA{})$\\
