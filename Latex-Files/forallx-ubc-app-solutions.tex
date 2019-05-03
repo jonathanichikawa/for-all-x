@@ -2761,11 +2761,9 @@ $\forall x \forall y \: x{=}y \models \exists x Fx \eiff \forall x Fx$ is true.
 ]
 \end{prooftree}
 \end{groupitems}
-
-\item  \begin{groupitems}
+\item \begin{groupitems}
 $\forall x (x{=}a \eor x{=}b), Ga \eiff \enot Gb \models \enot \exists x \exists y \exists z (Gx \eand Gy \eand \enot Gz)$ is false.
-
-\begin{prooftree}
+\small{\begin{prooftree}
 {}
 [\forall x (x{=}a \eor x{=}b), subs={c, d, e, a, b}
 [Ga \eiff \enot Gb, grouped, checked
@@ -2825,7 +2823,7 @@ $\forall x (x{=}a \eor x{=}b), Ga \eiff \enot Gb \models \enot \exists x \exists
 ]
 ]
 ]
-\end{prooftree}
+\end{prooftree}}
 \end{groupitems}
  
 This tree will end up with multiple open branches; since one open branch is enough to falsify the entailment claim, this version focuses on the left-most open branch at every point, leaving the other open branches incomplete. It describes this model:
@@ -2839,7 +2837,7 @@ UD & \{a, b\}\\
 \referent{e} & b\\
 \extension{G} & \{a\}
 \end{partialmodel}
-
+\vspace{12pt}
 
 \item  \begin{groupitems}
 $\forall x (Fx \eif x{=}f), \exists x (Fx \eor \forall y \: y{=}x) \models Ff$ is false.
