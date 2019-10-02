@@ -6,7 +6,7 @@ This chapter introduces a different proof system in SL, separate from the tree m
 
 The \define{natural deduction} system of this chapter will differ from the tree method in all of these respects. It is intended to model human reasoning in a closer way, illustrating the connections between various claims; consequently, working through a natural deduction proof requires a bit more insight and inspiration than a tree proof does.
 
-Natural deduction proofs can be used to prove that an argument is valid; if an argument is invalid, our natural deduction system will not necessarily make that obvious. (Any valid argument in SL can be shown to be valid via a natural deduction proof--- i.e., this method is complete too (and sound)--- but that's no guarantee that any individual will be able to come up with the proof.)
+Natural deduction proofs can be used to prove that an argument is valid; if an argument is invalid, our natural deduction system will not necessarily make that obvious. (Any valid argument in SL can be shown to be valid via a natural deduction proof --- i.e., this method is complete too (and sound) --- but that's no guarantee that any individual will be able to come up with the proof.)
 
 Consider two arguments in SL:
 
@@ -56,7 +56,7 @@ In addition to the rules for each logical operator, we will also have a reiterat
 	\have{a2}\metaA{} \by{R}{a1}
 \end{proof}
 
-The numbers on the left indicate line numbers; they are used for reference in justifying later steps in the proof. New lines in a proof must always be justified by rules and reference to previous lines. The `R 1' to the right on line 2 is the justification for that line--- that line is permitted by the reiteration rule (R), applied to line 1.
+The numbers on the left indicate line numbers; they are used for reference in justifying later steps in the proof. New lines in a proof must always be justified by rules and reference to previous lines. The `R 1' to the right on line 2 is the justification for that line --- that line is permitted by the reiteration rule (R), applied to line 1.
 
 Obviously, the reiteration rule will not allow us to show anything \emph{new}. For that, we will need more rules. The remainder of this section will give introduction and elimination rules for all of the sentential connectives. This will give us a complete proof system for SL.
 
@@ -91,7 +91,7 @@ Even with just these two rules, we can provide some proofs. Consider this argume
 \item[] $[(A\eor B)\eif(C\eor D)] \eand [(E \eor F) \eif (G\eor H)]$
 \item[\therefore] $[(E \eor F) \eif (G\eor H)] \eand [(A\eor B)\eif(C\eor D)]$
 \end{earg}
-The main logical operator in both the premise and conclusion is conjunction. Since conjunction is symmetric, the argument is obviously valid. In order to provide a proof, we begin by writing down the premise. After the premises, we draw a horizontal line--- everything below this line must be justified by a rule of proof. So the beginning of the proof looks like this:
+The main logical operator in both the premise and conclusion is conjunction. Since conjunction is symmetric, the argument is obviously valid. In order to provide a proof, we begin by writing down the premise. After the premises, we draw a horizontal line --- everything below this line must be justified by a rule of proof. So the beginning of the proof looks like this:
 
 \begin{proof}
 	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
@@ -134,7 +134,7 @@ Notice that \metaB{} can be \emph{any} sentence whatsoever. So the following is 
 	\have{mmm}{M \eor ([(A\eiff B) \eif (C \eand D)] \eiff [E \eand F])}\oi{m}
 \end{proof}
 
-It may seem odd that just by knowing $M$ we can derive a conclusion that includes sentences like $A$, $B$, and the rest--- sentences that have nothing to do with $M$. Yet the conclusion follows immediately by {\eor}I. This is as it should be: The truth conditions for the disjunction mean that, if \metaA{} is true, then $\metaA{}\eor \metaB{}$ is true regardless of what \metaB{} is. So the conclusion could not be false if the premise were true; the argument is valid.
+It may seem odd that just by knowing $M$ we can derive a conclusion that includes sentences like $A$, $B$, and the rest --- sentences that have nothing to do with $M$. Yet the conclusion follows immediately by {\eor}I. This is as it should be: The truth conditions for the disjunction mean that, if \metaA{} is true, then $\metaA{}\eor \metaB{}$ is true regardless of what \metaB{} is. So the conclusion could not be false if the premise were true; the argument is valid.
 
 Now consider the disjunction elimination rule. What can you conclude from $M \eor N$? You cannot conclude $M$. It might be $M$'s truth that makes $M \eor N$ true, as in the example above, but it might not. From $M \eor N$ alone, you cannot conclude anything about either $M$ or $N$ specifically. If you also knew that $N$ was false, however, then you would be able to conclude $M$.
 
@@ -172,7 +172,7 @@ We begin the proof by writing down the premise of the argument and drawing a hor
 	\hypo{rf}{R \eor F}
 \end{proof}
 
-If we had $\enot R$ as a further premise, we could derive $F$ by the {\eor}E rule. We do not have $\enot R$ as a premise of this argument, nor can we derive it directly from the premise we do have--- so we cannot simply prove $F$. What we will do instead is start a \emph{subproof}, a proof within the main proof. When we start a subproof, we draw another vertical line to indicate that we are no longer in the main proof. Then we write in an assumption for the subproof. This can be anything we want. Here, it will be helpful to assume $\enot R$. Our proof now looks like this:
+If we had $\enot R$ as a further premise, we could derive $F$ by the {\eor}E rule. We do not have $\enot R$ as a premise of this argument, nor can we derive it directly from the premise we do have --- so we cannot simply prove $F$. What we will do instead is start a \emph{subproof}, a proof within the main proof. When we start a subproof, we draw another vertical line to indicate that we are no longer in the main proof. Then we write in an assumption for the subproof. This can be anything we want. Here, it will be helpful to assume $\enot R$. Our proof now looks like this:
 
 \begin{proof}
 	\hypo{rf}{R \eor F}
@@ -264,7 +264,7 @@ Now that we have rules for the conditional, consider this argument:
 \item[] $Q \eif R$
 \item[\therefore] $P \eif R$
 \end{earg}
-We begin the proof by writing the two premises as assumptions. Since the main logical operator in the conclusion is a conditional, we can expect to use the {\eif}I rule. For that, we need a subproof--- so we write in the antecedent of the conditional as assumption of a subproof:
+We begin the proof by writing the two premises as assumptions. Since the main logical operator in the conclusion is a conditional, we can expect to use the {\eif}I rule. For that, we need a subproof --- so we write in the antecedent of the conditional as assumption of a subproof:
 
 \begin{proof}
 	\hypo{pq}{P \eif Q}
@@ -331,7 +331,7 @@ Here is a simple mathematical argument in English:
 \item[] This is impossible, since $A$ is assumed to be the greatest natural number.
 \item[\therefore] There is no greatest natural number.
 \end{earg}
-This argument form is traditionally called a \emph{reductio}. Its full Latin name is \emph{reductio ad absurdum}, which means `reduction to absurdity.' In a reductio, we assume something for the sake of argument--- for example, that there is a greatest natural number. Then we show that the assumption leads to two contradictory sentences--- for example, that $A$ is the greatest natural number and that it is not. In this way, we show that the original assumption must have been false.
+This argument form is traditionally called a \emph{reductio}. Its full Latin name is \emph{reductio ad absurdum}, which means `reduction to absurdity.' In a reductio, we assume something for the sake of argument --- for example, that there is a greatest natural number. Then we show that the assumption leads to two contradictory sentences --- for example, that $A$ is the greatest natural number and that it is not. In this way, we show that the original assumption must have been false.
 
 The basic rules for negation will allow for arguments like this. If we assume something and show that it leads to contradictory sentences, then we have proven the negation of the assumption. This is the negation introduction ({\enot}I) rule:
 
@@ -609,7 +609,7 @@ Some replacement rules should become second nature. If you see a negated disjunc
 \paragraph{Do not forget indirect proof.}
 If you cannot find a way to show something directly, try assuming its negation.
 
-Remember that most proofs can be done either indirectly or directly. One way might be easier--- or perhaps one sparks your imagination more than the other--- but either one is formally legitimate.
+Remember that most proofs can be done either indirectly or directly. One way might be easier --- or perhaps one sparks your imagination more than the other --- but either one is formally legitimate.
 
 \paragraph{Repeat as necessary.} Once you have decided how you might be able to get to the conclusion, ask what you might be able to do with the premises. Then consider the target sentences again and ask how you might reach them.
 
@@ -633,11 +633,11 @@ Logical proofs are sometimes called \emph{derivations}. So $\metaA{}\vdash\metaB
 
 A \define{theorem} is a sentence that is derivable without any premises; i.e., \metaA{} is a theorem if and only if $\vdash\metaA{}$.
 
-It is not too hard to show that something is a theorem--- you just have to give a proof of it. How could you show that something is \emph{not} a theorem? If its negation is a theorem, then you could provide a proof. For example, it is easy to prove $\enot(P \eand \enot P)$, which shows that $(P \eand \enot P)$ cannot be a theorem. For a sentence that is neither a theorem nor the negation of a theorem, however, there is no easy way to show this. You would have to demonstrate not just that certain proof strategies fail, but that no proof is possible. Even if you fail in trying to prove a sentence in a thousand different ways, perhaps the proof is just too long and complex for you to make out. As we've emphasized already, this is a difference between our natural deduction system and the tree method.
+It is not too hard to show that something is a theorem --- you just have to give a proof of it. How could you show that something is \emph{not} a theorem? If its negation is a theorem, then you could provide a proof. For example, it is easy to prove $\enot(P \eand \enot P)$, which shows that $(P \eand \enot P)$ cannot be a theorem. For a sentence that is neither a theorem nor the negation of a theorem, however, there is no easy way to show this. You would have to demonstrate not just that certain proof strategies fail, but that no proof is possible. Even if you fail in trying to prove a sentence in a thousand different ways, perhaps the proof is just too long and complex for you to make out. As we've emphasized already, this is a difference between our natural deduction system and the tree method.
 
 Two sentences \metaA{} and \metaB{} are \define{provably equivalent} if and only if each can be derived from the other; i.e., $\metaA{}\vdash\metaB{}$ and $\metaB{}\vdash\metaA{}$.
 
-It is relatively easy to show that two sentences are provably equivalent--- it just requires a pair of proofs. Showing that sentences are \emph{not} provably equivalent would be much harder. It would be just as hard as showing that a sentence is not a theorem. (In fact, these problems are interchangeable. Can you think of a sentence that would be a theorem if and only if \metaA{} and \metaB{} were provably equivalent?)
+It is relatively easy to show that two sentences are provably equivalent --- it just requires a pair of proofs. Showing that sentences are \emph{not} provably equivalent would be much harder. It would be just as hard as showing that a sentence is not a theorem. (In fact, these problems are interchangeable. Can you think of a sentence that would be a theorem if and only if \metaA{} and \metaB{} were provably equivalent?)
 
 The set of sentences $\{\metaA{}_1,\metaA{}_2,\ldots\}$ is \define{provably inconsistent} if and only if contradictory sentences are derivable from it; i.e., for some sentence \metaB{}, $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash\metaB{}$ and $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash\enot \metaB{}$. This is equivalent to $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash\bot$.
 
@@ -647,7 +647,7 @@ It is easy to show that a set is provably inconsistent: You just need to assume 
 \section{Proofs and models}
 As you might already suspect, there is a connection between \emph{theorems} and \emph{tautologies}.
 
-There is a formal way of showing that a sentence is a theorem: Prove it. For each line, we can check to see if that line follows by the cited rule. It may be hard to produce a twenty line proof, but it is not so hard to check each line of the proof and confirm that it is legitimate--- and if each line of the proof individually is legitimate, then the whole proof is legitimate. Showing that a sentence is a tautology, though, requires reasoning in English about all possible models. There is no formal way of checking to see if the reasoning is sound. Given a choice between showing that a sentence is a theorem and showing that it is a tautology, it would be easier to show that it is a theorem.
+There is a formal way of showing that a sentence is a theorem: Prove it. For each line, we can check to see if that line follows by the cited rule. It may be hard to produce a twenty line proof, but it is not so hard to check each line of the proof and confirm that it is legitimate --- and if each line of the proof individually is legitimate, then the whole proof is legitimate. Showing that a sentence is a tautology, though, requires reasoning in English about all possible models. There is no formal way of checking to see if the reasoning is sound. Given a choice between showing that a sentence is a theorem and showing that it is a tautology, it would be easier to show that it is a theorem.
 
 By contrast, there is no formal way of showing that a sentence is \emph{not} a theorem. We would need to reason in English about all possible proofs. Yet there is a formal method for showing that a sentence is not a tautology. We need only construct a model in which the sentence is false. Given a choice between showing that a sentence is not a theorem and showing that it is not a tautology, it would be easier to show that it is not a tautology.
 

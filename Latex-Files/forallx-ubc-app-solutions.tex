@@ -2641,21 +2641,31 @@ $\models \forall x \exists y \: x{=}y$ is true.
 \end{prooftree}
  \end{groupitems}
 
+%F3
+
 \item \begin{groupitems}$\models \exists x \forall y \: x{=}y$ is false.
 
 \begin{prooftree}
 {}
-[\enot \exists x \forall y \: x{=}y, subs=a
-	[\enot \forall y \: y{=}a, checked=b, just=1 $\enot \exists$
-		[b{\neq}a, just=2 \enot $\forall$, open]
+[\enot \exists x \forall y \: x{=}y, subs={a, b}
+	[\enot \forall y \: a{=}y, checked=b, just=1 $\enot \exists$
+		[a{\neq}b, just=2 \enot $\forall$
+			[\enot \forall y \: b{=}y, checked=c, just=1 $\enot \exists$
+				[b{\neq}c, just=4 \enot $\forall$
+					[\vdots]
+				]
+			]
+		]
 	]
 ]
 \end{prooftree}
 
 \begin{partialmodel}
-	UD & \{a, b\}\\
+	UD & \{a, b, c, \ldots\}\\
 \end{partialmodel}
  \end{groupitems}
+
+This infinite tree describes a model with an infinite UD. Since there are no predicates we needn't provide any extensions. Note that a two-object domain would also have sufficed to satisfy the root, even though the tree was not complete after line 3, since we hadn't taken the $b$ instance of the negated existential. The tree will be infinite since at line 6 we would take the $c$ instance from line 1, etc.
  
 \item \begin{groupitems}
 $\exists x \forall y \: x{=}y \models \forall x \forall y (Rxy \eiff Ryx)$ is true.

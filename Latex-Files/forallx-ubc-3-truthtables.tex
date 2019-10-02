@@ -13,7 +13,7 @@ This is a very interesting feature of SL. It is not inevitable. The syntax of En
 For this reason, we can construct truth tables to determine the logical features of SL sentences.
 
 \section{Complete truth tables}
-The truth-value of sentences which contain only one connective are given by the characteristic truth table for that connective. Truth tables list out all the possible combinations of truth values for the atomic wffs at play; each row corresponds to an \define{interpretation}--- a possible way of assigning truth values to atomic sentence. (\{$P=1$, $Q=0$\} is an example of an interpretation.)
+The truth-value of sentences which contain only one connective are given by the characteristic truth table for that connective. Truth tables list out all the possible combinations of truth values for the atomic wffs at play; each row corresponds to an \define{interpretation} --- a possible way of assigning truth values to atomic sentence. (\{$P=1$, $Q=0$\} is an example of an interpretation.)
 
 In the previous chapter, we wrote the characteristic truth tables with `1' for true and `0' for false. It is important to note, however, that this is not about truth in any deep or cosmic sense. Philosophical investigation into the nature of truth is a worthy project in its own right, but the truth functions in SL are just rules which transform input values into output values. (This is part of the reason why, in this book, we usually write `1' and `0' instead of `T' and `F'.) Even though we interpret `1' as meaning `true' and `0' as meaning `false', computers can be programmed to fill out truth tables in a purely mechanical way. In a machine, `1' might mean that a register is switched on and `0' that the register is switched off. Mathematically, they are just the two possible values that a sentence of SL can have. The truth tables for the connectives of SL, written in terms of 1s and 0s, are given in table \ref{table.CharacteristicTTs}.
 
@@ -55,7 +55,7 @@ $H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
  0 & 0 & \TTbf{0} && \TTbf{0} && \TTbf{0}
 \end{tabular}
 \end{center}
-So far all we've done is duplicate the first two columns. We've written the `H' column twice--- once under each `H', and the `I' column once, under the `I'.
+So far all we've done is duplicate the first two columns. We've written the `H' column twice --- once under each `H', and the `I' column once, under the `I'.
 
 Now consider the subsentence $H\eand I$. This is a conjunction \metaA{}\eand\metaB{} with $H$ as \metaA{} and with $I$ as \metaB{}. $H$ and $I$ are both true on the first row. Since a conjunction is true when both conjuncts are true, we write a 1 underneath the conjunction symbol. In the other three rows, at least one of the conjuncts is false, so the conjunction $(H \eand I)$ is false. So we write 0s under the conjunction symbol on those rows:
 \begin{center}
@@ -220,7 +220,7 @@ $P$ & $Q$ &  & $P$ & $\eif$ & $Q$ &  & $\enot$ & $P$ & $\enot$ & $Q$\\
 There is. On the third row, the premises are true and the conclusion is false. So the argument is invalid.
 
 \section{Partial truth tables}
-In order to show that a sentence is a tautology, we need to show that it is assigned 1 on every row. So we need a complete truth table. To show that a sentence is \emph{not} a tautology, however, we only need one line: a line on which the sentence is 0. Therefore, in order to show that something is not a tautology, it is enough to provide a one-line \emph{partial truth table}--- regardless of how many sentence letters the sentence might have in it.
+In order to show that a sentence is a tautology, we need to show that it is assigned 1 on every row. So we need a complete truth table. To show that a sentence is \emph{not} a tautology, however, we only need one line: a line on which the sentence is 0. Therefore, in order to show that something is not a tautology, it is enough to provide a one-line \emph{partial truth table} --- regardless of how many sentence letters the sentence might have in it.
 
 Consider, for example, the sentence $(U \eand T) \eif (S \eand W)$. We want to show that it is \emph{not} a tautology by providing a partial truth table. We fill in 0 for the entire sentence. The main connective of the sentence is a conditional. In order for the conditional to be false, the antecedent must be true (1) and the consequent must be false (0). So we fill these in on the table:
 \begin{center}
@@ -343,7 +343,7 @@ $B$&$G$&$(B$&\eor&\enot&$G$)&$G$&$B$\\
 
 If the argument form were invalid, there'd be a line on which the first two bold values are `1' but the third is `0'. There is no such line, so the argument form is valid. This helps explain why the English version of the argument is also valid: it is an argument that has a valid form in SL.
 
-There are at least two advantages to evaluating natural language argument for validity by translating it into SL. For one thing, using truth tables to evaluate arguments is a formal method that does not require any particular rational insight or intuition. It is often relatively easy to tell whether the informal definition of validity is met--- most of us have a good sense of what is and isn't possible. But it is an advantage to have an operationalized set of rules that a simple computer could apply. A second advantage, alluded to in Chapter \ref{ch.SL}, is that talking about valid SL forms provides a nice way to explain what various valid English arguments have in common with one another. The validity of the argument form
+There are at least two advantages to evaluating natural language argument for validity by translating it into SL. For one thing, using truth tables to evaluate arguments is a formal method that does not require any particular rational insight or intuition. It is often relatively easy to tell whether the informal definition of validity is met --- most of us have a good sense of what is and isn't possible. But it is an advantage to have an operationalized set of rules that a simple computer could apply. A second advantage, alluded to in Chapter \ref{ch.SL}, is that talking about valid SL forms provides a nice way to explain what various valid English arguments have in common with one another. The validity of the argument form
 
 \begin{earg}
 \item $(B\eor\enot G)$
@@ -389,7 +389,7 @@ One could translate this argument in to a relatively complex argument in SL. (If
 
 For many purposes, this would be a poor choice of symbolization keys. It ignores the internal structure of two central sentences. But if, as here, that structure is irrelevant, you can save yourself some work by engaging at a higher level of abstraction.
 
-Note also that it's an implication of what we've just illustrated that there's not just one SL argument that is \emph{the} argument form for a given argument in English. One can formalize arguments in various ways. If an argument has a valid argument form in SL, that's a guarantee that the argument is valid. But it is important not to invert this relationship--- it does \emph{not} follow from the fact that an argument has an \emph{invalid} form, that the argument is invalid. One reason this is so is that it is possible for some arguments to have valid forms \emph{and} invalid forms.
+Note also that it's an implication of what we've just illustrated that there's not just one SL argument that is \emph{the} argument form for a given argument in English. One can formalize arguments in various ways. If an argument has a valid argument form in SL, that's a guarantee that the argument is valid. But it is important not to invert this relationship --- it does \emph{not} follow from the fact that an argument has an \emph{invalid} form, that the argument is invalid. One reason this is so is that it is possible for some arguments to have valid forms \emph{and} invalid forms.
 
 \section{Common student mistakes}
 
@@ -414,7 +414,7 @@ $P$ & $Q$ &  & $P$ & $\eor$ & $Q$ &  & $\enot$ & $P$ &  & $P$ & $\eiff$ & $Q$ & 
 
 We then check to see whether there is any row where the disjunction and the negation are true and the biconditional is false. Row three, \{$P=0$, $Q=1$\}, is such a row, so the argument is invalid.
 
-Here is a common mistake. Students sometimes draw the truth table accurately, and correctly note that line three is inconsistent with the argument's validity, but misdescribe the situation, saying something like this: \emph{`The argument is invalid when $P=0$, $Q=1$.'} This is a mistake because the argument isn't only invalid \emph{in that row}--- the argument in invalid, \emph{period}. That interpretation \emph{explains why} the argument is invalid, but validity and invalidity are claims about \emph{all} interpretations. So we shouldn't say the argument is invalid `when' $P=0$, $Q=1$; it's invalid always, because of the interpretation where $P=0$, $Q=1$.
+Here is a common mistake. Students sometimes draw the truth table accurately, and correctly note that line three is inconsistent with the argument's validity, but misdescribe the situation, saying something like this: \emph{`The argument is invalid when $P=0$, $Q=1$.'} This is a mistake because the argument isn't only invalid \emph{in that row} --- the argument in invalid, \emph{period}. That interpretation \emph{explains why} the argument is invalid, but validity and invalidity are claims about \emph{all} interpretations. So we shouldn't say the argument is invalid `when' $P=0$, $Q=1$; it's invalid always, because of the interpretation where $P=0$, $Q=1$.
 
 This sounds like a small and fussy point about speaking precisely about logic. It is. But careful language here can help lead to careful thought. It is important, to thinking clearly about validity, to remember that validity, unlike truth, is a feature that arguments have or lack intrinsically. It is not something that an argument has in some interpretations and lacks in others.
 

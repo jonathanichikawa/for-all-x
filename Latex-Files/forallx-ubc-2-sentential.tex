@@ -332,7 +332,7 @@ Sentence \ref{if2} is also a conditional. Since the word `if' appears in the sec
 
 The conditional $(R\eif B)$ says that \emph{if} $R$ were true, \emph{then} $B$ would also be true. It does not say that your cutting the red wire is the \emph{only} way that the bomb could explode. Someone else might cut the wire, or the bomb might be on a timer. The sentence $(R\eif B)$ does not say anything about what to expect if $R$ is false. Sentence \ref{if2} is different. It says that the only conditions under which the bomb will explode are ones where you cut the red wire; i.e., if the bomb explodes, then you must have cut the wire. As such, sentence \ref{if2} should be symbolized as $(B \eif R)$.
 
-It is important to remember that the connective `\eif' says only that, if the antecedent is true, then the consequent is true. It says nothing about the \emph{causal} connection between the two events. Translating sentence \ref{if2} as $(B \eif R)$ does not mean that the bomb exploding would somehow have caused your cutting the wire. Both sentence \ref{if1} and \ref{if2} suggest that, if you cut the red wire, your cutting the red wire would be the cause of the bomb exploding. They differ on the \emph{logical} connection. If sentence \ref{if2} were true, then an explosion would tell us--- those of us safely away from the bomb--- that you had cut the red wire. Without an explosion, sentence \ref{if2} tells us nothing.
+It is important to remember that the connective `\eif' says only that, if the antecedent is true, then the consequent is true. It says nothing about the \emph{causal} connection between the two events. Translating sentence \ref{if2} as $(B \eif R)$ does not mean that the bomb exploding would somehow have caused your cutting the wire. Both sentence \ref{if1} and \ref{if2} suggest that, if you cut the red wire, your cutting the red wire would be the cause of the bomb exploding. They differ on the \emph{logical} connection. If sentence \ref{if2} were true, then an explosion would tell us --- those of us safely away from the bomb --- that you had cut the red wire. Without an explosion, sentence \ref{if2} tells us nothing.
 
 \factoidbox{
 The paraphrased sentence `\metaA{} only if \metaB{}' is logically equivalent to `If \metaA{}, then \metaB{}.'
@@ -342,7 +342,7 @@ The paraphrased sentence `\metaA{} only if \metaB{}' is logically equivalent to 
 
 `If \metaA{} then \metaB{}' means that if \metaA{} is true then so is \metaB{}. So we know that if the antecedent \metaA{} is true but the consequent \metaB{} is false, then the conditional `If \metaA{} then \metaB{}' is false. What is the truth value of `If \metaA{} then \metaB{}' under other circumstances? Suppose, for instance, that the antecedent \metaA{} happened to be false. `If \metaA{} then \metaB{}' would then not tell us anything about the actual truth value of the consequent \metaB{}, and it is unclear what the truth value of `If \metaA{} then \metaB{}' would be.
 
-In English, the truth of conditionals often depends on what \emph{would} be the case if the antecedent \emph{were true}--- even if, as a matter of fact, the antecedent is false. This poses a serious challenge for translating conditionals into SL.  Considered as sentences of SL, $R$ and $B$ in the above examples have nothing intrinsic to do with each other. In order to consider what the world would be like if $R$ were true, we would need to analyze what $R$ says about the world. Since $R$ is an atomic symbol of SL, however, there is no further structure to be analyzed. When we replace a sentence with a sentence letter, we consider it merely as some atomic sentence that might be true or false.
+In English, the truth of conditionals often depends on what \emph{would} be the case if the antecedent \emph{were true} --- even if, as a matter of fact, the antecedent is false. This poses a serious challenge for translating conditionals into SL.  Considered as sentences of SL, $R$ and $B$ in the above examples have nothing intrinsic to do with each other. In order to consider what the world would be like if $R$ were true, we would need to analyze what $R$ says about the world. Since $R$ is an atomic symbol of SL, however, there is no further structure to be analyzed. When we replace a sentence with a sentence letter, we consider it merely as some atomic sentence that might be true or false.
 
 In order to translate conditionals into SL, we will not try to capture all the subtleties of English's `if$\ldots$ then$\ldots$.' construction. Instead, the symbol `\eif' will signify a \emph{material conditional}. This means that when \metaA{} is false, the conditional (\metaA{}\eif\metaB{}) is automatically true, regardless of the truth value of \metaB{}. If both \metaA{} and \metaB{} are true, then the conditional (\metaA{}\eif\metaB{}) is true.
 
@@ -382,7 +382,7 @@ Note that unlike conjunction and disjunction, the conditional is \emph{asymmetri
 %\item[\ex{if5}] If anyone wants to see me, then I will be on the porch.
 %\end{earg}
 %
-%If I say this, it means that I will be on the porch, regardless of whether anyone wants to see me or not--- but if someone did want to see me, then they should look for me there. If we let $P$ mean `I will be on the porch,' then sentence \ref{if5} can be translated simply as $P$.
+%If I say this, it means that I will be on the porch, regardless of whether anyone wants to see me or not --- but if someone did want to see me, then they should look for me there. If we let $P$ mean `I will be on the porch,' then sentence \ref{if5} can be translated simply as $P$.
 %
 
 \section{Biconditional}
@@ -404,7 +404,7 @@ Sentence \ref{iff2} is importantly different. It can be paraphrased as, `If the 
 
 Sentence \ref{iff3} says that $T$ is true \emph{if and only if} $S$ is true; we can infer $S$ from $T$, and we can infer $T$ from $S$. This is called a \define{biconditional}, because it entails the two conditionals $S\eif T$ and $T \eif S$. We will use `\eiff' to represent the biconditional; sentence \ref{iff3} can be translated as $(S \eiff T)$.
 
-We could abide without a new symbol for the biconditional. Since sentence \ref{iff3} means `$(T \eif S)$ and $(S\eif T)$,' we could translate it as a conjunction of those two conditionals--- as $((T \eif S)\eand(S\eif T))$. Notice how the parentheses work: we need to add a new set of parentheses for the conjunction, in addition to the ones that were already there for the conditionals.
+We could abide without a new symbol for the biconditional. Since sentence \ref{iff3} means `$(T \eif S)$ and $(S\eif T)$,' we could translate it as a conjunction of those two conditionals --- as $((T \eif S)\eand(S\eif T))$. Notice how the parentheses work: we need to add a new set of parentheses for the conjunction, in addition to the ones that were already there for the conditionals.
 
 Because we could always write $((\metaA{}\eif\metaB{})\eand(\metaB{}\eif\metaA{}))$ instead of $(\metaA{}\eiff\metaB{})$, we do not strictly speaking \emph{need} to introduce a new symbol for the biconditional. Nevertheless, logical languages usually have such a symbol. SL will have one, which makes it easier to translate phrases like `if and only if.'
 
@@ -442,7 +442,7 @@ Which of these is the correct translation of sentence \ref{unless1}? Both transl
 
 Sentence \ref{unless2}, in English, is logically equivalent to sentence \ref{unless1}. It can be translated as either $\enot J \eif D$ or $\enot D \eif J$.
 
-When symbolizing sentences like sentence \ref{unless1} and sentence \ref{unless2}, it is easy to get turned around. Since the conditional is not symmetric, it would be wrong to translate either sentence as $J \eif \enot D$. Fortunately, there are other logically equivalent expressions. Both sentences mean that you will wear a jacket or--- if you do not wear a jacket--- then you will catch a cold. So we can translate them as $J \eor D$.
+When symbolizing sentences like sentence \ref{unless1} and sentence \ref{unless2}, it is easy to get turned around. Since the conditional is not symmetric, it would be wrong to translate either sentence as $J \eif \enot D$. Fortunately, there are other logically equivalent expressions. Both sentences mean that you will wear a jacket or --- if you do not wear a jacket --- then you will catch a cold. So we can translate them as $J \eor D$.
 
 
 \factoidbox{
@@ -462,7 +462,7 @@ The sentence `Apples are red, or berries are blue' is a sentence of English, and
 It is important to distinguish between the logical language SL, which we are developing, and the language that we use to talk about SL. When we talk about a language, the language that we are talking about is called the \define{object language}. The language that we use to talk about the object language is called the \define{metalanguage}.
 \label{def.metalanguage}
 
-The object language in this chapter is SL. The metalanguage is English--- not conversational English, but English supplemented with some logical and mathematical vocabulary (including the `\metaA{}' and `\metaB{}' symbols). The sentence `$(A\eor B)$' is a sentence in the object language, because it uses only symbols of SL. The word `sentence' is not itself part of SL, however, so the sentence `This expression is a sentence of SL' is not a sentence of SL. It is a sentence in the metalanguage, a sentence that we use to talk \emph{about} SL.
+The object language in this chapter is SL. The metalanguage is English --- not conversational English, but English supplemented with some logical and mathematical vocabulary (including the `\metaA{}' and `\metaB{}' symbols). The sentence `$(A\eor B)$' is a sentence in the object language, because it uses only symbols of SL. The word `sentence' is not itself part of SL, however, so the sentence `This expression is a sentence of SL' is not a sentence of SL. It is a sentence in the metalanguage, a sentence that we use to talk \emph{about} SL.
 
 In this section, we will give a formal definition for `sentence of SL.' The definition itself will be given in mathematical English, the metalanguage.
 
@@ -667,7 +667,7 @@ For each argument, write a symbolization key and translate the argument as well 
 \begin{earg}
 \item If Dorothy plays the piano in the morning, then Roger wakes up cranky. Dorothy plays piano in the morning unless she is distracted. So if Roger does not wake up cranky, then Dorothy must be distracted.
 \item It will either rain or snow on Tuesday. If it rains, Neville will be sad. If it snows, Neville will be cold. Therefore, Neville will either be sad or cold on Tuesday.
-\item If Zoog remembered to do his chores, then things are clean but not neat. If he forgot, then things are neat but not clean. Therefore, things are either neat or clean--- but not both.
+\item If Zoog remembered to do his chores, then things are clean but not neat. If he forgot, then things are neat but not clean. Therefore, things are either neat or clean --- but not both.
 \end{earg}
 
 

@@ -64,7 +64,7 @@ In order to symbolize arguments that rely on quantifier structure, we need to de
 
 \section{Building blocks of QL}
 
-Our first key notion in QL will be \define{predicates}. A predicate is analogous to an English description--- an expression like `is a dog' or `has black fur'. Such descriptions are not sentences on their own. They are neither true nor false. They are descriptions that apply to some objects, but not to others. In order to be true or false, we need to specify an object: Who or what is it that is said to be a dog, or to have black fur? In SL, we have no way to give meaningful translations to English terms that are not full sentences. In QL, we will.
+Our first key notion in QL will be \define{predicates}. A predicate is analogous to an English description  --- an expression like `is a dog' or `has black fur'. Such descriptions are not sentences on their own. They are neither true nor false. They are descriptions that apply to some objects, but not to others. In order to be true or false, we need to specify an object: Who or what is it that is said to be a dog, or to have black fur? In SL, we have no way to give meaningful translations to English terms that are not full sentences. In QL, we will.
 
 The details of this will be explained in the rest of the chapter, but here is the basic idea: In QL, we will represent predicates with capital letters. For instance, we might let $D$ stand for `\blank\ is a dog.' We will use lower-case letters as the names of specific things. For instance, we might let $b$ stand for Bertie. The expression $Db$ will be a sentence in QL. Given this symbolization, $Db$ is a translation of the sentence `Bertie is a dog.'
 
@@ -76,7 +76,7 @@ That will come later. We start by defining singular terms and predicates.
 \section{Singular terms}
 In English, a \define{singular term} is a word or phrase that refers to a \emph{specific} person, place, or thing. The word `dog' is not a singular term, because it is a general term that could apply to many individual animals. The phrase `Jonathan's dog Mezzo' is a singular term, because it refers to a specific little poodle mix. She is black, and soft, and wonderful.
 
-A \define{proper name} is a singular term that picks out an individual directly. The name `Emerson' is a proper name, and the name alone does not tell you anything about Emerson. Of course, some names are traditionally given to boys, and others are traditionally given to girls. If `Jack Hathaway' is used as a singular term, you might guess that it refers to a man. However, the name does not necessarily mean that the person referred to is a man--- or even that the creature referred to is a person. Jack might be a giraffe for all you could tell just from the name. There is a great deal of philosophical action surrounding this issue, but the important point here is that a name is a singular term because it picks out a single, specific individual.
+A \define{proper name} is a singular term that picks out an individual directly. The name `Emerson' is a proper name, and the name alone does not tell you anything about Emerson. Of course, some names are traditionally given to boys, and others are traditionally given to girls. If `Jack Hathaway' is used as a singular term, you might guess that it refers to a man. However, the name does not necessarily mean that the person referred to is a man --- or even that the creature referred to is a person. Jack might be a giraffe for all you could tell just from the name. There is a great deal of philosophical action surrounding this issue, but the important point here is that a name is a singular term because it picks out a single, specific individual.
 
 Other singular terms more obviously convey information about the thing to which they refer. For instance, you can tell without being told anything further that `Jonathan's dog Mezzo' is a singular term that refers to a dog. A \define{definite description} picks out an individual by means of a unique description. In English, definite descriptions are often phrases of the form `the such-and-so.' They refer to \emph{the} specific thing that matches the given description. For example, `the tallest member of Monty Python' and `the first emperor of China' are definite descriptions. A description that does not pick out a specific individual is not a definite description. `A member of Monty Python' and `an emperor of China' are not definite descriptions. We'll discuss definite descriptions in more detail in Chapter \ref{ch.identity}.
 
@@ -129,7 +129,7 @@ By removing all three singular terms, we can recognize one \define{three-place} 
 
 If we are translating this sentence into QL, should we translate it with a one-, two-, or three-place predicate? It depends on what we want to be able to say. If we're only interested in discussing the location of buildings relative to Barber, then the generality of the three-place predicate is unnecessary. If we only want to discuss whether buildings are North of Barber and South of BUCH E, a one-place predicate will be enough.
 
-In general, we can have predicates with as many places as we need. Predicates with more than one place are called \define{polyadic}. Predicates with $n$ places, for some number $n$, are called \define{n-place} or \define{n-adic}. You can make an $n$-adic predicate by replacing $n$ names in any sentence with blanks. You can even have a 0-place predicate--- this would be the result of replacing $0$ names in a sentence with blanks. In other words, a 0-place predicate is just a sentence.
+In general, we can have predicates with as many places as we need. Predicates with more than one place are called \define{polyadic}. Predicates with $n$ places, for some number $n$, are called \define{n-place} or \define{n-adic}. You can make an $n$-adic predicate by replacing $n$ names in any sentence with blanks. You can even have a 0-place predicate --- this would be the result of replacing $0$ names in a sentence with blanks. In other words, a 0-place predicate is just a sentence.
 
 In QL, we symbolize predicates with capital letters $A$ through $Z$, with or without subscripts. When we give a symbolization key for predicates, we will not use blanks; instead, we will use variables. By convention, constants are listed at the end of the key. So we might write a key that looks like this:
 \begin{groupitems}
@@ -171,7 +171,7 @@ Sentence \ref{terms5} requires that we pay careful attention to the order of ter
 
 
 \section{Quantifiers}
-We are now ready to introduce quantifiers. Consider these sentences:
+We are now ready to introduce quantifiers. Quantifiers (unlike names and predicates) are a new kind of logical connective; like conjunction, negation, etc., they can govern the interpretation of a QL sentence.  Consider these English sentences:
 \begin{earg}
 \item[\ex{q.a}] Everyone is happy.
 \item[\ex{q.ac}] Everyone is at least as tough as Donald.
@@ -181,7 +181,7 @@ We are now ready to introduce quantifiers. Consider these sentences:
 It might be tempting to translate sentence \ref{q.a} as $Hd \eand Hg \eand Hm$. Yet this would only say that Donald, Gregor, and Marybeth are happy. We want to say that \emph{everyone} is happy, even if we have not defined a constant to name them. In order to do this, we introduce the `$\forall$' symbol. This is called the \define{universal quantifier}.
 
 A quantifier is placed in front of the formula that it binds. It always comes along with an associated variable. Typically that formula will include the same variable. We can translate sentence \ref{q.a} as $\forall x Hx$. Paraphrased partially into English, this means `For all $x$, $x$ is happy.'
-%\nix{This may be too soon:}
+
 We call $\forall x$ an \emph{x-quantifier}. The formula that follows the quantifier is called the \emph{scope} of the quantifier. We will give a formal definition of scope later, but intuitively it is the part of the sentence that the quantifier quantifies over. In $\forall x Hx$, the scope of the universal quantifier is $Hx$.
 
 Sentence \ref{q.ac} can be paraphrased as, `For all $x$, $x$ is at least as tough as Donald.' This translates as $\forall x T_2xd$.
@@ -211,7 +211,7 @@ Sentence \ref{q.na} is most naturally translated as $\enot\forall x Hx$. This is
 \section{Universe of discourse}
 Given the symbolization key we have been using, $\forall xHx$ means `Everyone is happy.' Who is included in this \emph{everyone}? When we use sentences like this in English, we usually do not mean everyone now alive on the Earth. We certainly do not mean everyone who was ever alive or who will ever live. We mean something more modest: everyone in the building, everyone in the class, or everyone in the room.
 
-In order to eliminate this ambiguity, we will need to specify a \define{universe of discourse}--- abbreviated UD. The UD is the set of things that we are talking about. So if we want to talk about people in Chicago, we define the UD to be people in Chicago. We write this at the beginning of the symbolization key, like this:
+In order to eliminate this ambiguity, we will need to specify a \define{universe of discourse} --- abbreviated UD. The UD is the set of things that we are talking about. So if we want to talk about people in Chicago, we define the UD to be people in Chicago. We write this at the beginning of the symbolization key, like this:
 \begin{ekey}
 \item[UD:] people in Chicago
 \end{ekey}
@@ -229,7 +229,7 @@ The sentence $\forall x Px$ might be paraphrased in English as `Everything is in
 It is a rule in QL that each constant will pick out exactly one member of the UD. (There is no rule prohibiting multiple different constants from referring to the same member of the UD.)
 
 %\subsection{Non-referring terms}
-%In QL, each constant must pick out exactly one member of the UD. A constant cannot refer to more than one thing--- it is a \emph{singular} term. Each constant must still pick out \emph{something}. This is connected to a classic philosophical problem: the so-called problem of non-referring terms.
+%In QL, each constant must pick out exactly one member of the UD. A constant cannot refer to more than one thing --- it is a \emph{singular} term. Each constant must still pick out \emph{something}. This is connected to a classic philosophical problem: the so-called problem of non-referring terms.
 %
 %Medieval philosophers typically used sentences about the \emph{chimera} to exemplify this problem. Chimera is a mythological creature; it does not really exist. Consider these two sentences:
 %\begin{earg}
@@ -276,7 +276,7 @@ Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} 
 
 Sentence \ref{quan2} is most naturally translated with an existential quantifier. It says that there is some coin which is both on the table and which is a dime. So we can translate it as $\exists x(Tx \eand Dx)$.
 
-Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. This is a common pattern. What would it mean to write $\exists x(Tx \eif Dx)$? Probably not what you think. It means that there is some member of the UD which would satisfy the subformula; roughly speaking, there is some name $\alpha$ such that $(T\alpha \eif D\alpha)$ is true. In SL, $\metaA{} \eif \metaB{}$ is logically equivalent to $\enot\metaA{} \eor \metaB{}$, and this will also hold in QL. So $\exists x(Tx \eif Dx)$ is true if there is some $\alpha$ such that $(\enot T\alpha \eor D\alpha)$; i.e., it is true if some coin is \emph{either} not on the table \emph{or} is a dime. Of course there is a coin that is not on the table--- there are coins in lots of other places. So $\exists x(Tx \eif Dx)$ makes an extremely weak claim. A conditional will usually be the natural connective to use with a universal quantifier, but a conditional within the scope of an existential quantifier can do very strange things. It's a pretty good rule of thumb that you shouldn't be putting conditionals in the scope of existential quantifiers. This is pretty much never a good translation of any natural English sentence.
+Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. This is a common pattern. What would it mean to write $\exists x(Tx \eif Dx)$? Probably not what you think. It means that there is some member of the UD which would satisfy the subformula; roughly speaking, there is some name $\alpha$ such that $(T\alpha \eif D\alpha)$ is true. In SL, $\metaA{} \eif \metaB{}$ is logically equivalent to $\enot\metaA{} \eor \metaB{}$, and this will also hold in QL. So $\exists x(Tx \eif Dx)$ is true if there is some $\alpha$ such that $(\enot T\alpha \eor D\alpha)$; i.e., it is true if some coin is \emph{either} not on the table \emph{or} is a dime. Of course there is a coin that is not on the table --- there are coins in lots of other places. So $\exists x(Tx \eif Dx)$ makes an extremely weak claim. A conditional will usually be the natural connective to use with a universal quantifier, but a conditional within the scope of an existential quantifier can do very strange things. It's a pretty good rule of thumb that you shouldn't be putting conditionals in the scope of existential quantifiers. This is pretty much never a good translation of any natural English sentence.
 
 Sentence \ref{quan3} can be paraphrased as, `It is not the case that every coin on the table is a loonie.' So we can translate it as $\enot \forall x(Tx \eif Lx)$. You might look at sentence \ref{quan3} and paraphrase it instead as, `Some coin on the table is not a loonie.' You would then translate it as $\exists x(Tx \eand \enot Lx)$. Although it is probably not obvious, these two translations are logically equivalent. (This is due to the logical equivalence between $\enot\forall x\metaA{}$ and $\exists x\enot\metaA{}$, along with the equivalence between $\enot(\metaA{}\eif\metaB{})$ and $\metaA{}\eand\enot\metaB{}$. We'll be able to prove this later.)
 
@@ -332,7 +332,7 @@ It is tempting to say that sentence \ref{monkey1} entails sentence \ref{monkey2}
 
 How can this be? The answer comes from considering whether these sentences would be true or false \emph{if there were no monkeys}.
 
-We have defined $\forall$ and $\exists$ in such a way that $\forall\metaA{}$ is equivalent to $\enot \exists\enot \metaA{}$. As such, the universal quantifier doesn't involve the existence of anything--- only non-existence. If sentence \ref{monkey1} is true, then there are \emph{no} monkeys who don't know sign language. If there were no monkeys, then $\forall x(Mx \eif Sx)$ would be true and $\exists x(Mx \eand Sx)$ would be false.
+We have defined $\forall$ and $\exists$ in such a way that $\forall\metaA{}$ is equivalent to $\enot \exists\enot \metaA{}$. As such, the universal quantifier doesn't involve the existence of anything --- only non-existence. If sentence \ref{monkey1} is true, then there are \emph{no} monkeys who don't know sign language. If there were no monkeys, then $\forall x(Mx \eif Sx)$ would be true and $\exists x(Mx \eand Sx)$ would be false.
 
 A second reason to allow empty predicates is that we want to be able to say things like, `I do not know if there are any monkeys, but any monkeys that there are know sign language.' That is, we want to be able to have predicates that do not (or might not) refer to anything.
 
@@ -390,7 +390,7 @@ We need a UD that includes roses (so that we can symbolize sentence \ref{pickUDr
 
 Since we do not have a predicate that means `$\ldots$ has a rose in her hair', translating sentence \ref{pickUDhair} will require paraphrasing. The sentence says that there is a rose in Esmerelda's hair; that is, there is something which is both a rose and is in Esmerelda's hair. So we get: $\exists x(Rx \eand Hex)$.
 
-It is tempting to translate sentence \ref{pickUDcross} as $\forall x Cxe$. Unfortunately, this would mean that every member of the UD is cross with Esmerelda--- both people and plants. It would mean, for instance, that the rose in Esmerelda's hair is cross with her. Of course, sentence \ref{pickUDcross} does not mean that.
+It is tempting to translate sentence \ref{pickUDcross} as $\forall x Cxe$. Unfortunately, this would mean that every member of the UD is cross with Esmerelda --- both people and plants. It would mean, for instance, that the rose in Esmerelda's hair is cross with her. Of course, sentence \ref{pickUDcross} does not mean that.
 
 `Everyone' means every person, not every member of the UD. So we can paraphrase sentence \ref{pickUDcross} as, `Every person is cross with Esmerelda.' We know how to translate sentences like this: $\forall x(Px \eif Cxe)$.
 
@@ -453,6 +453,7 @@ Something strange happened when we changed the scope of the quantifier, because 
 
 %This oddity does not arise with other connectives or if the variable is in the consequent of the conditional. For example, $\exists x Gx \eand Gl$ means the same thing as $\exists x (Gx \eand Gl)$, and $Gl \eif \exists x Gx$ means the same things as $\exists x(Gl \eif Gx)$.
 
+Note that quantifiers count as logical connectives, so one can sensibly ask whether the main connective of a given sentence is a quantifier or something else. (Calling it a `connective' can be slightly confusing, since, unlike connectives like conjunction and disjunction, it doesn't literally \emph{connect} two sentences. Quantifiers are like negations in this respect --- each does count as a connective.) If the scope of the quantifier is the entire sentence, then that quantifier is the main connective, as in $\forall x (Gx \eif Gl)$. If the scope of the quantifier is limited to a subsentence, then that quantifier is not the main connective. For example, in $\exists x Gx \eif Gl$, the main quantifier is the conditional; the existential is part of the antecedent.
 
 \section{Ambiguous predicates}
 
@@ -672,7 +673,7 @@ A sentence that says everything with one property also has another property shou
 \item `Only students with friends are working': $\forall x [(Sx \eand Wx) \eif \exists y Fxy]$
 \end{itemize}
 
-One common error is to translate sentences of this form with a different kind of shape--- for example, as a universal governing a conjunction, or as an existential governing a conditional. These are very inaccurate translations of these English sentences:
+One common error is to translate sentences of this form with a different kind of shape --- for example, as a universal governing a conjunction, or as an existential governing a conditional. These are very inaccurate translations of these English sentences:
 
 \begin{itemize}
 \item $\forall x (Sx \eand Wx)$
@@ -680,7 +681,7 @@ One common error is to translate sentences of this form with a different kind of
 \item $\forall x [(Sx \eand Wx) \eand \exists y Fxy]$
 \end{itemize}
 
-These say that \emph{every} object in the UD is a student with the properties in question. Everyone is a student that is working; everyone is a student with a friend; everyone is a working student who has a friend. Any time you have a universal governing a conjunction, you are making a very strong claim--- you're not just talking about objects with a particular property, you're saying that multiple things are true about every single object in the domain. Be very careful if you find yourself offering a universal over a conjunction, and make sure you don't mean to use a conditional instead.
+These say that \emph{every} object in the UD is a student with the properties in question. Everyone is a student that is working; everyone is a student with a friend; everyone is a working student who has a friend. Any time you have a universal governing a conjunction, you are making a very strong claim --- you're not just talking about objects with a particular property, you're saying that multiple things are true about every single object in the domain. Be very careful if you find yourself offering a universal over a conjunction, and make sure you don't mean to use a conditional instead.
 
 It is also a serious mistake to use an existential instead of a universal for sentences like these:
 

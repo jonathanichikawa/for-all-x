@@ -15,7 +15,7 @@ In translating from English to a formal language, we provided symbolization keys
 %When we gave definitions for a sentence of SL and for a sentence of QL, we distinguished between the \define{object language} and the \define{metalanguage}. The object language is the language that we are \emph{talking about}: either SL or QL. The metalanguage is the language that we use to talk about the object language: English, supplemented with some mathematical jargon. It will be important to keep this distinction in mind.
 
 
-%\nix{box about Tarski? The logician Alfred Tarksi introduced this distinction ca.~1940. Tarski argued that the truth conditions for a language could never be expressed in the language itself--- the metalanguage needed to be more powerful than the object language. So it's simply not possible to give a definition of truth for SL that is itself a sentence of SL--- describing the semantics of SL requires a more powerful language.}
+%\nix{box about Tarski? The logician Alfred Tarksi introduced this distinction ca.~1940. Tarski argued that the truth conditions for a language could never be expressed in the language itself --- the metalanguage needed to be more powerful than the object language. So it's simply not possible to give a definition of truth for SL that is itself a sentence of SL --- describing the semantics of SL requires a more powerful language.}
 
 
 \section{Semantics for SL}
@@ -136,7 +136,7 @@ Truth in SL is always truth \emph{relative to} some interpretation, because the 
 
 We are now in a position to give more precise definitions of terms like `tautology', `contradiction', and so on. Truth tables provided a way to \emph{check} whether a sentence was a tautology in SL, but they did not \emph{define} what it means to be a tautology in SL. We will give definitions of these concepts for SL in terms of \define{entailment}.
 
-The relation of semantic entailment is about satisfiability--- that is, whether there is any possible interpretation that meets a certain set of conditions. `\metaA{} entails \metaB{}', means that there is no interpretation for which \metaA{} is true and \metaB{} is false. In SL, an interpretation is just an assignment of truth values to atomic sentences; so \metaA{} entails \metaB{} if and only if every assignment of truth values to atomic sentences that makes \metaA{} true also makes \metaB{} true.
+The relation of semantic entailment is about satisfiability --- that is, whether there is any possible interpretation that meets a certain set of conditions. `\metaA{} entails \metaB{}', means that there is no interpretation for which \metaA{} is true and \metaB{} is false. In SL, an interpretation is just an assignment of truth values to atomic sentences; so \metaA{} entails \metaB{} if and only if every assignment of truth values to atomic sentences that makes \metaA{} true also makes \metaB{} true.
 
 We abbreviate entailment with a symbol called the \emph{double turnstile}:
 $\metaA{}\models\metaB{}$ means `\metaA{} semantically entails \metaB{}.'
@@ -157,7 +157,7 @@ $(P\eand Q) \models (A\eiff\enot\enot A)$
 
 Notice that the sentence letters on the left-hand-side here are completely different letters from those on the right-hand-side. So there is a straightforward sense in which the two sides of the turnstile have \emph{nothing to do with one another}. Nevertheless, this \emph{is} a true entailment claim. This is because it satisfies the definition: every interpretation that satisfies the left (i.e., every interpretation that assigns `1' to both $P$ and $Q$), also satisfies $(A\eiff\enot\enot A)$. This for the simple reason that every interpretation \emph{whatsoever} satisfies $(A\eiff\enot\enot A)$; it is a tautology.
 
-From this example we can see that a tautology will be entailed by anything whatsoever. If the right-hand-side of the entailment claim is a tautology, it doesn't matter what's on the left--- you know it's going to be true.
+From this example we can see that a tautology will be entailed by anything whatsoever. If the right-hand-side of the entailment claim is a tautology, it doesn't matter what's on the left --- you know it's going to be true.
 
 So these are all true:
 
@@ -173,7 +173,7 @@ In the examples so far, we've been talking about one sentence entailing another.
 
 In general, we may say that $$\metaSetX{}\models\metaB{}$$ means that there's no interpretation satisfying every member of set \metaSetX{} without also satisfying sentence \metaB{}.
 
-We saw in the previous section that a tautology---  an SL sentence that is true in every interpretation--- is entailed by any sentence. The reasoning applies more generally: a tautology will be entailed by any set of sentences. This includes the \emph{empty set}, which can be written `$\emptyset$'. In general `$\metaSetX{} \models \metaA{}$' says that every interpretation that satisfies everything in \metaSetX{}, satisfies \metaA{}; in the special case where \metaSetX{} is $\emptyset$, every interpretation trivially satisfies everything in \metaSetX{}. So `$\emptyset \models \metaA{}$' says that absolutely every interpretation satisfies \metaA{}. That is, it says that \metaA{} is a tautology.
+We saw in the previous section that a tautology ---  an SL sentence that is true in every interpretation --- is entailed by any sentence. The reasoning applies more generally: a tautology will be entailed by any set of sentences. This includes the \emph{empty set}, which can be written `$\emptyset$'. In general `$\metaSetX{} \models \metaA{}$' says that every interpretation that satisfies everything in \metaSetX{}, satisfies \metaA{}; in the special case where \metaSetX{} is $\emptyset$, every interpretation trivially satisfies everything in \metaSetX{}. So `$\emptyset \models \metaA{}$' says that absolutely every interpretation satisfies \metaA{}. That is, it says that \metaA{} is a tautology.
 
 By convention, we can leave the left side of an entailment claim blank, instead of writing in $\emptyset$. In other words, $$\models \metaA{} $$ is shorthand for $$ \emptyset \models \metaA{}.$$
 
@@ -197,7 +197,7 @@ And these entailment claims are not true, because each sentence on the right is 
 
 \section{Inconsistent sentences entail absurdities}
 
-Consider this entailment claim: $$(P \eand \enot P) \models Q$$This statement is true. It says that every interpretation satisfying $(P \eand \enot P)$ also satisfies $Q$. But $(P \eand \enot P)$ is a contradiction--- no interpretations satisfy it. So trivially, `every' interpretation that satisfies it satisfies $Q$.
+Consider this entailment claim: $$(P \eand \enot P) \models Q$$This statement is true. It says that every interpretation satisfying $(P \eand \enot P)$ also satisfies $Q$. But $(P \eand \enot P)$ is a contradiction --- no interpretations satisfy it. So trivially, `every' interpretation that satisfies it satisfies $Q$.
 
 This explanation had nothing to do with the specifics of the sentence $Q$. Exactly the same considerations would demonstrate that, for any sentence \metaB{}, $(P \eand \enot P) \models \metaB{}$. And the same goes for any other contradictory sentence, or any set of sentences that are mutually inconsistent. These are all true:
 
@@ -209,7 +209,7 @@ This explanation had nothing to do with the specifics of the sentence $Q$. Exact
 
 You can think of evaluating an entailment claim as like checking to see whether a rule is being violated or not. If there's a rule that says every student with a dog has to have a permit, you check each student with a dog, and make sure they have a permit. If you find someone without a dog, it doesn't matter whether they have a permit or not. (If you don't have a dog, you're not breaking the rule.) Or if you find someone with a permit, it doesn't matter whether they have a dog. (Nobody with a permit can be breaking the rule.) An entailment claim is like a rule that says every interpretation that satisfies the left-hand-side must also satisfy the right-hand-side. To verify it, you can ignore any interpretation that falsifies the left, or that satisfies the right.
 
-In each of the cases above, you don't even need to examine the sentence at the right to confirm that the entailment claim is true, since you already know that no interpretations satisfy the sentences on the left. (This is analogous to knowing that no students have a dog--- in this case you don't have to check to see whether anyone has a permit to confirm that the rule is being respected.) Any entailment claim with an unsatisfiable set of sentences on the left is true. Unsatisfiable sets of sentences entail \emph{every} sentence.
+In each of the cases above, you don't even need to examine the sentence at the right to confirm that the entailment claim is true, since you already know that no interpretations satisfy the sentences on the left. (This is analogous to knowing that no students have a dog --- in this case you don't have to check to see whether anyone has a permit to confirm that the rule is being respected.) Any entailment claim with an unsatisfiable set of sentences on the left is true. Unsatisfiable sets of sentences entail \emph{every} sentence.
 
 We have a special notation for describing this situation. We write: $$\metaSetX{} \models \bot$$ to indicate that the set \metaSetX{} entails an \emph{absurdity}; think of `$\bot$' as standing in for an arbitrary unsatisfiable SL wff. So you can think of `$\metaSetX{} \models \bot$' as saying that every interpretation that satisfies $\metaSetX{}$ satisfies the unsatisfiable. That's just another way of saying that \emph{no} interpretation satisfies $\metaSetX{}$. (Compare: `the only Klingons who hate honour are the Klingons who aren't Klingons at all.')
 

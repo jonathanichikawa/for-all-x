@@ -3,13 +3,13 @@
 \label{ch.QLND}
 
 
-Trees employ a kind of `brute force' strategy for proving entailment claims. When the logical structure of the relevant sentences are rather simple, as they are in SL and in some QL cases, it can be an effective strategy, but in some cases they can become very tedious and complex. It is useful to have a proof system that allows one to reason in a more targeted way--- especially if you already have an intuitive understanding of why a given argument should be expected to turn out valid. As we did in Chapter \ref{ch.ND.proofs} for SL, in this chapter we will consider a natural deduction system for quantified logic. As in the case of trees, our QL natural deduction system is an extension of the one we learned previously for SL.
+Trees employ a kind of `brute force' strategy for proving entailment claims. When the logical structure of the relevant sentences are rather simple, as they are in SL and in some QL cases, it can be an effective strategy, but in some cases they can become very tedious and complex. It is useful to have a proof system that allows one to reason in a more targeted way --- especially if you already have an intuitive understanding of why a given argument should be expected to turn out valid. As we did in Chapter \ref{ch.ND.proofs} for SL, in this chapter we will consider a natural deduction system for quantified logic. As in the case of trees, our QL natural deduction system is an extension of the one we learned previously for SL.
 
 Like our SL natural deduction system, our system can only be used to demonstrate that an argument \emph{is} valid. We do not have a formal method, as part of our natural deduction system, for demonstrating an argument \emph{invalid}. In this respect natural deduction differs from trees. We won't go through the proof in this book, but the natural deduction is both sound and complete. That means that there are natural deductions proofs corresponding to all and only the valid arguments in QL.
 
 \section{Natural Deduction: the basics}
 
-In a natural deduction system, one begins by writing down the assumptions one begins with--- these correspond to the premises of an argument--- then adds a series of additional sentences, justified via a series of particular rules by the sentences above. Additional assumptions may be made and discharged along the way. If one succeeds in writing down the conclusion of the argument on a new line, with no additional undischarged assumptions, consistent with the natural deduction rules, one has proven that the conclusion follows from those premises. If you need a refresher on how that works, review Chapter \ref{ch.ND.proofs}.
+In a natural deduction system, one begins by writing down the assumptions one begins with --- these correspond to the premises of an argument --- then adds a series of additional sentences, justified via a series of particular rules by the sentences above. Additional assumptions may be made and discharged along the way. If one succeeds in writing down the conclusion of the argument on a new line, with no additional undischarged assumptions, consistent with the natural deduction rules, one has proven that the conclusion follows from those premises. If you need a refresher on how that works, review Chapter \ref{ch.ND.proofs}.
 
 Our QL system will use all the same sentential rules that our SL system did. All the introduction and elimination rules for the sentential connectives, as well as the derived and replacement rules, will be part of this system too. (These are summarized, along with our new rules, in the Quick Reference guide at the end of this book.) We'll add introduction and elimination rules for the existential and universal quantifiers, and some other derived rules as well.
 
@@ -41,7 +41,7 @@ This rule is very similar to the tree rule for universals, which, in our tree sy
 
 \subsection{Existential introduction}
 
-When is it legitimate to infer $\exists x Ax$? If you know that something is an $A$--- for instance, if you have $Aa$ available in the proof.
+When is it legitimate to infer $\exists x Ax$? If you know that something is an $A$ --- for instance, if you have $Aa$ available in the proof.
 
 This is the existential introduction rule ($\exists$I):
 
@@ -123,7 +123,7 @@ Since $\exists x Sx$, there is something that is an $S$. We do not know which co
 \end{quote}
 In this paragraph, we introduced a name for the thing that is an $S$. We gave it an arbitrary name (`Ishmael') so that we could reason about it and derive some consequences from there being an $S$. Since `Ishmael' is just a bogus name introduced for the purpose of the proof and not a genuine constant, we could not mention it in the conclusion. Yet we could derive a sentence that does not mention Ishmael; namely, $\exists x Tx$. This sentence does follow from the two premises.
 
-We want the existential elimination rule to work in a similar way. Yet since English language worlds like `Ishmael' are not symbols of QL, we cannot use them in formal proofs. Instead, just as we did in the analogous rule within our tree system, we will use names that are \emph{new}--- names which do not appear anywhere else in the proof. (This includes the conclusion you are aiming for.)
+We want the existential elimination rule to work in a similar way. Yet since English language worlds like `Ishmael' are not symbols of QL, we cannot use them in formal proofs. Instead, just as we did in the analogous rule within our tree system, we will use names that are \emph{new} --- names which do not appear anywhere else in the proof. (This includes the conclusion you are aiming for.)
 
 A constant that is used to stand in for whatever it is that satisfies an existential claim is called a \define{proxy}. Reasoning with the proxy must all occur inside a subproof, and the proxy cannot be a constant that is doing work elsewhere in the proof.
 
@@ -141,7 +141,7 @@ $^\ast$ The constant \script{c} must not appear outside the subproof.
 
 Remember that the proxy constant cannot appear in \metaB{}, the sentence you prove using $\exists$E. (It would actually be enough just to require that the proxy constant not appear in $\exists\script{x}\metaA{}$, in \metaB{}, or in any undischarged assumption. In recognition of the fact that it is just a place holder that we use inside the subproof, though, we require an entirely new constant which does not appear anywhere else in the proof.)
 
-The existential elimination rule, like the rules for conditional introduction and negation introduction and elimination, is a rule that involves discharging an assumption. Assume a proxy instance, and see what would follow from that instance; if you have the existential, then, you can stop making the assumption about the proxy, and help yourself to what would have followed from it. As with those other assumption-involving rules, instead of a justification, one includes a note--- in this case, `for $\exists${}E'--- about the role of the assumption in the proof. Remember that assumptions must be discharged before your proof is complete, so you should only make an assumption that goes beyond your premises when you have a plan for discharging it.
+The existential elimination rule, like the rules for conditional introduction and negation introduction and elimination, is a rule that involves discharging an assumption. Assume a proxy instance, and see what would follow from that instance; if you have the existential, then, you can stop making the assumption about the proxy, and help yourself to what would have followed from it. As with those other assumption-involving rules, instead of a justification, one includes a note --- in this case, `for $\exists${}E' --- about the role of the assumption in the proof. Remember that assumptions must be discharged before your proof is complete, so you should only make an assumption that goes beyond your premises when you have a plan for discharging it.
 
 
 With this rule, we can give a formal proof that $\exists x Sx$ and $\forall x(Sx \eif Tx)$ together entail $\exists x Tx$.
@@ -183,7 +183,7 @@ $\enot\exists \script{x}\enot\metaA{}$ is logically equivalent to $\forall \scri
 \end{proof}
 $^\ast$ Where name \script{a} does not appear outside the subproof.
 
-This is a proof \emph{schema}--- it is not itself a proof in QL, as its lines are not QL sentences. But it describes how a proof of this form can be given. For example, here is one instance of the above schema:
+This is a proof \emph{schema} --- it is not itself a proof in QL, as its lines are not QL sentences. But it describes how a proof of this form can be given. For example, here is one instance of the above schema:
 
 
 \begin{proof}
@@ -221,7 +221,7 @@ QN is a replacement rule. Like our SL replacement rules (DeMorgan, Double Negati
 
 \section{Identity Introduction}
 
-The introduction rule for identity is very simple. Everything is identical to itself; so, for any name \script{a}, one may write--- regardless of what one has on the previous lines of the proof--- that $\script{a}{=}\script{a}$:
+The introduction rule for identity is very simple. Everything is identical to itself; so, for any name \script{a}, one may write --- regardless of what one has on the previous lines of the proof --- that $\script{a}{=}\script{a}$:
 
 \begin{proof}
 	\have[\ \,\,\,]{x}{\script{a}=\script{a}} \by{=I}{}
@@ -288,7 +288,7 @@ So the set-up for a natural deduction proof will be:
 %	\have{nenb}{\enot\exists x\enot Bx}\by{QN}{nnab}
 \end{proof}
 
-There are various strategies one might employ. Here are two clues that point toward one promising strategy. Note again that we have an existential on line 2--- this suggests existential elimination as a possible strategy. Note also that we are aiming for $\enot \exists x \enot Bx$, which equivalent to $\enot \enot \forall x Bx$ by QN. This in turn is equivalent, by DN, to $\forall x Bx$, which suggests that universal introduction is going to be an important step. If we introduce an assumption with a proxy instance of $\exists x Bx$, we'll be able to work toward a generic instance of $Bx$. In this example, we'll take $e$ as our proxy, and show that $Bf$ follows from $\exists x Bx$:
+There are various strategies one might employ. Here are two clues that point toward one promising strategy. Note again that we have an existential on line 2 --- this suggests existential elimination as a possible strategy. Note also that we are aiming for $\enot \exists x \enot Bx$, which equivalent to $\enot \enot \forall x Bx$ by QN. This in turn is equivalent, by DN, to $\forall x Bx$, which suggests that universal introduction is going to be an important step. If we introduce an assumption with a proxy instance of $\exists x Bx$, we'll be able to work toward a generic instance of $Bx$. In this example, we'll take $e$ as our proxy, and show that $Bf$ follows from $\exists x Bx$:
 
 \begin{proof}
 	\hypo{one}{\forall x\forall y\ x{=}y}
@@ -305,7 +305,7 @@ There are various strategies one might employ. Here are two clues that point tow
 %	\have{nenb}{\enot\exists x\enot Bx}\by{QN}{nnab}
 \end{proof}
 
-By line 7, we have discharged the assumption about the proxy--- we won't use the name $e$ any more--- we have established that $Bf$ follows from the two premises. Since $f$ is an arbitrary name--- one that does not appear in any undischarged assumption--- we can perform universal introduction on that instance. This in turn lets us complete the proof via the two substitution rules mentioned above:
+By line 7, we have discharged the assumption about the proxy --- we won't use the name $e$ any more --- we have established that $Bf$ follows from the two premises. Since $f$ is an arbitrary name --- one that does not appear in any undischarged assumption --- we can perform universal introduction on that instance. This in turn lets us complete the proof via the two substitution rules mentioned above:
 
 \begin{proof}
 	\hypo{one}{\forall x\forall y\ x{=}y}
@@ -336,7 +336,7 @@ Showing $\enot \exists x\metaA{}$ can also be hard, and it is often easier to sh
 
 The proofs for soundness and completeness of our natural deduction system are beyond the scope of this textbook. But if you are interested in thinking through how those proofs would go, here are a few hints to get you started. Soundness in a natural deduction system amounts to the claim that if any sentence \metaA{} is derivable from a set of sentences \metaSetX{}, then $\metaSetX{}\models\metaA{}$. To prove this, you would need to demonstrate that any possible natural deduction proof meets this constraint. This is trivial for `proofs' that only contain premises; you'd next have to show, for every possible way of extending the proof (i.e., everything permitted by any one of our rules), that any newly added lines with no undischarged assumptions are entailed by the premises.
 
-Undischarged assumptions would require special treatment. You can think of an assumption as being similar to a `temporary premise'--- what you really want to prove is that, for every possible line in a proof, that line is entailed by the premises \emph{in addition to} any undischarged assumptions.
+Undischarged assumptions would require special treatment. You can think of an assumption as being similar to a `temporary premise' --- what you really want to prove is that, for every possible line in a proof, that line is entailed by the premises \emph{in addition to} any undischarged assumptions.
 
 The completeness proof is more complex. We need some way to guarantee that there is a proof corresponding to every QL entailment. The way to do this is to find an algorithmic procedure that is guaranteed to find a proof if one exists, and to prove that this is so. One good way to do this is to take advantage of the proven completeness of our \emph{tree} system for QL, presented in Chapter \ref{ch.QLsoundcomplete}, and find a way to demonstrate that any tree proof can be converted to a natural deduction proof. Here is a hint if you'd like to undertake that project: the tree method encodes the same kind of reasoning that reductio proofs do.
 

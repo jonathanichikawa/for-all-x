@@ -272,7 +272,7 @@ This will be our official tree rule for existentials:
 
 Just as \metaA{} stands in for any sentence of QL, the \script{x} is meant to stand in for any variable, and \script{a} stands in for any name. The requirement that the name be \emph{new} means that the name chosen for the substitution instance must be a name that has not appeared anywhere in the tree so far. 
 
-What is the rationale for this restriction? The existential claim says that some substitution instance is true, but it doesn't say which one it is. If we knew how many objects we were looking at in the UD, we could make a new branch for each object--- that's what we did in the examples above--- but here we see a different way to model this kind of flexibility. Remember, there is no prohibition in QL of two different names referring to the very same object. So by using an instance involving a new name, we are remaining open-minded about whether it is also a name for some object we've already been discussing.
+What is the rationale for this restriction? The existential claim says that some substitution instance is true, but it doesn't say which one it is. If we knew how many objects we were looking at in the UD, we could make a new branch for each object --- that's what we did in the examples above --- but here we see a different way to model this kind of flexibility. Remember, there is no prohibition in QL of two different names referring to the very same object. So by using an instance involving a new name, we are remaining open-minded about whether it is also a name for some object we've already been discussing.
 
 For example, consider this tree:
 
@@ -471,7 +471,7 @@ A tree is complete if and only if every branch in that tree is complete.
 
 \section{Resolution order}
 
-As in the SL tree system, the rules do not indicate any particular resolution order. But--- also as in the SL system--- some strategies are going to be more efficient than others. In fact, given the increased complexity of our rules and the fact that some resolutions introduce new names, it is even more important, from an efficiency perspective, than it used to be to employ sensible strategies. It is still a good idea to do linear rules before branching rules, and when possible, to perform a branching rule when you can see that one branch will close right away. Now, we can use similar strategies to take instances from general sentences in a strategic way. If you're not sure which instance to take first, look a step ahead and see if one of the instances will close a branch.
+As in the SL tree system, the rules do not indicate any particular resolution order. But --- also as in the SL system --- some strategies are going to be more efficient than others. In fact, given the increased complexity of our rules and the fact that some resolutions introduce new names, it is even more important, from an efficiency perspective, than it used to be to employ sensible strategies. It is still a good idea to do linear rules before branching rules, and when possible, to perform a branching rule when you can see that one branch will close right away. Now, we can use similar strategies to take instances from general sentences in a strategic way. If you're not sure which instance to take first, look a step ahead and see if one of the instances will close a branch.
 
 Here is a simple tree illustrating the point. Let's consider whether $Gb \eif \forall x \enot Fx$ and $\exists x Fx$ entail \enot $Gb$. We begin by putting the first two sentences and the negation of the third in the root of a tree:
 
@@ -515,7 +515,7 @@ Ordinarily, it is efficient not to branch too early. But in this case, if we loo
 ]
 \end{prooftree}
 
-From here we have three choices to consider: lines 2, 3, and 4. Line 3 pretty obviously won't get us anywhere interesting, so let's consider either the existential at line 2 or the universal at line 4. It's usually a good rule of thumb to do the new instances first--- that way we'll have more information when we make decisions about which instances to take for the general rules. So let's take the $a$ instance of line 2.
+From here we have three choices to consider: lines 2, 3, and 4. Line 3 pretty obviously won't get us anywhere interesting, so let's consider either the existential at line 2 or the universal at line 4. It's usually a good rule of thumb to do the new instances first --- that way we'll have more information when we make decisions about which instances to take for the general rules. So let's take the $a$ instance of line 2.
 
 \begin{prooftree}
 {
@@ -561,7 +561,7 @@ Planning ahead can help make your trees more efficient. The general principle yo
 
 \section{Infinite trees}
 
-In the SL tree system, every development of the tree took us closer to a completed tree, because we checked sentences above as resolved, and wrote simpler sentences in one or two branches below. SL trees are guaranteed to be completed in a finite number of steps--- they will either close, or they will reach a point where everything resolvable has been resolved.
+In the SL tree system, every development of the tree took us closer to a completed tree, because we checked sentences above as resolved, and wrote simpler sentences in one or two branches below. SL trees are guaranteed to be completed in a finite number of steps --- they will either close, or they will reach a point where everything resolvable has been resolved.
 
 Because of the way our QL system works, it is possible for trees to continue indefinitely without closing. General sentences require that instances be taken for all names in the branch; but the rules for existentials and negated universals require that new names be introduced. Often, we can introduce the new names before dealing with the general instances, as in this completed tree:
 
@@ -578,7 +578,7 @@ Because of the way our QL system works, it is possible for trees to continue ind
 ]
 \end{prooftree}
 
-In this tree, we introduce the name $a$ for the existential, then take the instance for the one and only name in the branch for the universal, and the tree is complete. But things won't always be so simple. Consider a tree with this single sentence in its root: $\forall x \exists y Rxy$. In this case, we must begin by performing the universal rule, as our one and only sentence is a universal. This rule allows us to take an instance with any name. Ordinarily, we use the names that already exist in the branch, but since there are no names, we'll just take the $a$ instance from the start, putting that instance--- an existential--- on line 2.
+In this tree, we introduce the name $a$ for the existential, then take the instance for the one and only name in the branch for the universal, and the tree is complete. But things won't always be so simple. Consider a tree with this single sentence in its root: $\forall x \exists y Rxy$. In this case, we must begin by performing the universal rule, as our one and only sentence is a universal. This rule allows us to take an instance with any name. Ordinarily, we use the names that already exist in the branch, but since there are no names, we'll just take the $a$ instance from the start, putting that instance --- an existential --- on line 2.
 
 To resolve that existential, we must use a new name. So on line 3, we take the $b$ instance from line 2.
 
@@ -744,7 +744,7 @@ Note that, for purposes of answering questions about entailment, you needn't go 
 
 \subsection{Using old names}
 
-The most frequent errors for trees in QL involve ignoring the restrictions on names involved in taking instances. Particular sentences (existentials and negated universals) require a \emph{new} name--- if the name appears anywhere in the branch at the time the existential is taken (including below it), it is not suitable for substitution via these rules.
+The most frequent errors for trees in QL involve ignoring the restrictions on names involved in taking instances. Particular sentences (existentials and negated universals) require a \emph{new} name --- if the name appears anywhere in the branch at the time the existential is taken (including below it), it is not suitable for substitution via these rules.
 
 For example, this tree is a mistake:
 

@@ -42,7 +42,7 @@ we can translate sentence \ref{onlyher} as $Pm$. The problem is that $Pu$ and $P
 	\extension{P} & \{$u$, $m$\}
 \end{partialmodel}
 
-The `only' in each sentence has just been made a part of the predicate, in a way that ignores its logical force. (Compare the analogous discussion in the Introduction to Chapter \ref{ch.QL} that motivated extending SL with predicates and quantifiers.) If \emph{only} you can prevent forest fires, that means that no one \emph{else}--- i.e., no one who \emph{is not} you--- can prevent forest fires. We don't yet have the logical vocabulary to express these thoughts in a strong enough way.
+The `only' in each sentence has just been made a part of the predicate, in a way that ignores its logical force. (Compare the analogous discussion in the Introduction to Chapter \ref{ch.QL} that motivated extending SL with predicates and quantifiers.) If \emph{only} you can prevent forest fires, that means that no one \emph{else} --- i.e., no one who \emph{is not} you --- can prevent forest fires. We don't yet have the logical vocabulary to express these thoughts in a strong enough way.
 
 These sentences give rise to a related issue:
 
@@ -117,9 +117,9 @@ Then we might translate the argument thus:
 \item[\therefore] $\exists x Cmx \eand \exists y Cmy$
 \end{earg}
 
-This is a valid argument form. But the problem is that $\exists x Cmx \eand \exists y Cmy$ is a very bad translation of `Mozart composed at least two things'. Notice that it is the conjunction of two existentials, each of which says that Mozart composed at least one thing. Suppose he composed only one thing; then each conjunct is true, so the conjunction is true. To say that he composed at least \emph{two} things, it's not enough to say that he composed at least one thing, and then to say again that he composed at least one thing--- we need some way to ensure that the $x$ and $y$ are \emph{not the same thing}.
+This is a valid argument form. But the problem is that $\exists x Cmx \eand \exists y Cmy$ is a very bad translation of `Mozart composed at least two things'. Notice that it is the conjunction of two existentials, each of which says that Mozart composed at least one thing. Suppose he composed only one thing; then each conjunct is true, so the conjunction is true. To say that he composed at least \emph{two} things, it's not enough to say that he composed at least one thing, and then to say again that he composed at least one thing --- we need some way to ensure that the $x$ and $y$ are \emph{not the same thing}.
 
-What all three of these cases--- the forest fire case, the Spider-Man case, and the Mozart case--- show us is that if we want to reflect the logical relationships having to do with identity, we need special logical vocabulary to do so. Just as we introduced the `$\forall$' and `$\exists$' formalisms to reflect logical facts about quantifiers, we also need a special symbol for identity. That symbol will be `$=$'. Like our other logical symbols--- `\eif', `\enot', `$\forall$', etc.--- its meaning will be fixed as part of our language. Interpretation keys tell us what predicates like $Fx$ mean; they don't get to specify the meaning of the logical terms.
+What all three of these cases --- the forest fire case, the Spider-Man case, and the Mozart case --- show us is that if we want to reflect the logical relationships having to do with identity, we need special logical vocabulary to do so. Just as we introduced the `$\forall$' and `$\exists$' formalisms to reflect logical facts about quantifiers, we also need a special symbol for identity. That symbol will be `$=$'. Like our other logical symbols --- `\eif', `\enot', `$\forall$', etc. --- its meaning will be fixed as part of our language. Interpretation keys tell us what predicates like $Fx$ mean; they don't get to specify the meaning of the logical terms.
 
 When we introduced quantifiers and predicates, we described the shift as switching to a new language, from SL to QL. In fact, however, QL isn't so much a change away from SL as it is an addition to it. (All SL sentences are QL sentences, and all SL entailments are also QL entailments.) Here we will make one more addition, corresponding to identity. We won't introduce a whole new name for our extended version of QL; it can be specified descriptively as `quantified logic with identity'. (The choice about whether to introduce a new language name is a purely conventional one; we're here just following ordinary practice.)
 
@@ -156,7 +156,7 @@ In the introduction we tried translating this into QL with a predicate `only  \b
 \item[u:] you
 \end{ekey}
 
-If only you can prevent forest fires, that means that you can prevent forest fires, and, moreover, no one \emph{else}--- no one who is not you--- can prevent forest fires. The first part is simple. You can prevent forest fires: $Pu$. Now we must say that no one else can prevent forest fires. Another way to say that is this: it is \emph{not} the case that there is someone \emph{who is not you} who can prevent forest fires. So you can think of that as a negated existential: $\enot \exists x (x {\neq} u \eand Px)$. Putting these two pieces together as a conjunction, we can translate sentence \ref{onlyyou} as:
+If only you can prevent forest fires, that means that you can prevent forest fires, and, moreover, no one \emph{else} --- no one who is not you --- can prevent forest fires. The first part is simple. You can prevent forest fires: $Pu$. Now we must say that no one else can prevent forest fires. Another way to say that is this: it is \emph{not} the case that there is someone \emph{who is not you} who can prevent forest fires. So you can think of that as a negated existential: $\enot \exists x (x {\neq} u \eand Px)$. Putting these two pieces together as a conjunction, we can translate sentence \ref{onlyyou} as:
 
 \begin{earg}
 \item[\ref{onlyyou}.] $Pu \eand \enot \exists x (x {\neq} u \eand Px)$
@@ -178,9 +178,9 @@ In \S\ref{sec.identitymotivation}, we saw that treating identity as a simple pre
 \item[\ref{sq}] Spider-Man lives in Queens.
 \end{earg}
 
-The problem was that if the extension of the identity predicate can simply be presented in a model, without regard for the other features of the model, there was no guarantee that $p$ and $s$--- the names for Peter Parker and Spider-Man--- were related in any particular way, just because \ntuple{Peter Parker, Spider-Man} happened to be assigned in the extension of the $I$ predicate.
+The problem was that if the extension of the identity predicate can simply be presented in a model, without regard for the other features of the model, there was no guarantee that $p$ and $s$ --- the names for Peter Parker and Spider-Man --- were related in any particular way, just because \ntuple{Peter Parker, Spider-Man} happened to be assigned in the extension of the $I$ predicate.
 
-But if we translate the identity predicate with the QL identity claim $p{=}s$, this requires that the names $s$ and $p$ be assigned to the \emph{very same object} in the model. Consequently, for any sentence \metaA{} involving the name $p$, \metaA{}\substitute{p}{s}--- the sentence that results from replacing each $p$ in \metaA{} with an $s$--- will have the same truth value as \metaA{}. If $Fp$ is true, then the object named by $p$ is in the extension of $F$. And if $p{=}s$, then the object named by $p$ is \emph{the very same object as} the object named by $s$. So of course the object named by $s$ (that same object) must also be in the extension of $F$. In general, identical objects have identical properties.
+But if we translate the identity predicate with the QL identity claim $p{=}s$, this requires that the names $s$ and $p$ be assigned to the \emph{very same object} in the model. Consequently, for any sentence \metaA{} involving the name $p$, \metaA{}\substitute{p}{s} --- the sentence that results from replacing each $p$ in \metaA{} with an $s$ --- will have the same truth value as \metaA{}. If $Fp$ is true, then the object named by $p$ is in the extension of $F$. And if $p{=}s$, then the object named by $p$ is \emph{the very same object as} the object named by $s$. So of course the object named by $s$ (that same object) must also be in the extension of $F$. In general, identical objects have identical properties.
 
 (The converse is not true in general. There is no rule in QL that says that if all the same wffs are true of two different names, they must be two names for the same object.)
 
@@ -216,7 +216,7 @@ We want to say that there are two things, that have the following features: they
 $$\exists x \exists y (x {\neq} y \eand Ox \eand Oy \eand Cmx \eand Cmy)$$
 Strictly speaking, QL conjunctions only have two conjuncts, so to write this sentence scrupulously, we'd need to include brackets to signify that we're talking about conjunctions of conjunctions:
 $$\exists x \exists y (x {\neq} y \eand [(Ox \eand Oy) \eand (Cmx \eand Cmy)])$$
-In sentences like these--- and the longer ones listing more conditions that will feature soon--- it is usually preferable for readability to leave these internal brackets out. We will write as if our system allows arbitrary numbers of conjuncts, with the understanding that, should the need arise, we could always put them back in explicitly. (We'll rarely have occasion to do so.)
+In sentences like these --- and the longer ones listing more conditions that will feature soon --- it is usually preferable for readability to leave these internal brackets out. We will write as if our system allows arbitrary numbers of conjuncts, with the understanding that, should the need arise, we could always put them back in explicitly. (We'll rarely have occasion to do so.)
 
 This sentence says that Mozart wrote at least two operas. To say that he wrote at least \emph{three} operas would require another quantifier with a new variable $z$, and the specification that $z$ be an opera, written by Mozart, and non-identical to both of the ones previously mentioned:
 \begin{multline*}
@@ -226,7 +226,7 @@ Ox \eand Oy \eand Oz \eand Cmx \eand Cmy \eand Cmz)
 
 As you can see, these sentences get long and complicated rather quickly.
 
-Suppose we wanted to say that Mozart composed \emph{exactly} two operas--- no more, and no fewer. There are two reasonably natural choices for how to say that. One is to conjoin the first QL sentence of this section--- Mozart composed at least two operas--- with the negation of the second--- Mozart did not compose at least three operas. The result is:
+Suppose we wanted to say that Mozart composed \emph{exactly} two operas --- no more, and no fewer. There are two reasonably natural choices for how to say that. One is to conjoin the first QL sentence of this section --- Mozart composed at least two operas --- with the negation of the second --- Mozart did not compose at least three operas. The result is:
 \begin{multline*}
 \exists x \exists y (x {\neq} y \eand Ox \eand Oy \eand Cmx \eand Cmy) \eand \\ \enot \exists x \exists y \exists z (x {\neq} y \eand x {\neq} z \eand y {\neq} z \eand Ox \eand Oy \eand Oz \eand Cmx \eand Cmy \eand Cmz)
 \end{multline*}
@@ -242,7 +242,7 @@ So identity gives us a way to talk about quantities, albeit not a particularly e
 
 \section{Definite descriptions}
 \label{sec.defdesc}
-In 1905, Bertrand Russell famously characterized \emph{definite descriptions} in terms of identity. A definite description is a description that implies that only one object satisfies it. Paradigmatically, definite descriptions are ones that use the definite article `the'. If I say `the baby is hungry', I'm saying that the \emph{one and only baby we might be talking about} is hungry. Russell was motivated in part by the apparent fact that one can use this sort of language in a meaningful way even if one is wrong about whether there's any baby around. If there is no baby--- the crying I'm hearing is a recording--- my statement is false, but it's still meaningful. For this reason, Russell was reluctant to suppose that we should understand `the baby' as a name. Remember, in QL, all names have to refer to objects in the UD. Instead, my sentence can be understood as an existentially quantified claim about a unique baby. If I say `the baby is hungry', according to Russell, I'm in effect saying three things: there is a baby, there's no other baby than that one, and that baby is hungry. That second element, the uniqueness claim, can be expressed in QL with identity. 
+In 1905, Bertrand Russell famously characterized \emph{definite descriptions} in terms of identity. A definite description is a description that implies that only one object satisfies it. Paradigmatically, definite descriptions are ones that use the definite article `the'. If I say `the baby is hungry', I'm saying that the \emph{one and only baby we might be talking about} is hungry. Russell was motivated in part by the apparent fact that one can use this sort of language in a meaningful way even if one is wrong about whether there's any baby around. If there is no baby --- the crying I'm hearing is a recording --- my statement is false, but it's still meaningful. For this reason, Russell was reluctant to suppose that we should understand `the baby' as a name. Remember, in QL, all names have to refer to objects in the UD. Instead, my sentence can be understood as an existentially quantified claim about a unique baby. If I say `the baby is hungry', according to Russell, I'm in effect saying three things: there is a baby, there's no other baby than that one, and that baby is hungry. That second element, the uniqueness claim, can be expressed in QL with identity. 
 
 \begin{ekey}
 \item[UD:]People in this house
@@ -263,7 +263,7 @@ One of the interesting features of Russell's theory is that `the baby is not hun
 \exists x [Bx \eand \enot \exists y (By \eand y {\neq} x) \eand \enot Hx]
 \end{equation*}
 
-The reason Russell designed his theory this way was that he thought that both of these sentences equally implied that there is a baby. If there is no baby, then you'd be mistaken in saying either `the baby is hungry' or `the baby is not hungry'. Consequently, one can't be the negation of the other. As a treatment of the truth conditions of English sentences, Russell's theory is controversial. Some philosophers of language think that sentences that seem to presuppose the existence of something that isn't there aren't straightforwardly false, but are rather defective in some other way--- perhaps they fail to be meaningful at all, or perhaps they take on some truth value other than true or false. These matters are beyond our present scope. We will remain neutral on whether Russell's theory is an accurate treatment of English; it is relevant for us because it provides an interesting and useful case for translation of sentences into QL with identity.
+The reason Russell designed his theory this way was that he thought that both of these sentences equally implied that there is a baby. If there is no baby, then you'd be mistaken in saying either `the baby is hungry' or `the baby is not hungry'. Consequently, one can't be the negation of the other. As a treatment of the truth conditions of English sentences, Russell's theory is controversial. Some philosophers of language think that sentences that seem to presuppose the existence of something that isn't there aren't straightforwardly false, but are rather defective in some other way --- perhaps they fail to be meaningful at all, or perhaps they take on some truth value other than true or false. These matters are beyond our present scope. We will remain neutral on whether Russell's theory is an accurate treatment of English; it is relevant for us because it provides an interesting and useful case for translation of sentences into QL with identity.
 
 The general statement of Russell's theory of definite descriptions is, if you have a sentence applying a predicate \script{P} to the referent of a definite description \script{D}, translate it thus: there is something \script{x} that is \script{D}, there is nothing other than \script{x} that is \script{D}, and \script{x} is \script{P}.
 
@@ -292,7 +292,7 @@ to prove={\{Fa, \enot Fb, a{=}b\} \vdash{}\bot}
 	]
 \end{prooftree}
 
-We will add this rule to our tree system. Notice that it is not a \emph{resolution} rule--- we do not put a check mark next to either sentence referenced. They may be used again.
+We will add this rule to our tree system. Notice that it is not a \emph{resolution} rule --- we do not put a check mark next to either sentence referenced. They may be used again.
 
 Since our tree system is supposed to be \emph{complete}, we need to \emph{ensure} that the tree will close; it's not enough that we have a rule that allows that it might. So, as in the case of the general rules discussed in Chapter \ref{ch.QLTrees}, we will also add an additional requirement governing branch completion. What we need is to make sure that we've made enough identity substitutions to demonstrate everything that needs demonstrating. The way we'll do this is by requiring, for every identity claim in the branch, that, for at least one of its directions (left-to-right or right-to-left) the substitution has been performed in that direction on every atomic sentence or negated atomic sentence in the branch.
 
@@ -339,7 +339,7 @@ to prove={\{\forall x \: a{=}x, \exists x \: x{\neq}a\} \vdash \bot}
 	]
 \end{prooftree}
 
-We must also take care, when constructing models from completed open branches, to respect identity claims. If for example the sentence $b{=}c$ appears in an open branch, we will not construct a model with two different objects, b and c--- instead, we'll just pick one of them as the object indicated, and assign both names to it. For example, consider this tree:
+We must also take care, when constructing models from completed open branches, to respect identity claims. If for example the sentence $b{=}c$ appears in an open branch, we will not construct a model with two different objects, b and c --- instead, we'll just pick one of them as the object indicated, and assign both names to it. For example, consider this tree:
 
 \begin{prooftree}
 {}
@@ -374,7 +374,7 @@ We must also take care, when constructing models from completed open branches, t
 	]
 \end{prooftree}
 
-We end up with two open branches. We only need one to demonstrate that the root is satisfiable, but it is useful practice to consider both. Let's begin with the shorter open branch to the left, that completes at line 10. Examining that branch, we see three names, $a$, $b$, and $c$, and three atomic sentences concerning the extension of $R$: $Rac$, $Rab$, and $\enot Raa$. Using our previous method for constructing models, we would have posited a three-object UD and related those objects via $R$ in the appropriate way. Now, however, we also have identity claims to consider. There are two identity claims in the branch. $b{=}b$ doesn't tell us anything interesting--- of \emph{course} that object is identical with itself--- but the presence of $c{=}b$ indicates that our model will not include separate objects b and c. We'll only posit one object in the UD for those two names, and another object for $a$. We can pick either letter for the object; let's call it $b$. (Remember, it doesn't matter what kinds of objects we pick for the UD; it could be Reed Richards for all it matters. We typically pick letters because they are easy to keep track of.)
+We end up with two open branches. We only need one to demonstrate that the root is satisfiable, but it is useful practice to consider both. Let's begin with the shorter open branch to the left, that completes at line 10. Examining that branch, we see three names, $a$, $b$, and $c$, and three atomic sentences concerning the extension of $R$: $Rac$, $Rab$, and $\enot Raa$. Using our previous method for constructing models, we would have posited a three-object UD and related those objects via $R$ in the appropriate way. Now, however, we also have identity claims to consider. There are two identity claims in the branch. $b{=}b$ doesn't tell us anything interesting --- of \emph{course} that object is identical with itself --- but the presence of $c{=}b$ indicates that our model will not include separate objects b and c. We'll only posit one object in the UD for those two names, and another object for $a$. We can pick either letter for the object; let's call it $b$. (Remember, it doesn't matter what kinds of objects we pick for the UD; it could be Reed Richards for all it matters. We typically pick letters because they are easy to keep track of.)
 
 So the model suggested by the first open branch here is:
 
