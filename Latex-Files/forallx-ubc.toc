@@ -71,7 +71,7 @@
 \contentsline {section}{\numberline {5.5}Branch closure rules}{82}{section.5.5}% 
 \contentsline {section}{\numberline {5.6}Branch completion rules}{83}{section.5.6}% 
 \contentsline {section}{\numberline {5.7}Resolution order}{84}{section.5.7}% 
-\contentsline {section}{\numberline {5.8}Choosing the right root}{85}{section.5.8}% 
+\contentsline {section}{\numberline {5.8}Choosing the right root}{86}{section.5.8}% 
 \contentsline {section}{Practice Exercises}{86}{section.5.8}% 
 \contentsline {chapter}{\numberline {6}Soundness and Completeness for SL Trees}{88}{chapter.6}% 
 \contentsline {section}{\numberline {6.1}Informal proof}{89}{section.6.1}% 

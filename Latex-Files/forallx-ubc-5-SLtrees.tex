@@ -228,7 +228,7 @@ Both of these disjuncts also result in closed branches. The left branch at (10) 
 
 In the previous chapter we used the double turnstile, `$\models$', to represent entailment. In this chapter we will use a different but related symbol, the \define{single turnstile}, which looks like this: `$\vdash$'. Think of this symbol as representing \emph{provability}. So in proving that $E$ follows from the premises above, we're showing that {\{$A\eand B$, \enot$(C\eor D)$, $(\enot B\eor C)\eor E\} \vdash{} E$}.
 
-Obviously provability and entailment are closely connected; we'll consider that connection in more detail in Chapter \ref{ch.SLsoundcomplete}.
+Unsurprisingly, provability and entailment will turn out to be closely connected; we'll consider the connection in detail in Chapter \ref{ch.SLsoundcomplete}.
 
 \section{An example: proving invalidity}
 \label{sec.SLinvalidtree}
@@ -301,7 +301,7 @@ close with=\ensuremath{\times},
 ]
 \end{prooftree}
 
-The $\uparrow$ indicates that the open branch ending in $D$ is a \emph{completed} branch. (We'll precisely define `completion' in \S\ref{sec.SLtreerules}.) What this means is that this branch represents a way to satisfy all three sentences at the root of the tree. In other words, this argument form is \emph{not} valid in SL. Furthermore, examining the open branch demonstrates an interpretation that satisfies the root. The branch includes three wffs that are either atoms or negated atoms: \enot $A$, $D$, and \enot $N$. So it suggests this interpretation:
+The $\uparrow$ indicates that the open branch ending in $D$ is a \emph{completed} branch. (We'll precisely define `completion' in \S\ref{sec.SL.tree.completion}.) What this means is that this branch represents a way to satisfy all three sentences at the root of the tree. In other words, this argument form is \emph{not} valid in SL. Furthermore, examining the open branch demonstrates an interpretation that satisfies the root. The branch includes three wffs that are either atoms or negated atoms: \enot $A$, $D$, and \enot $N$. So it suggests this interpretation:
 
 \begin{displaymath}
 \script{I} =
@@ -460,7 +460,7 @@ single branches}
 
 \subsection{Negated conditional}
 
-As in the case of disjunction, the negation of a conditional is a relatively strong claim --- the only way for a conditional to be false is for its antecedent to be true \emph{and} for its consequent to be false. We represent this with a linear development:
+As in the case of disjunction, the negation of a conditional is a relatively strong claim --- the only way for a conditional to be false is for its antecedent to be true \emph{and} for its consequent to be false. We represent this with a linear development for negated conditionals:
 
 \factoidbox{
 \begin{center}
@@ -522,7 +522,7 @@ single branches}
 
 \subsection{Double negation}
 
-There is one more resolution rule, for double-negated sentences. One resolves a double negation by developing a linear branch where both negations are removed.
+There is one more resolution rule, for double-negated sentences. One resolves a double negation by developing a linear branch with the negand of the negand --- i.e., the wff obtained from removing both negations from the left of the double-negation.
 
 \factoidbox{
 \begin{center}
@@ -618,7 +618,7 @@ If there is at least one open branch in a completed tree, the tree method indica
 
 We use the `$\vdash{}$' symbol to indicate tree closure. `$\metaSetX{}\vdash{} \bot$' means that a tree with root \metaSetX{} closes. We use `$\nvdash{}\bot$' to indicate that a completed tree remains open.
 
-We will also define our single turnstile symbol so that $\metaSetX{}\vdash{} \metaA{}$ is equivalent to $\metaSetX{}, \enot\metaA{}\vdash{}\bot$. We've been using this implicit definition already, by testing validity by putting the negation of the conclusion along with the premises in the root.
+We will also define our single turnstile symbol so that $\metaSetX{}\vdash{} \metaA{}$ is equivalent to $\metaSetX{}, \enot\metaA{}\vdash{}\bot$. So the latter is a way of saying that the tree method shows that the argument from $\metaSetX{}$ to $\metaA{}$ is valid.
 
 This completes the introduction of the formal rules for the SL tree proof system. In the remainder of this chapter, we'll work through some more examples and provide some advice for working through trees more efficiently. In Chapter \ref{ch.SLsoundcomplete} we'll explain why the tree method works, and prove why it's a good one.
 
