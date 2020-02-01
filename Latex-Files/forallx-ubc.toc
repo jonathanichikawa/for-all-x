@@ -71,7 +71,7 @@
 \contentsline {section}{\numberline {5.5}Branch closure rules}{82}{section.5.5}% 
 \contentsline {section}{\numberline {5.6}Branch completion rules}{83}{section.5.6}% 
 \contentsline {section}{\numberline {5.7}Resolution order}{84}{section.5.7}% 
-\contentsline {section}{\numberline {5.8}Choosing the right root}{85}{section.5.8}% 
+\contentsline {section}{\numberline {5.8}Choosing the right root}{86}{section.5.8}% 
 \contentsline {section}{Practice Exercises}{86}{section.5.8}% 
 \contentsline {chapter}{\numberline {6}Soundness and Completeness for SL Trees}{88}{chapter.6}% 
 \contentsline {section}{\numberline {6.1}Informal proof}{89}{section.6.1}% 
@@ -196,7 +196,7 @@
 \contentsline {section}{\numberline {12.5}Quantity}{218}{section.12.5}% 
 \contentsline {section}{\numberline {12.6}Definite descriptions}{219}{section.12.6}% 
 \contentsline {section}{\numberline {12.7}Identity and trees}{221}{section.12.7}% 
-\contentsline {section}{Practice Exercises}{225}{Item.530}% 
+\contentsline {section}{Practice Exercises}{225}{Item.529}% 
 \contentsline {chapter}{\numberline {13}Natural Deduction Proofs in QL}{229}{chapter.13}% 
 \contentsline {section}{\numberline {13.1}Natural Deduction: the basics}{229}{section.13.1}% 
 \contentsline {section}{\numberline {13.2}Basic quantifier rules}{230}{section.13.2}% 
@@ -220,15 +220,15 @@
 \contentsline {paragraph}{Quantifiers}{245}{paragraph*.17}% 
 \contentsline {chapter}{\numberline {B}Solutions to selected exercises}{247}{appendix.B}% 
 \contentsline {section}{Chapter {\ref {ch.intro}}}{247}{section*.18}% 
-\contentsline {section}{Chapter {\ref {ch.SL}}}{248}{Item.644}% 
-\contentsline {section}{Chapter {\ref {ch.TruthTables}}}{249}{Item.682}% 
-\contentsline {section}{Chapter {\ref {ch.sl.trees}}}{251}{Item.710}% 
-\contentsline {section}{Chapter {\ref {ch.SLsoundcomplete}}}{255}{Item.724}% 
-\contentsline {section}{Chapter {\ref {ch.ND.proofs}}}{257}{Item.733}% 
-\contentsline {section}{Chapter {\ref {ch.QL}}}{264}{Item.748}% 
-\contentsline {section}{Chapter {\ref {ch.QL.models}}}{266}{Item.816}% 
-\contentsline {section}{Chapter {\ref {ch.QLTrees}}}{269}{Item.829}% 
-\contentsline {section}{Chapter {\ref {ch.QLsoundcomplete}}}{275}{Item.840}% 
-\contentsline {section}{Chapter {\ref {ch.identity}}}{278}{Item.860}% 
-\contentsline {section}{Chapter {\ref {ch.QLND}}}{287}{Item.907}% 
+\contentsline {section}{Chapter {\ref {ch.SL}}}{248}{Item.643}% 
+\contentsline {section}{Chapter {\ref {ch.TruthTables}}}{249}{Item.681}% 
+\contentsline {section}{Chapter {\ref {ch.sl.trees}}}{251}{Item.709}% 
+\contentsline {section}{Chapter {\ref {ch.SLsoundcomplete}}}{255}{Item.723}% 
+\contentsline {section}{Chapter {\ref {ch.ND.proofs}}}{257}{Item.732}% 
+\contentsline {section}{Chapter {\ref {ch.QL}}}{264}{Item.747}% 
+\contentsline {section}{Chapter {\ref {ch.QL.models}}}{266}{Item.815}% 
+\contentsline {section}{Chapter {\ref {ch.QLTrees}}}{269}{Item.828}% 
+\contentsline {section}{Chapter {\ref {ch.QLsoundcomplete}}}{275}{Item.839}% 
+\contentsline {section}{Chapter {\ref {ch.identity}}}{278}{Item.859}% 
+\contentsline {section}{Chapter {\ref {ch.QLND}}}{287}{Item.906}% 
 \contentsline {chapter}{\numberline {C}Quick Reference}{}{appendix.C}% 

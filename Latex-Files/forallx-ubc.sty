@@ -203,7 +203,7 @@
 \newcounter{countSeq}
 \newcommand*{\nextSeq}{\stepcounter{countSeq}\arabic{countSeq}, }
 \newcommand*{\noSeq}{\stepcounter{countSeq}}
-\newcommand*{\lastSeq}{and \stepcounter{countSeq}\arabic{countSeq} }
+\newcommand*{\lastSeq}{and \stepcounter{countSeq}\arabic{countSeq}\setcounter{countSeq}{0} }
 
 % This is used to place (eg) a partial model or proof as an item
 % in a list. Without it, the item tag will be vertically centered next

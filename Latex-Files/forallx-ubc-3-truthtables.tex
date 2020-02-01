@@ -13,7 +13,7 @@ This is a very interesting feature of SL. It is not inevitable. The syntax of En
 For this reason, we can construct truth tables to determine the logical features of SL sentences.
 
 \section{Complete truth tables}
-The truth-value of sentences which contain only one connective are given by the characteristic truth table for that connective. Truth tables list out all the possible combinations of truth values for the atomic wffs at play; each row corresponds to an \define{interpretation} --- a possible way of assigning truth values to atomic sentence. (\{$P=1$, $Q=0$\} is an example of an interpretation.)
+The truth-value of sentences which contain only one connective are given by the characteristic truth table for that connective. Truth tables list out all the possible combinations of truth values for the atomic wffs at play; each row corresponds to an \define{interpretation} --- a possible way of assigning truth values to atomic sentences. (\{$P=1$, $Q=0$\} is an example of an interpretation.)
 
 In the previous chapter, we wrote the characteristic truth tables with `1' for true and `0' for false. It is important to note, however, that this is not about truth in any deep or cosmic sense. Philosophical investigation into the nature of truth is a worthy project in its own right, but the truth functions in SL are just rules which transform input values into output values. (This is part of the reason why, in this book, we usually write `1' and `0' instead of `T' and `F'.) Even though we interpret `1' as meaning `true' and `0' as meaning `false', computers can be programmed to fill out truth tables in a purely mechanical way. In a machine, `1' might mean that a register is switched on and `0' that the register is switched off. Mathematically, they are just the two possible values that a sentence of SL can have. The truth tables for the connectives of SL, written in terms of 1s and 0s, are given in table \ref{table.CharacteristicTTs}.
 
@@ -81,7 +81,7 @@ $H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
  0 & 0 &  & {0} &  &\TTbf{1} & 0
 \end{tabular}
 \end{center}
-The column of 1s underneath the conditional tells us that the sentence \mbox{$(H \eand I)\eif I$} is true regardless of the truth-values of $H$ and $I$. They can be true or false in any combination, and the compound sentence still comes out true. It is crucial that we have considered all of the possible combinations. If we only had a two-line truth table, we could not be sure that the sentence was not false for some other combination of truth-values.
+The column of 1s underneath the conditional tells us that the sentence \mbox{$(H \eand I)\eif H$} is true regardless of the truth-values of $H$ and $I$. They can be true or false in any combination, and the compound sentence still comes out true. It is crucial that we have considered all of the possible combinations. If we only had a two-line truth table, we could not be sure that the sentence was not false for some other combination of truth-values.
 
 In this example, we have not repeated all of the entries in every successive table, so that it's easier for you to see which parts are new. When actually writing truth tables on paper, however, it is impractical to erase whole columns or rewrite the whole table for every step. Although it is more crowded, the truth table can be written in this way:
 \begin{center}
