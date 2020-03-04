@@ -510,8 +510,9 @@ A branch closes if and only if either (i) it contains some sentence \metaA{} alo
 	\have[\ ]{c}{\exists \script{x}\metaA{}\substitutesome{\script{c}^\ast}{\script{x}}} \Ei{a}
 \end{proof}
 
-$^\ast$ \script{x} may replace some or all occurrences of \script{c}.
-
+\begin{footnotesize}\emph{
+$^\ast$ \script{x} may replace some or all occurrences of \script{c}.}
+\end{footnotesize}
 
 
 \textsc{Existential Elimination}
@@ -525,16 +526,20 @@ $^\ast$ \script{x} may replace some or all occurrences of \script{c}.
 	\have[\ ]{d}{\metaB{}} \Ee{a,b-c}
 \end{proof}
 
-$^\ast$ \script{c} must not appear outside the subproof.
+\begin{footnotesize}\emph{
+$^\ast$ \script{c} must not appear outside the subproof.}
+\end{footnotesize}
 
 \textsc{Universal Introduction}
 
 \begin{proof}
 	\have[m]{a}{\metaA{}}
-	\have[\ ]{c}{\forall \script{x}\metaA{}\substitute{\script{c}}{\script{x}}} \Ai{a}
+	\have[\ ]{c}{\forall \script{x}\metaA{}\substitute{\script{c}^\ast}{\script{x}}} \Ai{a}
 \end{proof}
 
-\script{c} must not occur in any undischarged assumptions.
+\begin{footnotesize}\emph{
+$^\ast$ \script{c} must not occur in any undischarged assumptions.}
+\end{footnotesize}
 
 
 \textsc{Universal Elimination}
@@ -556,11 +561,12 @@ $^\ast$ \script{c} must not appear outside the subproof.
 \begin{proof}
 	\have[m]{e}{\script{c}{=}\script{d}}
 	\have[n]{a}{\metaA{}}
-	\have[\ ]{ea1}{\metaA{}\substitutesome{c}{d}} \by{=E}{e,a}
-	\have[\ ]{ea2}{\metaA{}\substitutesome{d}{c}} \by{=E}{e,a}
+	\have[\ ]{ea1}{\metaA{}\substitutesome{\script{c}}{\script{d}}} \by{=E}{e,a}
+	\have[\ ]{ea2}{\metaA{}\substitutesome{\script{d}}{\script{c}}} \by{=E}{e,a}
 \end{proof}
 
-One constant may replace some or all occurrences of the other.
+\begin{footnotesize}\emph{One constant may replace some or all occurrences of the other.}
+\end{footnotesize}
 
 
 
@@ -598,6 +604,8 @@ One constant may replace some or all occurrences of the other.
 
 
 {\large \bf Replacement Rules}
+
+\begin{footnotesize}\emph{(Replacemnet rules may be used within complex sentences or on whole lines.)}\end{footnotesize}
 
 \textsc{Commutativity} (Comm)\\
 $(\metaA{}\eand\metaB{}) \Longleftrightarrow (\metaB{}\eand\metaA{})$\\
