@@ -1,0 +1,19 @@
+name: Gather, publish LaTeX files as PDF 
+# This workflow is triggered on pushes to the repository.
+on: [push]
+
+jobs:
+  latex-job:
+    # This job runs on Linux (GitHub-hosted runner)
+    runs-on: ubuntu-latest
+    # Job name is Compile
+    name: Compile
+    steps:
+    - uses: actions/checkout@v1
+    - name: Compilation
+      uses: vinay0410/tectonic-action@master
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tex_path: '--synctex --reruns 3 Latex-Files/forallx-ubc.tex'
+        push: 'yes'
