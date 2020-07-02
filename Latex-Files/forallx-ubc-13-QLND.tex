@@ -132,7 +132,7 @@ This is the schematic form of the existential elimination rule ($\exists$E):
 \begin{proof}
 	\have[m]{a}{\exists \script{x}\metaA{}}
 	\open	
-		\hypo[n]{b}{\metaA{}\substitute{c^\ast}{x}} \by{for $\exists${}E}{}
+		\hypo[n]{b}{\metaA{}\substitute{x}{c^\ast}} \by{for $\exists${}E}{}
 		\have[p]{c}{\metaB{}}
 	\close
 	\have[\ ]{d}{\metaB{}} \Ee{a,b-c}
@@ -233,10 +233,10 @@ The {=}I rule is unlike our other rules in that it does not require referring to
 
 If you have shown that $a{=}b$, then anything that is true of $a$ must also be true of $b$. For any sentence with $a$ in it, you can replace some or all of the occurrences of $a$ with $b$ and produce an equivalent sentence. For example, if you already know $Raa$, then you are justified in concluding $Rab$, $Rba$, $Rbb$. Recall that $\metaA{}\substitutesome{a}{b}$ is the sentence produced by replacing $a$ in \metaA{} with $b$. This is not the same as a substitution instance, because $b$ may replace some or all occurrences of $a$. The identity elimination rule ({=}E) justifies replacing terms with other terms that are identical to it:
 \begin{proof}
-	\have[m]{e}{\metaA{}{=}\metaB{}}
+	\have[m]{e}{\script{c}{=}\script{d}}
 	\have[n]{a}{\metaA{}}
-	\have[\ ]{ea1}{\metaA{}\substitutesome{a}{b}} \by{=E}{e,a}
-	\have[\ ]{ea2}{\metaA{}\substitutesome{b}{a}} \by{=E}{e,a}
+	\have[\ ]{ea1}{\metaA{}\substitutesome{\script{c}}{\script{d}}} \by{=E}{e,a}
+	\have[\ ]{ea2}{\metaA{}\substitutesome{\script{d}}{\script{c}}} \by{=E}{e,a}
 \end{proof}
 
 Here is a simple proof of an instance of the \emph{transitivity of identity}. Let's prove that if $a{=}b$ and $b{=}c$, then $a{=}c$:
