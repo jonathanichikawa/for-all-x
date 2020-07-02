@@ -1,0 +1,32 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Publish
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "latex-job"
+  latex-job:
+    # This job runs on Linux (GitHub-hosted runner)
+    runs-on: ubuntu-latest
+    # Job name is Compile
+    name: Compile
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v1
+    # Runs a single command using the tectonic executable 
+    - name: Compilation
+      uses: vinay0410/tectonic-action@master
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tex_path: '--synctex --reruns 3 Latex-Files/forallx-ubc.tex'
+        push: 'yes'
