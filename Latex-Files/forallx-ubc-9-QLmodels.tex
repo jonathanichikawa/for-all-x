@@ -2,10 +2,10 @@
 \chapter{A formal semantics for QL}
 \label{ch.QL.models}
 
-In this chapter, we describe a \emph{formal semantics} for QL. This corresponds to the discussion of interpretations and truth in SL given in Chapter \ref{ch.SLmodels}. Like truth in SL, truth in QL is defined relative to a particular interpretation; entailment is a matter of truth in all interpretations. In SL, models corresponded to assignments of truth values to atomic sentences. For example, here is an SL model:
+In this chapter, we describe a \emph{formal semantics} for QL. This corresponds to the discussion of interpretations and truth in SL given in Chapter \ref{ch.SLmodels}. Like truth in SL, truth in QL is defined relative to a particular interpretation; entailment is a matter of truth in all interpretations. In SL, we emphasized the partial valuation functions provided by interpretations, limiting the domain to the atomic sentences involved in a given set of sentences. These corresponded to rows of the truth table. For example, a model \script{I} might have provided these assignments:
 
 \begin{displaymath}
-\script{I} =
+\script{I} :
 \left\{
 	\begin{array}{ll}
 	P = 0\\
@@ -15,7 +15,7 @@ In this chapter, we describe a \emph{formal semantics} for QL. This corresponds 
 \right.
 \end{displaymath}
 
-Interpretation \script{I} settles the truth value of any SL sentence one can construct from $P$, $Q$, and $R$. Because QL involves richer notions and a more complex vocabulary than SL, it requires correspondingly richer models and interpretations.
+Interpretation \script{I} settles the truth value of any SL sentence one can construct from $P$, $Q$, and $R$. All the elements of SL, beyond the atoms, were truth-functional. Because QL involves richer notions and a more complex vocabulary than SL, it requires correspondingly richer information from its models.
 
 \section{Interpretations in QL}
 
@@ -315,7 +315,7 @@ It is necessary to reason about an infinity of models to show that a sentence is
 \label{sec.TruthInQL}
 For SL, we split the definition of truth into two parts: a truth value assignment ($a$) for sentence letters and a truth function ($v$) for all sentences. The truth function covered the way that complex sentences could be built out of sentence letters and connectives.
 
-In the same way that truth for SL is always \emph{truth given a truth value assignment}, truth for QL is \emph{truth in a model}. The atomic sentences, again, are $n$-place predicates followed by $n$ constants, like $Pj$. It is true in a model \model{M} if and only if the referent of $j$ is in the extension of $P$ in \model{M}.
+Just like SL, truth for QL is relative: it is \emph{truth in a model}. The atomic sentences, again, are $n$-place predicates followed by $n$ constants, like $Pj$. It is true in a model \model{M} if and only if the referent of $j$ is in the extension of $P$ in \model{M}.
 
 We could go on in this way to define truth for all atomic sentences that contain only predicates and constants: Consider any sentence of the form $\script{R}\script{a}_1\ldots\script{a}_n$ where \script{R} is an n-place predicate and the \script{a}s are constants. It is true in \model{M} if and only if ${\langle}\referent{\script{a}_1},\ldots,\referent{\script{a}_n}{\rangle}$ is in \extension{\script{R}} in \model{M}.
 

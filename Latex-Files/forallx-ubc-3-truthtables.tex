@@ -6,14 +6,16 @@ This chapter introduces a way of evaluating sentences and arguments of SL. The t
 
 \section{Truth-functional connectives}
 
-Any non-atomic sentence of SL is composed of atomic sentences with sentential connectives. In Ch. \ref{ch.SL}, we offered \emph{characteristic truth tables} for each connective. Although we didn't emphasize it at the time, the fact that it is possible to give truth tables like this is very significant. It means that our connectives are \define{truth-functional}. That is to say, the only thing that matters for determining the truth value of a given sentence of SL is the truth values of its constituent parts. To determine the truth value of a sentence \enot\metaA{}, the only thing that matters is the truth value of \metaA{}. You don't have to know what \metaA{} means, or where it came from, or what evidence there is for it and what that evidence might depend on. The truth-value of \enot\metaA{} is a \emph{function} of the truth-value of \metaA{}. And so likewise for the other connectives.
+Any non-atomic sentence of SL is composed of atomic sentences with sentential connectives. In Ch. \ref{ch.SL}, we offered \emph{characteristic truth tables} for each connective. Although we didn't emphasize it at the time, the fact that it is possible to give truth tables like this is very significant. It means that our connectives are \define{truth-functional}. That is to say, the only thing that matters for determining the truth value of a given sentence of SL is the truth values of its constituent parts. To determine the truth value of a sentence \enot\metaA{}, the only thing that matters is the truth value of \metaA{}. You don't have to know what \metaA{} means, or where it came from, or what evidence there is for it and what that evidence might depend on. The truth-value of a negation is a \emph{function} of the truth-value of its negand. And so likewise for the other connectives.
+
+We are using the same notion of a \define{function} that you have probably encountered in mathematics. A function from one set to another associates each member of the first set with exactly one member of the second set. Once the first element is fixed, the function uniquely selects an element of the second set. Any given numerical value of $x$ will unambiguously determine the value of $x^{2}$, for instance, so $f(x)=x^{2}$ is a function. In the same way, any given truth value of \metaA{} will unambiguously determine the value of \enot\metaA{}, which is why negation, too, is a function.
 
 This is a very interesting feature of SL. It is not inevitable. The syntax of English, for example, permits one to make a new, more complex English declarative sentence by prefixing the phrase `Donald Trump cares whether' in front of any declarative English sentence. In this respect this phrase is syntactically similar to `\enot' in SL. But it is impossible to give a truth-functional characterization of the `Donald Trump cares whether' operator in English. If you want to know whether Donald Trump cares whether  the Canadian dollar is getting stronger, it's not enough to know whether the Canadian dollar is getting stronger. If it is, he might or might not care; if it isn't, he might or might not care. `Donald Trump cares whether' is not truth-functional. But all the connectives of SL are.
 
 For this reason, we can construct truth tables to determine the logical features of SL sentences.
 
 \section{Complete truth tables}
-The truth-value of sentences which contain only one connective are given by the characteristic truth table for that connective. Truth tables list out all the possible combinations of truth values for the atomic wffs at play; each row corresponds to an \define{interpretation} --- a possible way of assigning truth values to atomic sentences. (\{$P=1$, $Q=0$\} is an example of an interpretation.)
+The truth-value of sentences which contain only one connective are given by the characteristic truth table for that connective. Truth tables list out all the possible combinations of truth values for the atomic wffs at play; each row corresponds to a possible way of assigning truth values to atomic sentences. (\{$P=1$, $Q=1$\} is one way truth values could be assigned; \{$P=1$, $Q=1$\} is another.)
 
 In the previous chapter, we wrote the characteristic truth tables with `1' for true and `0' for false. It is important to note, however, that this is not about truth in any deep or cosmic sense. Philosophical investigation into the nature of truth is a worthy project in its own right, but the truth functions in SL are just rules which transform input values into output values. (This is part of the reason why, in this book, we usually write `1' and `0' instead of `T' and `F'.) Even though we interpret `1' as meaning `true' and `0' as meaning `false', computers can be programmed to fill out truth tables in a purely mechanical way. In a machine, `1' might mean that a register is switched on and `0' that the register is switched off. Mathematically, they are just the two possible values that a sentence of SL can have. The truth tables for the connectives of SL, written in terms of 1s and 0s, are given in table \ref{table.CharacteristicTTs}.
 
@@ -389,15 +391,17 @@ One could translate this argument in to a relatively complex argument in SL. (If
 
 For many purposes, this would be a poor choice of symbolization keys. It ignores the internal structure of two central sentences. But if, as here, that structure is irrelevant, you can save yourself some work by engaging at a higher level of abstraction.
 
-Note also that it's an implication of what we've just illustrated that there's not just one SL argument that is \emph{the} argument form for a given argument in English. One can formalize arguments in various ways. If an argument has a valid argument form in SL, that's a guarantee that the argument is valid. But it is important not to invert this relationship --- it does \emph{not} follow from the fact that an argument has an \emph{invalid} form, that the argument is invalid. One reason this is so is that it is possible for some arguments to have valid forms \emph{and} invalid forms.
+Note also that it's an implication of what we've just illustrated that there's not just one SL argument form that is \emph{the} argument form for a given argument in English. One can formalize arguments in various ways. If an argument has a valid argument form in SL, that's a guarantee that the argument is valid. But it is important not to invert this relationship --- it does \emph{not} follow from the fact that an argument has an \emph{invalid} form, that the argument is invalid. One reason this is so is that it is possible for arguments to have valid forms \emph{and} invalid forms.
 
 \section{Common student mistakes}
 
 Here are a couple of issues that often come up when I teach this material to students.
 
-\subsection{Validity is not relative to particular interpretations}
+\subsection{Validity is not relative to particular valuations of atoms}
 
-Truth in SL is relative to an interpretation. A given wff is true on some interpretations, and false on others. For example, $P \eiff Q$ is true when \{$P=1$, $Q=1$\}, and false when \{$P=1$, $Q=0$\}. But validity, unlike truth, is a claim about \emph{all} interpretations.
+A sentence in SL is true on some interpretations, and false on others. (For current purposes, you can think of an \define{interpretation} as something that fixes a row of the truth table; it determines the truth values of the atomic sentences in use.) For example, $P \eiff Q$ is true on an interpretation where \{$P=1$, $Q=1$\}, and false when \{$P=1$, $Q=0$\}. So truth in SL is relative to an interpretation. 
+
+But validity, unlike truth, is a claim about \emph{all} interpretations.
 
 Let's use a truth table to evaluate whether $P\eor Q$, $\enot P$ \therefore\ $P \eiff Q$ is a valid argument form. To do this, we can draw the complete truth table for those three wffs:
 
@@ -416,13 +420,15 @@ We then check to see whether there is any row where the disjunction and the nega
 
 Here is a common mistake. Students sometimes draw the truth table accurately, and correctly note that line three is inconsistent with the argument's validity, but misdescribe the situation, saying something like this: \emph{`The argument is invalid when $P=0$, $Q=1$.'} This is a mistake because the argument isn't only invalid \emph{in that row} --- the argument in invalid, \emph{period}. That interpretation \emph{explains why} the argument is invalid, but validity and invalidity are claims about \emph{all} interpretations. So we shouldn't say the argument is invalid `when' $P=0$, $Q=1$; it's invalid always, because of the interpretation where $P=0$, $Q=1$.
 
-This sounds like a small and fussy point about speaking precisely about logic. It is. But careful language here can help lead to careful thought. It is important, to thinking clearly about validity, to remember that validity, unlike truth, is a feature that arguments have or lack intrinsically. It is not something that an argument has in some interpretations and lacks in others.
+This sounds like a small and fussy point about speaking precisely about logic. It is. But careful language here can help lead to careful thought. It is important, to thinking clearly about validity, to remember that validity, unlike truth, is a feature that SL argument forms have or lack \emph{intrinsically}. Validty is not something an argument form has in some interpretations and lacks in others.
 
 The same goes for tautologies, contradictions, and contingent sentences. A sentence isn't a tautology on some interpretations and not on others; it either simply is, or it simply is not, a tautology.
 
 \subsection{Valid arguments with invalid forms}
 
-Here is a question students sometimes get wrong: \emph{Provide (in English) a valid argument of the form $P$ \therefore\ $P \eand Q$, or explain why it is impossible to do so.} Students often think this is impossible, because $P$ \therefore\ $P \eand Q$ is an invalid argument form. That certainly is an invalid argument form. The premise is true, and the conclusion false, when $P=1$, $Q=0$. But that doesn't mean there can be no valid argument with this form.
+Here is a question students sometimes get wrong: \emph{Provide (in English) a valid argument of the form $P$ \therefore\ $P \eand Q$, or explain why it is impossible to do so.} Students often think this is impossible, because $P$ \therefore\ $P \eand Q$ is an invalid argument form.
+
+Well,  $P$ \therefore\ $P \eand Q$ certainly is an invalid argument form. The premise is true, and the conclusion false, on an interpretation where $P=1$, $Q=0$. But that doesn't mean there can be no valid argument with this form.
 
 A valid argument form is a form that guarantees that any argument of that form is valid. Since this form is invalid, it is going to be possible to find invalid arguments of that form. For example, we could interpret $P$ and $Q$ thus:
 

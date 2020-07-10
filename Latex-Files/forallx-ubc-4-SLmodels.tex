@@ -23,11 +23,15 @@ In translating from English to a formal language, we provided symbolization keys
 
 This section provides a rigorous, formal characterization of \emph{truth in SL} which builds on what we already know from doing truth tables. We were able to use truth tables to reliably test whether a sentence was a tautology in SL, whether two sentences were equivalent, whether an argument was valid, and so on. For instance: \metaA{} is a tautology in SL if and only if it is assigned `1' on every line of a complete truth table.
 
-This worked because each line of a truth table corresponds to a way the world might be. We considered all the possible combinations of 1 and 0 for the sentence letters that made a difference to the sentences we cared about. The truth table allowed us to determine what would happen given these different combinations. Each of those combinations of truth values is an \emph{interpretation} in SL.
+This worked because each line of a truth table corresponds to a way the world might be. We considered all the possible combinations of 1 and 0 for the sentence letters that made a difference to the sentences we cared about. The truth table allowed us to determine what would happen given these different combinations. An \emph{interpretation} in SL provides a truth value to each atomic sentence in use; and every combination of truth values is represented by an interpretation.
+
+(Technical side note: one might be tempted to \emph{identify} interpretations with assignments of truth values to atomic sentence. (In past versions of this book, that's actually what I did.) For a variety of reasons, this is not (any longer) my preference. One reason is that there can be different ways to assign truth values to atomic sentences, corresponding to one and the same row of the truth table, if one includes values for atoms that are not mentioned in the truth table. In a truth table for a sentence that doesn't include an $R$, for instance, these two assignments of truth values to atoms are effectively equivalent, and correspond to the same row of the truth table: \{$P=1$, $Q=1$, $R=1$\}, \{$P=1$, $Q=1$, $R=0$\}. So there could be different interpretations corresponding to the same row of the truth table, but an interpretation \emph{determines} a row of a truth table.
+
+A more complex motivation for my terminological choice here has to do with the relationship between SL and QL, a more complex language we'll learn later in the textbook.)
 
 Once we construct a truth table, the symbols `1' and `0' are divorced from their metalinguistic meaning of `true' and `false'. We interpret `1' as meaning `true', but the formal properties of 1 are defined by the characteristic truth tables for the various connectives.  The symbols in a truth table have a formal meaning that we can specify entirely in terms of how the connectives operate. For example, if $A$ is value 1, then $\enot A$ is value 0.
 
-To formally define truth in SL, then, we want a function that assigns, for each model, a 1 or 0 to each of the sentences of SL. We can interpret this function as a definition of truth for SL if it assigns 1 to all of the true sentences of SL and 0 to all of the false sentences of SL. Call this function `$v$' (for `valuation'). We want $v$ to be a function such that for any sentence \metaA{}, $v(\metaA{})=1$ if \metaA{} is true and $v(\metaA{})=0$ if \metaA{} is false.
+To formally define truth in SL, then, we want a function that assigns, for each interpretation, a 1 or 0 to each of the sentences of SL. We can interpret this function as a definition of truth for SL if it assigns 1 to all of the true sentences of SL and 0 to all of the false sentences of SL. Call this function `$v$' (for `valuation'). We want $v$ to be a function such that for any sentence \metaA{}, $v(\metaA{})=1$ if \metaA{} is true and $v(\metaA{})=0$ if \metaA{} is false.
 
 Recall that the recursive definition of a wff for SL had two stages: The first step said that atomic sentences (solitary sentence letters) are wffs. The second stage allowed for wffs to be constructed out of more basic wffs. There were clauses of the definition for all of the sentential connectives. For example, if \metaA{} is a wff, then \enot\metaA{} is a wff.
 
@@ -37,15 +41,11 @@ Our strategy for defining the truth function, $v$, will also be in two steps. Th
 \section{Defining truth in SL}
 How can we define truth for an atomic sentence of SL? Consider, for example, the sentence $M$. Without an interpretation, we cannot say whether $M$ is true or false. It might mean anything. If we use $M$ to symbolize `The moon orbits the Earth', then $M$ is true. If we use $M$ to symbolize `The moon is a giant turnip', then $M$ is false.
 
-When we give a symbolization key for SL, we provide an {interpretation} of the sentence letters that we use. The key gives an English language sentence for each sentence letter that we use. In this way, the interpretation specifies what each of the sentence letters \emph{means}. However, this is not enough to determine whether or not that sentence is true. The sentences about the moon, for instance, require that you know some rudimentary astronomy. Imagine a small child who became convinced that the moon is a giant turnip. She could understand what the sentence `The moon is a giant turnip' means, but mistakenly think that it was true.
+When we give a symbolization key for SL, we provide a translation into English of the sentence letters that we use. In this way, the interpretation specifies what each of the sentence letters \emph{means}. However, this is not enough to determine whether or not that sentence is true. The sentences about the moon, for instance, require that you know some rudimentary astronomy. Imagine a small child who became convinced that the moon is a giant turnip. She could understand what the sentence `The moon is a giant turnip' means, but mistakenly think that it was true.
 
-So an interpretation alone does not determine whether a sentence is true or false. Truth or falsity depends also on what the world is like. If $M$ meant `The moon is a giant turnip' and the real moon were a giant turnip, then $M$ would be true. To put the point in a general way, truth or falsity is determined by an interpretation \emph{plus} a way that the world is.
+So a symbolization key alone does not determine whether a sentence is true or false. Truth or falsity depends also on what the world is like. If $M$ meant `The moon is a giant turnip' and the real moon were a giant turnip, then $M$ would be true. To get a truth value via the symbolization key, one has to first translate the sentence into English, and then rely on one's knowledge of what the world is like.
 
-\begin{center}
-INTERPRETATION + STATE OF THE WORLD $\Longrightarrow$ TRUTH/FALSITY
-\end{center}
-
-In providing a logical definition of truth, we will not be able to give an account of how an atomic sentence is made true or false by the world. Instead, we will introduce a \emph{truth value assignment}. Formally, this will be a function that tells us the truth value of all the atomic sentences. Call this function `$a$' (for `assignment'). We define $a$ for all sentence letters \script{P}, such that
+We want a logical system that can proceed without astronomical investigation. Moreover, we want to abstract away from the specific commitments of a given symbolization key. So our logical definition of truth will proceed in a different way. We ignore any proffered symbolization key, and take, from a given interpretation, a \emph{truth value assignment}. Formally, this is just a function that tells us the truth value of all the atomic sentences. Call this function `$a$' (for `assignment'). We define $a$ for all sentence letters \script{P}, such that
 \begin{displaymath}
 a(\script{P}) =
 \left\{
@@ -57,7 +57,7 @@ a(\script{P}) =
 \end{displaymath}
 This means that $a$ takes any atomic sentence of SL and assigns it either a one or a zero; one if the sentence is true, zero if the sentence is false. 
 
-You can think of $a$ as being like a row of a truth table. Whereas a truth table row assigns a truth value to a few atomic sentences, the truth value assignment assigns a value to every atomic sentence of SL. There are infinitely many sentence letters, and the truth value assignment gives a value to each of them. When constructing a truth table, we only care about sentence letters that affect the truth value of sentences that interest us. As such, we ignore the rest. Strictly speaking, every row of a truth table gives a \emph{partial} truth value assignment.
+You can think of $a$ as being like a row of a truth table. Whereas a truth table row assigns a truth value to a few atomic sentences, the truth value assignment assigns a value to every atomic sentence of SL. There are infinitely many sentence letters, and the truth value assignment gives a value to each of them. When constructing a truth table, we only care about sentence letters that affect the truth value of sentences that interest us. As such, we ignore the rest.
 
 It is important to note that the truth value assignment, $a$, is not part of the language SL. Rather, it is part of the mathematical machinery that we are using to describe SL. It encodes which atomic sentences are true and which are false.
 
@@ -136,7 +136,7 @@ Truth in SL is always truth \emph{relative to} some interpretation, because the 
 
 We are now in a position to give more precise definitions of terms like `tautology', `contradiction', and so on. Truth tables provided a way to \emph{check} whether a sentence was a tautology in SL, but they did not \emph{define} what it means to be a tautology in SL. We will give definitions of these concepts for SL in terms of \define{entailment}.
 
-The relation of semantic entailment is about satisfiability --- that is, whether there is any possible interpretation that meets a certain set of conditions. `\metaA{} entails \metaB{}', means that there is no interpretation for which \metaA{} is true and \metaB{} is false. In SL, an interpretation is just an assignment of truth values to atomic sentences; so \metaA{} entails \metaB{} if and only if every assignment of truth values to atomic sentences that makes \metaA{} true also makes \metaB{} true.
+The relation of semantic entailment is about satisfiability --- that is, whether there is any possible interpretation that meets a certain set of conditions. `\metaA{} entails \metaB{}', means that there is no interpretation for which \metaA{} is true and \metaB{} is false. An interpretation provides a valuation function that gives truth values to atomic sentences; so \metaA{} entails \metaB{} if and only if every assignment of truth values to atomic sentences that makes \metaA{} true also makes \metaB{} true. (We could just as well say that  `\metaA{} entails \metaB{}', means that there is no \emph{valuation function} that makes \metaA{} true and \metaB{} false. Interpretations specify valuation functions.)
 
 We abbreviate entailment with a symbol called the \emph{double turnstile}:
 $\metaA{}\models\metaB{}$ means `\metaA{} semantically entails \metaB{}.'
@@ -147,7 +147,7 @@ The double turnstile, like `\metaA{}', etc., is part of the \emph{metalanguage} 
 
 Entailment is a formal notion. It is connected in important ways to the informal notion of a good argument, but when considering entailment in SL, it is important to remember to apply the definitions rigorously and precisely, rather than relying on your sense of whether the argument is a good one. The notions can come apart in some surprising ways.
 
-Let's start with a straightforward example. Consider whether this entailment claim is true: $$(P\eand Q) \models (P\eor Q)$$ This is true if and only if every interpretation that satisfies $(P\eand Q)$, also satisfies  $(P\eor Q)$. Hopefully it is obvious to you why this is. Only an interpretation that assigns 1 to both $P$ and $Q$ will satisfy the left, and any such interpretation will certainly satisfy the right as well. (You could draw the truth table to verify this if you want the practice.) So, as one might naturally expect, $(P\eand Q) \models (P\eor Q)$.
+Let's start with a straightforward example. Consider whether this entailment claim is true: $$(P\eand Q) \models (P\eor Q)$$ This is true if and only if every interpretation that satisfies $(P\eand Q)$, also satisfies  $(P\eor Q)$. Hopefully it is obvious to you that this is true. Only an interpretation that assigns 1 to both $P$ and $Q$ will satisfy the left, and any such interpretation will certainly satisfy the right as well. (You could draw the truth table to verify this if you want the practice.) So, as one might naturally expect, $(P\eand Q) \models (P\eor Q)$.
 
 Here is a less intuitive example. What should we make of this claim?
 
@@ -155,7 +155,7 @@ Here is a less intuitive example. What should we make of this claim?
 $(P\eand Q) \models (A\eiff\enot\enot A)$
 \end{quote}
 
-Notice that the sentence letters on the left-hand-side here are completely different letters from those on the right-hand-side. So there is a straightforward sense in which the two sides of the turnstile have \emph{nothing to do with one another}. Nevertheless, this \emph{is} a true entailment claim. This is because it satisfies the definition: every interpretation that satisfies the left (i.e., every interpretation that assigns `1' to both $P$ and $Q$), also satisfies $(A\eiff\enot\enot A)$. This for the simple reason that every interpretation \emph{whatsoever} satisfies $(A\eiff\enot\enot A)$; it is a tautology.
+Notice that the sentence letters on the left-hand-side here are completely different letters from those on the right-hand-side. So there is a straightforward sense in which the two sides of the turnstile have \emph{nothing to do with one another}. Nevertheless, this \emph{is} a true entailment claim. This is because it satisfies the definition: every interpretation that satisfies the left (i.e., every interpretation with a valuation function assigns `1' to both $P$ and $Q$), also satisfies $(A\eiff\enot\enot A)$. This for the simple reason that every valuation \emph{whatsoever} satisfies $(A\eiff\enot\enot A)$; it is a tautology.
 
 From this example we can see that a tautology will be entailed by anything whatsoever. If the right-hand-side of the entailment claim is a tautology, it doesn't matter what's on the left --- you know it's going to be true.
 
