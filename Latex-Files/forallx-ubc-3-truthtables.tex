@@ -307,7 +307,7 @@ Table \ref{table.CompleteVsPartial} summarizes when a complete truth table is re
 
 \section{Evaluating English arguments via SL}
 \label{sec:forms}
-Recall from \S\ref{sec:validity} that a natural language argument is valid if and only if it is impossible for the premises to be true while the conclusion is false. This notion is rather closely related to validity in SL, which obtains if and only if there is no assignment of truth values to atomic sentences on which the premises are assigned `1' and the conclusion is assigned `0'. This is of course by design. In many cases, validity in SL is a good indication of validity in English. Consider for example this English argument:
+Recall from \S\ref{sec:validity} that a natural language argument is valid if and only if it is impossible for the premises to be true while the conclusion is false. This notion is rather closely related to validity in SL, which obtains if and only if there is no assignment of truth values to atomic sentences on which the premises are assigned `1' and the conclusion is assigned `0'. This is of course by design. Validity of an SL argument form guarantees that an English argument that is well-translated into that form is valid. Consider for example this English argument:
 
 \begin{earg}
 \item Either the butler is the murderer or the gardener isn't who he says he is.
@@ -449,6 +449,39 @@ The resulting argument is valid: \emph{Captain Hook has three daughters. Therefo
 \practiceproblems
 If you want additional practice, you can construct truth tables for any of the sentences and arguments in the exercises for the previous chapter.
 
+
+
+\problempart
+\label{HW2.E}
+Provide the truth table for the complex formula:
+$$((P \eif (( P \eif Q) \eiff (P \eand \enot R))) \eor R)$$
+Indicate whether the formula is tautological, contradictory, or contingent. If it is contingent, provide a model that satisfies it and one that falsifies it.
+
+
+\begin{tabular}{@{ }c@{ }@{ }c@{ }@{ }c | c@{ }@{}c@{}@{ }c@{ }@{ }c@{ }@{}c@{}@{}c@{}@{ }c@{ }@{ }c@{ }@{ }c@{ }@{}c@{}@{ }c@{ }@{}c@{}@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{}c@{}@{}c@{}@{}c@{}@{ }c@{ }@{ }c@{ }@{ }c}
+$P$ & $Q$ & $R$ &  & ( & $P$ & $\eif $ & ( & ( & $P$ & $\eif $ & $Q$ & ) & $\eiff $ & ( & $P$ & $\&$ & $\enot$ & $R$ & ) & ) & ) & $\lor$ & $R$ & \\
+\hline 
+ &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & & \\
+ &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & & \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & & \\
+ &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & & \\
+ &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & & \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & & \\
+ &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & & \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & & \\
+\end{tabular}
+
+
+
+
+\problempart
+\label{HW3.A}
+Provide the complete truth table for this SL sentence:
+$$((P \eor Q) \eand (\enot P \eor \enot Q)) \eiff R$$
+Indicate whether it is tautological, contradictory, or contingent. If it is contingent, provide an assignment of truth values that satisfies it and one that falsifies it.
+
+
+
 \solutions
 \problempart
 \label{pr.TT.TTorC}
@@ -507,10 +540,27 @@ Determine whether each set of sentences is consistent or inconsistent. Justify y
 \item $A$, $B$, $C$, $\enot D$, $\enot E$, $F$ %consistent
 \end{earg}
 
+
+\problempart
+\label{HW3.B}
+
+Use a complete truth table to evaluate this argument form for validity:
+
+\begin{earg}
+\item[] $(P \eif Q) \eor (Q \eif P)$
+\item[] $P$
+\item[\therefore] $P\eiff Q$
+\end{earg}
+
+Indicate whether it valid or invalid. If it is invalid, provide an interpretation that satisfies the premises and falsifies the conclusion. 
+
+
+
+
 \solutions
 \problempart
 \label{pr.TT.valid}
-Determine whether each argument is valid or invalid. Justify your answer with a complete or partial truth table where appropriate.
+Determine whether each argument form is valid or invalid. Justify your answer with a complete or partial truth table where appropriate.
 \begin{earg}
 \item $A\eif A$ \therefore\ $A$ %invalid
 \item $A\eor\bigl[A\eif(A\eiff A)\bigr]$ \therefore\ A %invalid
@@ -601,3 +651,39 @@ Every sentence written using a connective of SL can be rewritten as a logically 
 \item $(A\eif B)$
 \item $(A\eiff B)$
 \end{earg}
+
+
+\problempart
+\label{HW2.F}
+
+
+The connective `\eor' indicates \emph{inclusive disjunction}; it is true if either \emph{or both} of the disjuncts is true. One might be interested in \emph{exclusive disjunction}, which requires that exactly one of the disjuncts be true. Let us temporarily extend SL to include a connective for exclusive disjunction, allowing sentences of the form $(\metaA{} \oplus \metaB{})$, where \metaA{} and \metaB{} are sentences, meaning that exactly one of \metaA{} and \metaB{} are true.
+	\begin{earg}
+		\item Provide the truth table for $(\metaA{} \oplus \metaB{})$.
+		
+		
+		\begin{tabular}{@{ }c@{ }@{ }c | c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c}
+$\metaA{}$ & $\metaB{}$ &  & $\metaA{}$ & $\oplus$ & $\metaB{}$ & \\
+\hline 
+ &  &  &  &  & & \\
+ &  &  &  &  &  & \\
+ &  &  &  &  &  & \\
+ &  &  &  &  &  & \\
+\end{tabular}
+		
+		
+%				\begin{tabular}{@{ }c@{ }@{ }c | c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c}
+%$P$ & $Q$ &  & $P$ & $\oplus$ & $Q$ & \\
+%\hline 
+%1 & 1 &  &  & \textcolor{red}{1} & & \\
+%1 & 0 &  &  & \textcolor{red}{1} &  & \\
+%0 & 1 &  &  & \textcolor{red}{1} &  & \\
+%0 & 0 &  &  & \textcolor{red}{0} &  & \\
+%\end{tabular}
+		
+		
+		\item $\oplus$ is \emph{definable} in terms of \eor, \eand, and \enot. This means that there is a formula using only these latter connectives that is equivalent to --- true in all the same models as --- $(P \oplus Q)$. Provide such a formula.
+		\item Using truth tables, prove that the formula provided in the last question is equivalent to $(P \oplus Q)$.
+	\end{earg}
+
+

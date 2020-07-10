@@ -8,7 +8,8 @@
 % output dir = ..
 
 \documentclass[openany, twoside]{book}
-\usepackage{forallx-ubc,tocloft,placeins}
+\usepackage{forallx-ubc,tocloft,placeins,pdfpages}
+
 
 \hypersetup{ pdfinfo={Title={forall x}, 
 		    Author={P.D. Magnus and Jonathan Ichikawa}, 
@@ -37,6 +38,9 @@
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 
+
+ \includepdf[page=-]{forallx-frontcover.pdf}
+
 \include{forallx-ubc-frontmatter}
 \include{forallx-ubc-preface}
 {
@@ -62,5 +66,7 @@
 \include{forallx-ubc-app-solutions}
 \include{forallx-ubc-app-quickreference}
 \include{forallx-ubc-backmatter}
+
+ \includepdf[page=-]{forallx-backcover.pdf}
 
 \end{document}

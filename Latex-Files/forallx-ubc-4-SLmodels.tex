@@ -27,7 +27,7 @@ This worked because each line of a truth table corresponds to a way the world mi
 
 (Technical side note: one might be tempted to \emph{identify} interpretations with assignments of truth values to atomic sentence. (In past versions of this book, that's actually what I did.) For a variety of reasons, this is not (any longer) my preference. One reason is that there can be different ways to assign truth values to atomic sentences, corresponding to one and the same row of the truth table, if one includes values for atoms that are not mentioned in the truth table. In a truth table for a sentence that doesn't include an $R$, for instance, these two assignments of truth values to atoms are effectively equivalent, and correspond to the same row of the truth table: \{$P=1$, $Q=1$, $R=1$\}, \{$P=1$, $Q=1$, $R=0$\}. So there could be different interpretations corresponding to the same row of the truth table, but an interpretation \emph{determines} a row of a truth table.
 
-A more complex motivation for my terminological choice here has to do with the relationship between SL and QL, a more complex language we'll learn later in the textbook.)
+A more complex motivation for my terminological choice here has to do with the relationship between SL and QL, a more complex language we'll learn later in the textbook. I'll return to this connection in \S\ref{sec.0PlaceModels}.)
 
 Once we construct a truth table, the symbols `1' and `0' are divorced from their metalinguistic meaning of `true' and `false'. We interpret `1' as meaning `true', but the formal properties of 1 are defined by the characteristic truth tables for the various connectives.  The symbols in a truth table have a formal meaning that we can specify entirely in terms of how the connectives operate. For example, if $A$ is value 1, then $\enot A$ is value 0.
 
@@ -261,14 +261,36 @@ A set of sentences $\metaSetX{}$ is \define{inconsistent in SL} if and only if $
 
 \practiceproblems
 
+
+
+\problempart
+\label{HW3.C}
+Each of the following claims can be evaluated with truth tables. For each, what would you look for in a completed truth table to evaluate it? The Greek letters can stand for any arbitrary sentence of SL. The first claim has the answer filled out for you.
+
+\begin{earg}
+		\item[0.] $\Phi$ is a tautology.
+		To evaluate this claim, check to see whether the main connective of $\Phi$ has a 1 under it in every row. If so, it is true.
+		\item $\Phi \models \Psi$. 
+		To evaluate this claim, check to see whether... 
+		
+		\item $\Phi$ is contingent.
+\item $\Phi \models \bot$
+		\item $\emptyset \models \Phi$
+	\end{earg}
+
+
 \problempart
 Determine whether each entailment claim is true. You may construct a truth table to test it if you like, but these examples are simple enough so that you may be able to just think it through and get the right answer.
 \begin{earg}
 \item $Q \models (P \eor Q)$
 \item $P, Q \models (P \eor P)$
 \item $S \models (Q \eif Q)$
+\item $P \eiff Q, P \models Q$ %  \textcolor{red}{True.}
+\item $S \models (Q \eif Q)$   %\textcolor{red}{True.}
+\item $P \eand \enot P \models (Q \eor \enot Q)$%   \textcolor{red}{True.}
 \item $(P \eand \enot P) \models (Q \eand \enot Q)$
-\item $(P \eor \enot P) \models$
+\item $(P \eor \enot P) \models \bot$
+\item $P \eor \enot P \models Q$%   \textcolor{red}{False: $\{P=1, Q=0\}$.}
 \item $\models (P \eor \enot P)$
 \item $\models (P \eand \enot P)$
 \item $(A \eor B) \eif \enot P \models (P \eor \enot P)$

@@ -7,7 +7,7 @@
 \BOOKMARK [1][-]{section.1.5}{Impossibility}{chapter.1}% 7
 \BOOKMARK [1][-]{section.1.6}{Other logical notions}{chapter.1}% 8
 \BOOKMARK [1][-]{section.1.7}{Formal languages}{chapter.1}% 9
-\BOOKMARK [1][-]{section.1.7}{Practice Exercises}{chapter.1}% 10
+\BOOKMARK [1][-]{section*.5}{Practice Exercises}{chapter.1}% 10
 \BOOKMARK [0][-]{chapter.2}{Sentential logic}{}% 11
 \BOOKMARK [1][-]{section.2.1}{Sentence letters}{chapter.2}% 12
 \BOOKMARK [1][-]{section.2.2}{Connectives}{chapter.2}% 13
@@ -18,7 +18,7 @@
 \BOOKMARK [1][-]{section.2.7}{Biconditional}{chapter.2}% 18
 \BOOKMARK [1][-]{section.2.8}{Other symbolization}{chapter.2}% 19
 \BOOKMARK [1][-]{section.2.9}{Sentences of SL}{chapter.2}% 20
-\BOOKMARK [1][-]{subsection.2.9.4}{Practice Exercises}{chapter.2}% 21
+\BOOKMARK [1][-]{section*.6}{Practice Exercises}{chapter.2}% 21
 \BOOKMARK [0][-]{chapter.3}{Truth tables}{}% 22
 \BOOKMARK [1][-]{section.3.1}{Truth-functional connectives}{chapter.3}% 23
 \BOOKMARK [1][-]{section.3.2}{Complete truth tables}{chapter.3}% 24
@@ -26,7 +26,7 @@
 \BOOKMARK [1][-]{section.3.4}{Partial truth tables}{chapter.3}% 26
 \BOOKMARK [1][-]{section.3.5}{Evaluating English arguments via SL}{chapter.3}% 27
 \BOOKMARK [1][-]{section.3.6}{Common student mistakes}{chapter.3}% 28
-\BOOKMARK [1][-]{subsection.3.6.2}{Practice Exercises}{chapter.3}% 29
+\BOOKMARK [1][-]{section*.7}{Practice Exercises}{chapter.3}% 29
 \BOOKMARK [0][-]{chapter.4}{Entailment and Models for SL}{}% 30
 \BOOKMARK [1][-]{section.4.1}{Semantics for SL}{chapter.4}% 31
 \BOOKMARK [1][-]{section.4.2}{Defining truth in SL}{chapter.4}% 32
@@ -35,7 +35,7 @@
 \BOOKMARK [1][-]{section.4.5}{Tautologies are entailed by the empty set}{chapter.4}% 35
 \BOOKMARK [1][-]{section.4.6}{Inconsistent sentences entail absurdities}{chapter.4}% 36
 \BOOKMARK [1][-]{section.4.7}{Defining concepts in terms of entailment}{chapter.4}% 37
-\BOOKMARK [1][-]{section.4.7}{Practice Exercises}{chapter.4}% 38
+\BOOKMARK [1][-]{section*.9}{Practice Exercises}{chapter.4}% 38
 \BOOKMARK [0][-]{chapter.5}{SL Trees}{}% 39
 \BOOKMARK [1][-]{section.5.1}{Satisfiability and entailment}{chapter.5}% 40
 \BOOKMARK [1][-]{section.5.2}{An example: proving validity}{chapter.5}% 41
@@ -45,7 +45,7 @@
 \BOOKMARK [1][-]{section.5.6}{Branch completion rules}{chapter.5}% 45
 \BOOKMARK [1][-]{section.5.7}{Resolution order}{chapter.5}% 46
 \BOOKMARK [1][-]{section.5.8}{Choosing the right root}{chapter.5}% 47
-\BOOKMARK [1][-]{section.5.8}{Practice Exercises}{chapter.5}% 48
+\BOOKMARK [1][-]{section*.10}{Practice Exercises}{chapter.5}% 48
 \BOOKMARK [0][-]{chapter.6}{Soundness and Completeness for SL Trees}{}% 49
 \BOOKMARK [1][-]{section.6.1}{Informal proof}{chapter.6}% 50
 \BOOKMARK [1][-]{section.6.2}{Soundness}{chapter.6}% 51
@@ -54,7 +54,7 @@
 \BOOKMARK [1][-]{section.6.5}{Completeness}{chapter.6}% 54
 \BOOKMARK [1][-]{section.6.6}{Proving completeness}{chapter.6}% 55
 \BOOKMARK [1][-]{section.6.7}{Testing alternate rules}{chapter.6}% 56
-\BOOKMARK [1][-]{section.6.7}{Practice Exercises}{chapter.6}% 57
+\BOOKMARK [1][-]{section*.11}{Practice Exercises}{chapter.6}% 57
 \BOOKMARK [0][-]{chapter.7}{Natural Deduction Proofs in SL}{}% 58
 \BOOKMARK [1][-]{section.7.1}{Natural deduction: the basic idea}{chapter.7}% 59
 \BOOKMARK [1][-]{section.7.2}{Our first rule: Conditional Elimination \(modus ponens\)}{chapter.7}% 60
@@ -71,7 +71,7 @@
 \BOOKMARK [1][-]{section.7.13}{Proof-theoretic concepts}{chapter.7}% 71
 \BOOKMARK [1][-]{section.7.14}{Proofs and models}{chapter.7}% 72
 \BOOKMARK [1][-]{section.7.15}{Soundness and completeness}{chapter.7}% 73
-\BOOKMARK [1][-]{section.7.15}{Practice Exercises}{chapter.7}% 74
+\BOOKMARK [1][-]{section*.19}{Practice Exercises}{chapter.7}% 74
 \BOOKMARK [0][-]{chapter.8}{Quantified logic}{}% 75
 \BOOKMARK [1][-]{section.8.1}{From sentences to predicates}{chapter.8}% 76
 \BOOKMARK [1][-]{section.8.2}{Building blocks of QL}{chapter.8}% 77
@@ -88,68 +88,69 @@
 \BOOKMARK [1][-]{section.8.13}{Multiple quantifiers}{chapter.8}% 88
 \BOOKMARK [1][-]{section.8.14}{Grammaticality rules for QL}{chapter.8}% 89
 \BOOKMARK [1][-]{section.8.15}{Common student errors}{chapter.8}% 90
-\BOOKMARK [1][-]{section.8.15}{Practice Exercises}{chapter.8}% 91
+\BOOKMARK [1][-]{section*.20}{Practice Exercises}{chapter.8}% 91
 \BOOKMARK [0][-]{chapter.9}{A formal semantics for QL}{}% 92
 \BOOKMARK [1][-]{section.9.1}{Interpretations in QL}{chapter.9}% 93
 \BOOKMARK [1][-]{section.9.2}{Sets}{chapter.9}% 94
-\BOOKMARK [1][-]{section.9.3}{Models}{chapter.9}% 95
-\BOOKMARK [1][-]{section.9.4}{Working with models}{chapter.9}% 96
-\BOOKMARK [1][-]{section.9.5}{Constructing models}{chapter.9}% 97
-\BOOKMARK [1][-]{section.9.6}{Reasoning about all models}{chapter.9}% 98
-\BOOKMARK [1][-]{section.9.7}{Truth in QL}{chapter.9}% 99
-\BOOKMARK [1][-]{section.9.8}{Satisfaction}{chapter.9}% 100
-\BOOKMARK [1][-]{section.9.9}{Truth in QL}{chapter.9}% 101
-\BOOKMARK [1][-]{section.9.10}{Reasoning about all models \(reprise\)}{chapter.9}% 102
-\BOOKMARK [1][-]{section.9.10}{Practice Exercises}{chapter.9}% 103
-\BOOKMARK [0][-]{chapter.10}{QL Trees}{}% 104
-\BOOKMARK [1][-]{section.10.1}{Trees with fixed domains}{chapter.10}% 105
-\BOOKMARK [1][-]{section.10.2}{Generalizing the tree method}{chapter.10}% 106
-\BOOKMARK [1][-]{section.10.3}{Existentials}{chapter.10}% 107
-\BOOKMARK [1][-]{section.10.4}{Universals}{chapter.10}% 108
-\BOOKMARK [1][-]{section.10.5}{Negated existentials}{chapter.10}% 109
-\BOOKMARK [1][-]{section.10.6}{Negated universals}{chapter.10}% 110
-\BOOKMARK [1][-]{section.10.7}{Whither branching?}{chapter.10}% 111
-\BOOKMARK [1][-]{section.10.8}{The other development rules}{chapter.10}% 112
-\BOOKMARK [1][-]{section.10.9}{Branch closure rules}{chapter.10}% 113
-\BOOKMARK [1][-]{section.10.10}{Tree completion rules}{chapter.10}% 114
-\BOOKMARK [1][-]{section.10.11}{Resolution order}{chapter.10}% 115
-\BOOKMARK [1][-]{section.10.12}{Infinite trees}{chapter.10}% 116
-\BOOKMARK [1][-]{section.10.13}{Common student errors}{chapter.10}% 117
-\BOOKMARK [1][-]{subsection.10.13.2}{Practice Exercises}{chapter.10}% 118
-\BOOKMARK [0][-]{chapter.11}{Soundness and Completeness for QL Trees}{}% 119
-\BOOKMARK [1][-]{section.11.1}{Soundness}{chapter.11}% 120
-\BOOKMARK [1][-]{section.11.2}{Completeness}{chapter.11}% 121
-\BOOKMARK [1][-]{subsection.11.2.5}{Practice Exercises}{chapter.11}% 122
-\BOOKMARK [0][-]{chapter.12}{Identity}{}% 123
-\BOOKMARK [1][-]{section.12.1}{Motivating identity as a logical category}{chapter.12}% 124
-\BOOKMARK [1][-]{section.12.2}{=}{chapter.12}% 125
-\BOOKMARK [1][-]{section.12.3}{Identity and `no one else'}{chapter.12}% 126
-\BOOKMARK [1][-]{section.12.4}{Identical objects satisfy identical predicates}{chapter.12}% 127
-\BOOKMARK [1][-]{section.12.5}{Quantity}{chapter.12}% 128
-\BOOKMARK [1][-]{section.12.6}{Definite descriptions}{chapter.12}% 129
-\BOOKMARK [1][-]{section.12.7}{Identity and trees}{chapter.12}% 130
-\BOOKMARK [1][-]{Item.529}{Practice Exercises}{chapter.12}% 131
-\BOOKMARK [0][-]{chapter.13}{Natural Deduction Proofs in QL}{}% 132
-\BOOKMARK [1][-]{section.13.1}{Natural Deduction: the basics}{chapter.13}% 133
-\BOOKMARK [1][-]{section.13.2}{Basic quantifier rules}{chapter.13}% 134
-\BOOKMARK [1][-]{section.13.3}{Identity Introduction}{chapter.13}% 135
-\BOOKMARK [1][-]{section.13.4}{Identity Elimination}{chapter.13}% 136
-\BOOKMARK [1][-]{section.13.5}{Translation and evaluation}{chapter.13}% 137
-\BOOKMARK [1][-]{section.13.6}{Natural deduction strategy}{chapter.13}% 138
-\BOOKMARK [1][-]{section.13.7}{Soundness and completeness}{chapter.13}% 139
-\BOOKMARK [1][-]{section.13.7}{Practice Exercises}{chapter.13}% 140
-\BOOKMARK [0][-]{appendix.A}{Other symbolic notation}{}% 141
-\BOOKMARK [0][-]{appendix.B}{Solutions to selected exercises}{}% 142
-\BOOKMARK [1][-]{section*.19}{Chapter 1}{appendix.B}% 143
-\BOOKMARK [1][-]{Item.643}{Chapter 2}{appendix.B}% 144
-\BOOKMARK [1][-]{Item.681}{Chapter 3}{appendix.B}% 145
-\BOOKMARK [1][-]{Item.709}{Chapter 5}{appendix.B}% 146
-\BOOKMARK [1][-]{Item.723}{Chapter 6}{appendix.B}% 147
-\BOOKMARK [1][-]{Item.732}{Chapter 7}{appendix.B}% 148
-\BOOKMARK [1][-]{Item.747}{Chapter 8}{appendix.B}% 149
-\BOOKMARK [1][-]{Item.815}{Chapter 9}{appendix.B}% 150
-\BOOKMARK [1][-]{Item.828}{Chapter 10}{appendix.B}% 151
-\BOOKMARK [1][-]{Item.839}{Chapter 11}{appendix.B}% 152
-\BOOKMARK [1][-]{Item.859}{Chapter 12}{appendix.B}% 153
-\BOOKMARK [1][-]{Item.906}{Chapter 13}{appendix.B}% 154
-\BOOKMARK [0][-]{appendix.C}{Quick Reference}{}% 155
+\BOOKMARK [1][-]{section.9.3}{Extensions of predicates}{chapter.9}% 95
+\BOOKMARK [1][-]{section.9.4}{Extensions of 0-place predicates}{chapter.9}% 96
+\BOOKMARK [1][-]{section.9.5}{Working with models}{chapter.9}% 97
+\BOOKMARK [1][-]{section.9.6}{Constructing models}{chapter.9}% 98
+\BOOKMARK [1][-]{section.9.7}{Reasoning about all models}{chapter.9}% 99
+\BOOKMARK [1][-]{section.9.8}{Truth in QL}{chapter.9}% 100
+\BOOKMARK [1][-]{section.9.9}{Satisfaction}{chapter.9}% 101
+\BOOKMARK [1][-]{section.9.10}{Truth in QL}{chapter.9}% 102
+\BOOKMARK [1][-]{section.9.11}{Reasoning about all models \(reprise\)}{chapter.9}% 103
+\BOOKMARK [1][-]{section*.21}{Practice Exercises}{chapter.9}% 104
+\BOOKMARK [0][-]{chapter.10}{QL Trees}{}% 105
+\BOOKMARK [1][-]{section.10.1}{Trees with fixed domains}{chapter.10}% 106
+\BOOKMARK [1][-]{section.10.2}{Generalizing the tree method}{chapter.10}% 107
+\BOOKMARK [1][-]{section.10.3}{Existentials}{chapter.10}% 108
+\BOOKMARK [1][-]{section.10.4}{Universals}{chapter.10}% 109
+\BOOKMARK [1][-]{section.10.5}{Negated existentials}{chapter.10}% 110
+\BOOKMARK [1][-]{section.10.6}{Negated universals}{chapter.10}% 111
+\BOOKMARK [1][-]{section.10.7}{Whither branching?}{chapter.10}% 112
+\BOOKMARK [1][-]{section.10.8}{The other development rules}{chapter.10}% 113
+\BOOKMARK [1][-]{section.10.9}{Branch closure rules}{chapter.10}% 114
+\BOOKMARK [1][-]{section.10.10}{Tree completion rules}{chapter.10}% 115
+\BOOKMARK [1][-]{section.10.11}{Resolution order}{chapter.10}% 116
+\BOOKMARK [1][-]{section.10.12}{Infinite trees}{chapter.10}% 117
+\BOOKMARK [1][-]{section.10.13}{Common student errors}{chapter.10}% 118
+\BOOKMARK [1][-]{section*.22}{Practice Exercises}{chapter.10}% 119
+\BOOKMARK [0][-]{chapter.11}{Soundness and Completeness for QL Trees}{}% 120
+\BOOKMARK [1][-]{section.11.1}{Soundness}{chapter.11}% 121
+\BOOKMARK [1][-]{section.11.2}{Completeness}{chapter.11}% 122
+\BOOKMARK [1][-]{section*.23}{Practice Exercises}{chapter.11}% 123
+\BOOKMARK [0][-]{chapter.12}{Identity}{}% 124
+\BOOKMARK [1][-]{section.12.1}{Motivating identity as a logical category}{chapter.12}% 125
+\BOOKMARK [1][-]{section.12.2}{=}{chapter.12}% 126
+\BOOKMARK [1][-]{section.12.3}{Identity and `no one else'}{chapter.12}% 127
+\BOOKMARK [1][-]{section.12.4}{Identical objects satisfy identical predicates}{chapter.12}% 128
+\BOOKMARK [1][-]{section.12.5}{Quantity}{chapter.12}% 129
+\BOOKMARK [1][-]{section.12.6}{Definite descriptions}{chapter.12}% 130
+\BOOKMARK [1][-]{section.12.7}{Identity and trees}{chapter.12}% 131
+\BOOKMARK [1][-]{section*.24}{Practice Exercises}{chapter.12}% 132
+\BOOKMARK [0][-]{chapter.13}{Natural Deduction Proofs in QL}{}% 133
+\BOOKMARK [1][-]{section.13.1}{Natural Deduction: the basics}{chapter.13}% 134
+\BOOKMARK [1][-]{section.13.2}{Basic quantifier rules}{chapter.13}% 135
+\BOOKMARK [1][-]{section.13.3}{Identity Introduction}{chapter.13}% 136
+\BOOKMARK [1][-]{section.13.4}{Identity Elimination}{chapter.13}% 137
+\BOOKMARK [1][-]{section.13.5}{Translation and evaluation}{chapter.13}% 138
+\BOOKMARK [1][-]{section.13.6}{Natural deduction strategy}{chapter.13}% 139
+\BOOKMARK [1][-]{section.13.7}{Soundness and completeness}{chapter.13}% 140
+\BOOKMARK [1][-]{section*.25}{Practice Exercises}{chapter.13}% 141
+\BOOKMARK [0][-]{appendix.A}{Other symbolic notation}{}% 142
+\BOOKMARK [0][-]{appendix.B}{Solutions to selected exercises}{}% 143
+\BOOKMARK [1][-]{section*.32}{Chapter 1}{appendix.B}% 144
+\BOOKMARK [1][-]{Item.691}{Chapter 2}{appendix.B}% 145
+\BOOKMARK [1][-]{Item.729}{Chapter 3}{appendix.B}% 146
+\BOOKMARK [1][-]{Item.757}{Chapter 5}{appendix.B}% 147
+\BOOKMARK [1][-]{Item.771}{Chapter 6}{appendix.B}% 148
+\BOOKMARK [1][-]{Item.780}{Chapter 7}{appendix.B}% 149
+\BOOKMARK [1][-]{Item.795}{Chapter 8}{appendix.B}% 150
+\BOOKMARK [1][-]{Item.863}{Chapter 9}{appendix.B}% 151
+\BOOKMARK [1][-]{Item.876}{Chapter 10}{appendix.B}% 152
+\BOOKMARK [1][-]{Item.887}{Chapter 11}{appendix.B}% 153
+\BOOKMARK [1][-]{Item.907}{Chapter 12}{appendix.B}% 154
+\BOOKMARK [1][-]{Item.954}{Chapter 13}{appendix.B}% 155
+\BOOKMARK [0][-]{appendix.C}{Quick Reference}{}% 156

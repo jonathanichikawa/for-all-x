@@ -36,7 +36,7 @@ This interpretation is given in terms of English descriptions. To apply it, you 
 
 We want our QL models to encode this kind of information too. Like a good SL model, a QL model shouldn't require prior knowledge of comic books. One way we could try to do this would be to just give a truth value assignment, as we did for SL. The truth value assignment would assign 0 or 1 to each atomic wff: $Sm=1$, $Sp=1$, $Sr=0$, and so on. If we were to do that, however, we might just as well translate the sentences from QL to SL by replacing $Sp$ and $Sm$ with sentence letters. We could then rely on the definition of truth for SL, but at the cost of ignoring all the logical structure of predicates and terms. In writing a symbolization key for QL, we do not give separate definitions for $Sp$ and $Sm$. Instead, we give meanings to the components $S$, $p$, and $m$. This is essential because we want to be able to reflect the logical relationships between e.g.\ $Sp$ and $\exists x Sx$.
 
-Our interpretations should include explanations for predicates and names, not just for sentences. We cannot use a truth value assignment for this, because a predicate by itself is neither true nor false. In the interpretation given above, $H$ is true \emph{of} Peter Parker (i.e., $Hp$ is true), but it makes no sense at all to ask whether $H$ on its own is true. It would be like asking whether the English language fragment `$\ldots$is a hero' is true.
+Our interpretations should include explanations for predicates and names, not just for sentences. We cannot use a truth value assignment for this, because a predicate by itself (except a 0-place predicate) is neither true nor false. In the interpretation given above, $H$ is true \emph{of} Peter Parker (i.e., $Hp$ is true), but it makes no sense at all to ask whether $H$ on its own is true. It would be like asking whether the English language fragment `$\ldots$is a hero' is true.
 
 What does an interpretation do for a predicate, if it does not make it true or false? An interpretation helps to pick out the objects to which the predicate applies. Interpreting $Hx$ to mean `$x$ is a hero' picks out some characters as the things that are $H$s. Formally, this is a set of members of the UD to which the predicate applies; this set is called the \define{extension} of the predicate.
 
@@ -59,17 +59,17 @@ We use curly brackets `\{' and `\}' to denote sets. The members of the set can b
 
 It is possible to have a set with no members in it. This is called the \define{empty set}. The empty set is sometimes written as \{\}, but usually it is written as the single symbol $\emptyset$.
 
-\section{Models}
+\section{Extensions of predicates}
 As we have seen, an interpretation in QL is only formally significant insofar as it determines a UD, an extension for each predicate, and a referent for each constant. We call this formal structure a \define{model} for QL.
 
 To see how this works, consider this symbolization key:
 \begin{ekey}
-\item[UD:]The first ten natural numbers
-\item[Px:]$x$ is prime.
-\item[$n_{4}$:] 4
+\item{UD:} The first ten natural numbers
+\item{$Px$:} $x$ is prime.
+\item{$n_{4}$}: 4
 \end{ekey}
 
-Given some basic mathematical knowledge, it is obvious that $Pn_{4}$ is false. Let's consider the model this interpretation suggests, to show why it makes this wff false. Instead of just giving a description in the UD, we can list the members as a set. We also define the extension of the predicate $P$, and the referent of the constant $n_{4}$:
+Given some basic mathematical knowledge, it is obvious that $Pn_{4}$ is false. Let's consider the model this key suggests, to show why it makes this wff false. Instead of just giving a description in the UD, we can list the members as a set. We also define the extension of the predicate $P$, and the referent of the constant $n_{4}$:
 
 \begin{partialmodel}
 	UD & $\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$\\
@@ -79,18 +79,18 @@ Given some basic mathematical knowledge, it is obvious that $Pn_{4}$ is false. L
 
 This is not a full model for this interpretation, but it is a detailed enough partial model to show that $Pn_{4}$ is false. You do not need to know anything about mathematics to see that this sentence is false in this model. The UD member named by $n_{4}$ is not in the extension of $P$. In this way, the model captures all of the formal significance of the interpretation.
 
-Suppose we enrich this interpretation with more predicates:
+Suppose we enrich this symbolization key with more predicates:
 \label{10UD}
 \begin{ekey}
 \item{UD:} The first ten natural numbers
-\item{Ex:} $x$ is even.
-\item{Nx:} $x$ is negative.
-\item{Lxy:} $x$ is less than $y$.
-\item{Txyz:} $x$ times $y$ equals $z$.
+\item{$Ex$:} $x$ is even.
+\item{$Nx$:} $x$ is negative.
+\item{$Lxy$:} $x$ is less than $y$.
+\item{$Txyz$:} $x$ times $y$ equals $z$.
 \end{ekey}
 What do we need to add to the model for our new predicates?
 
-The extension of $E$ is the subset $\{2, 4, 6, 8, 10\}$. There are no negative numbers in the UD, so $N$ has an empty extension; i.e. $\extension{N}=\emptyset$.
+The extension of $E$ in our model should be the subset $\{2, 4, 6, 8, 10\}$. There are no negative numbers in the UD, so $N$ has an empty extension; i.e. $\extension{N}=\emptyset$.
 
 Sometimes it will be convenient to represent extensions graphically, similar to the way we did with truth tables. We can represent the extensions just described for $P$, $E$, and $N$ thus:
 
@@ -111,9 +111,10 @@ Sometimes it will be convenient to represent extensions graphically, similar to 
 \end{tabular}
 \end{table}
 
-The members of the UD are listed as rows; the predicates are given as columns. The 0s and 1s indicate whether each member satisfies each predicate. Notice that the same information is conveyed in this chart as in the three sets of ordered pairs described above. Either is an acceptable way of indicating the extension of the predicates.
+The members of the UD are listed as rows; the one-place predicates are given as columns. The 0s and 1s indicate whether each member satisfies each predicate. Notice that the same information is conveyed in this chart as in the three sets of ordered pairs described above. Either is an acceptable way of indicating the extension of the predicates.
 
-The extension of a two-place predicate like $L$ is more complicated. No individual number falls under the extension of this predicate; it is about the relation between members. Note also that sets of pairs numbers aren't suitable for the extension of $L$ either, because 1 is less than 8, but 8 is not less than 1. And the set \{1,8\} is the very same set as the set \{8,1\}. The solution is to have the extension of $L$ consist in a set of \define{ordered pairs} of numbers. An ordered pair is like a set with two members, except that the order \emph{does} matter. We write ordered pairs with angle brackets `$\openntuple$' and `$\closentuple$'. The ordered pair \mbox{\ntuple{foo, bar}} is different than the ordered pair \mbox{\ntuple{bar, foo}}. The extension of $L$ is a collection of ordered pairs, all of the pairs of numbers in the UD such that the first number is less than the second. Writing this out completely:
+The extension of a two-place predicate like $L$ is more complicated. No individual number falls under the extension of this predicate; it is about the relation between members. Note also that sets of pairs numbers aren't suitable for the extension of $L$ either, because 1 is less than 8, but 8 is not less than 1. (Remember, the set \{1,8\} is the very same set as the set \{8,1\}.) The solution is to have the extension of $L$ consist in a set of \define{ordered pairs} of numbers. An ordered pair is like a set with two members, except that the order \emph{does} matter. We write ordered pairs with angle brackets `$\openntuple$' and `$\closentuple$'. The ordered pair \mbox{\ntuple{foo, bar}} is different than the ordered pair \mbox{\ntuple{bar, foo}}. The extension of $L$ is a set of ordered pairs --- all of the pairs of numbers in the UD such that the first number is less than the second. Writing this out completely:
+
 
 $\extension{L}=$ \{\ntuple{1, 2}, \ntuple{1, 3}, \ntuple{1, 4}, \ntuple{1, 5}, \ntuple{1, 6}, \ntuple{1, 7}, \ntuple{1, 8}, \ntuple{1, 9}, \ntuple{1, 10},
 \ntuple{2, 3}, \ntuple{2, 4}, \ntuple{2, 5}, \ntuple{2, 6}, \ntuple{2, 7}, \ntuple{2, 8}, \ntuple{2, 9}, \ntuple{2, 10},
@@ -149,13 +150,31 @@ $Lxy$         & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} &
 
 The extension of a three-place predicate is a set of ordered triples where the predicate is true of those three things \emph{in that order}. So the extension of $T$ in this model will contain ordered triples like \ntuple{2, 4, 8}, because $2\times 4 = 8$. Because the surface of a sheet of paper is for all intents and purposes two-dimensional, it is usually not convenient to represent 3-or-more place predicates with tables.
 
-Generally, the extension of an n-place predicate is a set of all ordered n-tuples ${\langle}a_1, a_2,\ldots, a_n{\rangle}$ such that $a_1$--$a_n$ are members of the UD and the predicate is true of $a_1$--$a_n$ in that order.
+Generally, the extension of an $n$-place predicate is a set of ordered $n$-tuples ${\langle}a_1, a_2,\ldots, a_n{\rangle}$ such that $a_1$--$a_n$ are members of the UD and the predicate is true of $a_1$--$a_n$ in that order.
 
 
+\section{Extensions of 0-place predicates}
+\label{sec.0PlaceModels}
 
+What of a 0-place predicate? Recall from Chapter \ref{ch.QL} that a 0-place predicate corresponds to an SL sentence letter --- it will take a truth value in an interpretation without reference to any particular objects. So a QL model will provide truth values to 0-place predicates directly, just like an SL valuation function did.
 
+This actually follows from the general description of n-place predicates given in the previous section: the extension of an $n$-place predicate is a set of ordered $n$-tuples. In the special case where $n=0$, the extension of the predicate will be a set of 0-tuples. But there is only one possible 0-tuple: the empty set, $\emptyset$. So there are only two possible extensions of a 0-place predicate, corresponding to the choice of whether $\emptyset$ is included in the extension or not. (Formally, the extension will either be the set containing the empty set --- \{$\emptyset$\} --- or it will be the empty set $\emptyset$ itself.)
 
+For clarity and convenience, when indicating the extension of 0-place predicates in QL models, we'll simply indicate the truth values for the sentences themselves, like we did in SL. So we might indicate the extensions of 0-place predicates, for instance, by writing
 
+\begin{ekey}
+\item{$P$} = 1
+\item{$Q$} = 0
+\end{ekey}
+
+instead of the more confusing
+
+\begin{partialmodel}
+	\extension{P} & \{$\emptyset$\}\\
+	\extension{Q} & $\emptyset$. \\
+\end{partialmodel}
+
+So in the special case where we are \emph{only} working with 0-place predicates, QL models directly provide SL valuation functions. This is another respect in which QL is simply a generalization of SL. If you ignore the UD and the extensions of higher-place predicates, a QL model provides the same information we were using to discuss SL models in Chapter \ref{ch.SLmodels}.
 
 \section{Working with models}
 \label{sec.UsingModels}
@@ -210,7 +229,7 @@ Perhaps you are wondering: What does the predicate $A$ mean in English? It doesn
 \item[$d$:] Miles Morales
 \end{ekey}
 
-This is one way we can interpret the model above. $Add$ is true, because Miles does know Miles's biggest secret. (It's that he's the Ultimate Spider-Man. Now you know it too!) $Bd$ is false: Miles's powers came from a genetically enhanced spider bite, not from gamma radiation. But the partial model constructed above includes none of these interpretative details. All it says is that $A$ is a predicate which is true of Miles and Miles, and that $B$ is a predicate which does not apply to Miles. There are indefinitely many predicates in English that have this extension. $Axy$ might instead translate `$x$ is the same size as $y$' or `$x$ and $y$ live in the same city'; $Bx$ might  translate `$x$ is a billionaire' or `$x$'s uncle was killed by a robber' or `Donald Trump has written a tweet about $x$'. In constructing a model and giving extensions for $A$ and $B$, we do not specify what English predicates $A$ and $B$ should be used to translate. We are concerned with whether the $\forall xAxx \eif Bd$ comes out true or false, and all that matters for truth and falsity in QL is the information in the model: the UD, the extensions of predicates, and the referents of constants.
+This is one way we can interpret the model above. $Add$ is true, because Miles does know Miles's biggest secret. (It's that he's the Ultimate Spider-Man. Now you know it too!) $Bd$ is false: Miles's powers came from a genetically enhanced spider, not from gamma radiation. But the partial model constructed above includes none of these interpretative details. All it says is that $A$ is a predicate which is true of Miles and Miles, and that $B$ is a predicate which does not apply to Miles. There are indefinitely many predicates in English that have this extension. $Axy$ might instead translate `$x$ is the same size as $y$' or `$x$ and $y$ live in the same city'; $Bx$ might  translate `$x$ is a billionaire' or `$x$'s uncle was killed by a robber' or `Donald Trump has written a tweet about $x$'. In constructing a model and giving extensions for $A$ and $B$, we do not specify what English predicates $A$ and $B$ should be used to translate. We are concerned with whether the $\forall xAxx \eif Bd$ comes out true or false, and all that matters for truth and falsity in QL is the information in the model: the UD, the extensions of predicates, and the referents of constants.
 
 We can just as easily show that $\forall xAxx \eif Bd$ is not a contradiction. We need only specify a model in which $\forall xAxx \eif Bd$ is true; i.e., a model in which either $\forall x Axx$ is false or $Bd$ is true. Here is one such partial model:
 
@@ -313,9 +332,9 @@ It is necessary to reason about an infinity of models to show that a sentence is
 
 \section{Truth in QL}
 \label{sec.TruthInQL}
-For SL, we split the definition of truth into two parts: a truth value assignment ($a$) for sentence letters and a truth function ($v$) for all sentences. The truth function covered the way that complex sentences could be built out of sentence letters and connectives.
+In our discussion of SL, we split the definition of truth into two parts: a truth value assignment ($a$) for sentence letters and a truth function ($v$) for all sentences. The truth function covered the way that complex sentences could be built out of sentence letters and connectives.
 
-Just like SL, truth for QL is relative: it is \emph{truth in a model}. The atomic sentences, again, are $n$-place predicates followed by $n$ constants, like $Pj$. It is true in a model \model{M} if and only if the referent of $j$ is in the extension of $P$ in \model{M}.
+Just as for SL, truth for QL is relative: it is \emph{truth in a model}. The atomic sentences, again, are $n$-place predicates followed by $n$ constants, like $Pj$. It is true in a model \model{M} if and only if the referent of $j$ is in the extension of $P$ in \model{M}.
 
 We could go on in this way to define truth for all atomic sentences that contain only predicates and constants: Consider any sentence of the form $\script{R}\script{a}_1\ldots\script{a}_n$ where \script{R} is an n-place predicate and the \script{a}s are constants. It is true in \model{M} if and only if ${\langle}\referent{\script{a}_1},\ldots,\referent{\script{a}_n}{\rangle}$ is in \extension{\script{R}} in \model{M}.
 
@@ -342,7 +361,7 @@ We can now say concisely that $\forall x Px$ is satisfied in a model \model{M} b
 
 The intuitive thought here is that wff satisfaction is relative to a variable assignment. A variable assignment is a way of treating each variable as if it were a name for some object or other; a wff is satisfied by a in a given model iff, in that model, treating the variables the way $a$ suggests would yield a true wff.
 
-You may worry that our statement of satisfaction by a variable assignment in a model is circular, because it gives the satisfaction conditions for the sentence $\forall x Px$ using the phrase `for every object.' However, it is important to remember the difference between a logical symbol like `$\forall$' and an English language word like `every.' The word is part of the metalanguage that we use in defining satisfaction conditions for object language sentences that contain the symbol.
+You may worry that our statement of satisfaction by a variable assignment in a model is circular, because it gives the satisfaction conditions for the sentence $\forall x Px$ using the phrase `for every object.' However, it is important to remember the difference between a logical symbol like `$\forall$' and an English language word like `every.' The word is part of the metalanguage that we use in defining satisfaction conditions for object language sentences that contain the symbol. (Recall the parallel discussion of sentential connectives on p.\ \pageref{truthdefinition}.)
 
 We can now give a general definition of satisfaction, extending from the cases we have already discussed. We define a function $s$ (for `satisfaction') in a model \model{M} such that for any wff \metaA{} and variable assignment $a$, $s(\metaA{}, a)=1$ if \metaA{} is satisfied in \model{M} by $a$; otherwise $s(\metaA{}, a)=0$.
 
@@ -421,7 +440,7 @@ This definition follows the same structure as the definition of a wff for QL, so
 
 \section{Truth in QL}
 
-Consider a simple sentence like $\forall xPx$. By part 7 in the definition of satisfaction, this sentence is satisfied if $a[\pi|x]$ satisfies $Px$ in \model{M} for every $\pi$ in the UD. In other words, assign that $x$ to any object in the UD you like, and the resultant wff will come out true. By part 1 of the definition, this will be the case if every $\pi$ is in the extension of $P$. Whether $\forall xPx$ is satisfied does not depend on the particular variable assignment $a$. If this sentence is satisfied, then it is true. This is a formalization of what we have said all along: $\forall xPx$ is true if everything in the UD is in the extension of $P$.
+Consider a simple quantified sentence like $\forall xPx$. By part 7 in the definition of satisfaction, this sentence is satisfied if $a[\pi|x]$ satisfies $Px$ in \model{M} for every $\pi$ in the UD. In other words, assign that $x$ to any object in the UD you like, and the resultant wff will come out true. By part 1 of the definition, this will be the case if every $\pi$ is in the extension of $P$. Whether $\forall xPx$ is satisfied does not depend on the particular variable assignment $a$. If this sentence is satisfied, then it is true. This is a formalization of what we have said all along: $\forall xPx$ is true if everything in the UD is in the extension of $P$.
 
 The same thing holds for any sentence of QL. Because all of the variables are bound, a sentence is satisfied or not regardless of the details of the variable assignment. So we can define truth in this way: A sentence \metaA{} is \define{true in} \model{M} if and only if some variable assignment satisfies \metaA{} in $M$; \metaA{} is \define{false in} \model{M} otherwise.
 
