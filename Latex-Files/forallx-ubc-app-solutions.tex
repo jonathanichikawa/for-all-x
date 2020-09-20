@@ -175,7 +175,8 @@ $M \eif \enot C$
 \end{earg}
 
 \solutionsection{ch.TruthTables}
-% Chapter 3 Part A
+
+% Chapter 3 Part C
 \solutionpart{ch.TruthTables}{pr.TT.TTorC}
 \begin{earg}
 \item tautology
@@ -198,33 +199,26 @@ $M \eif \enot C$
 \item contingent
 \end{earg}
 
-% Chapter 3 Part B
+% Chapter 3 Part D
 \solutionpart{ch.TruthTables}{pr.TT.equiv}
-%\begin{earg}
-%\item not equivalent
-\noSeq
-%\item equivalent
-\nextSeq
-%\item equivalent
-\nextSeq
-%\item not equivalent
-\noSeq
-%\item equivalent
-\nextSeq
-%\item equivalent
-\nextSeq
-%\item not equivalent
-\noSeq
-%\item equivalent
-\nextSeq
-%\item equivalent
-\lastSeq
-%\item not equivalent
-\noSeq
-%\end{earg}
+
+
+\noSeq%\item $A$, $\enot A$ %No
+\nextSeq%\item $A$, $A \eor A$ %Yes
+\noSeq%\item $A\eif A$, $A \eiff A$ %No
+\noSeq%\item $A \eor \enot B$, $A\eif B$ %No
+\nextSeq%\item $A \eand \enot A$, $\enot B \eiff B$ %Yes
+\nextSeq%\item $\enot(A \eand B)$, $\enot A \eor \enot B$ %Yes
+\noSeq%\item $\enot(A \eif B)$, $\enot A \eif \enot B$ %No
+\nextSeq%\item $(A \eif B)$, $(\enot B \eif \enot A)$ %Yes
+\lastSeq%\item $[(A \eor B) \eor C]$, $[A \eor (B \eor C)]$ %Yes
+%\noSeq%\item $[(A \eor B) \eand C]$, $[A \eor (B \eand C)]$ %No
 are logically equivalent.
 
-% Chapter 3 Part C
+
+
+
+% Chapter 3 Part E
 \solutionpart{ch.TruthTables}{pr.TT.consistent}
 %\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ %consistent
 \nextSeq
@@ -244,7 +238,7 @@ are logically equivalent.
 \lastSeq
 are consistent.
 
-% Chapter 3 Part D
+% Chapter 3 Part F
 \solutionpart{ch.TruthTables}{pr.TT.valid}
 %\item $A\eif A$, \therefore\ $A$ %invalid
 \noSeq
@@ -268,7 +262,7 @@ are consistent.
 \lastSeq
 are valid.
 
-% Chapter 3 Part E
+% Chapter 3 Part G
 \solutionpart{ch.TruthTables}{pr.TT.concepts}
 \begin{earg}
 \item %Suppose that \metaA{} and \metaB{} are logically equivalent. What can you say about $\metaA{}\eiff\metaB{}$?
