@@ -233,15 +233,15 @@
 \contentsline {paragraph}{Quantifiers}{262}{paragraph*.31}% 
 \contentsline {chapter}{\numberline {B}Solutions to selected exercises}{264}{appendix.B}% 
 \contentsline {section}{Chapter {\ref {ch.intro}}}{264}{section*.32}% 
-\contentsline {section}{Chapter {\ref {ch.SL}}}{265}{Item.691}% 
-\contentsline {section}{Chapter {\ref {ch.TruthTables}}}{266}{Item.729}% 
-\contentsline {section}{Chapter {\ref {ch.sl.trees}}}{268}{Item.757}% 
-\contentsline {section}{Chapter {\ref {ch.SLsoundcomplete}}}{272}{Item.771}% 
-\contentsline {section}{Chapter {\ref {ch.ND.proofs}}}{274}{Item.780}% 
-\contentsline {section}{Chapter {\ref {ch.QL}}}{281}{Item.795}% 
-\contentsline {section}{Chapter {\ref {ch.QL.models}}}{283}{Item.863}% 
-\contentsline {section}{Chapter {\ref {ch.QLTrees}}}{286}{Item.876}% 
-\contentsline {section}{Chapter {\ref {ch.QLsoundcomplete}}}{292}{Item.887}% 
-\contentsline {section}{Chapter {\ref {ch.identity}}}{295}{Item.907}% 
-\contentsline {section}{Chapter {\ref {ch.QLND}}}{304}{Item.954}% 
+\contentsline {section}{Chapter {\ref {ch.SL}}}{265}{Item.690}% 
+\contentsline {section}{Chapter {\ref {ch.TruthTables}}}{266}{Item.728}% 
+\contentsline {section}{Chapter {\ref {ch.sl.trees}}}{268}{Item.756}% 
+\contentsline {section}{Chapter {\ref {ch.SLsoundcomplete}}}{272}{Item.770}% 
+\contentsline {section}{Chapter {\ref {ch.ND.proofs}}}{274}{Item.779}% 
+\contentsline {section}{Chapter {\ref {ch.QL}}}{281}{Item.794}% 
+\contentsline {section}{Chapter {\ref {ch.QL.models}}}{283}{Item.862}% 
+\contentsline {section}{Chapter {\ref {ch.QLTrees}}}{286}{Item.875}% 
+\contentsline {section}{Chapter {\ref {ch.QLsoundcomplete}}}{292}{Item.886}% 
+\contentsline {section}{Chapter {\ref {ch.identity}}}{295}{Item.906}% 
+\contentsline {section}{Chapter {\ref {ch.QLND}}}{304}{Item.953}% 
 \contentsline {chapter}{\numberline {C}Quick Reference}{}{appendix.C}% 
