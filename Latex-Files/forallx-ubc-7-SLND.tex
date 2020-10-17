@@ -118,19 +118,19 @@ We begin by writing our four premises on numbered lines:
 	\hypo{1}{A \eif B}
 	\hypo{2}{B\eif C}
 	\hypo{3}{C \eif [\enot P \eiff (Q \eor R)]}
-	\hypo{4}{A} \want{\enot P \eiff (Q \eor R))}
+	\hypo{4}{A} \want{\enot P \eiff (Q \eor R)}
 %	\have{b} {B} \ce{1,4}
 %	\have{c}{C} \ce{2,b}
 %	\have{}{\enot P \eiff (Q \eor R))} \ce{3,c}
 \end{proof}
 
-We also include the `want' notation off to the right, indicating what conclusion we are attempting to establish. (This is not strictly required as part of our proof, but it is helpful in keeping things organized.) We will complete the proof when we derive $\enot P \eiff (Q \eor R)$ --- i.e., when, while following the rules for how proofs may be developed, we write that sentence down on its own line. We cannot use conditional elimination to get to that sentence directly from our premises. We do have, on line 3, a conditional with that sentence as a consequent, but we don't have $C$, the antecedent, on its own line. However, we can get there via two steps of our inference rule. From lines 1 and 4, we can get $B$, and then, from there and 2, we can get to $C$. Finally, a third instance of conditional elimination lets us derive the intended conclusion:
+We also include the `want' notation off to the right, indicating what conclusion we are attempting to establish. (This is not strictly required as part of our proof, but it is helpful in keeping things organized.) We will complete the proof when we derive $\enot P \eiff (Q \eor R)$ --- i.e., when, while following the rules for how proofs may be developed, we write that sentence down on its own line. We cannot use conditional elimination to get to that sentence directly from our premises. We do have, on line 3, a conditional with that sentence as a consequent, but we don't have $C$, the antecedent, on its own line. However, we can get there via two steps of our inference rule. From lines 1 and 2, we can get $B$, and then, from there and 3, we can get to $C$. Finally, a third instance of conditional elimination lets us derive the intended conclusion:
 
 \begin{proof}
 	\hypo{4}{A} 
 	\hypo{1}{A \eif B}
 	\hypo{2}{B\eif C}
-	\hypo{3}{C \eif [\enot P \eiff (Q \eor R)]} \want{\enot P \eiff (Q \eor R))}
+	\hypo{3}{C \eif [\enot P \eiff (Q \eor R)]} \want{\enot P \eiff (Q \eor R)}
 	\have{b} {B} \ce{4,1}
 	\have{c}{C} \ce{2,b}
 	\have{}{\enot P \eiff (Q \eor R))} \ce{3,c}
@@ -140,9 +140,9 @@ Here are three things to notice about this proof.
 
 First, every line after the premises needs to include a justification, citing a rule and the applicable previous line numbers. (So far Conditional Elimination is our only rule, but we will learn more very soon.) You can only write a new line if you have a rule that shows how it follows from previous lines.
 
-Second, once you have derived something from the premises, that new line is available to help justify future lines. Once we derive line 5, for example, we're able to use it with line 2 to derive line 6.
+Second, once you have derived something from the premises, that new line is available to help justify future lines. Once we derive line 5, for example, we're able to use it with line 3 to derive line 6.
 
-Third, the Conditional Elimination rule requires that you have a conditional and its antecedent; it doesn't not matter what order they are listed in. (In other words, when the rule says you need to have a conditional on line $m$, and its antecedent on line $n$, it does not matter whether $m<n$.) It also does not matter whether they are on consecutive lines. They just have to be on \emph{some} some lines up above, before performing the rule. So it is fine, for instance, that in justifying line 5, we cite a conditional on line 2, and its antecedent on line 1.
+Third, the Conditional Elimination rule requires that you have a conditional and its antecedent; it doesn't not matter what order they are listed in. (In other words, when the rule says you need to have a conditional on line $m$, and its antecedent on line $n$, it does not matter whether $m<n$.) It also does not matter whether they are on consecutive lines. They just have to be on \emph{some} lines up above, before performing the rule. So it is fine, for instance, that in justifying line 5, we cite a conditional on line 2, and its antecedent on line 1.
 
 \section{Exact matches}
 
