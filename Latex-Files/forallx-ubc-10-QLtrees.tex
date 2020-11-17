@@ -156,25 +156,25 @@ There is one more quantified sentence to resolve, on line 3, but before we do th
 \end{prooftree}
 
 
-Now let's look at line 3. It is an existential claim, so it says that at least one of its instances are true. Again, we're assuming for now that there are only two instances. So we branch into them those two disjunctions at line 10. After that, we apply the approach to disjunctions from SL trees, and the tree closes.
+Now let's look at line 3. It is an existential claim, so it says that at least one of its instances are true. Again, we're assuming for now that there are only two instances. So we branch into those two disjunctions at line 10. After that, we apply the approach to disjunctions from SL trees, and the tree closes.
 
 \begin{prooftree}
 {
 }
 [\forall x (Fx \eif Gx), name=p1, checked
 [\enot\exists x Gx, grouped, name=p2, checked
-[\exists x (Fx \eor Gx), grouped, name=p3, %checked
+[\exists x (Fx \eor Gx), grouped, name=p3, checked
 	[Fa \eif Ga, checked
 	[Fb \eif Gb, grouped, checked
 		[\enot Ga, name=Ga
 		[\enot Gb, grouped, name=Gb
 			[\enot Fa, name=Fa
 				[\enot Fb, name=Fb
-					[Fa \eor Ga
+					[Fa \eor Ga, checked
 						[Fa, close={:Fa, !c}]
 						[Ga, close={:Ga, !c}]
 					]
-					[Fb \eor Gb
+					[Fb \eor Gb, checked
 						[Fb, close={:Fb, !c}]
 						[Gb, close={:Gb, !c}]
 					]
