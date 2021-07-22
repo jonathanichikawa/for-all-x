@@ -70,8 +70,8 @@ Another way of making this point is to observe that the method of truth tables d
 The natural deduction system of this chapter will include an inference rule corresponding to \emph{modus ponens}. Natural deduction proofs of these validities, then, will all share something important in common: they will use that inference rule. Here, in its formal presentation, is the rule:
 
 \begin{proof}
-	\hypo[m]{ab}{\metaA{}\eif\metaB{}}
-	\hypo[n]{a}\metaA{}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{a}\metaA{}
 	\have[\ ]{b}\metaB{} \ce{ab,a}
 \end{proof}
 
@@ -99,7 +99,7 @@ With this rule, we can prove that any of the \emph{modus ponens} arguments menti
 
 \end{multicols}
 
-Notice that these two proofs share just the same structure. We start by listing the premises as lines 1 and 2. We include a horizontal line under those premises to indicate that subsequent lines will need to be derived via rules; so we apply the conditional elimination rule to get the conclusion. We justify that conclusion by citing Conditional Elimination, and lines 1 and 2.
+Notice that these two proofs share just the same structure. We start by listing the premises as lines 1 and 2. We include a horizontal line under those premises to indicate that the lines above it are premises that we assume; subsequent lines will need to be derived via rules. So we apply the conditional elimination rule to get the conclusion. We justify that conclusion by citing Conditional Elimination, and lines 1 and 2.
 
 One can produce more complicated proofs via the same rule. Let's prove that this SL argument form is valid:
 
@@ -123,6 +123,8 @@ We begin by writing our four premises on numbered lines:
 %	\have{c}{C} \ce{2,b}
 %	\have{}{\enot P \eiff (Q \eor R))} \ce{3,c}
 \end{proof}
+
+The horizontal line at line four indicates that the first four lines are assumed --- no justification for them is necessary.
 
 We also include the `want' notation off to the right, indicating what conclusion we are attempting to establish. (This is not strictly required as part of our proof, but it is helpful in keeping things organized.) We will complete the proof when we derive $\enot P \eiff (Q \eor R)$ --- i.e., when, while following the rules for how proofs may be developed, we write that sentence down on its own line. We cannot use conditional elimination to get to that sentence directly from our premises. We do have, on line 4, a conditional with that sentence as a consequent, but we don't have $C$, the antecedent, on its own line. However, we can get there via two steps of our inference rule. From lines 1 and 2, we can get $B$, and then, from there and 3, we can get to $C$. Finally, a third instance of conditional elimination lets us derive the intended conclusion:
 
@@ -149,8 +151,8 @@ Third, the Conditional Elimination rule requires that you have a conditional and
 Conditional Elimination, as well as all of our other natural deduction rules, are syntactically defined. That is to say, the application of the rules depends on the exact shape of the SL sentences in question. Here, again, is the formal statement of the rule:
 
 \begin{proof}
-	\hypo[m]{ab}{\metaA{}\eif\metaB{}}
-	\hypo[n]{a}\metaA{}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{a}\metaA{}
 	\have[\ ]{b}\metaB{} \ce{ab,a}
 \end{proof}
 
@@ -166,21 +168,23 @@ For example, this is \emph{not} a legal derivation in our system:
 
 The Conditional Elimination rule requires that the new sentence derived be the consequent of the conditional cited. But in this example, $B$ is not the consequent of $P\eif (A \eand B)$ --- $A \eand B$ is. It is true that $B$ obviously follows from $A \eand B$, but the Conditional Elimination rule doesn't allow you to derive things just because they obviously follow. (Neither does any other rule in our formal system.) To derive $B$ from these premises we'll need to use another rule. (In particular, we will want to use the Conjunction Elimination rule, given below.)
 
-To check to make sure you are applying the rules correctly, one good heuristic is to think about whether you are relying on the rule itself, or on your intuitive understanding of the meanings of the symbols we use in SL. Your intuitive understanding is a good way to think about which rules to use, but to check to make sure you're using the rules properly, think about whether the rules' exact formulations could explain why it is permissible to extend the derivation in the exact way you're working with. Pretend, for instance, that you have no idea what the `\eif' symbol means, but you know only that if you have two sentences joined by it on one line, and the first of those two sentences on another line, then you are allowed to copy down the second sentence exactly on a new line. This --- and no more --- is what the Conditional Elimination rule permits you to do. (This is what we mean when we say the rule is syntactically defined.)
+To check to make sure you are applying the rules correctly, one good heuristic is to think about whether you are relying on the rule itself, or on your intuitive understanding of the meanings of the symbols we use in SL. Your intuitive understanding is a good way to think about which rules to use, but to check to make sure you're using the rules properly, think about whether the rules' exact formulations could explain why it is permissible to extend the derivation in the exact way you're working with. Pretend, for instance, that you have no idea what the `\eif' symbol means, but you do know that if you have two sentences joined by it on one line, and the first of those two sentences on another line, then you are allowed to copy down the second sentence exactly on a new line. This --- and no more --- is what the Conditional Elimination rule permits you to do. (This is what we mean when we say the rule is syntactically defined.) It would be pretty trivial to write a computer program to check to see whether a line is properly derived via Conditional Elimination.
 
 \section{Our second rule: \emph{modus tollens}}
 
 Here is another rule one can use with conditionals:
 
 \begin{proof}
-	\hypo[m]{ab}{\metaA{}\eif\metaB{}}
-	\hypo[n]{a}{\enot\metaB{}}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{a}{\enot\metaB{}}
 	\have[\ ]{b}{\enot\metaA{}} \by{MT}{ab,a}
 \end{proof}
 
 If you have a conditional on one numbered line, and the negation of its consequent on another line, you may derive the negation of its antecedent on a new line. We abbreviate the justification for this rule as `MT' for \emph{modus tollens}. If you know that if she found the treasure, she is happy, and you also know that she isn't happy, then you can very sensibly infer that she didn't find the treasure.
 
 You may notice an asymmetry between the labels we use for \emph{modus ponens} and \emph{modus tollens}: in the former case, we use Conditional Elimination (\eif E) as its official name, but in the latter case, we call the rule Modus Tollens (MT). We'll explain in more detail why we use the labels in this way when we discuss `basic' and `derived' rules in \S\ref{sec:basic} below. For now, the important thing is to understand how to use the rule.
+
+We do not include a horizontal line in the statement of the rule, because we don't want to assume that lines $m$ and $n$ are assumptions. They might be --- they might be premises in the argument, for example --- but they might themselves be derived, and have rules justifying them. It doesn't matter how we got $m$ and $n$, it just matters that we have them.
 
 Here is an example employing \emph{Modus Tollens} several times over. We will prove that $\{A \eif B, B \eif C, C \eif D, \enot D\} \models \enot A$:
 
@@ -198,7 +202,7 @@ At each of lines 5--7, we cite a conditional and the negation of its consequent 
 
 \section{Disjunction Elimination}
 
-Recall this argument form from the Introduction:
+Recall this argument form from the Introduction of this chapter:
 
 \begin{earg}
 \item[] $P \eor Q$
@@ -212,14 +216,14 @@ This inference form is sometimes called `Disjunctive Syllogism'. In our system, 
 
 \begin{multicols}{2}
 \begin{proof}
-	\hypo[m]{ab}{\metaA{}\eor\metaB{}}
-	\hypo[n]{nb}{\enot\metaB{}}
+	\have[m]{ab}{\metaA{}\eor\metaB{}}
+	\have[n]{nb}{\enot\metaB{}}
 	\have[\ ]{a}\metaA{} \oe{ab,nb}
 \end{proof}
 
 \begin{proof}
-	\hypo[m]{ab}{\metaA{}\eor\metaB{}}
-	\hypo[n]{na}{\enot\metaA{}}
+	\have[m]{ab}{\metaA{}\eor\metaB{}}
+	\have[n]{na}{\enot\metaA{}}
 	\have[\ ]{b}\metaB{} \oe{ab,nb}
 \end{proof}
 
@@ -266,15 +270,22 @@ Recall again that it is not a requirement either conjunct be an atom, or that $m
 
 We have just seen that Conjunction Introduction allows you derive a conjunction from a non-conjunction; Conjunction Elimination lets you do the converse. From a conjunction, you may derive either of its conjuncts. From $(A \eand (P \eor Q))$, for instance, you may derive $A$, or you may derive $(P \eor Q)$. (Or you could even apply Conjunction Elimination twice and derive both.)
 
-Because it lets you work on either conjunct, we formalize it twice over, much as we did with Disjunction Elimination. This will be our Conjunction Elimination rule, which we abbreviate `{\eand}E':
+This will be our Conjunction Elimination rule, which we abbreviate `{\eand}E':
 
 \begin{proof}
-	\hypo[m]{ab}{\metaA{}\eand\metaB{}}
+	\have[m]{ab}{\metaA{}\eand\metaB{}}
 	\have[\ ]{a}\metaA{} \ae{ab}
 	\have[\ ]{b}\metaB{} \ae{ab}
 \end{proof}
 
-The {\eand}E rule requires only one sentence, so we write one line number as the justification for applying it.
+This rule lets you derive either conjunct. (You do not have to derive both, as indicated in the proof template representing the rule, but you can, via two applications of the rule.) So for example, this is a perfectly acceptable natural deduction proof:
+
+\begin{proof}
+	\hypo[1]{ab}{A \eand B}
+	\have[2]{b}B \ae{ab}
+\end{proof}
+
+Note that the {\eand}E rule requires only one sentence, so we write one line number as the justification for applying it.
 
 Here is an example illustrating our two conjunction rules working together. Consider this argument.
 \begin{earg}
@@ -295,7 +306,7 @@ From the premise, we can get each of the conjuncts by {\eand}E. The proof now lo
 	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
 \end{proof}
 
-The rule {\eand}I requires that we have each of the conjuncts available somewhere in the proof. They can be separated from one another, and they can appear in any order. So by applying the {\eand}I rule to lines 3 and 2, we arrive at the desired conclusion. The finished proof looks like this:
+The {\eand}I rule requires that we have each of the conjuncts available somewhere in the proof. They can be separated from one another, and they can appear in any order. So by applying the {\eand}I rule to lines 3 and 2, we arrive at the desired conclusion. The finished proof looks like this:
 
 \begin{proof}
 	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
@@ -313,7 +324,7 @@ This proof may not look terribly interesting or surprising, but it shows how we 
 
 We have so far introduced five rules: Conditional Elimination, \emph{modus tollens}, Disjunction Elimination, Conjunction Elimination, and Conjunction Introduction. There are still more rules still to learn, but it is helpful first to pause and draw a distinction between different kinds of rules.
 
-Many of our rules, we have seen, carry the name `Elimination' or `Introduction', along with the name of one of our SL connectives. In fact, every rule except \emph{modus tollens} has had such a name. Such rules are the \emph{basic} rules in our natural deduction system. The basic rules comprise an Introduction and an Elimination rule for each connective, plus one more rule. \emph{Modus tollens} is not a basic rule; we will call it a \emph{derived} rule.
+Many of our rules, we have seen, carry the name `Elimination' or `Introduction', along with the name of one of our SL connectives. In fact, every rule we've seen so far except \emph{modus tollens} has had such a name. Such rules are the \emph{basic} rules in our natural deduction system. The basic rules comprise an Introduction and an Elimination rule for each connective, plus one more rule. \emph{Modus tollens} is not a basic rule; we will call it a \emph{derived} rule.
 
 A derived rule is a non-basic rule whose validity we can derive using basic rules only. A useful fact about our natural deduction system is that the basic rules themselves are enough to derive every SL validity. Derived rules are helpful for making some proofs shorter or more intuitive, but one could prove anything provable without them.
 
@@ -327,7 +338,7 @@ All of the rules introduced in this chapter are summarized in the Quick Referenc
 If $M$ is true, then $M \eor N$ must also be true. In general, the Disjunction Introduction rule ({\eor}I) allows us to derive a disjunction if we already have one of its two disjuncts:
 
 \begin{proof}
-	\hypo[m]{a}\metaA{}
+	\have[m]{a}\metaA{}
 	\have[\ ]{ab}{\metaA{}\eor\metaB{}}\oi{a}
 	\have[\ ]{ba}{\metaB{}\eor\metaA{}}\oi{a}
 \end{proof}
@@ -345,13 +356,12 @@ It may seem odd that just by knowing $M$ we can derive a conclusion that include
 
 \subsection{Conditional Introduction}
 
-
 Consider this argument:
 \begin{earg}
 \item[] $R \eor F$
 \item[\therefore] $\enot R \eif F$
 \end{earg}
-The argument form seems like it should be valid. (You can confirm this by examining the truth tables.) The Conditional Introduction rule can demonstrate that this is so.
+The argument form seems like it should be valid --- either $R$ or $F$ is true, so if $R$ isn't true, $F$ must be. (You can confirm that it is valid by examining the truth tables.) The Conditional Introduction rule can demonstrate that this is so.
 
 We begin the proof by writing down the premise of the argument, making a note of our intended conclusion, and drawing a horizontal line, like this:
 
@@ -364,17 +374,17 @@ If we had $\enot R$ as a further premise, we could derive $F$ by the {\eor}E rul
 \begin{proof}
 	\hypo{rf}{R \eor F}  \want{\enot R \eif F}
 	\open
-		\hypo{nr}{\enot R} \want {F}
+		\have{nr}{\enot R} \want {F}
 	\close
 \end{proof}
 
-It is important to emphasize that we are not claiming to have proven $\enot R$ from the premise on line 1. We do not need to write in any justification for the assumption line of a subproof. (The `want' is a note to ourself, not a justification.) The new vertical line indicates that an \emph{assumption} is being made. You can think of the subproof as posing the question: What could we show \emph{if} $\enot R$ were true? We are trying to show that we could derive $F$. And indeed, we can:
+It is important to emphasize that we are not claiming to have \emph{proven} $\enot R$ from the premise on line 1. We do not need to write in any justification for the assumption line of a subproof. (The `want' is a note to ourself, not a justification.) The new vertical line indicates that a new \emph{assumption} is being made. You can think of the subproof as posing the question: What could we show \emph{if} $\enot R$ were true? We are trying to show that we could derive $F$. And indeed, we can:
 
 \begin{proof}
 	\hypo{rf}{R \eor F}  \want{\enot R \eif F}
 	\open
-		\hypo{nr}{\enot R} \want {F}
-		\hypo{f}{F}\oe{rf, nr}
+		\have{nr}{\enot R} \want {F}
+		\have{f}{F}\oe{rf, nr}
 	\close
 \end{proof}
 
@@ -389,17 +399,17 @@ This has shown that \emph{if} we had $\enot R$ as a premise, \emph{then} we coul
 	\have{nrf}{\enot R \eif F}\ci{nr-f}
 \end{proof}
 
-The {\eif}I lets us \define{discharge} the assumption we'd been making, ending that vertical line. During lines (2) and (3), we were \emph{assuming} that \enot $R$; by the time we get to line (4), we are no longer making that assumption.
+The {\eif}I rule lets us \define{discharge} the assumption we'd been making, ending that vertical line. The horizontal line we draw under line 3 emphasizes that subsequent lines are importantly different: during lines 2 and 3, we were \emph{assuming} that \enot $R$. (Think of the L-shaped pair of lines as defining a box that closes those two lines off.) By the time we get to line 4, we are no longer making that assumption.
 
 Notice that the justification for applying the {\eif}I rule is the entire subproof. That's why we justify it by reference to a range of lines, instead of a comma-separated list. Usually that will be more than just two lines.
 
 It may seem as if the ability to assume anything at all in a subproof would lead to chaos: Does it allow you to prove any conclusion from any premises? The answer is no, it does not. Consider this proof schema:
 
 \begin{proof}
-	\hypo{a}\metaA{}
+	\have{a}\metaA{}
 	\open
-		\hypo{b1}\metaB{}
-		\hypo{b2}{\metaB{}\eand \metaA{}} \ai{a,b1}
+		\have{b1}\metaB{}
+		\have{b2}{\metaB{}\eand \metaA{}} \ai{a,b1}
 	\close
 \end{proof}
 
@@ -410,7 +420,7 @@ In this example, there is no way to close the subproof and show that the conjunc
 Of course, it is legitimate to do this:
 
 \begin{proof}
-	\hypo{a}\metaA{}
+	\have{a}\metaA{}
 	\open
 		\hypo{b1}\metaB{}
 		\hypo{b2}{\metaB{}\eand \metaA{}} \ai{a,b1}
@@ -420,7 +430,7 @@ Of course, it is legitimate to do this:
 
 This should not seem so strange, though. The conclusion on line 4 really does follow from line 1. (Draw a truth table if you need convincing of this.) 
 
-Once an assumption has been discharged, any lines that have been shown to follow from that assumption --- i.e., those lines that the vertical line of that assumption continues through --- cannot be cited as justification on further lines. So this development of the proof above, for instance, is not permitted:
+Once an assumption has been discharged, any lines that have been shown to follow from that assumption --- i.e., those lines inside the box indicated by the vertical line of that assumption --- cannot be cited as justification on further lines. So this development of the proof above, for instance, is not permitted:
 
 \begin{proof}
 	\hypo{rf}{R \eor F}
@@ -432,14 +442,13 @@ Once an assumption has been discharged, any lines that have been shown to follow
 	\have{bad}{F \eor A}\oi{f}
 \end{proof}
 
-Once the assumption made at line 2 has been discharged at line 4, the lines within that assumption --- 2 and 3 --- are unavailable for further justification. So one cannot perform Disjunction Elimination on line 3 at line 5.
-
+Once the assumption made at line 2 has been discharged at line 4, the lines within that assumption --- 2 and 3 --- are unavailable for further justification. So one cannot perform Disjunction Elimination on line 3 at line 5. Line 3 was not demonstrated to follow from the premise on line 1 --- it follows only from this combined with the \emph{assumption} on line 2. And by the time we get to line 5, we are no longer making that assumption.
 
 Put in its general form, the {\eif}I rule looks like this:
 
 \begin{proof}
 	\open
-		\hypo[m]{a}\metaA{} \by{(want \metaB{})}{}
+		\hypo[m]{a}\metaA{} \by{want \metaB{}}{}
 		\hypo[n]{b}\metaB{}
 	\close
 	\have[\ ]{ab}{\metaA{}\eif\metaB{}}\ci{a-b}
@@ -451,7 +460,7 @@ Although it is always permissible to open a subproof with any assumption you ple
 
 The {\eif}I rule also requires that the consequent of the conditional be the last line of the subproof. It is always permissible to close a subproof and discharge its assumptions, but it will not be helpful to do so until you get what you want. This is an illustration of the observation made above, that unlike the tree method, the natural deduction method requires some strategy and thinking ahead.
 
-\emph{Never} make an assumption without a plan for how to discharge it.
+You should \emph{never} make an assumption without a plan for how to discharge it.
 
 Here is another example of an argument form whose validity we can prove using the conditional rules.
 
@@ -467,7 +476,7 @@ We begin the proof by writing the two premises as assumptions. Since the main lo
 	\hypo{pq}{P \eif Q}
 	\hypo{qr}{Q \eif R}
 	\open
-		\hypo{p}{P} \want {R}
+		\have{p}{P} \want {R}
 	\close
 \end{proof}
 
@@ -488,11 +497,11 @@ We made $P$ available by assuming it in a subproof, allowing us to use {\eif}E o
 
 
 \subsection{Biconditional Introduction}
-Biconditionals indicate that the two sides have the same truth value. One establishes a biconditional by establishing each direction of it as conditionals. To derive $W \eiff X$, for instance, you must establish both $W \eif X$ and $X \eif W$. Those conditionals may occur in either order; they need not be on consecutive lines. (Compare the shape of the {\eand}I rule.) Schematically, the Biconditional Introduction rule works like this:
+Biconditionals indicate that the two sides have the same truth value. One establishes a biconditional by establishing each direction of it as conditionals. To derive $W \eiff X$, for instance, you must establish both $W \eif X$ and $X \eif W$. (You might derive those conditionals via {\eif}I, or you might get them some other way. They might even simply be premises.) Those conditionals may occur in either order; they need not be on consecutive lines. (Compare the shape of the {\eand}I rule.) Schematically, the Biconditional Introduction rule works like this:
 
 \begin{proof}
-	\hypo[m]{ab}{\metaA{}\eif\metaB{}}
-	\hypo[n]{ba}{\metaB{}\eif\metaA{}}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{ba}{\metaB{}\eif\metaA{}}
 	\have[\ ]{c}{\metaA{}\eiff\metaB{}} \bi{ab, ba}
 \end{proof}
 
@@ -505,13 +514,13 @@ The Biconditional Elimination rule ({\eiff}E) is a generalized version of \emph{
 
 \begin{multicols}{2}
 \begin{proof}
-	\hypo[m]{ab}{\metaA{}\eiff\metaB{}}
-	\hypo[n]{a}\metaA{}
+	\have[m]{ab}{\metaA{}\eiff\metaB{}}
+	\have[n]{a}\metaA{}
 	\have[\ ]{b}\metaB{} \be{ab,a}
 \end{proof}
 \begin{proof}
-	\hypo[m]{ab}{\metaA{}\eiff\metaB{}}
-	\hypo[n]{a}\metaB{}
+	\have[m]{ab}{\metaA{}\eiff\metaB{}}
+	\have[n]{a}\metaB{}
 	\have[\ ]{b}\metaA{} \be{ab,a}
 \end{proof}
 \end{multicols}
@@ -536,7 +545,7 @@ The basic rules for negation will allow for arguments like this. Like the Condit
 
 \begin{proof}
 \open
-	\hypo[m]{na}\metaA{}\by{(for reductio)}{}
+	\hypo[m]{na}\metaA{}\by{for reductio}{}
 	\hypo[n]{b}\metaB{}
 	\hypo[o]{nb}{\enot\metaB{}}
 \close
@@ -556,6 +565,8 @@ To see how the rule works, suppose we want to prove an instance of the law of no
 	\have{ngng}{\enot(G \eand \enot G)}\ni{gng-g, gng-ng}
 \end{proof}
 
+This is our first example of a natural deduction proof with no premises. It is a way to show that its conclusion is a tautology.
+
 The {\enot}E rule will work in much the same way. If we assume \enot\metaA{} and show that it leads to a sentence and its negation, we have effectively proven \metaA{}. So the rule looks like this:
 
 \begin{proof}
@@ -573,7 +584,7 @@ The {\enot}E rule will work in much the same way. If we assume \enot\metaA{} and
 In addition to the Introduction and Elimination rules for each logical operator, we will also have one more basic rule: Reiteration (R). If you already have shown something in the course of a proof, the Reiteration rule allows you to repeat it on a new line. Put formally:
 
 \begin{proof}
-	\hypo[m]{a1}\metaA{}
+	\have[m]{a1}\metaA{}
 	\have[\ ]{a2}\metaA{} \by{R}{a1}
 \end{proof}
 
@@ -625,13 +636,13 @@ Nevertheless, it is a convenient shortcut. We add it to our list of derived rule
 Here is the Dilemma rule:
 
 \begin{proof}
-	\hypo[m]{ab}{\metaA{}\eor\metaB{}} 
-	\hypo[n]{ac}{\metaA{}\eif\metaC{}}
-	\hypo[o]{bc}{\metaB{}\eif\metaC{}}
+	\have[m]{ab}{\metaA{}\eor\metaB{}} 
+	\have[n]{ac}{\metaA{}\eif\metaC{}}
+	\have[o]{bc}{\metaB{}\eif\metaC{}}
 	\have[\ ]{c}{\metaC{}} \by{DIL}{ab,ac,bc}
 \end{proof}
 
-It might not be immediately obvious that this is a valid inference rule, but if you think about it a minute, you may be able to see why it is a good rule. If you know that two conditionals are true, and they have the same consequent, and you also know that one of the two antecedents is true, then whichever of those two disjunct is true, will license a \emph{modus ponens} inference to the conclusion.
+It might not be immediately obvious that this is a valid inference rule, but if you think about it a minute, you may be able to see why it is a good rule. If you know that two conditionals are true, and they have the same consequent, and you also know that one of the two antecedents is true, then whichever of those two disjuncts is true, will license a \emph{modus ponens} inference to the conclusion.
 
 For example, suppose you know all of the following:
 
@@ -641,7 +652,7 @@ For example, suppose you know all of the following:
 \item[] It is raining or it is snowing.
 \end{earg}
 
-From these premises, you can definitely establish that the car is wet. This is the form that the Dilemma rule captures. We use the label `dilemma' to convey the idea that, whichever way you pick, you'll be stuck with the same conclusion. (``You're damned if you do, and you're damned if you don't. You do or don't. Therefore you are damned.'')
+From these premises, you can definitely establish that the car is wet. This is the form that the Dilemma rule captures. We use the label `dilemma' to convey the idea that, whichever way you pick, you'll be stuck with the same conclusion. (``You're damned if you do, and you're damned if you don't...'')
 
 The Dilemma rule is also derivable from the basic rules. The proof is a bit more complicated, but here it is in schematic form:
 
@@ -668,9 +679,11 @@ The Dilemma rule is also derivable from the basic rules. The proof is a bit more
 	\have{c}{\metaC{}} \ne{nc-b, nc-nb}
 \end{proof}
 
-To understand this proof, think about the broad outline of it. Ultimately, we derive \metaC{} via Negation Elimination; that's why we assumed \enot\metaC{} on line 4, and worked our way to a contradiction on lines 12--13. The internal lines are subproofs to the intermediate conclusions \metaB{} and \enot\metaB{}.
+To understand this proof, think about the broad outline of it. Ultimately, we derive \metaC{} via Negation Elimination; that's why we assumed \enot\metaC{} on line 4, and worked our way to a contradiction on lines 12--13. The internal lines are subproofs to the intermediate conclusions \metaB{} and \enot\metaB{}. 
 
-So as in the case of \emph{modus tollens}, Dilemma doesn't allow us to prove anything we couldn't prove via basic rules. Anytime you wanted to use the Dilemma rule, you could always take ten extra lines and prove the same thing in basic rules. But it's a useful shorthand to include on our list of derived rules.
+This is our first example of a natural deduction proof that involves nested assumptions. You can assume something a second new sentence even while a previous assumption is open, as this proof does at line 5. Make sure to close the assumptions in the proper order, closing the newest assumptions first. (Here, the line 5 assumption must be closed, as it is after line 7, before the line 4 one is, at the end of the proof.) The lines that we draw to indicate assumptions help enforce proper assumption resolution --- if you tried to close the line 4 assumption while the line 5 assumption was open, your boxes would cross one another. This is not allowed.
+
+As in the case of \emph{modus tollens}, Dilemma doesn't allow us to prove anything we couldn't prove via basic rules. Anytime you wanted to use the Dilemma rule, you could always take ten extra lines and prove the same thing in basic rules. But it's a useful shorthand to include on our list of derived rules.
 
 \subsection{Hypothetical Syllogism}
 
@@ -721,7 +734,7 @@ The double arrow means that you can take a subformula on one side of the arrow a
 
 Consider this argument: $(M \eor P) \eif (P \eand M)$ \therefore\ $(P \eor M) \eif (M \eand P)$
 
-It is possible to give a proof of this using only the basic rules, but it will be long and inconvenient. With the Comm rule, we can provide a proof easily:
+It is possible to give a proof of this using only the basic rules, but it will be somewhat tedious. With the Comm rule, we can provide a proof easily:
 
 \begin{proof}
 	\hypo{1}{(M \eor P) \eif (P \eand M)}
@@ -1014,10 +1027,10 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 \hypo{1}{L \eiff \enot O}
 \hypo{2}{L \eor \enot O}
 \open
-	\hypo{a1}{\enot L}
+	\have{a1}{\enot L}
 	\have{a2}{\enot O}{}
 	\have{a3}{L}{}
-	\have{a4}{\enot L}{}
+	\hypo{a4}{\enot L}{}
 \close
 \have{3}{L}{}
 \end{proof}
@@ -1026,18 +1039,18 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 \hypo{1}{Z \eif (C \eand \enot N)}
 \hypo{2}{\enot Z \eif (N \eand \enot C)}
 \open
-	\hypo{a1}{\enot(N \eor  C)}
+	\have{a1}{\enot(N \eor  C)}
 	\have{a2}{\enot N \eand \enot C} {}
 	\open
-		\hypo{b1}{Z}
+		\have{b1}{Z}
 		\have{b2}{C \eand \enot N}{}
 		\have{b3}{C}{}
-		\have{b4}{\enot C}{}
+		\hypo{b4}{\enot C}{}
 	\close
 	\have{a3}{\enot Z}{}
 	\have{a4}{N \eand \enot C}{}
 	\have{a5}{N}{}
-	\have{a6}{\enot N}{}
+	\hypo{a6}{\enot N}{}
 \close
 \have{3}{N \eor C}{}
 \end{proof}

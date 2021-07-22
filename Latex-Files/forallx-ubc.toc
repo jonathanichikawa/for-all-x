@@ -107,32 +107,32 @@
 \contentsline {section}{\numberline {7.1}Natural deduction: the basic idea}{116}{section.7.1}% 
 \contentsline {section}{\numberline {7.2}Our first rule: Conditional Elimination (\emph {modus ponens})}{117}{section.7.2}% 
 \contentsline {section}{\numberline {7.3}Exact matches}{119}{section.7.3}% 
-\contentsline {section}{\numberline {7.4}Our second rule: \emph {modus tollens}}{120}{section.7.4}% 
-\contentsline {section}{\numberline {7.5}Disjunction Elimination}{121}{section.7.5}% 
+\contentsline {section}{\numberline {7.4}Our second rule: \emph {modus tollens}}{121}{section.7.4}% 
+\contentsline {section}{\numberline {7.5}Disjunction Elimination}{122}{section.7.5}% 
 \contentsline {section}{\numberline {7.6}Conjunction Introduction}{123}{section.7.6}% 
 \contentsline {section}{\numberline {7.7}Conjunction Elimination}{123}{section.7.7}% 
 \contentsline {section}{\numberline {7.8}Basic and derived rules}{125}{section.7.8}% 
-\contentsline {section}{\numberline {7.9}The remaining basic rules}{125}{section.7.9}% 
+\contentsline {section}{\numberline {7.9}The remaining basic rules}{126}{section.7.9}% 
 \contentsline {subsection}{\numberline {7.9.1}Disjunction Introduction}{126}{subsection.7.9.1}% 
 \contentsline {subsection}{\numberline {7.9.2}Conditional Introduction}{126}{subsection.7.9.2}% 
-\contentsline {subsection}{\numberline {7.9.3}Biconditional Introduction}{130}{subsection.7.9.3}% 
+\contentsline {subsection}{\numberline {7.9.3}Biconditional Introduction}{131}{subsection.7.9.3}% 
 \contentsline {subsection}{\numberline {7.9.4}Biconditional Elimination}{131}{subsection.7.9.4}% 
 \contentsline {subsection}{\numberline {7.9.5}\emph {Reductio} and the negation rules}{131}{subsection.7.9.5}% 
 \contentsline {subsection}{\numberline {7.9.6}Reiteration}{133}{subsection.7.9.6}% 
 \contentsline {section}{\numberline {7.10}Derived rules}{134}{section.7.10}% 
 \contentsline {subsection}{\numberline {7.10.1}Modus tollens}{134}{subsection.7.10.1}% 
-\contentsline {subsection}{\numberline {7.10.2}Dilemma}{134}{subsection.7.10.2}% 
-\contentsline {subsection}{\numberline {7.10.3}Hypothetical Syllogism}{136}{subsection.7.10.3}% 
+\contentsline {subsection}{\numberline {7.10.2}Dilemma}{135}{subsection.7.10.2}% 
+\contentsline {subsection}{\numberline {7.10.3}Hypothetical Syllogism}{137}{subsection.7.10.3}% 
 \contentsline {section}{\numberline {7.11}Rules of replacement}{137}{section.7.11}% 
 \contentsline {section}{\numberline {7.12}Proof strategy}{139}{section.7.12}% 
 \contentsline {paragraph}{Work backwards from what you want.}{139}{paragraph*.13}% 
 \contentsline {paragraph}{Work forwards from what you have.}{139}{paragraph*.14}% 
-\contentsline {paragraph}{Change what you are looking at.}{139}{paragraph*.15}% 
+\contentsline {paragraph}{Change what you are looking at.}{140}{paragraph*.15}% 
 \contentsline {paragraph}{Do not forget indirect proof.}{140}{paragraph*.16}% 
 \contentsline {paragraph}{Repeat as necessary.}{140}{paragraph*.17}% 
 \contentsline {paragraph}{Persist.}{140}{paragraph*.18}% 
 \contentsline {section}{\numberline {7.13}Proof-theoretic concepts}{140}{section.7.13}% 
-\contentsline {section}{\numberline {7.14}Proofs and models}{141}{section.7.14}% 
+\contentsline {section}{\numberline {7.14}Proofs and models}{142}{section.7.14}% 
 \contentsline {section}{\numberline {7.15}Soundness and completeness}{143}{section.7.15}% 
 \contentsline {section}{Practice Exercises}{145}{section*.19}% 
 \contentsline {chapter}{\numberline {8}Quantified logic}{148}{chapter.8}% 
