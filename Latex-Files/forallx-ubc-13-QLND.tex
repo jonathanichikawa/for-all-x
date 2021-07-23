@@ -21,7 +21,7 @@ Recall the relationship between quantified sentences and their instances. The se
 
 \subsection{Universal elimination}
 
-If you have $\forall x Ax$, it is legitimate to infer, of anything, that it is $A$. You can infer $Aa$, or $Ab$, or $Az$, or $Ad_3$, etc.. This is, you can infer any substitution instance -- in short, you can infer $A\script{c}$ for any constant \script{c}. This is the general form of the universal elimination rule ($\forall$E):
+If you have $\forall x Ax$, it is legitimate to infer, of anything, that it is $A$. You can infer $Aa$, or $Ab$, or $Az$, or $Ad_3$, etc. This is, you can infer any substitution instance --- in short, you can infer $A\script{c}$ for any constant \script{c}. This is the general form of the universal elimination rule ($\forall$E):
 
 \begin{proof}
 	\have[m]{a}{\forall \script{x}\metaA{}}
@@ -29,7 +29,7 @@ If you have $\forall x Ax$, it is legitimate to infer, of anything, that it is $
 \end{proof}
 
 
-Remember that the box mark for a substitution instance is not a symbol of QL, so you cannot write it directly in a proof. Instead, you write the substituted sentence with the constant \script{c} replacing all occurrences of the variable \script{x} in \metaA{}, as in this example:
+Remember that the box notation for a substitution instance is not a symbol of QL, so you cannot write it directly in a proof. Instead, you write the substituted sentence with the constant \script{c} replacing all occurrences of the variable \script{x} in \metaA{}, as in this example:
 
 \begin{proof}
 	\hypo{a}{\forall x(Mx \eif Rxd)}
@@ -37,7 +37,7 @@ Remember that the box mark for a substitution instance is not a symbol of QL, so
 	\have{d}{Md \eif Rdd} \Ae{a}
 \end{proof}
 
-This rule is very similar to the tree rule for universals, which, in our tree system, allowed one to develop a branch containing a universal with any instance of it one likes. Here you are permitted to write down any instance you like on a new line.
+This rule is very similar to the tree rule for universals, which, in our tree system, allowed one to develop a branch containing a universal with any instance of it one likes. Here you are permitted to write down any instance you like on a new line. In this example, we have used the rule twice, to take two instances --- the $a$ instance and the $d$ instance.
 
 \subsection{Existential introduction}
 
@@ -62,6 +62,7 @@ It is important to notice that \metaA{}\substitutesome{c}{x} is not necessarily 
 	\have{f}{\exists z\exists y\exists x(Mx \eif Ryz)} \Ei{e}
 \end{proof}
 
+There are two instances of the name $a$ in the premise on line 1; when using $\exists${}I, one can introduce a variable to replace the first instance, as in line 4, the second instance, as in line 2, or both, as in line 3.
 
 \subsection{Universal introduction}
 A universal claim like $\forall x Px$ would be proven if {every} substitution instance of it had been proven, if every sentence $Pa$, $Pb$, $\ldots$ were available in a proof. Alas, there is no hope of proving \emph{every} substitution instance. That would require proving $Pa$, $Pb$, $\ldots$, $Pj_2$, $\ldots$, $Ps_7$, $\ldots$, and so on to infinity. There are infinitely many constants in QL, and so this process would never come to an end.
@@ -78,7 +79,7 @@ It makes no difference to the meaning of the sentence whether we use the variabl
 We have derived $Ma$. Nothing stops us from using the same justification to derive $Mb$, $\ldots$, $Mj_2$, $\ldots$, $Ms_7$, $\ldots$, and so on until we run out of space or patience. We have effectively shown the way to prove $M\script{c}$ for any constant \script{c}. From this, $\forall y My$ follows.
 
 \begin{proof}
-	\hypo{x}{\forall x Mx}
+	\hypo{x}{\forall x Mx} \by{want $\forall y My$}{}
 	\have{a}{Ma} \Ae{x}
 	\have{y}{\forall y My} \Ai{a}
 \end{proof}
@@ -107,7 +108,7 @@ Note also that the constant may not occur in any \emph{undischarged} assumption,
 \begin{proof}
 	\open
 		\hypo{f1}{Df}\by{want $Df$}{}
-		\have{f2}{Df}\by{R}{f1}
+		\hypo{f2}{Df}\by{R}{f1}
 	\close
 	\have{ff}{Df \eif Df}\ci{f1-f2}
 	\have{zz}{\forall z(Dz \eif Dz)}\Ai{ff}
@@ -133,7 +134,7 @@ This is the schematic form of the existential elimination rule ($\exists$E):
 	\have[m]{a}{\exists \script{x}\metaA{}}
 	\open	
 		\hypo[n]{b}{\metaA{}\substitute{x}{c^\ast}} \by{for $\exists${}E}{}
-		\have[p]{c}{\metaB{}}
+		\hypo[p]{c}{\metaB{}}
 	\close
 	\have[\ ]{d}{\metaB{}} \Ee{a,b-c}
 \end{proof}
@@ -141,7 +142,7 @@ $^\ast$ The constant \script{c} must not appear outside the subproof.
 
 Remember that the proxy constant cannot appear in \metaB{}, the sentence you prove using $\exists$E. (It would actually be enough just to require that the proxy constant not appear in $\exists\script{x}\metaA{}$, in \metaB{}, or in any undischarged assumption. In recognition of the fact that it is just a place holder that we use inside the subproof, though, we require an entirely new constant which does not appear anywhere else in the proof.)
 
-The existential elimination rule, like the rules for conditional introduction and negation introduction and elimination, is a rule that involves discharging an assumption. Assume a proxy instance, and see what would follow from that instance; if you have the existential, then, you can stop making the assumption about the proxy, and help yourself to what would have followed from it. As with those other assumption-involving rules, instead of a justification, one includes a note --- in this case, `for $\exists${}E' --- about the role of the assumption in the proof. Remember that assumptions must be discharged before your proof is complete, so you should only make an assumption that goes beyond your premises when you have a plan for discharging it.
+The existential elimination rule, like the rules for conditional introduction and negation introduction and elimination, is a rule that involves discharging an assumption. Assume a proxy instance, and see what would follow from that instance; if you have the existential, then, you can stop making the assumption about the proxy, and help yourself to what would have followed from it. We draw the horizontal line at the point where the assumption is discharged, defining a box of lines that were only conditionally derived. As with those other assumption-involving rules, instead of a justification, one includes a note --- in this case, `for $\exists${}E' --- about the role of the assumption in the proof. Remember that assumptions must be discharged before your proof is complete, so you should only make an assumption that goes beyond your premises when you have a plan for discharging it.
 
 
 With this rule, we can give a formal proof that $\exists x Sx$ and $\forall x(Sx \eif Tx)$ together entail $\exists x Tx$.
@@ -151,9 +152,9 @@ With this rule, we can give a formal proof that $\exists x Sx$ and $\forall x(Sx
 	\hypo{ast}{\forall x(Sx \eif Tx)}\by{want $\exists x Tx$}{}
 	\open
 		\hypo{s}{Sa}\by{for $\exists${}E}{}
-		\have{st}{Sa \eif Ta}\Ae{ast}
-		\have{t}{Ta} \ce{s,st}
-		\have{et1}{\exists x Tx}\Ei{t}
+		\hypo{st}{Sa \eif Ta}\Ae{ast}
+		\hypo{t}{Ta} \ce{s,st}
+		\hypo{et1}{\exists x Tx}\Ei{t}
 	\close
 	\have{et2}{\exists x Tx}\Ee{es,s-et1}
 \end{proof}
@@ -164,20 +165,20 @@ $\enot\exists \script{x}\enot\metaA{}$ is logically equivalent to $\forall \scri
 
 
 \begin{proof}
-	\hypo{Aa}{\forall \script{x} \metaA{}} \by{want $\enot\exists \script{x}\enot \metaA{}$}{}
+	\have{Aa}{\forall \script{x} \metaA{}} \by{want $\enot\exists \script{x}\enot \metaA{}$}{}
 	\open
-		\hypo{Ena}{\exists \script{x}\enot \metaA{}}\by{for reductio}{}
+		\have{Ena}{\exists \script{x}\enot \metaA{}}\by{for reductio}{}
 		\open
-			\hypo{nc}{\enot \metaA{\substitute{\script{x}}{\script{a}^\ast}}}\by{for $\exists$E}{}
+			\have{nc}{\enot \metaA{\substitute{\script{x}}{\script{a}^\ast}}}\by{for $\exists$E}{}
 			\open
 				\hypo{Aa2}{\forall \script{x} \metaA{}}\by{for reductio}{}
-				\have{c2}{\metaA{\substitute{\script{x}}{\script{a}^\ast}}}\Ae{Aa}
-				\have{nc2}{\enot \metaA{\substitute{\script{x}}{\script{a}^\ast}}}\by{R}{nc}
+				\hypo{c2}{\metaA{\substitute{\script{x}}{\script{a}^\ast}}}\Ae{Aa}
+				\hypo{nc2}{\enot \metaA{\substitute{\script{x}}{\script{a}^\ast}}}\by{R}{nc}
 			\close
-			\have{nAa}{\enot\forall \script{x} \metaA{}}\ni{Aa2-nc2}
+			\hypo{nAa}{\enot\forall \script{x} \metaA{}}\ni{Aa2-nc2}
 		\close
-		\have{nAa3}{\enot\forall \script{x} \metaA{}}\Ee{Ena, nc-nAa}
-		\have{Aa3}{\forall \script{x} \metaA{}}\by{R}{Aa}
+		\hypo{nAa3}{\enot\forall \script{x} \metaA{}}\Ee{Ena, nc-nAa}
+		\hypo{Aa3}{\forall \script{x} \metaA{}}\by{R}{Aa}
 		\close
 	\have{nEna}{\enot\exists \script{x}\enot \metaA{}}\ni{Ena-Aa3, Ena-nAa3}
 \end{proof}
@@ -187,25 +188,25 @@ This is a proof \emph{schema} --- it is not itself a proof in QL, as its lines a
 
 
 \begin{proof}
-	\hypo{Aa}{\forall y Ay} \by{want $\enot\exists y\enot Ay$}{}
+	\have{Aa}{\forall y Ay} \by{want $\enot\exists y\enot Ay$}{}
 	\open
-		\hypo{Ena}{\exists y\enot Ay}\by{for reductio}{}
+		\have{Ena}{\exists y\enot Ay}\by{for reductio}{}
 		\open
-			\hypo{nc}{\enot Ac}\by{for $\exists$E}{}
+			\have{nc}{\enot Ac}\by{for $\exists$E}{}
 			\open
 				\hypo{Aa2}{\forall y Ay}\by{for reductio}{}
-				\have{c2}{Ac}\Ae{Aa}
-				\have{nc2}{\enot Ac}\by{R}{nc}
+				\hypo{c2}{Ac}\Ae{Aa}
+				\hypo{nc2}{\enot Ac}\by{R}{nc}
 			\close
-			\have{nAa}{\enot\forall y Ay}\ni{Aa2-nc2}
+			\hypo{nAa}{\enot\forall y Ay}\ni{Aa2-nc2}
 		\close
-		\have{nAa3}{\enot\forall y Ay}\Ee{Ena, nc-nAa}
-		\have{Aa3}{\forall y Ay}\by{R}{Aa}
+		\hypo{nAa3}{\enot\forall y Ay}\Ee{Ena, nc-nAa}
+		\hypo{Aa3}{\forall y Ay}\by{R}{Aa}
 	\close
 	\have{nEna}{\enot\exists y\enot Ay}\ni{Ena-Aa3, Ena-nAa3}
 \end{proof}
 
-(Note that this proof encodes the same form of reasoning one would employ to demonstrate via a tree that $\forall y Ay \models \enot \exists y \enot Ay$. As an exercise: draw out the tree to compare it.)
+(Note that this proof encodes the same form of reasoning one would employ to demonstrate via a tree that $\forall y Ay \models \enot \exists y \enot Ay$. A good exercise would be to draw out the tree to compare it.)
 
 In order to fully demonstrate that $\enot\exists \script{x}\enot\metaA{}$ is logically equivalent to $\forall \script{x}\metaA{}$, we would also need a second proof that assumes $\enot\exists \script{x}\enot\metaA{}$ and derives $\forall \script{x}\metaA{}$. We leave that proof as an exercise for the reader.
 
@@ -244,9 +245,9 @@ Here is a simple proof of an instance of the \emph{transitivity of identity}. Le
 \begin{proof}
 	\open
 		\hypo{p}{a{=}b \eand b{=}c}\by{want $a{=}c$}{}
-		\have{ab}{a{=}b}\ae{p}
-		\have{bc}{b{=}c}\ae{p}
-		\have{ac}{a{=}c}\by{{=}E}{ab,bc}
+		\hypo{ab}{a{=}b}\ae{p}
+		\hypo{bc}{b{=}c}\ae{p}
+		\hypo{ac}{a{=}c}\by{{=}E}{ab,bc}
 	\close
 	\have{conc}{(a{=}b \eand b{=}c)\eif a{=}c} \ci{p-ac}
 \end{proof}
@@ -278,9 +279,9 @@ So the set-up for a natural deduction proof will be:
 	\have{}{}{}
 %	\open
 %		\hypo{be1}{Be}
-%		\have{all1}{\forall y\ e{=}y}\Ae{one}
-%		\have{ef1}{e{=}f}\Ae{all1}
-%		\have{bf1}{Bf}\by{{=}E}{ef1,be1}
+%		\hypo{all1}{\forall y\ e{=}y}\Ae{one}
+%		\hypo{ef1}{e{=}f}\Ae{all1}
+%		\hypo{bf1}{Bf}\by{{=}E}{ef1,be1}
 %	\close
 %	\have{bf}{Bf}\Ee{eb,be1-bf1}
 %	\have{ab}{\forall x Bx}\Ai{bf}
@@ -295,9 +296,9 @@ There are various strategies one might employ. Here are two clues that point tow
 	\hypo{eb}{\exists x Bx} \by{want $\enot\exists x \enot Bx$}{}
 	\open
 		\hypo{be1}{Be}\by{for $\exists${}E}{}
-		\have{all1}{\forall y\ e{=}y}\Ae{one}
-		\have{ef1}{e{=}f}\Ae{all1}
-		\have{bf1}{Bf}\by{{=}E}{ef1,be1}
+		\hypo{all1}{\forall y\ e{=}y}\Ae{one}
+		\hypo{ef1}{e{=}f}\Ae{all1}
+		\hypo{bf1}{Bf}\by{{=}E}{ef1,be1}
 	\close
 	\have{bf}{Bf}\Ee{eb,be1-bf1}
 %	\have{ab}{\forall x Bx}\Ai{bf}
@@ -312,9 +313,9 @@ By line 7, we have discharged the assumption about the proxy --- we won't use th
 	\hypo{eb}{\exists x Bx} \by{want $\enot\exists x \enot Bx$}{}
 	\open
 		\hypo{be1}{Be}\by{for $\exists${}E}{}
-		\have{all1}{\forall y\ e{=}y}\Ae{one}
-		\have{ef1}{e{=}f}\Ae{all1}
-		\have{bf1}{Bf}\by{{=}E}{ef1,be1}
+		\hypo{all1}{\forall y\ e{=}y}\Ae{one}
+		\hypo{ef1}{e{=}f}\Ae{all1}
+		\hypo{bf1}{Bf}\by{{=}E}{ef1,be1}
 	\close
 	\have{bf}{Bf}\Ee{eb,be1-bf1}
 	\have{ab}{\forall x Bx}\Ai{bf}
@@ -354,9 +355,9 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 \have{3}{\exists y(Rmy \eor Rym)}{}
 	\open
 		\hypo{a1}{Rma \eor Ram}
-		\have{a2}{\enot Rma}{}
-		\have{a3}{Ram}{}
-		\have{a4}{\exists x Rxm}{}
+		\hypo{a2}{\enot Rma}{}
+		\hypo{a3}{Ram}{}
+		\hypo{a4}{\exists x Rxm}{}
 	\close
 \have{n}{\exists x Rxm} {}
 \end{proof}
@@ -384,12 +385,12 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 \hypo{c}{\forall x Jx}
 \open
 	\hypo{2}{\forall y Lay}
-	\have{d}{Ja}{}
-	\have{e}{Ja \eif Ka}{}
-	\have{f}{Ka}{}
-	\have{3}{Laa}{}
-	\have{4}{Ka \eand Laa}{}
-	\have{5}{\exists x(Kx \eand Lxx)}{}
+	\hypo{d}{Ja}{}
+	\hypo{e}{Ja \eif Ka}{}
+	\hypo{f}{Ka}{}
+	\hypo{3}{Laa}{}
+	\hypo{4}{Ka \eand Laa}{}
+	\hypo{5}{\exists x(Kx \eand Lxx)}{}
 \close
 \have{j}{\exists x(Kx \eand Lxx)}{}
 \end{proof}
@@ -399,10 +400,10 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 \begin{proof}
 	\open
 		\hypo{p1}{\enot (\exists x Mx \eor \forall x\enot Mx)}
-		\have{p2}{\enot \exists x Mx \eand \enot \forall x\enot Mx}{}
-		\have{p3}{\enot \exists x Mx}{}
-		\have{p4}{\forall x\enot Mx}{}
-		\have{p5}{\enot \forall x\enot Mx}{}
+		\hypo{p2}{\enot \exists x Mx \eand \enot \forall x\enot Mx}{}
+		\hypo{p3}{\enot \exists x Mx}{}
+		\hypo{p4}{\forall x\enot Mx}{}
+		\hypo{p5}{\enot \forall x\enot Mx}{}
 	\close
 \have{n}{\exists x Mx \eor \forall x\enot Mx} {}
 \end{proof}

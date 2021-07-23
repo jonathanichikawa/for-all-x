@@ -215,14 +215,14 @@
 \contentsline {section}{\numberline {13.2}Basic quantifier rules}{247}{section.13.2}% 
 \contentsline {subsection}{\numberline {13.2.1}Universal elimination}{247}{subsection.13.2.1}% 
 \contentsline {subsection}{\numberline {13.2.2}Existential introduction}{248}{subsection.13.2.2}% 
-\contentsline {subsection}{\numberline {13.2.3}Universal introduction}{248}{subsection.13.2.3}% 
+\contentsline {subsection}{\numberline {13.2.3}Universal introduction}{249}{subsection.13.2.3}% 
 \contentsline {subsection}{\numberline {13.2.4}Existential elimination}{250}{subsection.13.2.4}% 
 \contentsline {subsection}{\numberline {13.2.5}Quantifier negation}{252}{subsection.13.2.5}% 
 \contentsline {section}{\numberline {13.3}Identity Introduction}{253}{section.13.3}% 
-\contentsline {section}{\numberline {13.4}Identity Elimination}{253}{section.13.4}% 
-\contentsline {section}{\numberline {13.5}Translation and evaluation}{254}{section.13.5}% 
+\contentsline {section}{\numberline {13.4}Identity Elimination}{254}{section.13.4}% 
+\contentsline {section}{\numberline {13.5}Translation and evaluation}{255}{section.13.5}% 
 \contentsline {section}{\numberline {13.6}Natural deduction strategy}{256}{section.13.6}% 
-\contentsline {section}{\numberline {13.7}Soundness and completeness}{256}{section.13.7}% 
+\contentsline {section}{\numberline {13.7}Soundness and completeness}{257}{section.13.7}% 
 \contentsline {section}{Practice Exercises}{257}{section*.25}% 
 \contentsline {chapter}{\numberline {A}Other symbolic notation}{261}{appendix.A}% 
 \contentsline {paragraph}{Negation}{261}{paragraph*.26}% 

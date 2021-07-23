@@ -2960,9 +2960,9 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \have{3}{\exists y(Rmy \eor Rym)}\Ae{p1}
 	\open
 		\hypo{a1}{Rma \eor Ram} \by{for $\exists${}E}{}
-		\have{a2}{\enot Rma}\Ae{p2}
-		\have{a3}{Ram}\oe{a1,a2}
-		\have{a4}{\exists x Rxm}\Ei{a3}
+		\hypo{a2}{\enot Rma}\Ae{p2}
+		\hypo{a3}{Ram}\oe{a1,a2}
+		\hypo{a4}{\exists x Rxm}\Ei{a3}
 	\close
 \have{n}{\exists x Rxm} \Ee{3,a1-a4}
 \end{proof}
@@ -2989,12 +2989,12 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \hypo{c}{\forall x Jx}
 \open
 	\hypo{2}{\forall y Lay} \by{for $\exists${}E}{}
-	\have{d}{Ja}\Ae{c}
-	\have{e}{Ja \eif Ka}\Ae{a}
-	\have{f}{Ka}\ce{e,d}
-	\have{3}{Laa}\Ae{2}
-	\have{4}{Ka \eand Laa}\ai{f,3}
-	\have{5}{\exists x(Kx \eand Lxx)}\Ei{4}
+	\hypo{d}{Ja}\Ae{c}
+	\hypo{e}{Ja \eif Ka}\Ae{a}
+	\hypo{f}{Ka}\ce{e,d}
+	\hypo{3}{Laa}\Ae{2}
+	\hypo{4}{Ka \eand Laa}\ai{f,3}
+	\hypo{5}{\exists x(Kx \eand Lxx)}\Ei{4}
 \close
 \have{j}{\exists x(Kx \eand Lxx)}\Ee{b,2-5}
 \end{proof}
@@ -3004,10 +3004,10 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 	\open
 		\hypo{p1}{\enot (\exists x Mx \eor \forall x\enot Mx)} \by{for reductio}{}
-		\have{p2}{\enot \exists x Mx \eand \enot \forall x\enot Mx} \by{DeM}{p1}
-		\have{p3}{\enot \exists x Mx}\ae{p2}
-		\have{p4}{\forall x\enot Mx}\by{QN}{p3}
-		\have{p5}{\enot \forall x\enot Mx}\ae{p2}
+		\hypo{p2}{\enot \exists x Mx \eand \enot \forall x\enot Mx} \by{DeM}{p1}
+		\hypo{p3}{\enot \exists x Mx}\ae{p2}
+		\hypo{p4}{\forall x\enot Mx}\by{QN}{p3}
+		\hypo{p5}{\enot \forall x\enot Mx}\ae{p2}
 	\close
 \have{n}{\exists x Mx \eor \forall x\enot Mx} \ne{p1-p4, p1-p5}
 \end{proof}
@@ -3021,9 +3021,9 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 	\open
 		\hypo{p1}{\enot(\forall x Fx \eor \enot\forall x Fx)} \by{for reductio}{}
-		\have{s1}{\enot\forall x Fx \eand \enot\enot\forall x Fx} \by{DeM}{p1}
-		\have{s2}{\enot \forall x Fx}\ae{s1}
-		\have{s3}{\enot\enot\forall x Fx}\ae{s1}
+		\hypo{s1}{\enot\forall x Fx \eand \enot\enot\forall x Fx} \by{DeM}{p1}
+		\hypo{s2}{\enot \forall x Fx}\ae{s1}
+		\hypo{s3}{\enot\enot\forall x Fx}\ae{s1}
 	\close
 	\have{c}{\forall x Fx \eor \enot\forall x Fx} \ne{p1-s2, p1-s3}
 \end{proof}
@@ -3069,16 +3069,16 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 	\hypo{a1}{\exists x(Cx \eor Dt)} \by{want $\exists x Cx \eor Dt$}{}
 	\open
-		\hypo{a2}{Ca \eor Dt} \by{for {$\exists$}E}{}
+		\have{a2}{Ca \eor Dt} \by{for {$\exists$}E}{}
 		\open
 			\hypo{a3}{\enot(\exists x Cx \eor Dt)} \by{for reductio}{}
-			\have{a4}{\enot\exists x Cx \eand \enot Dt} \by{DeM}{a3}
-			\have{a5}{\enot Dt} \ae{a4}
-			\have{a6}{Ca} \oe{a2,a5}
-			\have{a7}{\exists x Cx} \Ei{a6}
-			\have{a8}{\enot\exists x Cx} \ae{a4}
+			\hypo{a4}{\enot\exists x Cx \eand \enot Dt} \by{DeM}{a3}
+			\hypo{a5}{\enot Dt} \ae{a4}
+			\hypo{a6}{Ca} \oe{a2,a5}
+			\hypo{a7}{\exists x Cx} \Ei{a6}
+			\hypo{a8}{\enot\exists x Cx} \ae{a4}
 		\close
-		\have{a9}{\exists x Cx \eor Dt} \ne{a3-a7, a3-a8}
+		\hypo{a9}{\exists x Cx \eor Dt} \ne{a3-a7, a3-a8}
 	\close
 	\have{a10}{\exists x Cx \eor Dt} \Ee{a1,a2-a9}
 \end{proof}
@@ -3096,9 +3096,9 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 	\open
 		\hypo{1}{\forall x \forall y Gxy}
-		\have{2}{\forall y Gay} \Ae{1}
-		\have{3}{Gaa}\Ae{2}
-		\have{4}{\exists x Gxx}\Ei{3}
+		\hypo{2}{\forall y Gay} \Ae{1}
+		\hypo{3}{Gaa}\Ae{2}
+		\hypo{4}{\exists x Gxx}\Ei{3}
 \end{proof}
 \end{solutioninlist}
 \item %$\forall x \forall y (Gxy \eif Gyx) \vdash \forall x\forall y (Gxy \eiff Gyx)$
@@ -3121,9 +3121,9 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 	\hypo{a2}{\exists x Ax} \by{want $\exists x Bx$}{}
 	\open
 		\hypo{a3}{Aa} \by{for {$\exists$}E}{} 
-		\have{a4}{Aa \eif Ba} \Ae{a1}
-		\have{a5}{Ba} \ce{a3, a4}
-		\have{a6}{\exists x Bx} \Ei{a5}
+		\hypo{a4}{Aa \eif Ba} \Ae{a1}
+		\hypo{a5}{Ba} \ce{a3, a4}
+		\hypo{a6}{\exists x Bx} \Ei{a5}
 	\close
 	\have{a7}{\exists x Bx} \Ee{a2, a3-a6}
 \end{proof}
@@ -3136,10 +3136,10 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 	\hypo{3}{\enot Mb} \by{want $\enot Na$}{}
 	\open
 		\hypo{4}{Na} \by{for reductio}{}
-		\have{5}{\forall x (Mx \eiff Ma)} \ce{1, 4}
-		\have{6}{Mb \eiff Ma} \Ae{5}
-		\have{7}{Mb} \be{2, 6}
-		\have{8}{\enot Mb} \by{R}{3}
+		\hypo{5}{\forall x (Mx \eiff Ma)} \ce{1, 4}
+		\hypo{6}{Mb \eiff Ma} \Ae{5}
+		\hypo{7}{Mb} \be{2, 6}
+		\hypo{8}{\enot Mb} \by{R}{3}
 	\close
 	\have{9}{\enot Na} \ni{4-7, 4-8}
 \end{proof}
@@ -3149,7 +3149,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 	\open
 		\hypo{1}{Pa} \by{want $Pa$}{}
-		\have{2}{Pa} \by{R}{1}
+		\hypo{2}{Pa} \by{R}{1}
 	\close
 	\have{3}{Pa \eif Pa} \ci{1-2}
 	\have{4}{\enot Pa \eor Pa}\by{MC}{3}
@@ -3162,9 +3162,9 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 \open
 	\hypo{1}{\forall x Rxx}\by{want $\eif \exists x \exists y Rxy$}{}
-	\have{2}{Raa}\Ae{1}
-	\have{3}{\exists y Ray}\Ei{2}
-	\have{4}{\exists x \exists y Rxy}\Ei{3}
+	\hypo{2}{Raa}\Ae{1}
+	\hypo{3}{\exists y Ray}\Ei{2}
+	\hypo{4}{\exists x \exists y Rxy}\Ei{3}
 \close
 \have{5}{\forall x Rxx \eif \exists x \exists y Rxy}\ci{1-4}
 \end{proof}
@@ -3176,7 +3176,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 \open
 		\hypo{1}{Qa}\by{want $Qa$}{}
-		\have{2}{Qa}\by{R}{1}
+		\hypo{2}{Qa}\by{R}{1}
 	\close
 	\have{3}{Qa \eif Qa}\ci{1-2}
 	\have{4}{\exists x (Qa \eif Qx)}\Ei{3}
@@ -3194,20 +3194,20 @@ Regarding the translation of this argument, see p.~\pageref{likes2}.
 \begin{proof}
 \hypo{1}{\exists x\forall y[\forall z(Lxz \eif Lyz) \eif Lxy]}
 \open
-	\hypo{a}{\forall y[\forall z(Laz \eif Lyz) \eif Lay]} \by{for $\exists${}E}{}
+	\have{a}{\forall y[\forall z(Laz \eif Lyz) \eif Lay]} \by{for $\exists${}E}{}
 	\have{b}{\forall z(Laz \eif Laz) \eif Laa} \Ae{a}
 	\open
-		\hypo{c1}{\enot \exists x Lxx} \by{for reductio}{}
+		\have{c1}{\enot \exists x Lxx} \by{for reductio}{}
 		\have{c2}{\forall x\enot Lxx} \by{QN}{c1}
 		\have{c3}{\enot Laa} \Ae{c2}
 		\have{c4}{\enot \forall z(Laz \eif Laz)} \by{MT}{b,c3}
 		\open
 			\hypo{d1}{Lab} \by{want $Lab$}{}
-			\have{d2}{Lab} \by{R}{d1}
+			\hypo{d2}{Lab} \by{R}{d1}
 		\close
-		\have{c5}{Lab \eif Lab} \ci{d1-d2}
-		\have{c6}{\forall z(Laz \eif Laz)} \Ai{c5}
-		\have{cn}{\enot \forall z(Laz \eif Laz)} \by{R}{c4}
+		\hypo{c5}{Lab \eif Lab} \ci{d1-d2}
+		\hypo{c6}{\forall z(Laz \eif Laz)} \Ai{c5}
+		\hypo{cn}{\enot \forall z(Laz \eif Laz)} \by{R}{c4}
 	\close
 	\have{h}{\exists x Lxx} \ne{c1-cn}
 \close
@@ -3257,9 +3257,9 @@ are valid. Here are complete answers for some of them:
 		\hypo{p}{\exists y\forall x Rxy} \by{want $\forall x\exists y Rxy$}{}
 		\open
 			\hypo{ass}{\forall x Rxa} \by{for $\exists${}E}{}
-			\have{R}{Rba} \Ae{ass}
-			\have{ER}{\exists y Rby} \Ei{R}
-			\have{AER}{\forall x \exists y Rxy} \Ai{ER}
+			\hypo{R}{Rba} \Ae{ass}
+			\hypo{ER}{\exists y Rby} \Ei{R}
+			\hypo{AER}{\forall x \exists y Rxy} \Ai{ER}
 		\close
 		\have{c}{\forall x\exists y Rxy} \Ee{p, ass-AER}
 	\end{proof}
