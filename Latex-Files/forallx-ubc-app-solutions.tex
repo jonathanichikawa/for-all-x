@@ -816,10 +816,10 @@ single branches}
 \hypo{1}{L \eiff \enot O}
 \hypo{2}{L \eor \enot O}
 \open
-	\have{a1}{\enot L} \by{for reductio}{}
+	\hypo{a1}{\enot L} \by{for reductio}{}
 	\have{a2}{\enot O}\oe{2,a1}
 	\have{a3}{L}\be{1,a2}
-	\hypo{a4}{\enot L}\by{R}{a1}
+	\have{a4}{\enot L}\by{R}{a1}
 \close
 \have{3}{L}\ne{a1-a3, a1-a4}
 \end{proof}
@@ -828,18 +828,18 @@ single branches}
 \hypo{1}{Z \eif (C \eand \enot N)}
 \hypo{2}{\enot Z \eif (N \eand \enot C)}
 \open
-	\have{a1}{\enot(N \eor  C)} \by{for reductio}{}
+	\hypo{a1}{\enot(N \eor  C)} \by{for reductio}{}
 	\have{a2}{\enot N \eand \enot C} \by{DeM}{a1}
 	\open
-		\have{b1}{Z} \by{for reductio}{}
+		\hypo{b1}{Z} \by{for reductio}{}
 		\have{b2}{C \eand \enot N}\ce{1,b1}
 		\have{b3}{C}\ae{b2}
-		\hypo{b4}{\enot C}\ae{a2}
+		\have{b4}{\enot C}\ae{a2}
 	\close
 	\have{a3}{\enot Z}\ni{b1-b3, b1-b4}
 	\have{a4}{N \eand \enot C}\ce{2,a3}
 	\have{a5}{N}\ae{a4}
-	\hypo{a6}{\enot N}\ae{a2}
+	\have{a6}{\enot N}\ae{a2}
 \close
 \have{3}{N \eor C}\ne{a1-a5, a1-a6}
 \end{proof}
@@ -853,13 +853,13 @@ single branches}
 \begin{proof}
 	\hypo{a1}{K\eand L} \want{K\eiff L}
 	\open
-		\have{b1}{K} \want{L}
-		\hypo{b2}{L} \ae{a1}
+		\hypo{b1}{K} \want{L}
+		\have{b2}{L} \ae{a1}
 	\close
 	\have{kl}{K \eif L} \ci{b1-b2}
 	\open
-		\have{c1}{L} \want{K}
-		\hypo{c2}{K} \ae{a1}
+		\hypo{c1}{L} \want{K}
+		\have{c2}{K} \ae{a1}
 	\close
 	\have{lk}{L \eif K} \ci{c1-c2}
 	\have{d1}{K \eiff L} \bi{kl,lk}
@@ -871,11 +871,11 @@ single branches}
 \begin{proof}
 	\hypo{a1}{A\eif (B\eif C)} \want{(A\eand B)\eif C}
 	\open
-		\have{b1}{A\eand B} \want{C}
+		\hypo{b1}{A\eand B} \want{C}
 		\have{b2}{A} \ae{b1}
 		\have{b3}{B\eif C} \ce{a1,b2}
 		\have{b4}{B} \ae{b1}
-		\hypo{b5}{C} \ce{b3, b4}
+		\have{b5}{C} \ce{b3, b4}
 	\close
 	\have{c}{(A\eand B)\eif C} \ci{b1-b5}
 \end{proof}
@@ -897,9 +897,9 @@ single branches}
 \begin{proof}
 	\hypo{a1}{(C\eand D)\eor E} \want{E\eor D}
 	\open
-		\have{b1}{\enot E} \want{D}
+		\hypo{b1}{\enot E} \want{D}
 		\have{b2}{C\eand D} \oe{a1,b1}
-		\hypo{b3}{D} \ae{b2}
+		\have{b3}{D} \ae{b2}
 	\close
 	\have{c1}{\enot E\eif D} \ci{b1-b3}
 	\have{c2}{E\eor D} \by{MC}{c1}
@@ -911,10 +911,10 @@ single branches}
 	\hypo{a1}{\enot F\eif G}
 	\hypo{a2}{F\eif H} \want{G\eor H}
 	\open
-		\have{b1}{\enot G} \want{H}
+		\hypo{b1}{\enot G} \want{H}
 		\have{b2}{\enot\enot F} \by{MT}{a1,b1}
 		\have{b3}{F} \by{DN}{b2}
-		\hypo{b4}{H} \ce{a2,b3}
+		\have{b4}{H} \ce{a2,b3}
 	\close
 	\have{c1}{\enot G \eif H} \ci{b1-b4}
 	\have{c2}{G\eor H} \by{MC}{c1}
@@ -927,19 +927,19 @@ single branches}
 	\hypo{a2}{\enot(X\eand D)}
 	\hypo{a3}{D\eor M} \want{M}
 	\open
-		\have{b1}{\enot X} \by{for reductio}{}
+		\hypo{b1}{\enot X} \by{for reductio}{}
 		\have{b2}{\enot X\eor \enot Y} \oi{b1}
 		\have{b3}{\enot (X \eand Y)} \by{DeM}{b2}
 		\have{b4}{X\eand Z} \oe{a1,b3}
 		\have{b5}{X} \ae{b4}
-		\hypo{b6}{\enot X} \by{R}{b1}
+		\have{b6}{\enot X} \by{R}{b1}
 	\close
 	\have{c}{X} \ne{b1-b5, b1-b6}
 	\open
-		\have{d1}{\enot M} \by{for reductio}{}
+		\hypo{d1}{\enot M} \by{for reductio}{}
 		\have{d2}{D} \oe{a3,d1}
 		\have{d3}{X\eand D} \ai{c,d2}
-		\hypo{d4}{\enot(X\eand D)} \by{R}{a2}
+		\have{d4}{\enot(X\eand D)} \by{R}{a2}
 	\close
 	\have{e}{M} \ne{d1-d3, d1-d4}
 \end{proof}
@@ -955,8 +955,8 @@ single branches}
 %$O \eif O$
 \begin{proof}
 	\open
-		\have{o1}{O}\want{O}
-		\hypo{o2}{O}\by{R}{o1}
+		\hypo{o1}{O}\want{O}
+		\have{o2}{O}\by{R}{o1}
 	\close
 	\have{o3}{O \eif O}\ci{o1-o2}
 \end{proof}
@@ -965,10 +965,10 @@ single branches}
 %$N \eor \enot N$
 \begin{proof}
 	\open
-		\have{nnon}{\enot (N \eor \enot N)}\by{for reductio}{}
+		\hypo{nnon}{\enot (N \eor \enot N)}\by{for reductio}{}
 		\have{nnnn}{\enot N \eand \enot\enot N}\by{DeM}{nnon}
 		\have{n}{\enot N}\ae{nnnn}
-		\hypo{nn}{\enot\enot N}\ae{nnnn}
+		\have{nn}{\enot\enot N}\ae{nnnn}
 	\close
 	\have{nonn}{N \eor \enot N}\ne{nnon-n,nnon-nn}
 \end{proof}
@@ -977,9 +977,9 @@ single branches}
 %$\enot(P\eand \enot P)$
 \begin{proof}
 	\open
-		\have{panp}{P \eand \enot P}\by{for reductio}{}
+		\hypo{panp}{P \eand \enot P}\by{for reductio}{}
 		\have{p}{P}\ae{panp}
-		\hypo{np}{\enot P}\ae{panp}
+		\have{np}{\enot P}\ae{panp}
 	\close
 	\have{npanp}{\enot (P \eand \enot P)}\ni{panp-p,panp-np}
 \end{proof}
@@ -988,15 +988,15 @@ single branches}
 \begin{solutioninlist}
 \begin{proof}
 	\open
-		\have{nainc}{\enot (A \eif \enot C)}\want{A \eif C}
+		\hypo{nainc}{\enot (A \eif \enot C)}\want{A \eif C}
 		\open
-			\have{a}{A}\want{C}{}
+			\hypo{a}{A}\want{C}{}
 			\have{nnaonc}{\enot (\enot A \eor \enot C)}\by{MC}{nainc}
 			\have{nnaannc}{\enot \enot A \eand \enot \enot C}\by{DeM}{nnaonc}
 			\have{nnaac}{\enot \enot A \eand C}\by{DN}{nnaannc}
-			\hypo{c}{C}\ae{nnaac}
+			\have{c}{C}\ae{nnaac}
 		\close
-		\hypo{aic}{A \eif C}\ci{a-c}
+		\have{aic}{A \eif C}\ci{a-c}
 	\close
 	\have{nainciaic}{\enot (A \eif \enot C) \eif (A \eif C) }\ci{nainc-aic}
 \end{proof}
@@ -1004,20 +1004,20 @@ single branches}
 \item %$J \eiff [J\eor (L\eand\enot L)]$
 \begin{solutioninlist}
 \begin{proof}
-\open
+	\open
 		\hypo{j}{J}\want {J\eor (L\eand\enot L)}
-		\hypo{joblah}{J\eor (L\eand\enot L)}\oi{j}
+		\have{joblah}{J\eor (L\eand\enot L)}\oi{j}
 	\close
 	\have{jijblah}{J \eif [J\eor (L\eand\enot L)]}\ci{j-joblah}
 	\open
-		\have{jblah2}{J\eor (L\eand\enot L)}\want{J}
+		\hypo{jblah2}{J\eor (L\eand\enot L)}\want{J}
 		\open
 			\hypo{nj}{\enot J}\by{for reductio}{}
-			\hypo{lanl}{L \eand \enot L}\oe{jblah2, nj}
-			\hypo{l}{L}\ae{lanl}
-			\hypo{nl}{\enot L}\ae{lanl}
+			\have{lanl}{L \eand \enot L}\oe{jblah2, nj}
+			\have{l}{L}\ae{lanl}
+			\have{nl}{\enot L}\ae{lanl}
 		\close
-		\hypo{j2}{J}\ne{nj-l,nj-nl}
+		\have{j2}{J}\ne{nj-l,nj-nl}
 	\close
 	\have{jblahij}{(J\eor (L\eand\enot L)) \eif J}\ci{jblah2-j2}
 	\have{jiffjblah}{J \eiff [J\eor (L\eand\enot L)]}\bi{jijblah,jblahij}
@@ -1048,11 +1048,11 @@ single branches}
 	\hypo{2}{\enot C \eif G}
 	\open
 		\hypo{3}{\enot G}\by{for reductio}{}
-		\hypo{4}{\enot \enot C}\by{MT}{2,3}
-		\hypo{5}{C}\by{DN}{4}
-		\hypo{6}{E \eand G}\ce{1,5}
-		\hypo{7}{G}\ae{6}
-		\hypo{8}{\enot G}\by{R}{3}
+		\have{4}{\enot \enot C}\by{MT}{2,3}
+		\have{5}{C}\by{DN}{4}
+		\have{6}{E \eand G}\ce{1,5}
+		\have{7}{G}\ae{6}
+		\have{8}{\enot G}\by{R}{3}
 	\close
 	\have{9}{G}\ne{3-7,3-8}
 \end{proof}
@@ -1067,9 +1067,9 @@ single branches}
 	\have{5}{M}\ce{3,4}
 	\open
 		\hypo{6}{Y}\want{Z}
-		\hypo{7}{Y \eand M}\ai{6,5}
-		\hypo{8}{Z \eand K}\be{1,7}
-		\hypo{9}{Z}\ae{8}
+		\have{7}{Y \eand M}\ai{6,5}
+		\have{8}{Z \eand K}\be{1,7}
+		\have{9}{Z}\ae{8}
 	\close
 	\have{10}{Y \eif Z}\ci{6-9}
 \end{proof}
@@ -1082,15 +1082,15 @@ single branches}
 	\hypo{3}{\enot Z}
 	\open
 		\hypo{4}{\enot (W \eor Y)}\by{for reductio}{}
-		\hypo{5}{\enot W \eand \enot Y}\by{DeM}{4}
-		\hypo{6}{\enot Y}\ae{5}
-		\hypo{7}{\enot W}\ae{5}
-		\hypo{8}{\enot X}\by{MT}{2,6}
-		\hypo{9}{\enot W \eand \enot X}\ai{7,8}
-		\hypo{10}{\enot (W \eor X)}\by{DeM}{9}
-		\hypo{11}{Y \eor Z}\oe{1,10}
-		\hypo{12}{Z}\oe{11,6}
-		\hypo{13}{\enot Z}\by{R}{3}
+		\have{5}{\enot W \eand \enot Y}\by{DeM}{4}
+		\have{6}{\enot Y}\ae{5}
+		\have{7}{\enot W}\ae{5}
+		\have{8}{\enot X}\by{MT}{2,6}
+		\have{9}{\enot W \eand \enot X}\ai{7,8}
+		\have{10}{\enot (W \eor X)}\by{DeM}{9}
+		\have{11}{Y \eor Z}\oe{1,10}
+		\have{12}{Z}\oe{11,6}
+		\have{13}{\enot Z}\by{R}{3}
 	\close
 	\have{14}{W \eor Y}\ne{4-12,4-13}
 \end{proof}

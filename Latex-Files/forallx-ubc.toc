@@ -117,7 +117,7 @@
 \contentsline {subsection}{\numberline {7.9.2}Conditional Introduction}{126}{subsection.7.9.2}% 
 \contentsline {subsection}{\numberline {7.9.3}Biconditional Introduction}{131}{subsection.7.9.3}% 
 \contentsline {subsection}{\numberline {7.9.4}Biconditional Elimination}{131}{subsection.7.9.4}% 
-\contentsline {subsection}{\numberline {7.9.5}\emph {Reductio} and the negation rules}{131}{subsection.7.9.5}% 
+\contentsline {subsection}{\numberline {7.9.5}\emph {Reductio} and the negation rules}{132}{subsection.7.9.5}% 
 \contentsline {subsection}{\numberline {7.9.6}Reiteration}{133}{subsection.7.9.6}% 
 \contentsline {section}{\numberline {7.10}Derived rules}{134}{section.7.10}% 
 \contentsline {subsection}{\numberline {7.10.1}Modus tollens}{134}{subsection.7.10.1}% 

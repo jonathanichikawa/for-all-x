@@ -186,7 +186,7 @@ You may notice an asymmetry between the labels we use for \emph{modus ponens} an
 
 We do not include a horizontal line in the statement of the rule, because we don't want to assume that lines $m$ and $n$ are assumptions. They might be --- they might be premises in the argument, for example --- but they might themselves be derived, and have rules justifying them. It doesn't matter how we got $m$ and $n$, it just matters that we have them.
 
-Here is an example employing \emph{Modus Tollens} several times over. We will prove that $\{A \eif B, B \eif C, C \eif D, \enot D\} \models \enot A$:
+Here is an example employing \emph{Modus Tollens} several times over. We will derive $\enot A$ from $\{A \eif B, B \eif C, C \eif D, \enot D\}$:
 
 \begin{proof}
 	\hypo{ab}{A \eif B}
@@ -374,16 +374,17 @@ If we had $\enot R$ as a further premise, we could derive $F$ by the {\eor}E rul
 \begin{proof}
 	\hypo{rf}{R \eor F}  \want{\enot R \eif F}
 	\open
-		\have{nr}{\enot R} \want {F}
+		\hypo{nr}{\enot R} \want {F}
+		\have{}{}
 	\close
 \end{proof}
 
-It is important to emphasize that we are not claiming to have \emph{proven} $\enot R$ from the premise on line 1. We do not need to write in any justification for the assumption line of a subproof. (The `want' is a note to ourself, not a justification.) The new vertical line indicates that a new \emph{assumption} is being made. You can think of the subproof as posing the question: What could we show \emph{if} $\enot R$ were true? We are trying to show that we could derive $F$. And indeed, we can:
+It is important to emphasize that we are not claiming to have \emph{proven} $\enot R$ from the premise on line 1. We do not need to write in any justification for the assumption line of a subproof. (The `want' is a note to ourself, not a justification.) The new horizontal line indicates that a new \emph{assumption} is being made; we also include a vertical line that extend to future lines, to indicate that this assumption remains in effect. You can think of the subproof as posing the question: What could we show \emph{if} $\enot R$ were true? We are trying to show that we could derive $F$. And indeed, we can:
 
 \begin{proof}
 	\hypo{rf}{R \eor F}  \want{\enot R \eif F}
 	\open
-		\have{nr}{\enot R} \want {F}
+		\hypo{nr}{\enot R} \want {F}
 		\have{f}{F}\oe{rf, nr}
 	\close
 \end{proof}
@@ -394,21 +395,21 @@ This has shown that \emph{if} we had $\enot R$ as a premise, \emph{then} we coul
 	\hypo{rf}{R \eor F}
 	\open
 		\hypo{nr}{\enot R}\want {F}
-		\hypo{f}{F}\oe{rf, nr}
+		\have{f}{F}\oe{rf, nr}
 	\close
 	\have{nrf}{\enot R \eif F}\ci{nr-f}
 \end{proof}
 
-The {\eif}I rule lets us \define{discharge} the assumption we'd been making, ending that vertical line. The horizontal line we draw under line 3 emphasizes that subsequent lines are importantly different: during lines 2 and 3, we were \emph{assuming} that \enot $R$. (Think of the L-shaped pair of lines as defining a box that closes those two lines off.) By the time we get to line 4, we are no longer making that assumption.
+The {\eif}I rule lets us \define{discharge} the assumption we'd been making, ending that vertical line. We also stop indenting --- the difference in placement of lines 3 and 4 emphasizes that they are importantly different: during lines 2 and 3, we were \emph{assuming} that \enot $R$. By the time we get to line 4, we are no longer making that assumption.
 
 Notice that the justification for applying the {\eif}I rule is the entire subproof. That's why we justify it by reference to a range of lines, instead of a comma-separated list. Usually that will be more than just two lines.
 
 It may seem as if the ability to assume anything at all in a subproof would lead to chaos: Does it allow you to prove any conclusion from any premises? The answer is no, it does not. Consider this proof schema:
 
 \begin{proof}
-	\have{a}\metaA{}
+	\hypo{a}\metaA{}
 	\open
-		\have{b1}\metaB{}
+		\hypo{b1}\metaB{}
 		\have{b2}{\metaB{}\eand \metaA{}} \ai{a,b1}
 	\close
 \end{proof}
@@ -420,10 +421,10 @@ In this example, there is no way to close the subproof and show that the conjunc
 Of course, it is legitimate to do this:
 
 \begin{proof}
-	\have{a}\metaA{}
+	\hypo{a}\metaA{}
 	\open
 		\hypo{b1}\metaB{}
-		\hypo{b2}{\metaB{}\eand \metaA{}} \ai{a,b1}
+		\have{b2}{\metaB{}\eand \metaA{}} \ai{a,b1}
 	\close
 	\have{c}{\metaB{} \eif (\metaB{}\eand\metaA{})} \ci{b1-b2}
 \end{proof}
@@ -436,7 +437,7 @@ Once an assumption has been discharged, any lines that have been shown to follow
 	\hypo{rf}{R \eor F}
 	\open
 		\hypo{nr}{\enot R}\want {F}
-		\hypo{f}{F}\oe{rf, nr}
+		\have{f}{F}\oe{rf, nr}
 	\close
 	\have{nrf}{\enot R \eif F}\ci{nr-f}
 	\have{bad}{F \eor A}\oi{f}
@@ -449,14 +450,14 @@ Put in its general form, the {\eif}I rule looks like this:
 \begin{proof}
 	\open
 		\hypo[m]{a}\metaA{} \by{want \metaB{}}{}
-		\hypo[n]{b}\metaB{}
+		\have[n]{b}\metaB{}
 	\close
 	\have[\ ]{ab}{\metaA{}\eif\metaB{}}\ci{a-b}
 \end{proof}
 
 When we introduce a subproof, we typically write what we want to derive off to the right. This is just so that we do not forget why we started the subproof if it goes on for five or ten lines. There is no `want' rule. It is a note to ourselves, and not formally part of the proof.
 
-Although it is always permissible to open a subproof with any assumption you please, there is some strategy involved in picking a useful assumption. Starting a subproof with a random assumption is a terrible strategy. It will just waste lines of the proof. In order to derive a conditional by the {\eif}I rule, for instance, you must assume the antecedent of the conditional.
+Although it is consistent with the natural deduction rules to open a subproof with any assumption you please, there is some strategy involved in picking a useful assumption. Starting a subproof with a random assumption is a terrible strategy. It will just waste lines of the proof. In order to derive a conditional by the {\eif}I rule, for instance, you must assume the antecedent of that conditional.
 
 The {\eif}I rule also requires that the consequent of the conditional be the last line of the subproof. It is always permissible to close a subproof and discharge its assumptions, but it will not be helpful to do so until you get what you want. This is an illustration of the observation made above, that unlike the tree method, the natural deduction method requires some strategy and thinking ahead.
 
@@ -476,19 +477,19 @@ We begin the proof by writing the two premises as assumptions. Since the main lo
 	\hypo{pq}{P \eif Q}
 	\hypo{qr}{Q \eif R}
 	\open
-		\have{p}{P} \want {R}
+		\hypo{p}{P} \want {R}
 	\close
 \end{proof}
 
-We made $P$ available by assuming it in a subproof, allowing us to use {\eif}E on the first premise. This gives us $Q$, which allows us to use {\eif}E on the second premise. Having derived $R$, we close the subproof. By assuming $P$ we were able to prove $R$, so we apply the {\eif}I rule and finish the proof.
+We made $P$ available by assuming it in a subproof, allowing us to use {\eif}E on the first premise. This gives us $Q$, which allows us to use {\eif}E on the second premise. Having derived $R$, we close the subproof. By assuming $P$ we were able to prove $R$, so we apply the {\eif}I rule and finish the proof:
 \phantomsection\label{HSproof}
 \begin{proof}
 	\hypo{pq}{P \eif Q}
 	\hypo{qr}{Q \eif R}
 	\open
 		\hypo{p}{P}\want {R}
-		\hypo{q}{Q}\ce{pq,p}
-		\hypo{r}{R}\ce{qr,q}
+		\have{q}{Q}\ce{pq,p}
+		\have{r}{R}\ce{qr,q}
 	\close
 	\have{pr}{P \eif R}\ci{p-r}
 \end{proof}
@@ -546,8 +547,8 @@ The basic rules for negation will allow for arguments like this. Like the Condit
 \begin{proof}
 \open
 	\hypo[m]{na}\metaA{}\by{for reductio}{}
-	\hypo[n]{b}\metaB{}
-	\hypo[o]{nb}{\enot\metaB{}}
+	\have[n]{b}\metaB{}
+	\have[o]{nb}{\enot\metaB{}}
 \close
 \have[\ ]{a}[\ ]{\enot\metaA{}}\ni{na-b, na-nb}
 \end{proof}
@@ -559,8 +560,8 @@ To see how the rule works, suppose we want to prove an instance of the law of no
 \begin{proof}
 	\open
 		\hypo{gng}{G\eand \enot G}\by{for reductio}{}
-		\hypo{g}{G}\ae{gng}
-		\hypo{ng}{\enot G}\ae{gng}
+		\have{g}{G}\ae{gng}
+		\have{ng}{\enot G}\ae{gng}
 	\close
 	\have{ngng}{\enot(G \eand \enot G)}\ni{gng-g, gng-ng}
 \end{proof}
@@ -572,8 +573,8 @@ The {\enot}E rule will work in much the same way. If we assume \enot\metaA{} and
 \begin{proof}
 \open
 	\hypo[m]{na}{\enot\metaA{}}\by{for reductio}{}
-	\hypo[n]{b}\metaB{}
-	\hypo[o]{nb}{\enot\metaB{}}
+	\have[n]{b}\metaB{}
+	\have[o]{nb}{\enot\metaB{}}
 \close
 \have[\ ]{a}[\ ]\metaA{}\ne{na-b, na-nb}
 \end{proof}
@@ -595,8 +596,8 @@ Obviously, the reiteration rule will not allow us to show anything \emph{new}. F
 	\hypo{qnp}{Q \eif \enot P} \want{\enot Q}
 	\open
 		\hypo{q}{Q} \by{for reductio}{}
-		\hypo{np}{\enot P}\ce{qnp,q}
-		\hypo{nnp}{P}\by{R}{p}
+		\have{np}{\enot P}\ce{qnp,q}
+		\have{nnp}{P}\by{R}{p}
 	\close
 	\have{nq}{\enot Q}\ni{q-np, q-nnp}
 \end{proof}
@@ -620,8 +621,8 @@ We have been discussing \emph{modus tollens} throughout this chapter, and in \S\
 	\hypo{qnp}{\metaB{} \eif \enot \metaA{}} \want{\enot \metaB{}}
 	\open
 		\hypo{q}{\metaB{}} \by{for reductio}{}
-		\hypo{np}{\enot \metaA{}}\ce{qnp,q}
-		\hypo{nnp}{\metaA{}}\by{R}{p}
+		\have{np}{\enot \metaA{}}\ce{qnp,q}
+		\have{nnp}{\metaA{}}\by{R}{p}
 	\close
 	\have{nq}{\enot \metaB{}}\ni{q-np, q-nnp}
 \end{proof}
@@ -664,24 +665,24 @@ The Dilemma rule is also derivable from the basic rules. The proof is a bit more
 		\have{nc}{\enot \metaC{}}\by{for reductio}{}
 		\open
 			\hypo{a1}\metaA{}\by{for reductio}{}
-			\hypo{c1}{\metaC{}}\ce{ac, a1}
-			\hypo{nc1}{\enot\metaC{}}\by{R}{nc}
+			\have{c1}{\metaC{}}\ce{ac, a1}
+			\have{nc1}{\enot\metaC{}}\by{R}{nc}
 		\close
 		\have{na}{\enot\metaA{}}\ni{a1-c1, a1-nc1}
 		\open
 			\hypo{b2}\metaB{}\by{for reductio}{}
-			\hypo{c2}{\metaC{}}\ce{bc, b2}
-			\hypo{nc2}{\enot\metaC{}}\by{R}{nc}
+			\have{c2}{\metaC{}}\ce{bc, b2}
+			\have{nc2}{\enot\metaC{}}\by{R}{nc}
 		\close
 		\have{b}\metaB{}\oe{ab, na}
-		\hypo{nb}{\enot\metaB{}}\ni{b2-c2, b2-nc2}
+		\have{nb}{\enot\metaB{}}\ni{b2-c2, b2-nc2}
 	\close
 	\have{c}{\metaC{}} \ne{nc-b, nc-nb}
 \end{proof}
 
 To understand this proof, think about the broad outline of it. Ultimately, we derive \metaC{} via Negation Elimination; that's why we assumed \enot\metaC{} on line 4, and worked our way to a contradiction on lines 12--13. The internal lines are subproofs to the intermediate conclusions \metaB{} and \enot\metaB{}. 
 
-This is our first example of a natural deduction proof that involves nested assumptions. You can assume something a second new sentence even while a previous assumption is open, as this proof does at line 5. Make sure to close the assumptions in the proper order, closing the newest assumptions first. (Here, the line 5 assumption must be closed, as it is after line 7, before the line 4 one is, at the end of the proof.) The lines that we draw to indicate assumptions help enforce proper assumption resolution --- if you tried to close the line 4 assumption while the line 5 assumption was open, your boxes would cross one another. This is not allowed.
+This is our first example of a natural deduction proof that involves nested assumptions. You can assume something a second new sentence even while a previous assumption is open, as this proof does at line 5. Make sure to close the assumptions in the proper order, closing the newest assumptions first. (Here, the line 5 assumption must be closed, as it is after line 7, before the line 4 one is, at the end of the proof.)
 
 As in the case of \emph{modus tollens}, Dilemma doesn't allow us to prove anything we couldn't prove via basic rules. Anytime you wanted to use the Dilemma rule, you could always take ten extra lines and prove the same thing in basic rules. But it's a useful shorthand to include on our list of derived rules.
 
@@ -697,7 +698,7 @@ We also add hypothetical syllogism (HS) as a derived rule:
 	\have[\ ]{ac}{\metaA{}\eif\metaC{}}\by{HS}{ab,bc}
 \end{proof}
 
-We have already given a proof of one instance of Hypothetical Syllogism on p.~\pageref{HSproof}. The general proof schema is just the same, but with that $P$, $Q$, and $R$ replaced with \metaA{}, \metaB{}, and \metaC{}, respectively.
+We have already given a proof of one instance of Hypothetical Syllogism on p.~\pageref{HSproof}. The general proof schema is just the same, but with $P$, $Q$, and $R$ replaced with \metaA{}, \metaB{}, and \metaC{}, respectively.
 
 
 
@@ -713,13 +714,13 @@ Perhaps it is tempting to write down the premise and apply the {\eand}E rule to 
 	\hypo{fgh}{F\eif(G\eand H)}
 	\open
 		\hypo{f}{F}\by{want $G$}{}
-		\hypo{gh}{G \eand H}\ce{fgh,f}
-		\hypo{g}{G}\ae{gh}
+		\have{gh}{G \eand H}\ce{fgh,f}
+		\have{g}{G}\ae{gh}
 	\close
 	\have{fg}{F \eif G}\ci{f-g}
 \end{proof}
 
-The rules we have seen so far must apply to wffs that are on a proof line by themselves. We will now introduce some derived rules that may be applied to wffs that are parts of more complex sentences. These are called \define{rules of replacement}, because they can be used to replace part of a sentence with a logically equivalent expression. One simple rule of replacement is Commutativity (abbreviated Comm), which says that we can swap the order of conjuncts in a conjunction or the order of disjuncts in a disjunction. We define the rule this way:
+The rules we have seen so far must apply to wffs that are on a proof line by themselves. We will now introduce some derived rules that may be applied to wffs that are parts of more complex sentences. These are called \define{rules of replacement}, because they can be used to replace part of a sentence with a logically equivalent expression. One simple rule of replacement is Commutativity (abbreviated Comm), which says that we can swap the order of conjuncts in a conjunction or the order of disjuncts in a disjunction. We define the rule thus:
 
 \begin{center}
 \begin{tabular}{rl}
@@ -1027,10 +1028,10 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 \hypo{1}{L \eiff \enot O}
 \hypo{2}{L \eor \enot O}
 \open
-	\have{a1}{\enot L}
+	\hypo{a1}{\enot L}
 	\have{a2}{\enot O}{}
 	\have{a3}{L}{}
-	\hypo{a4}{\enot L}{}
+	\have{a4}{\enot L}{}
 \close
 \have{3}{L}{}
 \end{proof}
@@ -1039,18 +1040,18 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 \hypo{1}{Z \eif (C \eand \enot N)}
 \hypo{2}{\enot Z \eif (N \eand \enot C)}
 \open
-	\have{a1}{\enot(N \eor  C)}
+	\hypo{a1}{\enot(N \eor  C)}
 	\have{a2}{\enot N \eand \enot C} {}
 	\open
-		\have{b1}{Z}
+		\hypo{b1}{Z}
 		\have{b2}{C \eand \enot N}{}
 		\have{b3}{C}{}
-		\hypo{b4}{\enot C}{}
+		\have{b4}{\enot C}{}
 	\close
 	\have{a3}{\enot Z}{}
 	\have{a4}{N \eand \enot C}{}
 	\have{a5}{N}{}
-	\hypo{a6}{\enot N}{}
+	\have{a6}{\enot N}{}
 \close
 \have{3}{N \eor C}{}
 \end{proof}

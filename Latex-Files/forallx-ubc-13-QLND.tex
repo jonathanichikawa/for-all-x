@@ -108,7 +108,7 @@ Note also that the constant may not occur in any \emph{undischarged} assumption,
 \begin{proof}
 	\open
 		\hypo{f1}{Df}\by{want $Df$}{}
-		\hypo{f2}{Df}\by{R}{f1}
+		\have{f2}{Df}\by{R}{f1}
 	\close
 	\have{ff}{Df \eif Df}\ci{f1-f2}
 	\have{zz}{\forall z(Dz \eif Dz)}\Ai{ff}
@@ -134,7 +134,7 @@ This is the schematic form of the existential elimination rule ($\exists$E):
 	\have[m]{a}{\exists \script{x}\metaA{}}
 	\open	
 		\hypo[n]{b}{\metaA{}\substitute{x}{c^\ast}} \by{for $\exists${}E}{}
-		\hypo[p]{c}{\metaB{}}
+		\have[p]{c}{\metaB{}}
 	\close
 	\have[\ ]{d}{\metaB{}} \Ee{a,b-c}
 \end{proof}
@@ -152,9 +152,9 @@ With this rule, we can give a formal proof that $\exists x Sx$ and $\forall x(Sx
 	\hypo{ast}{\forall x(Sx \eif Tx)}\by{want $\exists x Tx$}{}
 	\open
 		\hypo{s}{Sa}\by{for $\exists${}E}{}
-		\hypo{st}{Sa \eif Ta}\Ae{ast}
-		\hypo{t}{Ta} \ce{s,st}
-		\hypo{et1}{\exists x Tx}\Ei{t}
+		\have{st}{Sa \eif Ta}\Ae{ast}
+		\have{t}{Ta} \ce{s,st}
+		\have{et1}{\exists x Tx}\Ei{t}
 	\close
 	\have{et2}{\exists x Tx}\Ee{es,s-et1}
 \end{proof}
@@ -167,18 +167,18 @@ $\enot\exists \script{x}\enot\metaA{}$ is logically equivalent to $\forall \scri
 \begin{proof}
 	\have{Aa}{\forall \script{x} \metaA{}} \by{want $\enot\exists \script{x}\enot \metaA{}$}{}
 	\open
-		\have{Ena}{\exists \script{x}\enot \metaA{}}\by{for reductio}{}
+		\hypo{Ena}{\exists \script{x}\enot \metaA{}}\by{for reductio}{}
 		\open
-			\have{nc}{\enot \metaA{\substitute{\script{x}}{\script{a}^\ast}}}\by{for $\exists$E}{}
+			\hypo{nc}{\enot \metaA{\substitute{\script{x}}{\script{a}^\ast}}}\by{for $\exists$E}{}
 			\open
 				\hypo{Aa2}{\forall \script{x} \metaA{}}\by{for reductio}{}
-				\hypo{c2}{\metaA{\substitute{\script{x}}{\script{a}^\ast}}}\Ae{Aa}
-				\hypo{nc2}{\enot \metaA{\substitute{\script{x}}{\script{a}^\ast}}}\by{R}{nc}
+				\have{c2}{\metaA{\substitute{\script{x}}{\script{a}^\ast}}}\Ae{Aa}
+				\have{nc2}{\enot \metaA{\substitute{\script{x}}{\script{a}^\ast}}}\by{R}{nc}
 			\close
-			\hypo{nAa}{\enot\forall \script{x} \metaA{}}\ni{Aa2-nc2}
+			\have{nAa}{\enot\forall \script{x} \metaA{}}\ni{Aa2-nc2}
 		\close
-		\hypo{nAa3}{\enot\forall \script{x} \metaA{}}\Ee{Ena, nc-nAa}
-		\hypo{Aa3}{\forall \script{x} \metaA{}}\by{R}{Aa}
+		\have{nAa3}{\enot\forall \script{x} \metaA{}}\Ee{Ena, nc-nAa}
+		\have{Aa3}{\forall \script{x} \metaA{}}\by{R}{Aa}
 		\close
 	\have{nEna}{\enot\exists \script{x}\enot \metaA{}}\ni{Ena-Aa3, Ena-nAa3}
 \end{proof}
@@ -188,20 +188,20 @@ This is a proof \emph{schema} --- it is not itself a proof in QL, as its lines a
 
 
 \begin{proof}
-	\have{Aa}{\forall y Ay} \by{want $\enot\exists y\enot Ay$}{}
+	\hypo{Aa}{\forall y Ay} \by{want $\enot\exists y\enot Ay$}{}
 	\open
-		\have{Ena}{\exists y\enot Ay}\by{for reductio}{}
+		\hypo{Ena}{\exists y\enot Ay}\by{for reductio}{}
 		\open
-			\have{nc}{\enot Ac}\by{for $\exists$E}{}
+			\hypo{nc}{\enot Ac}\by{for $\exists$E}{}
 			\open
 				\hypo{Aa2}{\forall y Ay}\by{for reductio}{}
-				\hypo{c2}{Ac}\Ae{Aa}
-				\hypo{nc2}{\enot Ac}\by{R}{nc}
+				\have{c2}{Ac}\Ae{Aa}
+				\have{nc2}{\enot Ac}\by{R}{nc}
 			\close
-			\hypo{nAa}{\enot\forall y Ay}\ni{Aa2-nc2}
+			\have{nAa}{\enot\forall y Ay}\ni{Aa2-nc2}
 		\close
-		\hypo{nAa3}{\enot\forall y Ay}\Ee{Ena, nc-nAa}
-		\hypo{Aa3}{\forall y Ay}\by{R}{Aa}
+		\have{nAa3}{\enot\forall y Ay}\Ee{Ena, nc-nAa}
+		\have{Aa3}{\forall y Ay}\by{R}{Aa}
 	\close
 	\have{nEna}{\enot\exists y\enot Ay}\ni{Ena-Aa3, Ena-nAa3}
 \end{proof}
@@ -228,7 +228,7 @@ The introduction rule for identity is very simple. Everything is identical to it
 	\have[\ \,\,\,]{x}{\script{a}=\script{a}} \by{=I}{}
 \end{proof}
 
-The {=}I rule is unlike our other rules in that it does not require referring to any prior lines of the proof. We need only cite the rule itself; it does not reference any previous line numbers.
+The {=}I rule is unlike our other rules in that it does not require referring to any prior lines of the proof. We need only cite the rule itself; it does not reference any line numbers.
 
 \section{Identity Elimination}
 
@@ -245,9 +245,9 @@ Here is a simple proof of an instance of the \emph{transitivity of identity}. Le
 \begin{proof}
 	\open
 		\hypo{p}{a{=}b \eand b{=}c}\by{want $a{=}c$}{}
-		\hypo{ab}{a{=}b}\ae{p}
-		\hypo{bc}{b{=}c}\ae{p}
-		\hypo{ac}{a{=}c}\by{{=}E}{ab,bc}
+		\have{ab}{a{=}b}\ae{p}
+		\have{bc}{b{=}c}\ae{p}
+		\have{ac}{a{=}c}\by{{=}E}{ab,bc}
 	\close
 	\have{conc}{(a{=}b \eand b{=}c)\eif a{=}c} \ci{p-ac}
 \end{proof}
@@ -279,9 +279,9 @@ So the set-up for a natural deduction proof will be:
 	\have{}{}{}
 %	\open
 %		\hypo{be1}{Be}
-%		\hypo{all1}{\forall y\ e{=}y}\Ae{one}
-%		\hypo{ef1}{e{=}f}\Ae{all1}
-%		\hypo{bf1}{Bf}\by{{=}E}{ef1,be1}
+%		\have{all1}{\forall y\ e{=}y}\Ae{one}
+%		\have{ef1}{e{=}f}\Ae{all1}
+%		\have{bf1}{Bf}\by{{=}E}{ef1,be1}
 %	\close
 %	\have{bf}{Bf}\Ee{eb,be1-bf1}
 %	\have{ab}{\forall x Bx}\Ai{bf}
@@ -296,9 +296,9 @@ There are various strategies one might employ. Here are two clues that point tow
 	\hypo{eb}{\exists x Bx} \by{want $\enot\exists x \enot Bx$}{}
 	\open
 		\hypo{be1}{Be}\by{for $\exists${}E}{}
-		\hypo{all1}{\forall y\ e{=}y}\Ae{one}
-		\hypo{ef1}{e{=}f}\Ae{all1}
-		\hypo{bf1}{Bf}\by{{=}E}{ef1,be1}
+		\have{all1}{\forall y\ e{=}y}\Ae{one}
+		\have{ef1}{e{=}f}\Ae{all1}
+		\have{bf1}{Bf}\by{{=}E}{ef1,be1}
 	\close
 	\have{bf}{Bf}\Ee{eb,be1-bf1}
 %	\have{ab}{\forall x Bx}\Ai{bf}
@@ -313,9 +313,9 @@ By line 7, we have discharged the assumption about the proxy --- we won't use th
 	\hypo{eb}{\exists x Bx} \by{want $\enot\exists x \enot Bx$}{}
 	\open
 		\hypo{be1}{Be}\by{for $\exists${}E}{}
-		\hypo{all1}{\forall y\ e{=}y}\Ae{one}
-		\hypo{ef1}{e{=}f}\Ae{all1}
-		\hypo{bf1}{Bf}\by{{=}E}{ef1,be1}
+		\have{all1}{\forall y\ e{=}y}\Ae{one}
+		\have{ef1}{e{=}f}\Ae{all1}
+		\have{bf1}{Bf}\by{{=}E}{ef1,be1}
 	\close
 	\have{bf}{Bf}\Ee{eb,be1-bf1}
 	\have{ab}{\forall x Bx}\Ai{bf}
@@ -351,13 +351,13 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 %$\{\forall x(\exists y)(Rxy \eor Ryx),\forall x\enot Rmx\}\vdash\exists xRxm$
 \begin{proof}
 \hypo{p1}{\forall x\exists y(Rxy \eor Ryx)}
-\hypo{p2}{\forall x\enot Rmx}
+\have{p2}{\forall x\enot Rmx}
 \have{3}{\exists y(Rmy \eor Rym)}{}
 	\open
 		\hypo{a1}{Rma \eor Ram}
-		\hypo{a2}{\enot Rma}{}
-		\hypo{a3}{Ram}{}
-		\hypo{a4}{\exists x Rxm}{}
+		\have{a2}{\enot Rma}{}
+		\have{a3}{Ram}{}
+		\have{a4}{\exists x Rxm}{}
 	\close
 \have{n}{\exists x Rxm} {}
 \end{proof}
@@ -385,12 +385,12 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 \hypo{c}{\forall x Jx}
 \open
 	\hypo{2}{\forall y Lay}
-	\hypo{d}{Ja}{}
-	\hypo{e}{Ja \eif Ka}{}
-	\hypo{f}{Ka}{}
-	\hypo{3}{Laa}{}
-	\hypo{4}{Ka \eand Laa}{}
-	\hypo{5}{\exists x(Kx \eand Lxx)}{}
+	\have{d}{Ja}{}
+	\have{e}{Ja \eif Ka}{}
+	\have{f}{Ka}{}
+	\have{3}{Laa}{}
+	\have{4}{Ka \eand Laa}{}
+	\have{5}{\exists x(Kx \eand Lxx)}{}
 \close
 \have{j}{\exists x(Kx \eand Lxx)}{}
 \end{proof}
@@ -400,10 +400,10 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 \begin{proof}
 	\open
 		\hypo{p1}{\enot (\exists x Mx \eor \forall x\enot Mx)}
-		\hypo{p2}{\enot \exists x Mx \eand \enot \forall x\enot Mx}{}
-		\hypo{p3}{\enot \exists x Mx}{}
-		\hypo{p4}{\forall x\enot Mx}{}
-		\hypo{p5}{\enot \forall x\enot Mx}{}
+		\have{p2}{\enot \exists x Mx \eand \enot \forall x\enot Mx}{}
+		\have{p3}{\enot \exists x Mx}{}
+		\have{p4}{\forall x\enot Mx}{}
+		\have{p5}{\enot \forall x\enot Mx}{}
 	\close
 \have{n}{\exists x Mx \eor \forall x\enot Mx} {}
 \end{proof}

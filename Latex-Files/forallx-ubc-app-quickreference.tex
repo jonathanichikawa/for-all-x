@@ -434,7 +434,7 @@ A branch closes if and only if either (i) it contains some sentence \metaA{} alo
 \begin{proof}
 	\open
 		\hypo[m]{a}{\metaA{}} \by{want \metaB{}}{}
-		\hypo[n]{b}{\metaB{}}
+		\have[n]{b}{\metaB{}}
 	\close
 	\have[\ ]{ab}{\metaA{}\eif\metaB{}}\ci{a-b}
 \end{proof}
@@ -477,8 +477,8 @@ A branch closes if and only if either (i) it contains some sentence \metaA{} alo
 \begin{proof}
 \open
 	\hypo[m]{na}\metaA{}\by{for reductio}{}
-	\hypo[n]{b}\metaB{}
-	\hypo[o]{nb}{\enot\metaB{}}
+	\have[n]{b}\metaB{}
+	\have[o]{nb}{\enot\metaB{}}
 \close
 \have[\ ]{a}[\ ]{\enot\metaA{}}\ni{na-b, na-nb}
 \end{proof}
@@ -488,8 +488,8 @@ A branch closes if and only if either (i) it contains some sentence \metaA{} alo
 \begin{proof}
 \open
 	\hypo[m]{na}{\enot\metaA{}}\by{for reductio}{}
-	\hypo[n]{b}\metaB{}
-	\hypo[o]{nb}{\enot\metaB{}}
+	\have[n]{b}\metaB{}
+	\have[o]{nb}{\enot\metaB{}}
 \close
 \have[\ ]{a}[\ ]\metaA{}\ne{na-b, na-nb}
 \end{proof}
@@ -521,7 +521,7 @@ $^\ast$ \script{x} may replace some or all occurrences of \script{c}.}
 	\have[m]{a}{\exists \script{x}\metaA{}}
 	\open	
 		\hypo[n]{b}{\metaA{}\substitute{\script{x}}{\script{c}^\ast}}
-		\hypo[p]{c}{\metaB{}}
+		\have[p]{c}{\metaB{}}
 	\close
 	\have[\ ]{d}{\metaB{}} \Ee{a,b-c}
 \end{proof}
