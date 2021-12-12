@@ -111,7 +111,7 @@ Sometimes it will be convenient to represent extensions graphically, similar to 
 \end{tabular}
 \end{table}
 
-The members of the UD are listed as rows; the one-place predicates are given as columns. The 0s and 1s indicate whether each member satisfies each predicate. Notice that the same information is conveyed in this chart as in the three sets of ordered pairs described above. Either is an acceptable way of indicating the extension of the predicates.
+The members of the UD are listed as rows; the one-place predicates are given as columns. The 0s and 1s indicate whether each member satisfies each predicate. Notice that the same information is conveyed in this chart as in the three sets of integers described above. Either is an acceptable way of indicating the extension of the predicates.
 
 The extension of a two-place predicate like $L$ is more complicated. No individual number falls under the extension of this predicate; it is about the relation between members. Note also that sets of pairs of numbers aren't suitable for the extension of $L$ either, because 1 is less than 8, but 8 is not less than 1. (Remember, the set \{1,8\} is the very same set as the set \{8,1\}.) The solution is to have the extension of $L$ consist in a set of \define{ordered pairs} of numbers. An ordered pair is like a set with two members, except that the order \emph{does} matter. We write ordered pairs with angle brackets `$\openntuple$' and `$\closentuple$'. The ordered pair \mbox{\ntuple{foo, bar}} is different than the ordered pair \mbox{\ntuple{bar, foo}}. The extension of $L$ is a set of ordered pairs --- all of the pairs of numbers in the UD such that the first number is less than the second. Writing this out completely:
 
@@ -206,7 +206,7 @@ What would such a model look like? In order for $\forall xAxx \eif Bd$ to be fal
 
 To construct such a model, we start with a UD. It will be easier to specify extensions for predicates if we have a small UD, so start with a UD that has just one member. Formally, this single member might be anything. Let's say it is Miles Morales.
 
-We want $\forall x Axx$ to be true, so we want all members of the UD to be paired with themself in the extension of $A$; this means that the extension of $A$ must be \{\ntuple{Miles Morales,Miles Morales}\}.
+We want $\forall x Axx$ to be true, so we want all members of the UD to be paired with themself in the extension of $A$; this means that the extension of $A$ must be \{\ntuple{Miles Morales, Miles Morales}\}.
 
 We want $Bd$ to be false, so the referent of $d$ must not be in the extension of $B$. We give $B$ an empty extension.
 

@@ -238,7 +238,7 @@ are logically equivalent.
 \lastSeq
 are consistent.
 
-% Chapter 3 Part F
+% Chapter 3 Part G
 \solutionpart{ch.TruthTables}{pr.TT.valid}
 %\item $A\eif A$, \therefore\ $A$ %invalid
 \noSeq
@@ -262,7 +262,7 @@ are consistent.
 \lastSeq
 are valid.
 
-% Chapter 3 Part G
+% Chapter 3 Part H
 \solutionpart{ch.TruthTables}{pr.TT.concepts}
 \begin{earg}
 \item %Suppose that \metaA{} and \metaB{} are logically equivalent. What can you say about $\metaA{}\eiff\metaB{}$?
@@ -281,7 +281,7 @@ Not much. $(\metaA{}\eor\metaB{})$ is a tautology if \metaA{} and \metaB{} are t
 \metaA{} and \metaB{} have different truth values on at least one line of a complete truth table, and $(\metaA{}\eor\metaB{})$ will be true on that line. On other lines, it might be true or false. So $(\metaA{}\eor\metaB{})$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
 \end{earg}
 
-% Chapter 3 Part F
+% Chapter 3 Part I
 \solutionpart{ch.TruthTables}{pr.altConnectives}
 \begin{earg}
 \item %$A\eor B$
@@ -1688,7 +1688,7 @@ $\forall x \exists y Lxy$, \therefore\ $\exists x \forall y Lxy$ is invalid.
 \begin{prooftree}
 	{}
 	[\forall x \exists y Lxy, subs={a, b, c, ...}
-	[\enot \exists x \forall y Lxy, subs={a, b, c, ...}
+	[\enot \exists x \forall y Lxy, subs={a, b, c, ...}, grouped
 	[\exists y Lay, checked=b, just=1 $\forall$
 	[Lab, just=3 $\exists$, grouped
 	[\enot \forall y Lay, checked=c, just=2 \enot $\exists$
