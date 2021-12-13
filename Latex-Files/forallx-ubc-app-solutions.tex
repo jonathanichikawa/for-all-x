@@ -321,7 +321,7 @@ $\enot [(A\eif B) \eif \enot(B\eif A)]$
 %\item $A \eiff \enot A$ is a contradiction.
 \item (a) $\{P, P \eif Q, \enot Q, \enot A\}$, (b) true
 %\item Every interpretation satisfying $P$, $P \eif Q$, and $\enot Q$ also satisfies $A$.
-\item (a) $\{P \eif Q, \enot P \eor \enot Q, Q \eif P\}$, (b) false.
+\item (a) $\{P \eif Q, \enot P \eor \enot Q, Q \eif P\}$, (b) false
 %\item There is at least one interpretation that satisfies $P \eif Q$, $\enot P \eor \enot Q$, and $Q \eif P$.
 \end{earg}
 
@@ -2540,11 +2540,11 @@ $\exists x\exists z\bigl(Dx \eand Cx \eand Mz \eand \forall y[(Dy\eand Cy) \eif 
 %\item[w:] Willow
 %\end{ekey}
 \begin{earg}
-\item $\exists x (Bbx \eand Bwx)$ %Buffy and Willow were born unto the same generation.
+\item $\exists x (Gx \eand Bbx \eand Bwx)$ %Buffy and Willow were born unto the same generation.
 \item $\forall x \forall y [\exists z (Gz \eand Sx \eand Sy \eand Bxz \eand Byz) \eif x{=}y]$ %There is no more than one slayer born in each generation.
 \item $\exists x (Sx \eand x{\neq}b \eand Fx)$ %A slayer other than Buffy is one of the forces of darkness.
 \item $\forall x [(Fx \eand \enot Wx) \eif Awx]$ %Willow will stand against any force of darkness other than a werewolf.
-\item $\forall x (x{\neq}f \eif Kfx)$ %Faith will kick everyone except herself.
+\item $\forall x ((x{\neq}f \eand \enot G) \eif Kfx)$ %Faith will kick everyone except herself.
 \item $\forall x (\exists y (Sy \eand Axy \eand \enot \exists z ((Vz \eor Dz) \eand Kxz)) \eif Kbx)$ %Buffy will kick anyone who stands against a slayer, unless they are also kicking vampires or demons.
 \item $\forall x (Gx \eif \exists y (Sy \eand Byx))$ %In every generation a slayer is born.
 \item $\forall x (Gx \eif \exists y (Sy \eand Byx \eand \forall z [(Vz \eor Dz \eor Fz) \eif Ayz]))$ %In every generation a slayer is born. She will stand against vampires, demons, and forces of darkness.
@@ -2859,7 +2859,7 @@ $\forall x (Fx \eif x{=}f), \exists x (Fx \eor \forall y \: y{=}x) \models Ff$ i
 \begin{prooftree}
 {}
 [\forall x (Fx \eif x{=}f), subs={a, f}
-[\exists x (Fx \eor \forall y \: y{=}a), checked=a, grouped
+[\exists x (Fx \eor \forall y \: y{=}x), checked=a, grouped
 [\enot Ff, grouped
 	[Fa \eor \forall y \: y{=}a, checked, just=2 $\exists$
 		[Fa \eif a{=}f, just=1 $\forall$, checked
@@ -2870,7 +2870,7 @@ $\forall x (Fx \eif x{=}f), \exists x (Fx \eor \forall y \: y{=}x) \models Ff$ i
 					[a{=}a, just=7 $\forall$, grouped
 						[Ff \eif f{=}f, checked, just=1 $\forall$
 							[\enot Ff, name=e2
-								[\enot Fa, just={=: e1, e2}]
+								[\enot Fa, just={=: e1, e2}, open]
 							]
 							[f{=}f, open]
 						]
@@ -2886,7 +2886,7 @@ $\forall x (Fx \eif x{=}f), \exists x (Fx \eor \forall y \: y{=}x) \models Ff$ i
 ]
 \end{prooftree}
 \end{groupitems}
-We have one completed open branch. (Another open branch has not been completed.) It gives this model:
+We have two completed open branches. In this case, both branches give the same model:
 
 \begin{partialmodel}
 UD & \{a\}\\
@@ -2960,9 +2960,9 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \have{3}{\exists y(Rmy \eor Rym)}\Ae{p1}
 	\open
 		\hypo{a1}{Rma \eor Ram} \by{for $\exists${}E}{}
-		\hypo{a2}{\enot Rma}\Ae{p2}
-		\hypo{a3}{Ram}\oe{a1,a2}
-		\hypo{a4}{\exists x Rxm}\Ei{a3}
+		\have{a2}{\enot Rma}\Ae{p2}
+		\have{a3}{Ram}\oe{a1,a2}
+		\have{a4}{\exists x Rxm}\Ei{a3}
 	\close
 \have{n}{\exists x Rxm} \Ee{3,a1-a4}
 \end{proof}
@@ -2989,12 +2989,12 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \hypo{c}{\forall x Jx}
 \open
 	\hypo{2}{\forall y Lay} \by{for $\exists${}E}{}
-	\hypo{d}{Ja}\Ae{c}
-	\hypo{e}{Ja \eif Ka}\Ae{a}
-	\hypo{f}{Ka}\ce{e,d}
-	\hypo{3}{Laa}\Ae{2}
-	\hypo{4}{Ka \eand Laa}\ai{f,3}
-	\hypo{5}{\exists x(Kx \eand Lxx)}\Ei{4}
+	\have{d}{Ja}\Ae{c}
+	\have{e}{Ja \eif Ka}\Ae{a}
+	\have{f}{Ka}\ce{e,d}
+	\have{3}{Laa}\Ae{2}
+	\have{4}{Ka \eand Laa}\ai{f,3}
+	\have{5}{\exists x(Kx \eand Lxx)}\Ei{4}
 \close
 \have{j}{\exists x(Kx \eand Lxx)}\Ee{b,2-5}
 \end{proof}
@@ -3004,10 +3004,10 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 	\open
 		\hypo{p1}{\enot (\exists x Mx \eor \forall x\enot Mx)} \by{for reductio}{}
-		\hypo{p2}{\enot \exists x Mx \eand \enot \forall x\enot Mx} \by{DeM}{p1}
-		\hypo{p3}{\enot \exists x Mx}\ae{p2}
-		\hypo{p4}{\forall x\enot Mx}\by{QN}{p3}
-		\hypo{p5}{\enot \forall x\enot Mx}\ae{p2}
+		\have{p2}{\enot \exists x Mx \eand \enot \forall x\enot Mx} \by{DeM}{p1}
+		\have{p3}{\enot \exists x Mx}\ae{p2}
+		\have{p4}{\forall x\enot Mx}\by{QN}{p3}
+		\have{p5}{\enot \forall x\enot Mx}\ae{p2}
 	\close
 \have{n}{\exists x Mx \eor \forall x\enot Mx} \ne{p1-p4, p1-p5}
 \end{proof}
@@ -3021,9 +3021,9 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 	\open
 		\hypo{p1}{\enot(\forall x Fx \eor \enot\forall x Fx)} \by{for reductio}{}
-		\hypo{s1}{\enot\forall x Fx \eand \enot\enot\forall x Fx} \by{DeM}{p1}
-		\hypo{s2}{\enot \forall x Fx}\ae{s1}
-		\hypo{s3}{\enot\enot\forall x Fx}\ae{s1}
+		\have{s1}{\enot\forall x Fx \eand \enot\enot\forall x Fx} \by{DeM}{p1}
+		\have{s2}{\enot \forall x Fx}\ae{s1}
+		\have{s3}{\enot\enot\forall x Fx}\ae{s1}
 	\close
 	\have{c}{\forall x Fx \eor \enot\forall x Fx} \ne{p1-s2, p1-s3}
 \end{proof}
@@ -3069,16 +3069,16 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 	\hypo{a1}{\exists x(Cx \eor Dt)} \by{want $\exists x Cx \eor Dt$}{}
 	\open
-		\have{a2}{Ca \eor Dt} \by{for {$\exists$}E}{}
+		\hypo{a2}{Ca \eor Dt} \by{for {$\exists$}E}{}
 		\open
 			\hypo{a3}{\enot(\exists x Cx \eor Dt)} \by{for reductio}{}
-			\hypo{a4}{\enot\exists x Cx \eand \enot Dt} \by{DeM}{a3}
-			\hypo{a5}{\enot Dt} \ae{a4}
-			\hypo{a6}{Ca} \oe{a2,a5}
-			\hypo{a7}{\exists x Cx} \Ei{a6}
-			\hypo{a8}{\enot\exists x Cx} \ae{a4}
+			\have{a4}{\enot\exists x Cx \eand \enot Dt} \by{DeM}{a3}
+			\have{a5}{\enot Dt} \ae{a4}
+			\have{a6}{Ca} \oe{a2,a5}
+			\have{a7}{\exists x Cx} \Ei{a6}
+			\have{a8}{\enot\exists x Cx} \ae{a4}
 		\close
-		\hypo{a9}{\exists x Cx \eor Dt} \ne{a3-a7, a3-a8}
+		\have{a9}{\exists x Cx \eor Dt} \ne{a3-a7, a3-a8}
 	\close
 	\have{a10}{\exists x Cx \eor Dt} \Ee{a1,a2-a9}
 \end{proof}
@@ -3096,9 +3096,9 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 	\open
 		\hypo{1}{\forall x \forall y Gxy}
-		\hypo{2}{\forall y Gay} \Ae{1}
-		\hypo{3}{Gaa}\Ae{2}
-		\hypo{4}{\exists x Gxx}\Ei{3}
+		\have{2}{\forall y Gay} \Ae{1}
+		\have{3}{Gaa}\Ae{2}
+		\have{4}{\exists x Gxx}\Ei{3}
 \end{proof}
 \end{solutioninlist}
 \item %$\forall x \forall y (Gxy \eif Gyx) \vdash \forall x\forall y (Gxy \eiff Gyx)$
@@ -3121,9 +3121,9 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 	\hypo{a2}{\exists x Ax} \by{want $\exists x Bx$}{}
 	\open
 		\hypo{a3}{Aa} \by{for {$\exists$}E}{} 
-		\hypo{a4}{Aa \eif Ba} \Ae{a1}
-		\hypo{a5}{Ba} \ce{a3, a4}
-		\hypo{a6}{\exists x Bx} \Ei{a5}
+		\have{a4}{Aa \eif Ba} \Ae{a1}
+		\have{a5}{Ba} \ce{a3, a4}
+		\have{a6}{\exists x Bx} \Ei{a5}
 	\close
 	\have{a7}{\exists x Bx} \Ee{a2, a3-a6}
 \end{proof}
@@ -3136,10 +3136,10 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 	\hypo{3}{\enot Mb} \by{want $\enot Na$}{}
 	\open
 		\hypo{4}{Na} \by{for reductio}{}
-		\hypo{5}{\forall x (Mx \eiff Ma)} \ce{1, 4}
-		\hypo{6}{Mb \eiff Ma} \Ae{5}
-		\hypo{7}{Mb} \be{2, 6}
-		\hypo{8}{\enot Mb} \by{R}{3}
+		\have{5}{\forall x (Mx \eiff Ma)} \ce{1, 4}
+		\have{6}{Mb \eiff Ma} \Ae{5}
+		\have{7}{Mb} \be{2, 6}
+		\have{8}{\enot Mb} \by{R}{3}
 	\close
 	\have{9}{\enot Na} \ni{4-7, 4-8}
 \end{proof}
@@ -3149,7 +3149,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 	\open
 		\hypo{1}{Pa} \by{want $Pa$}{}
-		\hypo{2}{Pa} \by{R}{1}
+		\have{2}{Pa} \by{R}{1}
 	\close
 	\have{3}{Pa \eif Pa} \ci{1-2}
 	\have{4}{\enot Pa \eor Pa}\by{MC}{3}
@@ -3162,9 +3162,9 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 \open
 	\hypo{1}{\forall x Rxx}\by{want $\eif \exists x \exists y Rxy$}{}
-	\hypo{2}{Raa}\Ae{1}
-	\hypo{3}{\exists y Ray}\Ei{2}
-	\hypo{4}{\exists x \exists y Rxy}\Ei{3}
+	\have{2}{Raa}\Ae{1}
+	\have{3}{\exists y Ray}\Ei{2}
+	\have{4}{\exists x \exists y Rxy}\Ei{3}
 \close
 \have{5}{\forall x Rxx \eif \exists x \exists y Rxy}\ci{1-4}
 \end{proof}
@@ -3176,7 +3176,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{proof}
 \open
 		\hypo{1}{Qa}\by{want $Qa$}{}
-		\hypo{2}{Qa}\by{R}{1}
+		\have{2}{Qa}\by{R}{1}
 	\close
 	\have{3}{Qa \eif Qa}\ci{1-2}
 	\have{4}{\exists x (Qa \eif Qx)}\Ei{3}
@@ -3203,11 +3203,11 @@ Regarding the translation of this argument, see p.~\pageref{likes2}.
 		\have{c4}{\enot \forall z(Laz \eif Laz)} \by{MT}{b,c3}
 		\open
 			\hypo{d1}{Lab} \by{want $Lab$}{}
-			\hypo{d2}{Lab} \by{R}{d1}
+			\have{d2}{Lab} \by{R}{d1}
 		\close
-		\hypo{c5}{Lab \eif Lab} \ci{d1-d2}
-		\hypo{c6}{\forall z(Laz \eif Laz)} \Ai{c5}
-		\hypo{cn}{\enot \forall z(Laz \eif Laz)} \by{R}{c4}
+		\have{c5}{Lab \eif Lab} \ci{d1-d2}
+		\have{c6}{\forall z(Laz \eif Laz)} \Ai{c5}
+		\have{cn}{\enot \forall z(Laz \eif Laz)} \by{R}{c4}
 	\close
 	\have{h}{\exists x Lxx} \ne{c1-cn}
 \close
@@ -3257,9 +3257,9 @@ are valid. Here are complete answers for some of them:
 		\hypo{p}{\exists y\forall x Rxy} \by{want $\forall x\exists y Rxy$}{}
 		\open
 			\hypo{ass}{\forall x Rxa} \by{for $\exists${}E}{}
-			\hypo{R}{Rba} \Ae{ass}
-			\hypo{ER}{\exists y Rby} \Ei{R}
-			\hypo{AER}{\forall x \exists y Rxy} \Ai{ER}
+			\have{R}{Rba} \Ae{ass}
+			\have{ER}{\exists y Rby} \Ei{R}
+			\have{AER}{\forall x \exists y Rxy} \Ai{ER}
 		\close
 		\have{c}{\forall x\exists y Rxy} \Ee{p, ass-AER}
 	\end{proof}
