@@ -397,6 +397,8 @@ Consider these sentences:
 \item[S:] The figure has three sides.
 \end{ekey}
 
+To appreciate the difference between these three sentences, do not be distracted by your geometrical knowledge. (Try substituting out different ideas for $T$ and $S$ to practice thinking abstractly.)
+
 Sentence \ref{iff1}, for reasons discussed above, can be translated as $(T\eif S)$.
 
 Sentence \ref{iff2} is importantly different. It can be paraphrased as, `If the figure has three sides, then it is a triangle.' So it can be translated as $(S\eif T$).
@@ -420,6 +422,7 @@ $(\metaA{}\eiff\metaB{})$ is true if and only if \metaA{} and \metaB{} have the 
 \end{tabular}
 \end{center}
 
+We call the sentence written before the biconditional symbol the \define{left-hand side}. The sentence after it is the \define{right-hand side}. A biconditional tells you that the left-hand side and the right-hand-side have the same truth value.
 
 \section{Other symbolization}
 We have now introduced all of the connectives of SL. We can use them together to translate many kinds of sentences. Consider these examples of sentences that use the English-language connective `unless', with an associated symbolization key:
@@ -437,15 +440,13 @@ We have now introduced all of the connectives of SL. We can use them together to
 
 We can paraphrase sentence \ref{unless1} as `Unless $J$, $D$.' This means that if you do not wear a jacket, then you will catch a cold; with this in mind, we might translate it as $\enot J \eif D$. It also means that if you do not catch a cold, then you must have worn a jacket; with this in mind, we might translate it as $\enot D \eif J$.
 
-Which of these is the correct translation of sentence \ref{unless1}? Both translations are correct, because the two translations are logically equivalent in SL.
+We needn't ask which of these is \emph{the correct} translation of sentence \ref{unless1}. Both translations are perfectly correct, because the two translations are logically equivalent in SL. And since sentence \ref{unless2}, in English, is logically equivalent to sentence \ref{unless1}, it can also be translated as either $\enot J \eif D$ or $\enot D \eif J$.
 
-Sentence \ref{unless2}, in English, is logically equivalent to sentence \ref{unless1}. It can be translated as either $\enot J \eif D$ or $\enot D \eif J$.
-
-When symbolizing sentences like sentence \ref{unless1} and sentence \ref{unless2}, it is easy to get turned around. Since the conditional is not symmetric, it would be wrong to translate either sentence as $J \eif \enot D$. Fortunately, there are other logically equivalent expressions. Both sentences mean that you will wear a jacket or --- if you do not wear a jacket --- then you will catch a cold. So we can translate them as $J \eor D$.
+When symbolizing sentences like sentence \ref{unless1} and sentence \ref{unless2}, it is easy to get turned around. Since the conditional is not symmetric, it would be wrong to translate either sentence as $J \eif \enot D$. There are also other logically equivalent expressions that do not use conditionals. Both sentences mean that you will wear a jacket or --- if you do not wear a jacket --- then you will catch a cold. So we can translate them as $J \eor D$ (or equivalently as $D \eor J$, since disjunction, unlike conditionals, is symmetric.).
 
 
 \factoidbox{
-If a sentence can be paraphrased as `Unless \metaA{}, \metaB{},' then it can be symbolized as $(\enot\metaA{}\eif\metaB{})$, $(\enot\metaB{}\eif\metaA{})$, or $(\metaA{}\eor\metaB{})$.
+If a sentence can be paraphrased as `Unless \metaA{}, \metaB{},' then it can be symbolized as $(\enot\metaA{}\eif\metaB{})$, $(\enot\metaB{}\eif\metaA{})$, $(\metaA{}\eor\metaB{})$, or $(\metaB{}\eor\metaA{})$.
 }
 
 Symbolization of standard sentence types is summarized on p.~\pageref{app.notation}.
@@ -559,6 +560,39 @@ Unless and until you are very confident about wffs and the use of parentheses, i
 If we had given a different definition for a wff, then these could count as wffs. We might have written rule 2 in this way: ``If \metaA{}, \metaB{}, $\ldots$ \script{Z} are wffs, then $(\metaA{}\eand\metaB{}\eand\ldots\eand\script{Z})$, is a wff.'' This would make it easier to translate some English sentences, but would have the cost of making our formal language more complicated. We would have to keep the complex definition in mind when we develop truth tables and a proof system. We want a logical language that is \emph{expressively simple} and allows us to translate easily from English, but we also want a \emph{formally simple} language. (As we'll see later, this is important if we want to be able to prove things \emph{about} our language.) Adopting notational conventions is a compromise between these two desires.
 
 
+\section{Most Descriptive Form}
+\label{sec:mostdescriptiveform}
+
+There are many ways one can translate a given English sentence into SL, which means that a translator has some choices to make. Many of the choices are quite arbitrary. Suppose one wishes to translate this sentence into SL:
+
+\begin{earg}
+\item[] Shuri is the Black Panther and Everett is American.
+\end{earg}
+
+One obvious way to translate it would be to use this interpretation key:
+
+\begin{ekey}
+\item[S:] Shuri is the Black Panther.
+\item[E:] Everett is American.
+\end{ekey}
+
+And of course the sentence is trivially translated as $S \eand E$. But we could equally well have used a different interpretation key, calling for a different translation, e.g.:
+
+\begin{ekey}
+\item[A:] Shuri is the Black Panther.
+\item[B:] Everett is American.
+\end{ekey}
+
+If we made this key, we would translate the English sentence as $A \eand B$. These are equally good translations, and it doesn't matter which one we pick. But there can be better and worse choices of interpretation keys. Suppose we used this one:
+
+\begin{ekey}
+\item[P:] Shuri is the Black Panther and Everett is American.
+\item[Q:] Everett is American.
+\end{ekey}
+
+There is nothing in the rules of SL that prohibits the use of such interpretation keys. Given this key, our target sentence would be translated trivially as $P$. This would not be an \emph{incorrect} translation, but there is something unfortunate about it. By translating an English conjunction as an atomic sentence in SL, we lose important information. This translation has failed to encode the conjunctive information that was given in the English sentence. It will be unable to explain why ``Shuri is the Black Panther and Everett is American'' implies that Everett is American --- $Q$ does not follow from $P$ in SL.
+
+We will say that a translation gives the \define{most descriptive form} when atomic sentences in SL are assigned only to sententially atomic sentences in English --- i.e., sentences that are not negations, conjunctions, disjunctions, conditionals, or biconditionals. This ensures that the sentential form of every given English sentence is reflected in the SL translation. When translating from English to SL, one should typically do so in most descriptive form.
 
 \practiceproblems
 
@@ -638,7 +672,7 @@ If we had given a different definition for a wff, then these could count as wffs
 \solutions
 \problempart
 \label{pr.spies}
-Give a symbolization key and symbolize the following sentences in SL.
+Give a symbolization key and symbolize the following sentences in SL, using most descriptive form.
 \begin{earg}
 \item Alice and Bob are both spies.
 \item If either Alice or Bob is a spy, then the code has been broken.
@@ -651,7 +685,7 @@ Give a symbolization key and symbolize the following sentences in SL.
 \solutions
 \problempart
 \label{pr.gregorbaseball}
-Give a symbolization key and symbolize the following sentences in SL.
+Give a symbolization key and symbolize the following sentences in SL, using most descriptive form.
 \begin{earg}
 \item If Gregor plays first base, then the team will lose.
 \item The team will lose unless there is a miracle.
