@@ -532,14 +532,16 @@ $^\ast$ \script{c} must not appear outside the subproof.}
 
 \textsc{Universal Introduction}
 
+
 \begin{proof}
-	\have[m]{a}{\metaA{}}
-	\have[\ ]{c}{\forall \script{x}\metaA{}\substitute{\script{c}^\ast}{\script{x}}} \Ai{a}
+	\have[m]{a}{\metaA{}\substitute{x}{c^\ast}}
+	\have[\ ]{c}{\forall \script{x}\metaA{}} \Ai{a}
 \end{proof}
 
 \begin{footnotesize}\emph{
-$^\ast$ \script{c} must not occur in any undischarged assumptions.}
+$^\ast$ The constant \script{c} must not occur in $\metaA{}$ or in any undischarged assumption.}
 \end{footnotesize}
+
 
 
 \textsc{Universal Elimination}

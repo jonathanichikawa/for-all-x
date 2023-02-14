@@ -69,7 +69,7 @@ A universal claim like $\forall x Px$ would be proven if {every} substitution in
 
 Consider a simple argument: $\forall x Mx$, \therefore\ $\forall y My$
 
-It makes no difference to the meaning of the sentence whether we use the variable $x$ or the variable $y$, so this argument is obviously valid. Suppose we begin in this way:
+It makes no difference to the truth conditions of the QL sentence whether we use the variable $x$ or the variable $y$, so this argument is obviously valid. Suppose we begin in this way:
 
 \begin{proof}
 	\hypo{x}{\forall x Mx} \by{want $\forall y My$}{}
@@ -96,14 +96,14 @@ It is important here that $a$ was just some arbitrary constant. We had not made 
 This is the schematic form of the universal introduction rule ($\forall$I):
 
 \begin{proof}
-	\have[m]{a}{\metaA{}}
-	\have[\ ]{c}{\forall \script{x}\metaA{}\substitute{c^\ast}{x}} \Ai{a}
+	\have[m]{a}{\metaA{}\substitute{x}{c^\ast}}
+	\have[\ ]{c}{\forall \script{x}\metaA{}} \Ai{a}
 \end{proof}
-$^\ast$ The constant \script{c} must not occur in any undischarged assumption.
+$^\ast$ The constant \script{c} must not occur in $\metaA{}$ or in any undischarged assumption.
 
-Note that we can do this for any constant that does not occur in an undischarged assumption and for any variable.
+Note that we can do this for any variable and any constant, so long as that constant that does not occur in an undischarged assumption or in $\metaA{}$.
 
-Note also that the constant may not occur in any \emph{undischarged} assumption, but it may occur as the assumption of a subproof that we have already closed. For example, here is a valid proof of $\forall z(Dz \eif Dz)$ that does not use any premises.
+The constant may not occur in any \emph{undischarged} assumption, but it may occur as the assumption of a subproof that we have already closed. For example, here is a valid proof of $\forall z(Dz \eif Dz)$ that does not use any premises.
 
 \begin{proof}
 	\open
@@ -114,6 +114,7 @@ Note also that the constant may not occur in any \emph{undischarged} assumption,
 	\have{zz}{\forall z(Dz \eif Dz)}\Ai{ff}
 \end{proof}
 
+Requiring that the constant not occur in any undischarged assumption is our way of ensuring that it is suitably \emph{arbitrary}. We could just have easily have established any other substitution instance.
 
 \subsection{Existential elimination}
 A sentence with an existential quantifier tells us that there is \emph{some} member of the UD that satisfies a formula. For example, $\exists x Sx$ tells us (roughly) that there is at least one $S$. It does not tell us \emph{which} member of the UD satisfies $S$, however. We cannot immediately conclude $Sa$, $Sf_{23}$, or any other substitution instance of the sentence. What can we do?
@@ -339,7 +340,9 @@ The proofs for soundness and completeness of our natural deduction system are be
 
 Undischarged assumptions would require special treatment. You can think of an assumption as being similar to a `temporary premise' --- what you really want to prove is that, for every possible line in a proof, that line is entailed by the premises \emph{in addition to} any undischarged assumptions.
 
-The completeness proof is more complex. We need some way to guarantee that there is a proof corresponding to every QL entailment. The way to do this is to find an algorithmic procedure that is guaranteed to find a proof if one exists, and to prove that this is so. One good way to do this is to take advantage of the proven completeness of our \emph{tree} system for QL, presented in Chapter \ref{ch.QLsoundcomplete}, and find a way to demonstrate that any tree proof can be converted to a natural deduction proof. Here is a hint if you'd like to undertake that project: the tree method encodes the same kind of reasoning that reductio proofs do.
+The completeness proof is more complex. We need some way to guarantee that there is a proof corresponding to every QL entailment. The way to do this is to find an algorithmic procedure that is guaranteed to find a proof if one exists, and to prove that this is so. One good way to do this is to take advantage of the proven completeness of our \emph{tree} system for QL, presented in Chapter \ref{ch.QLsoundcomplete}, and find a way to demonstrate that any tree proof can be converted to a natural deduction proof.
+
+Here is a hint if you're interested in undertaking that project: the tree method encodes the same kind of reasoning that reductio proofs do.
 
 \practiceproblems
 
