@@ -816,7 +816,7 @@ single branches}
 \hypo{1}{L \eiff \enot O}
 \hypo{2}{L \eor \enot O}
 \open
-	\hypo{a1}{\enot L} \by{for reductio}{}
+	\hypo{a1}{\enot L} \by{for \emph{reductio}}{}
 	\have{a2}{\enot O}\oe{2,a1}
 	\have{a3}{L}\be{1,a2}
 	\have{a4}{\enot L}\by{R}{a1}
@@ -828,10 +828,10 @@ single branches}
 \hypo{1}{Z \eif (C \eand \enot N)}
 \hypo{2}{\enot Z \eif (N \eand \enot C)}
 \open
-	\hypo{a1}{\enot(N \eor  C)} \by{for reductio}{}
+	\hypo{a1}{\enot(N \eor  C)} \by{for \emph{reductio}}{}
 	\have{a2}{\enot N \eand \enot C} \by{DeM}{a1}
 	\open
-		\hypo{b1}{Z} \by{for reductio}{}
+		\hypo{b1}{Z} \by{for \emph{reductio}}{}
 		\have{b2}{C \eand \enot N}\ce{1,b1}
 		\have{b3}{C}\ae{b2}
 		\have{b4}{\enot C}\ae{a2}
@@ -927,7 +927,7 @@ single branches}
 	\hypo{a2}{\enot(X\eand D)}
 	\hypo{a3}{D\eor M} \want{M}
 	\open
-		\hypo{b1}{\enot X} \by{for reductio}{}
+		\hypo{b1}{\enot X} \by{for \emph{reductio}}{}
 		\have{b2}{\enot X\eor \enot Y} \oi{b1}
 		\have{b3}{\enot (X \eand Y)} \by{DeM}{b2}
 		\have{b4}{X\eand Z} \oe{a1,b3}
@@ -936,7 +936,7 @@ single branches}
 	\close
 	\have{c}{X} \ne{b1-b5, b1-b6}
 	\open
-		\hypo{d1}{\enot M} \by{for reductio}{}
+		\hypo{d1}{\enot M} \by{for \emph{reductio}}{}
 		\have{d2}{D} \oe{a3,d1}
 		\have{d3}{X\eand D} \ai{c,d2}
 		\have{d4}{\enot(X\eand D)} \by{R}{a2}
@@ -965,7 +965,7 @@ single branches}
 %$N \eor \enot N$
 \begin{proof}
 	\open
-		\hypo{nnon}{\enot (N \eor \enot N)}\by{for reductio}{}
+		\hypo{nnon}{\enot (N \eor \enot N)}\by{for \emph{reductio}}{}
 		\have{nnnn}{\enot N \eand \enot\enot N}\by{DeM}{nnon}
 		\have{n}{\enot N}\ae{nnnn}
 		\have{nn}{\enot\enot N}\ae{nnnn}
@@ -977,7 +977,7 @@ single branches}
 %$\enot(P\eand \enot P)$
 \begin{proof}
 	\open
-		\hypo{panp}{P \eand \enot P}\by{for reductio}{}
+		\hypo{panp}{P \eand \enot P}\by{for \emph{reductio}}{}
 		\have{p}{P}\ae{panp}
 		\have{np}{\enot P}\ae{panp}
 	\close
@@ -1012,7 +1012,7 @@ single branches}
 	\open
 		\hypo{jblah2}{J\eor (L\eand\enot L)}\want{J}
 		\open
-			\hypo{nj}{\enot J}\by{for reductio}{}
+			\hypo{nj}{\enot J}\by{for \emph{reductio}}{}
 			\have{lanl}{L \eand \enot L}\oe{jblah2, nj}
 			\have{l}{L}\ae{lanl}
 			\have{nl}{\enot L}\ae{lanl}
@@ -1047,7 +1047,7 @@ single branches}
 	\hypo{1}{C \eif (E \eand G)}
 	\hypo{2}{\enot C \eif G}
 	\open
-		\hypo{3}{\enot G}\by{for reductio}{}
+		\hypo{3}{\enot G}\by{for \emph{reductio}}{}
 		\have{4}{\enot \enot C}\by{MT}{2,3}
 		\have{5}{C}\by{DN}{4}
 		\have{6}{E \eand G}\ce{1,5}
@@ -1081,7 +1081,7 @@ single branches}
 	\hypo{2}{X \eif Y}
 	\hypo{3}{\enot Z}
 	\open
-		\hypo{4}{\enot (W \eor Y)}\by{for reductio}{}
+		\hypo{4}{\enot (W \eor Y)}\by{for \emph{reductio}}{}
 		\have{5}{\enot W \eand \enot Y}\by{DeM}{4}
 		\have{6}{\enot Y}\ae{5}
 		\have{7}{\enot W}\ae{5}
@@ -3003,7 +3003,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 %$\vdash \exists x Mx \eor \forall x\enot Mx$
 \begin{proof}
 	\open
-		\hypo{p1}{\enot (\exists x Mx \eor \forall x\enot Mx)} \by{for reductio}{}
+		\hypo{p1}{\enot (\exists x Mx \eor \forall x\enot Mx)} \by{for \emph{reductio}}{}
 		\have{p2}{\enot \exists x Mx \eand \enot \forall x\enot Mx} \by{DeM}{p1}
 		\have{p3}{\enot \exists x Mx}\ae{p2}
 		\have{p4}{\forall x\enot Mx}\by{QN}{p3}
@@ -3020,7 +3020,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{solutioninlist}
 \begin{proof}
 	\open
-		\hypo{p1}{\enot(\forall x Fx \eor \enot\forall x Fx)} \by{for reductio}{}
+		\hypo{p1}{\enot(\forall x Fx \eor \enot\forall x Fx)} \by{for \emph{reductio}}{}
 		\have{s1}{\enot\forall x Fx \eand \enot\enot\forall x Fx} \by{DeM}{p1}
 		\have{s2}{\enot \forall x Fx}\ae{s1}
 		\have{s3}{\enot\enot\forall x Fx}\ae{s1}
@@ -3071,7 +3071,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 	\open
 		\hypo{a2}{Ca \eor Dt} \by{for {$\exists$}E}{}
 		\open
-			\hypo{a3}{\enot(\exists x Cx \eor Dt)} \by{for reductio}{}
+			\hypo{a3}{\enot(\exists x Cx \eor Dt)} \by{for \emph{reductio}}{}
 			\have{a4}{\enot\exists x Cx \eand \enot Dt} \by{DeM}{a3}
 			\have{a5}{\enot Dt} \ae{a4}
 			\have{a6}{Ca} \oe{a2,a5}
@@ -3135,7 +3135,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 	\hypo{2}{Ma}
 	\hypo{3}{\enot Mb} \by{want $\enot Na$}{}
 	\open
-		\hypo{4}{Na} \by{for reductio}{}
+		\hypo{4}{Na} \by{for \emph{reductio}}{}
 		\have{5}{\forall x (Mx \eiff Ma)} \ce{1, 4}
 		\have{6}{Mb \eiff Ma} \Ae{5}
 		\have{7}{Mb} \be{2, 6}
@@ -3197,7 +3197,7 @@ Regarding the translation of this argument, see p.~\pageref{likes2}.
 	\have{a}{\forall y[\forall z(Laz \eif Lyz) \eif Lay]} \by{for $\exists${}E}{}
 	\have{b}{\forall z(Laz \eif Laz) \eif Laa} \Ae{a}
 	\open
-		\have{c1}{\enot \exists x Lxx} \by{for reductio}{}
+		\have{c1}{\enot \exists x Lxx} \by{for \emph{reductio}}{}
 		\have{c2}{\forall x\enot Lxx} \by{QN}{c1}
 		\have{c3}{\enot Laa} \Ae{c2}
 		\have{c4}{\enot \forall z(Laz \eif Laz)} \by{MT}{b,c3}

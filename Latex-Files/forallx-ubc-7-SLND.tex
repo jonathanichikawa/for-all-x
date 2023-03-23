@@ -257,8 +257,8 @@ In this example, unlike the others we've seen so far, we used the premise on lin
 Here is another rule. It is our Conjunction Introduction rule, which we abbreviate `{\eand}I':
 
 \begin{proof}
-	\hypo[m]{a}\metaA{}
-	\hypo[n]{b}\metaB{}
+	\have[m]{a}\metaA{}
+	\have[n]{b}\metaB{}
 	\have[\ ]{c}{\metaA{}\eand\metaB{}} \ai{a, b}
 \end{proof}
 
@@ -443,7 +443,7 @@ Once an assumption has been discharged, any lines that have been shown to follow
 	\have{bad}{F \eor A}\oi{f}
 \end{proof}
 
-Once the assumption made at line 2 has been discharged at line 4, the lines within that assumption --- 2 and 3 --- are unavailable for further justification. So one cannot perform Disjunction Elimination on line 3 at line 5. Line 3 was not demonstrated to follow from the premise on line 1 --- it follows only from this combined with the \emph{assumption} on line 2. And by the time we get to line 5, we are no longer making that assumption.
+Once the assumption made at line 2 has been discharged at line 4, the lines within that assumption --- 2 and 3 --- are unavailable for further justification. So one cannot perform Disjunction Introduction on line 3 at line 5. Line 3 was not demonstrated to follow from the premise on line 1 --- it follows only from this combined with the \emph{assumption} on line 2. And by the time we get to line 5, we are no longer making that assumption.
 
 Put in its general form, the {\eif}I rule looks like this:
 
@@ -546,20 +546,20 @@ The basic rules for negation will allow for arguments like this. Like the Condit
 
 \begin{proof}
 \open
-	\hypo[m]{na}\metaA{}\by{for reductio}{}
+	\hypo[m]{na}\metaA{}\by{for \emph{reductio}}{}
 	\have[n]{b}\metaB{}
 	\have[o]{nb}{\enot\metaB{}}
 \close
 \have[\ ]{a}[\ ]{\enot\metaA{}}\ni{na-b, na-nb}
 \end{proof}
 
-The {\enot}I rule discharges the assumption for \emph{reductio}, concluding its negation, when it's shown that some sentence and its negation each follow from the assumption. It cites two (overlapping) ranges: a subproof from the assumption to some sentence \metaB{}, and a subproof from that same assumption to \enot\metaB{}. We write `for reductio' to the right of the assumption, as a note to ourselves, a reminder of why we started the subproof. It is not formally part of the proof, but it is helpful for thinking clearly it and planning ahead.
+The {\enot}I rule discharges the assumption for \emph{reductio}, concluding its negation, when it's shown that some sentence and its negation each follow from the assumption. It cites two (overlapping) ranges: a subproof from the assumption to some sentence \metaB{}, and a subproof from that same assumption to \enot\metaB{}. We write `for \emph{reductio}' to the right of the assumption, as a note to ourselves, a reminder of why we started the subproof. It is not formally part of the proof, but it is helpful for thinking clearly it and planning ahead. (An alternate notation would be `want $\bot$' instead of `for \emph{reductio}.' Either would be a way to indicate that we are now attempting to derive an absurdity within this subproof.)
 
 To see how the rule works, suppose we want to prove an instance of the law of non-contradiction: $\enot(G \eand \enot G)$. We can prove this without any premises by immediately starting a subproof. We want to apply {\enot}I to the subproof, so we assume $(G \eand \enot G)$. We then get an explicit contradiction by {\eand}E. The proof looks like this:
 
 \begin{proof}
 	\open
-		\hypo{gng}{G\eand \enot G}\by{for reductio}{}
+		\hypo{gng}{G\eand \enot G}\by{for \emph{reductio}}{}
 		\have{g}{G}\ae{gng}
 		\have{ng}{\enot G}\ae{gng}
 	\close
@@ -572,7 +572,7 @@ The {\enot}E rule will work in much the same way. If we assume \enot\metaA{} and
 
 \begin{proof}
 \open
-	\hypo[m]{na}{\enot\metaA{}}\by{for reductio}{}
+	\hypo[m]{na}{\enot\metaA{}}\by{for \emph{reductio}}{}
 	\have[n]{b}\metaB{}
 	\have[o]{nb}{\enot\metaB{}}
 \close
@@ -595,7 +595,7 @@ Obviously, the reiteration rule will not allow us to show anything \emph{new}. F
 	\hypo{p}{P}
 	\hypo{qnp}{Q \eif \enot P} \want{\enot Q}
 	\open
-		\hypo{q}{Q} \by{for reductio}{}
+		\hypo{q}{Q} \by{for \emph{reductio}}{}
 		\have{np}{\enot P}\ce{qnp,q}
 		\have{nnp}{P}\by{R}{p}
 	\close
@@ -620,7 +620,7 @@ We have been discussing \emph{modus tollens} throughout this chapter, and in \S\
 	\hypo{p}{\metaA{}}
 	\hypo{qnp}{\metaB{} \eif \enot \metaA{}} \want{\enot \metaB{}}
 	\open
-		\hypo{q}{\metaB{}} \by{for reductio}{}
+		\hypo{q}{\metaB{}} \by{for \emph{reductio}}{}
 		\have{np}{\enot \metaA{}}\ce{qnp,q}
 		\have{nnp}{\metaA{}}\by{R}{p}
 	\close
@@ -662,27 +662,27 @@ The Dilemma rule is also derivable from the basic rules. The proof is a bit more
 	\hypo{ac}{\metaA{}\eif\metaC{}}
 	\hypo{bc}{\metaB{}\eif\metaC{}}\by{want \metaC{}}{}
 	\open
-		\have{nc}{\enot \metaC{}}\by{for reductio}{}
+		\have{nc}{\enot \metaC{}}\by{for \emph{reductio}}{}
 		\open
-			\hypo{a1}\metaA{}\by{for reductio}{}
+			\hypo{a1}\metaA{}\by{for \emph{reductio}}{}
 			\have{c1}{\metaC{}}\ce{ac, a1}
 			\have{nc1}{\enot\metaC{}}\by{R}{nc}
 		\close
 		\have{na}{\enot\metaA{}}\ni{a1-c1, a1-nc1}
 		\open
-			\hypo{b2}\metaB{}\by{for reductio}{}
+			\hypo{b2}\metaB{}\by{for \emph{reductio}}{}
 			\have{c2}{\metaC{}}\ce{bc, b2}
 			\have{nc2}{\enot\metaC{}}\by{R}{nc}
 		\close
-		\have{b}\metaB{}\oe{ab, na}
 		\have{nb}{\enot\metaB{}}\ni{b2-c2, b2-nc2}
+		\have{b}\metaB{}\oe{ab, na}
 	\close
 	\have{c}{\metaC{}} \ne{nc-b, nc-nb}
 \end{proof}
 
 To understand this proof, think about the broad outline of it. Ultimately, we derive \metaC{} via Negation Elimination; that's why we assumed \enot\metaC{} on line 4, and worked our way to a contradiction on lines 12--13. The internal lines are subproofs to the intermediate conclusions \metaB{} and \enot\metaB{}. 
 
-This is our first example of a natural deduction proof that involves nested assumptions. You can assume something a second new sentence even while a previous assumption is open, as this proof does at line 5. Make sure to close the assumptions in the proper order, closing the newest assumptions first. (Here, the line 5 assumption must be closed, as it is after line 7, before the line 4 one is, at the end of the proof.)
+This is our first example of a natural deduction proof that involves nested assumptions. You can assume something new even while a previous assumption is open, as this proof does at line 5. Make sure to close the assumptions in the proper order, closing the newest assumptions first. (Here, the line 5 assumption must be closed, as it is after line 7, before the line 4 one is, at the end of the proof.)
 
 As in the case of \emph{modus tollens}, Dilemma doesn't allow us to prove anything we couldn't prove via basic rules. Anytime you wanted to use the Dilemma rule, you could always take ten extra lines and prove the same thing in basic rules. But it's a useful shorthand to include on our list of derived rules.
 

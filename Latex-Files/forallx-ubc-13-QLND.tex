@@ -162,17 +162,17 @@ With this rule, we can give a formal proof that $\exists x Sx$ and $\forall x(Sx
 
 \subsection{Quantifier negation}
 
-$\enot\exists \script{x}\enot\metaA{}$ is logically equivalent to $\forall \script{x}\metaA{}$. The first says that \emph{nothing falsifies} \metaA{}; the second says \emph{everything satisfies} \metaA{}. In QL, they are provably equivalent. Here is a proof schema for half of that equivalence via a natural deduction reductio. For any wff \metaA{}, variable \script{x}, and new name \script{a}:
+$\enot\exists \script{x}\enot\metaA{}$ is logically equivalent to $\forall \script{x}\metaA{}$. The first says that \emph{nothing falsifies} \metaA{}; the second says \emph{everything satisfies} \metaA{}. In QL, they are provably equivalent. Here is a proof schema for half of that equivalence via a natural deduction \emph{reductio}. For any wff \metaA{}, variable \script{x}, and new name \script{a}:
 
 
 \begin{proof}
 	\have{Aa}{\forall \script{x} \metaA{}} \by{want $\enot\exists \script{x}\enot \metaA{}$}{}
 	\open
-		\hypo{Ena}{\exists \script{x}\enot \metaA{}}\by{for reductio}{}
+		\hypo{Ena}{\exists \script{x}\enot \metaA{}}\by{for \emph{reductio}}{}
 		\open
 			\hypo{nc}{\enot \metaA{\substitute{\script{x}}{\script{a}^\ast}}}\by{for $\exists$E}{}
 			\open
-				\hypo{Aa2}{\forall \script{x} \metaA{}}\by{for reductio}{}
+				\hypo{Aa2}{\forall \script{x} \metaA{}}\by{for \emph{reductio}}{}
 				\have{c2}{\metaA{\substitute{\script{x}}{\script{a}^\ast}}}\Ae{Aa}
 				\have{nc2}{\enot \metaA{\substitute{\script{x}}{\script{a}^\ast}}}\by{R}{nc}
 			\close
@@ -191,11 +191,11 @@ This is a proof \emph{schema} --- it is not itself a proof in QL, as its lines a
 \begin{proof}
 	\hypo{Aa}{\forall y Ay} \by{want $\enot\exists y\enot Ay$}{}
 	\open
-		\hypo{Ena}{\exists y\enot Ay}\by{for reductio}{}
+		\hypo{Ena}{\exists y\enot Ay}\by{for \emph{reductio}}{}
 		\open
 			\hypo{nc}{\enot Ac}\by{for $\exists$E}{}
 			\open
-				\hypo{Aa2}{\forall y Ay}\by{for reductio}{}
+				\hypo{Aa2}{\forall y Ay}\by{for \emph{reductio}}{}
 				\have{c2}{Ac}\Ae{Aa}
 				\have{nc2}{\enot Ac}\by{R}{nc}
 			\close
@@ -342,7 +342,7 @@ Undischarged assumptions would require special treatment. You can think of an as
 
 The completeness proof is more complex. We need some way to guarantee that there is a proof corresponding to every QL entailment. The way to do this is to find an algorithmic procedure that is guaranteed to find a proof if one exists, and to prove that this is so. One good way to do this is to take advantage of the proven completeness of our \emph{tree} system for QL, presented in Chapter \ref{ch.QLsoundcomplete}, and find a way to demonstrate that any tree proof can be converted to a natural deduction proof.
 
-Here is a hint if you're interested in undertaking that project: the tree method encodes the same kind of reasoning that reductio proofs do.
+Here is a hint if you're interested in undertaking that project: the tree method encodes the same kind of reasoning that \emph{reductio} proofs do.
 
 \practiceproblems
 
