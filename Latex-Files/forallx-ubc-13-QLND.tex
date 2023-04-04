@@ -125,7 +125,7 @@ Since $\exists x Sx$, there is something that is an $S$. We do not know which co
 \end{quote}
 In this paragraph, we introduced a name for the thing that is an $S$. We gave it an arbitrary name (`Ishmael') so that we could reason about it and derive some consequences from there being an $S$. Since `Ishmael' is just a bogus name introduced for the purpose of the proof and not a genuine constant, we could not mention it in the conclusion. Yet we could derive a sentence that does not mention Ishmael; namely, $\exists x Tx$. This sentence does follow from the two premises.
 
-We want the existential elimination rule to work in a similar way. Yet since English language worlds like `Ishmael' are not symbols of QL, we cannot use them in formal proofs. Instead, just as we did in the analogous rule within our tree system, we will use names that are \emph{new} --- names which do not appear anywhere else in the proof. (This includes the conclusion you are aiming for.)
+We want the existential elimination rule to work in a similar way. Yet since English language words like `Ishmael' are not symbols of QL, we cannot use them in formal proofs. Instead, just as we did in the analogous rule within our tree system, we will use names that are \emph{new} --- names which do not appear anywhere else in the proof. (This includes the conclusion you are aiming for.)
 
 A constant that is used to stand in for whatever it is that satisfies an existential claim is called a \define{proxy}. Reasoning with the proxy must all occur inside a subproof, and the proxy cannot be a constant that is doing work elsewhere in the proof.
 
@@ -354,7 +354,7 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 %$\{\forall x(\exists y)(Rxy \eor Ryx),\forall x\enot Rmx\}\vdash\exists xRxm$
 \begin{proof}
 \hypo{p1}{\forall x\exists y(Rxy \eor Ryx)}
-\have{p2}{\forall x\enot Rmx}
+\hypo{p2}{\forall x\enot Rmx}
 \have{3}{\exists y(Rmy \eor Rym)}{}
 	\open
 		\hypo{a1}{Rma \eor Ram}

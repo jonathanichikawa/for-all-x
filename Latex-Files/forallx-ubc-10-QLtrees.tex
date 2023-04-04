@@ -270,9 +270,9 @@ This will be our official tree rule for existentials:
 \end{center}
 }
 
-Just as \metaA{} stands in for any sentence of QL, the \script{x} is meant to stand in for any variable, and \script{a} stands in for any name. The requirement that the name be \emph{new} means that the name chosen for the substitution instance must be a name that has not appeared anywhere in the tree so far. 
+Just as \metaA{} stands in for any sentence of QL, the \script{x} is meant to stand in for any variable, and \script{a} stands in for any name. The requirement that the name be \emph{new} means that the name chosen for the substitution instance must be a name that has not appeared anywhere in the branch so far. 
 
-What is the rationale for this restriction? The existential claim says that some substitution instance is true, but it doesn't say which one it is. If we knew how many objects we were looking at in the UD, we could make a new branch for each object --- that's what we did in the examples above --- but here we see a different way to model this kind of flexibility. Remember, there is no prohibition in QL of two different names referring to the very same object. So by using an instance involving a new name, we are remaining open-minded about whether it is also a name for some object we've already been discussing.
+What is the rationale for this restriction? The existential claim says that some substitution instance is true, but it doesn't say which one it is. If we knew how many objects we were looking at in the UD, we could make a new branch for each object --- that's what we did in the examples above --- but here we see a different way to model this kind of flexibility. Remember, there is no prohibition in QL of two different names referring to the very same object. So by using an instance involving a new name, we are remaining open-minded about whether, in the model we're attempting to construct with that branch, it is also a name for some object we've already been discussing.
 
 For example, consider this tree:
 
@@ -604,7 +604,7 @@ This tree has not closed, but note that it is not complete. We haven't taken the
 			[\exists y Rby, just=1 $\forall$, checked=c
 				[Rbc, just=4 $\exists$
 					[\exists y Rcy, just=1 $\forall$, checked=d
-						[Rcd, just=5 $\exists$
+						[Rcd, just=6 $\exists$
 							[\vdots]
 						]
 					]
