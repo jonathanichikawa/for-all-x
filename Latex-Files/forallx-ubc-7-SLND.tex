@@ -578,18 +578,30 @@ The {\enot}E rule will work in much the same way. If we assume \enot\metaA{} and
 \close
 \have[\ ]{a}[\ ]\metaA{}\ne{na-b, na-nb}
 \end{proof}
+\section{Derived rules}
+
+A \define{derived rule} is a rule of proof that does not make any new proofs possible. Anything that can be proven with a derived rule can be proven without it. You can think of a short proof using a derived rule as shorthand for a longer proof that uses only the basic rules. 
+
 
 \subsection{Reiteration}
 \label{sec:reiteration}
 
-In addition to the Introduction and Elimination rules for each logical operator, we will also have one more basic rule: Reiteration (R). If you already have shown something in the course of a proof, the Reiteration rule allows you to repeat it on a new line. Put formally:
+Here is a very simple rule, called Reiteration (R). If you already have shown something in the course of a proof, the Reiteration rule allows you to repeat it on a new line. Put formally:
 
 \begin{proof}
 	\have[m]{a1}\metaA{}
 	\have[\ ]{a2}\metaA{} \by{R}{a1}
 \end{proof}
 
-Obviously, the reiteration rule will not allow us to show anything \emph{new}. For that, we will need to use rules. Still, Reiteration is a handy rule to have available. Here, for instance, is a proof using Reiteration to help with a Negation Introduction:
+Here is a simple derivation of Reiteration using our basic rules:
+
+\begin{proof}
+	\hypo{a1}\metaA{}
+	\have{a2}{\metaA{} \eand \metaA{}} \ai{a1,a1}
+	\have{a3}\metaA{}  \ae{a2}
+\end{proof}
+
+Obviously, the reiteration rule will not allow us to show anything \emph{new}. For that, we will need to use other rules. Still, Reiteration is a handy rule to have available. Here, for instance, is a proof using Reiteration to help with a Negation Introduction:
 
 \begin{proof}
 	\hypo{p}{P}
@@ -602,19 +614,16 @@ Obviously, the reiteration rule will not allow us to show anything \emph{new}. F
 	\have{nq}{\enot Q}\ni{q-np, q-nnp}
 \end{proof}
 
-Negation Introduction requires that one show that some sentence and its negation are both derivable from the assumption for \emph{reductio}. In this case, we establish that $P$ and $\enot P$ both follow from the assumption that $Q$. In the case of $\enot P$, we can get it directly via Conditional Elimination; the easiest way to get the $P$ that we need is simply to reiterate it from line 1.
+Negation Introduction requires that one show that some sentence and its negation are both derivable from the assumption for \emph{reductio}. In this case, we establish that $P$ and $\enot P$ both follow from the assumption that $Q$. In the case of $\enot P$, we can get it directly via Conditional Elimination; the easiest way to get the $P$ that we need is simply to reiterate it from line 1. But it would also be possible to do a version of this proof using more steps without Reiteration, by using Conjunction Introduction and Conjunction Elimination together instead.
 
-You may have noticed that there is another way to prove $\enot Q$ from these premises --- one may do it in a single step via \emph{modus tollens}. Recall that \emph{modus tollens} is not one of our \emph{basic} rules. It is a \emph{derived} rule that lets us take certain shortcuts. But anything that can be proven with \emph{modus tollens} can be proven with the basic rules listed above. In fact, the proof we have just seen, using Negation Introduction and Reiteration, provides a template. Anything you could get to with one step via \emph{modus tollens}, you could also get to in four steps via Negation Introduction, Conditional Elimination, and Reiteration.
+%You may have noticed that there is another way to prove $\enot Q$ from these premises --- one may do it in a single step via \emph{modus tollens}. Recall that \emph{modus tollens} is not one of our \emph{basic} rules. It is a \emph{derived} rule that lets us take certain shortcuts. But anything that can be proven with \emph{modus tollens} can be proven with the basic rules listed above. In fact, the proof we have just seen, using Negation Introduction and Reiteration, provides a template. Anything you could get to with one step via \emph{modus tollens}, you could also get to in four steps via Negation Introduction, Conditional Elimination, and Reiteration.
 
-\section{Derived rules}
 
-A \define{derived rule} is a rule of proof that does not make any new proofs possible. Anything that can be proven with a derived rule can be proven without it. You can think of a short proof using a derived rule as shorthand for a longer proof that uses only the basic rules. 
+
 
 \subsection{Modus tollens}
 
-We have been discussing \emph{modus tollens} throughout this chapter, and in \S\ref{sec:reiteration} we showed how, in the case of one simple proof using \emph{modus tollens}, we can instead give a slightly longer proof using only basic rules. In fact, we can prove this much more generally, via this proof schema:
-
-
+We have been discussing \emph{modus tollens} throughout this chapter, and in \S\ref{sec:reiteration} we showed how, in the case of one simple proof using \emph{modus tollens}, we can instead give a slightly longer proof using basic rules and Reiteration. In fact, we can prove this much more generally, via this proof schema:
 
 \begin{proof}
 	\hypo{p}{\metaA{}}
@@ -627,7 +636,21 @@ We have been discussing \emph{modus tollens} throughout this chapter, and in \S\
 	\have{nq}{\enot \metaB{}}\ni{q-np, q-nnp}
 \end{proof}
 
-As always,  \metaA{} and \metaB{} are meta-variables. They are not symbols of SL, but stand-ins for arbitrary sentences of SL. So this is not, strictly speaking, a proof in SL. It is more like a recipe; no matter what sentences you want to use \emph{modus tollens} on, if that rule would allow it, this pattern of proof will get you to the same place using basic rules only. This means that \emph{modus tollens} is not really necessary; we could prove everything we want to prove without it.
+Derived rules need to be derived from basic rules only. Reiteration is not a basic rule, so this by itself isn't \emph{quite} a proof that we can derive \emph{modus tollens} from our basic rules. But since we have already seen that Reiteration itself can be derived from basic rules, we know that any Reiteration step can be replaced with a series of steps using only basic rules. If we did it using basic rules only, we'd replace line 5 with a 2-step version of the Reiteration derivation from \S\ref{sec:reiteration}:
+
+\begin{proof}
+	\hypo{p}{\metaA{}}
+	\hypo{qnp}{\metaB{} \eif \enot \metaA{}} \want{\enot \metaB{}}
+	\open
+		\hypo{q}{\metaB{}} \by{for \emph{reductio}}{}
+		\have{np}{\enot \metaA{}}\ce{qnp,q}
+		\have{nnp}{\metaA{}\eand\metaA{}}\ci{p}
+		\have{nnnp}{\metaA{}}\ce{nnp}		
+	\close
+	\have{nq}{\enot \metaB{}}\ni{q-np, q-nnnp}
+\end{proof}
+
+As always, \metaA{} and \metaB{} are meta-variables. They are not symbols of SL, but stand-ins for arbitrary sentences of SL. So this is not, strictly speaking, a proof in SL. It is more like a recipe; no matter what sentences you want to use \emph{modus tollens} on, if that rule would allow it, this pattern of proof will get you to the same place using basic rules only. This means that \emph{modus tollens} is not really necessary; we could prove everything we want to prove without it.
 
 Nevertheless, it is a convenient shortcut. We add it to our list of derived rules.
 

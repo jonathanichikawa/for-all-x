@@ -380,12 +380,6 @@ A branch closes if and only if either (i) it contains some sentence \metaA{} alo
 
 %{\LARGE \bf Natural Deduction Rules}
 \label{nd-proofrules}
-\textsc{Reiteration}
-
-\begin{proof}
-	\have[m]{a}{\metaA{}}
-	\have[\ ]{c}{\metaA{}} \by{R}{a}
-\end{proof}
 
 
 \textsc{Conjunction Introduction}
@@ -578,6 +572,14 @@ $^\ast$ The constant \script{c} must not occur in $\metaA{}$ or in any undischar
 
 {\large \bf Derived Rules}
 
+\textsc{Reiteration}
+
+\begin{proof}
+	\have[m]{a}{\metaA{}}
+	\have[\ ]{c}{\metaA{}} \by{R}{a}
+\end{proof}
+
+
 \textsc{Dilemma}
 
 \begin{proof}
@@ -607,7 +609,7 @@ $^\ast$ The constant \script{c} must not occur in $\metaA{}$ or in any undischar
 
 {\large \bf Replacement Rules}
 
-\begin{footnotesize}\emph{(Replacement rules may be used within complex sentences or on whole lines.)}\end{footnotesize}
+%\begin{footnotesize}\emph{(Replacement rules may be used within complex sentences or on whole lines.)}\end{footnotesize}
 
 \textsc{Commutativity} (Comm)\\
 $(\metaA{}\eand\metaB{}) \Longleftrightarrow (\metaB{}\eand\metaA{})$\\
