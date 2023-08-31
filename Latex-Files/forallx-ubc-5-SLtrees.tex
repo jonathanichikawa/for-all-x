@@ -707,6 +707,51 @@ The example above is a perfectly fine instance of a completed tree, and it does 
 
 This tree gets us to the same result much more quickly, pointing to the same interpretation that satisfies the root. As a general rule of thumb, it's good advice to look a step ahead, and resolve sentences that won't lead to new open branches, before resolving ones that will. For just the same reason, it is usually more efficient to resolve those sentences that have linear rules before those that have branching rules.
 
+
+\section{Completed Open Branch in an Incomplete Tree}
+\label{sec.completebranch}
+
+Completing an open branch guarantees that the tree will never close, even if there are other branches that are not yet complete. The tree method is a method of determining whether there is at least one interpretation that satisfies the root; since one completed open branch describes such an interpretation, it is enough to answer that question. For this reason, sometimes we don't need to complete the entire tree, to determine whether the root is satisfiable.
+
+Here is a simple illustration. Consider whether $\{P \eand Q, \enot P \eor \enot R, S \eif (P \eiff (\enot Q \eand R)) \vdash{}\bot$. We put those three sentences in the root of the tree. In this example, it is efficient to resolve them in the order in which they're listed:
+
+
+\begin{prooftree}
+{
+}
+[P \eand Q, checked, name=p1
+[\enot P \eor \enot R, checked, grouped, name=p2
+[S \eif (P \eiff (\enot Q \eand R)), grouped, checked, name=p3
+	[P, just={\eand:p1}
+	[Q, grouped
+		[\enot P, close, just={\eor:p2}]
+		[\enot R
+			[\enot S, just={\eif:p3}, open]
+			[P \eiff (Q \eand R)]
+		]
+	]
+	]
+]
+]
+]
+\end{prooftree}
+
+After these three steps, there is one completed open branch, describing an interpretation that satisfies the root: 
+
+\begin{displaymath}
+\script{I} =
+\left\{
+	\begin{array}{ll}
+	P = 1\\
+	Q = 1\\
+	R = 0\\
+	S = 0
+	\end{array}
+\right.
+\end{displaymath}
+
+There is another branch including a biconditional that has not yet been resolved, but we don't need to continue working on this tree to answer our question. Since we found a model that satisfies the root, we conclude that $\{P \eand Q, \enot P \eor \enot R, S \eif (P \eiff (\enot Q \eand R)) \nvdash{}\bot$. It doesn't matter whether that branch would have closed, had we completed it. (You could complete it as an exercise, if you're curious.)
+
 \section{Choosing the right root}
 \label{sec.sl.treeroots}
 
