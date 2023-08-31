@@ -262,14 +262,14 @@ A set of sentences $\metaSetX{}$ is \define{inconsistent in SL} if and only if $
 \practiceproblems
 
 
-
+\solutions
 \problempart
-\label{HW3.C}
+\label{pr.treesetup}
 Each of the following claims can be evaluated with truth tables. For each, what would you look for in a completed truth table to evaluate it? The Greek letters can stand for any arbitrary sentence of SL. The first claim has the answer filled out for you.
 
 \begin{earg}
 		\item[0.] $\Phi$ is a tautology.
-		To evaluate this claim, check to see whether the main connective of $\Phi$ has a 1 under it in every row. If so, it is true.
+		To evaluate this claim, check to see whether the main connective of $\Phi$ has a 1 under it in every row. If so, it is true. Otherwise, it is false.
 		\item $\Phi \models \Psi$. 
 		To evaluate this claim, check to see whether... 
 		
@@ -278,18 +278,19 @@ Each of the following claims can be evaluated with truth tables. For each, what 
 		\item $\emptyset \models \Phi$
 	\end{earg}
 
-
+\solutions
 \problempart
+\label{pr.entailTF}
 Determine whether each entailment claim is true. You may construct a truth table to test it if you like, but these examples are simple enough so that you may be able to just think it through and get the right answer.
 \begin{earg}
 \item $Q \models (P \eor Q)$
 \item $P, Q \models (P \eor P)$
-\item $P \eiff Q, P \models Q$ %  \textcolor{red}{True.}
-\item $S \models (Q \eif Q)$   %\textcolor{red}{True.}
-\item $P \eand \enot P \models (Q \eor \enot Q)$%   \textcolor{red}{True.}
+\item $P \eiff Q, P \models Q$
+\item $S \models (Q \eif Q)$   
+\item $P \eand \enot P \models (Q \eor \enot Q)$
 \item $(P \eand \enot P) \models (Q \eand \enot Q)$
 \item $(P \eor \enot P) \models \bot$
-\item $(P \eor \enot P) \models Q$%   \textcolor{red}{False: $\{P=1, Q=0\}$.}
+\item $(P \eor \enot P) \models Q$
 \item $\models (P \eor \enot P)$
 \item $\models (P \eand \enot P)$
 \item $(A \eor B) \eif \enot P \models (P \eor \enot P)$

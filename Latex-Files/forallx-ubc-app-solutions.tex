@@ -298,6 +298,53 @@ $\enot [(A\eif B) \eif \enot(B\eif A)]$
 %$\enot(\enot A \eor \enot B) \eor \enot(A \eor B)$
 \end{earg}
 
+\solutionsection{ch.SLmodels}
+% Chapter 4 Part A
+\solutionpart{ch.SLmodels}{pr.treesetup}
+
+\begin{earg}
+%		\item[0.] $\Phi$ is a tautology.
+\item[0.] To evaluate this claim, check to see whether the main connective of $\Phi$ has a 1 under it in every row. If so, it is true. Otherwise, it is false.
+%		\item $\Phi \models \Psi$. 
+\item To evaluate this claim, check to see whether there is any row where the main connective of $\Phi$ has a 1 under it and the main connective of $\Psi$ has a 0 under it. If so, it is false. Otherwise, it is true.
+%		\item $\Phi$ is contingent.
+\item To evaluate this claim, check to see whether there is at least one row where the main connective of $\Phi$ has a 1 under it, and also at least one row where it has a 0 under it. If so, it is true. Otherwise, it is false.
+%\item $\Phi \models \bot$
+\item To evaluate this claim, check to see whether there is at least one row where the main connective of $\Phi$ has a 1 under it. If so, it is false. Otherwise, it is true.
+%		\item $\emptyset \models \Phi$
+\item To evaluate this claim, check to see whether there is at least one row where the main connective of $\Phi$ has a 0 under it. If so, it is false. Otherwise, it is true.
+\end{earg}
+
+\solutionpart{ch.SLmodels}{pr.entailTF}
+% Chapter 4 Part B
+%Determine whether each entailment claim is true. You may construct a truth table to test it if you like, but these examples are simple enough so that you may be able to just think it through and get the right answer.
+%\item $Q \models (P \eor Q)$
+\noSeq
+%\item $P, Q \models (P \eor P)$
+\noSeq
+%\item $P \eiff Q, P \models Q$ %  \textcolor{red}{True.}
+\nextSeq
+%\item $S \models (Q \eif Q)$   %\textcolor{red}{True.}
+\nextSeq
+%\item $P \eand \enot P \models (Q \eor \enot Q)$%   \textcolor{red}{True.}
+\nextSeq
+%\item $(P \eand \enot P) \models (Q \eand \enot Q)$
+\nextSeq
+%\item $(P \eor \enot P) \models \bot$
+\noSeq
+%\item $(P \eor \enot P) \models Q$%   \textcolor{red}{False: $\{P=1, Q=0\}$.}
+\noSeq
+%\item $\models (P \eor \enot P)$
+\nextSeq
+%\item $\models (P \eand \enot P)$
+\noSeq
+%\item $(A \eor B) \eif \enot P \models (P \eor \enot P)$
+\nextSeq
+%\item $(P \eiff Q) \models ((P \eand Q) \eor \enot (P \eor Q))$
+\lastSeq
+are true.
+
+
 
 
 \solutionsection{ch.sl.trees}
