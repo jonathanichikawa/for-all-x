@@ -685,7 +685,7 @@ The Dilemma rule is also derivable from the basic rules. The proof is a bit more
 	\hypo{ac}{\metaA{}\eif\metaC{}}
 	\hypo{bc}{\metaB{}\eif\metaC{}}\by{want \metaC{}}{}
 	\open
-		\have{nc}{\enot \metaC{}}\by{for \emph{reductio}}{}
+		\hypo{nc}{\enot \metaC{}}\by{for \emph{reductio}}{}
 		\open
 			\hypo{a1}\metaA{}\by{for \emph{reductio}}{}
 			\have{c1}{\metaC{}}\ce{ac, a1}
