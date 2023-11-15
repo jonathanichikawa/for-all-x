@@ -852,7 +852,7 @@ single branches}
 \begin{proof}
 \hypo{1}{W \eif \enot B}
 \hypo{2}{A \eand W}
-\hypo{2b}{B \eor (J \eand K)}
+\hypo{2b}{B \eor (J \eand K)}\want{K}
 \have{3}{W}\ae{2}
 \have{4}{\enot B} \ce{1,3}
 \have{5}{J \eand K} \oe{2b,4}
@@ -861,7 +861,7 @@ single branches}
 
 \begin{proof}
 \hypo{1}{L \eiff \enot O}
-\hypo{2}{L \eor \enot O}
+\hypo{2}{L \eor \enot O}\want{L}
 \open
 	\hypo{a1}{\enot L} \by{for \emph{reductio}}{}
 	\have{a2}{\enot O}\oe{2,a1}
@@ -873,7 +873,7 @@ single branches}
 
 \begin{proof}
 \hypo{1}{Z \eif (C \eand \enot N)}
-\hypo{2}{\enot Z \eif (N \eand \enot C)}
+\hypo{2}{\enot Z \eif (N \eand \enot C)}\want{N \eor C}
 \open
 	\hypo{a1}{\enot(N \eor  C)} \by{for \emph{reductio}}{}
 	\have{a2}{\enot N \eand \enot C} \by{DeM}{a1}
@@ -1078,7 +1078,7 @@ single branches}
 \item % $M \eand (\enot N \eif \enot M) \vdash (N \eand M) \eor \enot M$
 \begin{solutioninlist}
 \begin{proof}
-	\hypo{1}{M\eand(\enot N \eif \enot M)}
+	\hypo{1}{M\eand(\enot N \eif \enot M)}\want{(N \eand M) \eor \enot M}
 	\have{2}{M}\ae{1}
 	\have{3}{\enot N \eif \enot M}\ae{1}
 	\have{4}{\enot \enot M}\by{DN}{2}
@@ -1092,7 +1092,7 @@ single branches}
 \begin{solutioninlist}
 \begin{proof}
 	\hypo{1}{C \eif (E \eand G)}
-	\hypo{2}{\enot C \eif G}
+	\hypo{2}{\enot C \eif G}\want{G}
 	\open
 		\hypo{3}{\enot G}\by{for \emph{reductio}}{}
 		\have{4}{\enot \enot C}\by{MT}{2,3}
@@ -1108,7 +1108,7 @@ single branches}
 \begin{solutioninlist}
 \begin{proof}
 	\hypo{1}{(Z \eand K) \eiff (Y \eand M)}
-	\hypo{2}{D \eand (D \eif M)}
+	\hypo{2}{D \eand (D \eif M)}\want{Y \eif Z}
 	\have{3}{D \eif M}\ae{2}
 	\have{4}{D}\ae{2}
 	\have{5}{M}\ce{3,4}
@@ -1126,7 +1126,7 @@ single branches}
 \begin{proof}
 	\hypo{1}{(W \eor X) \eor (Y \eor Z)}
 	\hypo{2}{X \eif Y}
-	\hypo{3}{\enot Z}
+	\hypo{3}{\enot Z}\want{W \eor Y}
 	\open
 		\hypo{4}{\enot (W \eor Y)}\by{for \emph{reductio}}{}
 		\have{5}{\enot W \eand \enot Y}\by{DeM}{4}
