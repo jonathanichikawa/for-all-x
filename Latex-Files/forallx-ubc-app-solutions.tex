@@ -1540,7 +1540,7 @@ There are many possible correct answers. Here are some:
 	}
 	[\enot \forall x \forall y (Gxy \eif \exists z Gxz), checked=a
 		[\enot \forall y (Gay \eif \exists z Gaz), just=1 \enot $\forall$, checked=b
-			[\enot (Gab \eif \exists z Gaz), just=2 \enot $\forall$, checked, grouped
+			[\enot (Gab \eif \exists z Gaz), just=2 \enot $\forall$, checked
 				[Gab, just=3 \enot \eif
 				[\enot \exists z Gaz, grouped, subs={b}
 					[\enot Gab, close={4, 6}
@@ -1737,17 +1737,17 @@ $\forall x \exists y Lxy$, \therefore\ $\exists x \forall y Lxy$ is invalid.
 	[\forall x \exists y Lxy, subs={a, b, c, ...}
 	[\enot \exists x \forall y Lxy, subs={a, b, c, ...}, grouped
 	[\exists y Lay, checked=b, just=1 $\forall$
-	[Lab, just=3 $\exists$, grouped
+	[Lab, just=3 $\exists$
 	[\enot \forall y Lay, checked=c, just=2 \enot $\exists$
-	[\enot Lac, just=5 \enot $\forall$, grouped
+	[\enot Lac, just=5 \enot $\forall$
 	[\exists y Lby, checked=d, just=1 $\forall$
-	[Lbd, just=7 $\exists$, grouped
+	[Lbd, just=7 $\exists$
 	[\enot \forall y Lby, checked=e, just=2 \enot $\exists$
-	[\enot Lbe, just=9 \enot $\forall$, grouped
+	[\enot Lbe, just=9 \enot $\forall$
 	[\exists y Lcy, checked=f, just=1 $\forall$
 	[Lcf, just=11 $\exists$, grouped
 	[\enot \forall y Lcy, checked=g, just=2 \enot $\exists$
-	[\enot Lcg, just=13 \enot $\forall$, grouped
+	[\enot Lcg, just=13 \enot $\forall$
 	[\vdots
 	]
 	]
