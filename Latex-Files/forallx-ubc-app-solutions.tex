@@ -849,7 +849,7 @@ single branches}
 % Chapter 7 Part A
 \solutionpart{ch.ND.proofs}{pr.justifySLproof}
 
-\begin{proof}
+\begin{ndproof}
 \hypo{1}{W \eif \enot B}
 \hypo{2}{A \eand W}
 \hypo{2b}{B \eor (J \eand K)}\want{K}
@@ -857,9 +857,9 @@ single branches}
 \have{4}{\enot B} \ce{1,3}
 \have{5}{J \eand K} \oe{2b,4}
 \have{6}{K} \ae{5}
-\end{proof}
+\end{ndproof}
 
-\begin{proof}
+\begin{ndproof}
 \hypo{1}{L \eiff \enot O}
 \hypo{2}{L \eor \enot O}\want{L}
 \open
@@ -869,9 +869,9 @@ single branches}
 	\have{a4}{\enot L}\by{R}{a1}
 \close
 \have{3}{L}\ne{a1-a3, a1-a4}
-\end{proof}
+\end{ndproof}
 
-\begin{proof}
+\begin{ndproof}
 \hypo{1}{Z \eif (C \eand \enot N)}
 \hypo{2}{\enot Z \eif (N \eand \enot C)}\want{N \eor C}
 \open
@@ -889,7 +889,7 @@ single branches}
 	\have{a6}{\enot N}\ae{a2}
 \close
 \have{3}{N \eor C}\ne{a1-a5, a1-a6}
-\end{proof}
+\end{ndproof}
 
 % Chapter 7 Part B
 \solutionpart{ch.ND.proofs}{pr.solvedSLproofs}
@@ -897,7 +897,7 @@ single branches}
 \begin{earg}
 \item%$K\eand L$, \therefore $K\eiff L$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{a1}{K\eand L} \want{K\eiff L}
 	\open
 		\hypo{b1}{K} \want{L}
@@ -910,12 +910,12 @@ single branches}
 	\close
 	\have{lk}{L \eif K} \ci{c1-c2}
 	\have{d1}{K \eiff L} \bi{kl,lk}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 
 \item%$A\eif (B\eif C)$, \therefore $(A\eand B)\eif C$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{a1}{A\eif (B\eif C)} \want{(A\eand B)\eif C}
 	\open
 		\hypo{b1}{A\eand B} \want{C}
@@ -925,11 +925,11 @@ single branches}
 		\have{b5}{C} \ce{b3, b4}
 	\close
 	\have{c}{(A\eand B)\eif C} \ci{b1-b5}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item%$P \eand (Q\eor R)$, $P\eif \enot R$, \therefore $Q\eor E$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{a1}{P \eand (Q\eor R)}
 	\hypo{a2}{P\eif \enot R} \want{Q\eor E}
 	\have{a3}{P} \andE{a1}
@@ -937,11 +937,11 @@ single branches}
 	\have{a5}{Q\eor R} \andE{a1}
 	\have{a6}{Q} \orE{a4,a5}
 	\have{c}{Q\eor E} \orI{a6}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item%$(C\eand D)\eor E$, \therefore $E\eor D$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{a1}{(C\eand D)\eor E} \want{E\eor D}
 	\open
 		\hypo{b1}{\enot E} \want{D}
@@ -950,11 +950,11 @@ single branches}
 	\close
 	\have{c1}{\enot E\eif D} \ci{b1-b3}
 	\have{c2}{E\eor D} \by{MC}{c1}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item%$\enot F\eif G$, $F\eif H$, \therefore $G\eor H$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{a1}{\enot F\eif G}
 	\hypo{a2}{F\eif H} \want{G\eor H}
 	\open
@@ -965,11 +965,11 @@ single branches}
 	\close
 	\have{c1}{\enot G \eif H} \ci{b1-b4}
 	\have{c2}{G\eor H} \by{MC}{c1}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item%$(X\eand Y)\eor(X\eand Z)$, $\enot(X\eand D)$, $D\eor M$ \therefore $M$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{a1}{(X\eand Y)\eor(X\eand Z)}
 	\hypo{a2}{\enot(X\eand D)}
 	\hypo{a3}{D\eor M} \want{M}
@@ -989,7 +989,7 @@ single branches}
 		\have{d4}{\enot(X\eand D)} \by{R}{a2}
 	\close
 	\have{e}{M} \ne{d1-d3, d1-d4}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \end{earg}
 %
@@ -1000,17 +1000,17 @@ single branches}
 \begin{earg}
 \item \begin{solutioninlist}
 %$O \eif O$
-\begin{proof}
+\begin{ndproof}
 	\open
 		\hypo{o1}{O}\want{O}
 		\have{o2}{O}\by{R}{o1}
 	\close
 	\have{o3}{O \eif O}\ci{o1-o2}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item \begin{solutioninlist}
 %$N \eor \enot N$
-\begin{proof}
+\begin{ndproof}
 	\open
 		\hypo{nnon}{\enot (N \eor \enot N)}\by{for \emph{reductio}}{}
 		\have{nnnn}{\enot N \eand \enot\enot N}\by{DeM}{nnon}
@@ -1018,22 +1018,22 @@ single branches}
 		\have{nn}{\enot\enot N}\ae{nnnn}
 	\close
 	\have{nonn}{N \eor \enot N}\ne{nnon-n,nnon-nn}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item \begin{solutioninlist}
 %$\enot(P\eand \enot P)$
-\begin{proof}
+\begin{ndproof}
 	\open
 		\hypo{panp}{P \eand \enot P}\by{for \emph{reductio}}{}
 		\have{p}{P}\ae{panp}
 		\have{np}{\enot P}\ae{panp}
 	\close
 	\have{npanp}{\enot (P \eand \enot P)}\ni{panp-p,panp-np}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %$\enot(A \eif \enot C) \eif (A \eif C)$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\open
 		\hypo{nainc}{\enot (A \eif \enot C)}\want{A \eif C}
 		\open
@@ -1046,11 +1046,11 @@ single branches}
 		\have{aic}{A \eif C}\ci{a-c}
 	\close
 	\have{nainciaic}{\enot (A \eif \enot C) \eif (A \eif C) }\ci{nainc-aic}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %$J \eiff [J\eor (L\eand\enot L)]$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\open
 		\hypo{j}{J}\want {J\eor (L\eand\enot L)}
 		\have{joblah}{J\eor (L\eand\enot L)}\oi{j}
@@ -1068,7 +1068,7 @@ single branches}
 	\close
 	\have{jblahij}{(J\eor (L\eand\enot L)) \eif J}\ci{jblah2-j2}
 	\have{jiffjblah}{J \eiff [J\eor (L\eand\enot L)]}\bi{jijblah,jblahij}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \end{earg}
 
@@ -1077,7 +1077,7 @@ single branches}
 \begin{earg}
 \item % $M \eand (\enot N \eif \enot M) \vdash (N \eand M) \eor \enot M$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{1}{M\eand(\enot N \eif \enot M)}\want{(N \eand M) \eor \enot M}
 	\have{2}{M}\ae{1}
 	\have{3}{\enot N \eif \enot M}\ae{1}
@@ -1086,11 +1086,11 @@ single branches}
 	\have{6}{N}\by{DN}{5}
 	\have{7}{N \eand M}\ai{6,2}
 	\have{8}{(N \eand M) \eor \enot M}\oi{7}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %  \{$C\eif(E\eand G)$, $\enot C \eif G$\} $\vdash$ $G$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{1}{C \eif (E \eand G)}
 	\hypo{2}{\enot C \eif G}\want{G}
 	\open
@@ -1102,11 +1102,11 @@ single branches}
 		\have{8}{\enot G}\by{R}{3}
 	\close
 	\have{9}{G}\ne{3-7,3-8}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item % \{$(Z\eand K)\eiff(Y\eand M)$, $D\eand(D\eif M)$\} $\vdash$ $Y\eif Z$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{1}{(Z \eand K) \eiff (Y \eand M)}
 	\hypo{2}{D \eand (D \eif M)}\want{Y \eif Z}
 	\have{3}{D \eif M}\ae{2}
@@ -1119,11 +1119,11 @@ single branches}
 		\have{9}{Z}\ae{8}
 	\close
 	\have{10}{Y \eif Z}\ci{6-9}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item % \{$(W \eor X) \eor (Y \eor Z)$, $X\eif Y$, $\enot Z$\} $\vdash$ $W\eor Y$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{1}{(W \eor X) \eor (Y \eor Z)}
 	\hypo{2}{X \eif Y}
 	\hypo{3}{\enot Z}\want{W \eor Y}
@@ -1140,7 +1140,7 @@ single branches}
 		\have{13}{\enot Z}\by{R}{3}
 	\close
 	\have{14}{W \eor Y}\ne{4-12,4-13}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \end{earg}
 
@@ -2732,7 +2732,7 @@ $\exists x \forall y \: x{=}y \models \forall x \forall y (Rxy \eiff Ryx)$ is tr
 				[a{=}b, just=3 $\forall$
 				[a{=}c, just=3 $\forall$, grouped
 					[\enot (Rac \eiff Rca), just={5, 6 =}
-						[\enot (Raa \eiff Raa), just={5, 7 =}, checked, grouped
+						[\enot (Raa \eiff Raa), just={8, 7 =}, checked, grouped
 							[Raa, just=9 \enot\eiff
 							[\enot Raa, grouped, close={10, 11}
 							]
@@ -3002,7 +3002,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 
 
 %$\{\forall x(\exists y)(Rxy \eor Ryx),\forall x\enot Rmx\}\vdash\exists xRxm$
-\begin{proof}
+\begin{ndproof}
 \hypo{p1}{\forall x\exists y(Rxy \eor Ryx)}
 \hypo{p2}{\forall x\enot Rmx}
 \have{3}{\exists y(Rmy \eor Rym)}\Ae{p1}
@@ -3013,10 +3013,10 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 		\have{a4}{\exists x Rxm}\Ei{a3}
 	\close
 \have{n}{\exists x Rxm} \Ee{3,a1-a4}
-\end{proof}
+\end{ndproof}
 
 %$\{\forall x(\exists yLxy \eif \forall zLzx), Lab\} \vdash \forall xLxx$
-\begin{proof}
+\begin{ndproof}
 \hypo{1}{\forall x(\exists yLxy \eif \forall zLzx)}
 \hypo{2}{Lab}
 \have{3}{\exists y Lay \eif \forall zLza}\Ae{1}
@@ -3028,10 +3028,10 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \have{9}{\forall z Lzc}\ce{7,8}
 \have{10}{Lcc}\Ae{9}
 \have{11}{\forall x Lxx}\Ai{10}
-\end{proof}
+\end{ndproof}
 
 % $\{\forall x(Jx \eif Kx), \exists x\forall y Lxy, \forall x Jx\} \vdash \exists x(Kx \eand Lxx)$
-\begin{proof}
+\begin{ndproof}
 \hypo{a}{\forall x(Jx \eif Kx)}
 \hypo{b}{\exists x\forall y Lxy}
 \hypo{c}{\forall x Jx}
@@ -3045,11 +3045,11 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 	\have{5}{\exists x(Kx \eand Lxx)}\Ei{4}
 \close
 \have{j}{\exists x(Kx \eand Lxx)}\Ee{b,2-5}
-\end{proof}
+\end{ndproof}
 
 
 %$\vdash \exists x Mx \eor \forall x\enot Mx$
-\begin{proof}
+\begin{ndproof}
 	\open
 		\hypo{p1}{\enot (\exists x Mx \eor \forall x\enot Mx)} \by{for \emph{reductio}}{}
 		\have{p2}{\enot \exists x Mx \eand \enot \forall x\enot Mx} \by{DeM}{p1}
@@ -3058,7 +3058,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 		\have{p5}{\enot \forall x\enot Mx}\ae{p2}
 	\close
 \have{n}{\exists x Mx \eor \forall x\enot Mx} \ne{p1-p4, p1-p5}
-\end{proof}
+\end{ndproof}
 
 % Chapter 13 Part B
 \solutionpart{ch.QLND}{pr.someQLproofs}
@@ -3066,7 +3066,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{earg}
 \item%$\vdash \forall x Fx \eor \enot \forall x Fx$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\open
 		\hypo{p1}{\enot(\forall x Fx \eor \enot\forall x Fx)} \by{for \emph{reductio}}{}
 		\have{s1}{\enot\forall x Fx \eand \enot\enot\forall x Fx} \by{DeM}{p1}
@@ -3074,22 +3074,22 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 		\have{s3}{\enot\enot\forall x Fx}\ae{s1}
 	\close
 	\have{c}{\forall x Fx \eor \enot\forall x Fx} \ne{p1-s2, p1-s3}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %$\{\forall x(Mx \eiff Nx), Ma\eand\exists x Rxa\}\vdash \exists x Nx$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{p1}{\forall x(Mx \eiff Nx)}
 	\hypo{p2}{Ma \eand \exists x Rxa} \by{want $\exists x Nx$}{}
 	\have{a1}{Ma \eiff Na} \Ae{p1}
 	\have{a2}{Ma} \ae{p2}
 	\have{a3}{Na} \be{a1,a2}
 	\have{c}{\exists x Nx} \Ei{a3}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %$\{\forall x(\enot Mx \eor Ljx), \forall x(Bx\eif Ljx), \forall x(Mx\eor Bx)\}\vdash \forall xLjx$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{a1}{\forall x(\enot Mx \eor Ljx)}
 	\hypo{a2}{\forall x(Bx \eif Ljx)}
 	\hypo{a3}{\forall x(Mx \eor Bx)} \by{want $\forall x Ljx$}{}
@@ -3099,22 +3099,22 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 	\have{a7}{Ma \eor Ba} \Ae{a3}
 	\have{a8}{Lja}  \by{DIL}{a7, a5, a6}
 	\have{a9}{\forall x Ljx} \Ai{a8}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %$\forall x(Cx \eand Dt)\vdash \forall xCx \eand Dt$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{a1}{\forall x(Cx \eand Dt)} \by{want $\forall x Cx \eand Dt$}{}
 	\have{a2}{Ca \eand Dt} \Ae{a1}
 	\have{a3}{Ca} \ae{a2}
 	\have{a4}{\forall x Cx} \Ai{a3}
 	\have{a5}{Dt} \ae{a2}
 	\have{a6}{\forall x Cx \eand Dt} \ai{a4, a5}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %$\exists x(Cx \eor Dt)\vdash \exists x Cx \eor Dt$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{a1}{\exists x(Cx \eor Dt)} \by{want $\exists x Cx \eor Dt$}{}
 	\open
 		\hypo{a2}{Ca \eor Dt} \by{for {$\exists$}E}{}
@@ -3129,7 +3129,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 		\have{a9}{\exists x Cx \eor Dt} \ne{a3-a7, a3-a8}
 	\close
 	\have{a10}{\exists x Cx \eor Dt} \Ee{a1,a2-a9}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \end{earg}
 
@@ -3141,17 +3141,17 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \begin{earg}
 \item%$\forall x \forall y Gxy\vdash\exists x Gxx$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\open
 		\hypo{1}{\forall x \forall y Gxy}
 		\have{2}{\forall y Gay} \Ae{1}
 		\have{3}{Gaa}\Ae{2}
 		\have{4}{\exists x Gxx}\Ei{3}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %$\forall x \forall y (Gxy \eif Gyx) \vdash \forall x\forall y (Gxy \eiff Gyx)$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{1}{\forall x\forall y(Gxy \eif Gyx)}
 	\have{2}{\forall y(Gay \eif Gya)}\Ae{1}
 	\have{3}{Gab \eif Gba}\Ae{2}
@@ -3160,11 +3160,11 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 	\have{6}{Gab \eiff Gba}\bi{3,5}
 	\have{7}{\forall y(Gay \eiff Gya)}\Ai{6}
 	\have{8}{\forall x\forall y(Gxy \eiff Gyx)}\Ai{7}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %3 $\{\forall x(Ax\eif Bx), \exists x Ax\} \vdash \exists x Bx$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{a1}{\forall x(Ax \eif Bx)}
 	\hypo{a2}{\exists x Ax} \by{want $\exists x Bx$}{}
 	\open
@@ -3174,11 +3174,11 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 		\have{a6}{\exists x Bx} \Ei{a5}
 	\close
 	\have{a7}{\exists x Bx} \Ee{a2, a3-a6}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %$4 $\{Na \eif \forall x(Mx \eiff Ma), Ma, \enot Mb\}\vdash \enot Na$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\hypo{1}{Na \eif \forall x(Mx \eiff Ma)}
 	\hypo{2}{Ma}
 	\hypo{3}{\enot Mb} \by{want $\enot Na$}{}
@@ -3190,11 +3190,11 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 		\have{8}{\enot Mb} \by{R}{3}
 	\close
 	\have{9}{\enot Na} \ni{4-7, 4-8}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %5 $\vdash\forall z (Pz \eor \enot Pz)$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 	\open
 		\hypo{1}{Pa} \by{want $Pa$}{}
 		\have{2}{Pa} \by{R}{1}
@@ -3203,11 +3203,11 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 	\have{4}{\enot Pa \eor Pa}\by{MC}{3}
 	\have{5}{Pa \eor \enot Pa}\by{Comm}{4}	
 	\have{6}{\forall z (Pz \eor \enot Pz)}\Ai{5}	
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %6 $\vdash\forall x Rxx\eif \exists x \exists y Rxy$
 \begin{solutioninlist}
-\begin{proof}
+\begin{ndproof}
 \open
 	\hypo{1}{\forall x Rxx}\by{want $\eif \exists x \exists y Rxy$}{}
 	\have{2}{Raa}\Ae{1}
@@ -3215,13 +3215,13 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 	\have{4}{\exists x \exists y Rxy}\Ei{3}
 \close
 \have{5}{\forall x Rxx \eif \exists x \exists y Rxy}\ci{1-4}
-\end{proof}
+\end{ndproof}
 \end{solutioninlist}
 \item %7 $\vdash\forall y \exists x (Qy \eif Qx)$
 \begin{solutioninlist}
 
 
-\begin{proof}
+\begin{ndproof}
 \open
 		\hypo{1}{Qa}\by{want $Qa$}{}
 		\have{2}{Qa}\by{R}{1}
@@ -3229,7 +3229,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 	\have{3}{Qa \eif Qa}\ci{1-2}
 	\have{4}{\exists x (Qa \eif Qx)}\Ei{3}
 	\have{5}{\forall y \exists x (Qy \eif Qx)}\Ai{4}
-\end{proof}
+\end{ndproof}
 
 \end{solutioninlist}
 \end{earg}
@@ -3239,7 +3239,7 @@ $Dxy$        & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} & \textbf{f} \\
 \solutionpart{ch.QLND}{pr.likes}
 Regarding the translation of this argument, see p.~\pageref{likes2}.
 
-\begin{proof}
+\begin{ndproof}
 \hypo{1}{\exists x\forall y[\forall z(Lxz \eif Lyz) \eif Lxy]}
 \open
 	\have{a}{\forall y[\forall z(Laz \eif Lyz) \eif Lay]} \by{for $\exists${}E}{}
@@ -3260,7 +3260,7 @@ Regarding the translation of this argument, see p.~\pageref{likes2}.
 	\have{h}{\exists x Lxx} \ne{c1-cn}
 \close
 \have{n}{\exists x Lxx} \Ee{1, a-h}
-\end{proof}
+\end{ndproof}
 
 % Chapter 13 Part J
 \solutionpart{ch.QLND}{pr.QLequivornot}
@@ -3301,7 +3301,7 @@ are valid. Here are complete answers for some of them:
 	\end{solutioninlist}
 \item %$\exists y\forall x Rxy$, \therefore\ $\forall x\exists y Rxy$
 	\begin{solutioninlist}
-	\begin{proof}
+	\begin{ndproof}
 		\hypo{p}{\exists y\forall x Rxy} \by{want $\forall x\exists y Rxy$}{}
 		\open
 			\hypo{ass}{\forall x Rxa} \by{for $\exists${}E}{}
@@ -3310,7 +3310,7 @@ are valid. Here are complete answers for some of them:
 			\have{AER}{\forall x \exists y Rxy} \Ai{ER}
 		\close
 		\have{c}{\forall x\exists y Rxy} \Ee{p, ass-AER}
-	\end{proof}
+	\end{ndproof}
 	\end{solutioninlist}
 \end{earg}
 

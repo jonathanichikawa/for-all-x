@@ -1,0 +1,1165 @@
+%!TEX root = forallx-ubc.tex
+\chapter{Natural Deduction Proofs in SL}
+\label{ch.ND.proofs}
+
+This chapter introduces a different proof system in SL, separate from the tree method. The tree method has advantages and disadvantages. One advantage of trees is that, for the most part, they can be produced in a purely mechanical way --- one need rely only on a rigorous application of a well-defined procedure; no `flash of insight' is necessary. Another advantage is that, when a tree remains open, the tree method gives us a recipe for constructing an interpretation that satisfies the root. One disadvantage is that they do not always emphasize in an intuitive way \emph{why} a conclusion follows from a set of premises; they show that something \emph{must} be the case, on pain of contradiction, but they don't always demonstrate, in a way closely connected to natural reasoning, why some things follow from other things.
+
+The \define{natural deduction} system of this chapter will differ from the tree method in all of these respects. It is intended to model human reasoning in a closer way, illustrating the connections between various claims; consequently, working through a natural deduction proof requires a bit more insight and inspiration than a tree proof does.
+
+Natural deduction proofs can be used to prove that an argument is valid; if an argument is invalid, our natural deduction system will not necessarily make that obvious. We won't have the equivalent to a completed open tree --- a proof of invalidity. It will turn out that there is a natural deduction derivation corresponding to every valid argument in SL --- i.e., like the tree method, this method is complete. (It is also sound.) But we won't offer a way to prove that there is no proof, and so natural deduction can't be used by itself to prove invalidity.
+
+
+\section{Natural deduction: the basic idea}
+
+The general idea of a natural deduction proof is simple. You begin by writing down the premises you're beginning with, each on its own numbered line. Then you add a new numbered line, adding sentences that you can demonstrate to follow logically from what you have already written. (A formal list of rules gives the legal options for how to develop the proof.) If, following the rules, you manage to derive the conclusion from the premises, then you've shown that the argument form from those premises to that conclusion is valid.
+
+Formally, a \define{proof} is a numbered sequence of sentences. The first sentences of the sequence are assumptions; these are the premises of the argument. Every sentence later in the sequence is derived from earlier sentences by one of the rules of proof. The final sentence of the sequence is the conclusion of the argument.
+
+Consider these two SL argument forms:
+
+\begin{multicols}{2}
+\emph{Modus Ponens:}
+\begin{earg}
+\item[] $P \eif Q$
+\item[] $P$
+\item[\therefore] $Q$
+\end{earg}
+
+\emph{Disjunctive Syllogism:}
+\begin{earg}
+\item[] $P \eor Q$
+\item[] $\enot P$
+\item[\therefore] $Q$
+\end{earg}
+
+\end{multicols}
+
+Both are valid; you could confirm this with a four-line truth table. Either would demonstrate that there is no interpretation satisfying both premises, while falsifying the conclusion. The truth table method does not distinguish between these argument forms; it simply shows that they are both valid. There is, however, an interesting and important difference between these two argument forms, gestured at by their labels. The first argument, \emph{Modus Ponens}, has a distinctive syntactic form: its premises are a conditional and the antecedent of that conditional, and the conclusion is the consequent; the second has a different form.
+
+The natural deduction method is based in the recognition of particular kinds of valid forms. They also correspond reasonably well to familiar forms of informal reasoning. If you know a conditional, and you also know its antecedent, it is easy to infer its consequent. (Imagine being sure that if I ate the chilli, I'll get sick, and also being sure that I ate the chilli. You will surely infer that I will get sick.) \emph{Modus ponens} is the name of this kind of conditional reasoning, and there is a special rule for it in our natural deduction system.
+
+\section{Our first rule: Conditional Elimination (\emph{modus ponens})}
+
+Many different arguments demonstrate the \emph{modus ponens} pattern; all of them are valid:
+
+\begin{multicols}{3}
+\begin{earg}
+\item[] $P \eif \enot Q$
+\item[] $P$
+\item[\therefore] $\enot Q$
+\end{earg}
+
+\begin{earg}
+\item[] $\enot P \eif (A \eiff B)$
+\item[] $\enot P$
+\item[\therefore] $A \eiff B$
+\end{earg}
+
+\begin{earg}
+\item[] $(P \eor Q) \eif A$
+\item[] $P \eor Q$
+\item[\therefore] $A$
+\end{earg}
+
+\end{multicols}
+
+All of these arguments are similar in an important way to the \emph{modus ponens} argument above, and different from the \emph{disjunctive syllogism} one. But the truth table proof of the validity for each of these arguments will go the same way: it will simply produce a truth table, and show that there is no row where the premises are all true and the conclusion is false. The truth table method does not illuminate what the \emph{modus ponens} inferences all have in common.
+
+Another way of making this point is to observe that the method of truth tables does not clearly show \emph{why} an argument is valid. If you were to do a 1024-line truth table for an argument that contains ten sentence letters, then you could check to see if there were any lines on which the premises were all true and the conclusion were false. If you did not see such a line, and you were sure that you made no mistakes in constructing the table, then you would know that the argument was valid. Yet you might not be able to say anything further about why this particular argument was a valid argument form.
+
+The natural deduction system of this chapter will include an inference rule corresponding to \emph{modus ponens}. Natural deduction proofs of these validities, then, will all share something important in common: they will use that inference rule. Here, in its formal presentation, is the rule:
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{a}\metaA{}
+	\have[\ ]{b}\metaB{} \ce{ab,a}
+\end{proof}
+
+As has been the case throughout this book, the Greek letters \metaA{} and \metaB{} are variables that can represent any SL sentence. The $m$ and $n$ here are variables ranging over line numbers. What this rule says is that if you have a conditional $\metaA{}\eif\metaB{}$ on line $m$, and you also have \metaA{}, the antecedent of that conditional, on line $n$, you can write the consequent \metaB{} on a new line.
+
+The notation off to the right in the new line, ``\eif E $m, n$,'' is the justification for the new line. ``\eif E'' stands for ``Conditional Elimination,'' which is our official name for the \emph{modus ponens} rule. (We call it an `elimination' rule because it begins with a conditional statement, and ends up deriving a statement that is not a conditional.)
+
+With this rule, we can prove that all of the \emph{modus ponens} arguments mentioned above are valid. Here are proofs of two of them:
+
+
+\begin{multicols}{2}
+
+\begin{proof}
+	\hypo{if}{P \eif \enot Q}
+	\hypo{a}P
+	\have{c}{\enot Q} \ce{if,a}
+\end{proof}
+
+
+\begin{proof}
+	\hypo{if}{(P \eor Q) \eif A}
+	\hypo{a}{P \eor Q}
+	\have{c}A \ce{if,a}
+\end{proof}
+
+\end{multicols}
+
+Notice that these two proofs share just the same structure. We start by listing the premises as lines 1 and 2. We include a horizontal line under those premises to indicate that the lines above it are premises that we assume; subsequent lines will need to be derived via rules. So we apply the conditional elimination rule to get the conclusion. We justify that conclusion by citing Conditional Elimination, and lines 1 and 2.
+
+One can produce more complicated proofs via the same rule. Let's prove that this SL argument form is valid:
+
+\begin{earg}
+
+\item[] $A$
+\item[] $A \eif B$
+\item[] $B \eif C$
+\item[] $C \eif [\enot P \eiff (Q \eor R)]$
+\item[\therefore] $\enot P \eiff (Q \eor R)$
+\end{earg}
+
+We begin by writing our four premises on numbered lines:
+
+\begin{proof}
+	\hypo{4}{A}
+	\hypo{1}{A \eif B}
+	\hypo{2}{B\eif C}
+	\hypo{3}{C \eif [\enot P \eiff (Q \eor R)]} \want{\enot P \eiff (Q \eor R)}
+%	\have{b} {B} \ce{1,4}
+%	\have{c}{C} \ce{2,b}
+%	\have{}{\enot P \eiff (Q \eor R))} \ce{3,c}
+\end{proof}
+
+The horizontal line at line four indicates that the first four lines are assumed --- no justification for them is necessary.
+
+We also include the `want' notation off to the right, indicating what conclusion we are attempting to establish. (This is not strictly required as part of our proof, but it is helpful in keeping things organized.) We will complete the proof when we derive $\enot P \eiff (Q \eor R)$ --- i.e., when, while following the rules for how proofs may be developed, we write that sentence down on its own line. We cannot use conditional elimination to get to that sentence directly from our premises. We do have, on line 4, a conditional with that sentence as a consequent, but we don't have $C$, the antecedent, on its own line. However, we can get there via two steps of our inference rule. From lines 1 and 2, we can get $B$, and then, from there and 3, we can get to $C$. Finally, a third instance of conditional elimination lets us derive the intended conclusion:
+
+\begin{proof}
+	\hypo{4}{A} 
+	\hypo{1}{A \eif B}
+	\hypo{2}{B\eif C}
+	\hypo{3}{C \eif [\enot P \eiff (Q \eor R)]} \want{\enot P \eiff (Q \eor R)}
+	\have{b} {B} \ce{4,1}
+	\have{c}{C} \ce{2,b}
+	\have{}{\enot P \eiff (Q \eor R)} \ce{3,c}
+\end{proof}
+
+Here are three things to notice about this proof.
+
+First, every line after the premises needs to include a justification, citing a rule and the applicable previous line numbers. (So far Conditional Elimination is our only rule, but we will learn more very soon.) You can only write a new line if you have a rule that shows how it follows from previous lines.
+
+Second, once you have derived something from the premises, that new line is available to help justify future lines. Once we derive line 5, for example, we're able to use it with line 3 to derive line 6.
+
+Third, the Conditional Elimination rule requires that you have a conditional and its antecedent; it doesn't matter what order they are listed in. (In other words, when the rule says you need to have a conditional on line $m$, and its antecedent on line $n$, it does not matter whether $m<n$.) It also does not matter whether they are on consecutive lines. They just have to be on \emph{some} lines up above, before performing the rule.  So it is fine, for instance, that in justifying line 5, we cite a conditional on line 2, and its antecedent on line 1.
+
+\section{Exact matches}
+
+Conditional Elimination, as well as all of our other natural deduction rules, are syntactically defined. That is to say, the application of the rules depends on the exact shape of the SL sentences in question. Here, again, is the formal statement of the rule:
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{a}\metaA{}
+	\have[\ ]{b}\metaB{} \ce{ab,a}
+\end{proof}
+
+It says that any time one has, on one line, a sentence made up of some sentence \metaA{}, followed by the `\eif' symbol, followed by some sentence \metaB{}, where one also has \metaA{} on another line, one may derive \metaB{}. This is the only pattern of inference that this rule permits. \metaA{} and \metaB{} can be any sentences of SL, but a line justified by Conditional Elimination must fit this pattern exactly. It is not enough that one can `just see' that a given sentence follows via a similar pattern of inference.
+
+For example, this is \emph{not} a legal derivation in our system:
+
+\begin{proof}
+	\hypo{ab}{P \eif (A \eand B)}
+	\hypo{a}{P}
+	\have{b}{B}\ce{ab,a}
+\end{proof}
+
+The Conditional Elimination rule requires that the new sentence derived be the consequent of the conditional cited. But in this example, $B$ is not the consequent of $P\eif (A \eand B)$ --- $A \eand B$ is. It is true that $B$ obviously follows from $A \eand B$, but the Conditional Elimination rule doesn't allow you to derive things just because they obviously follow. (Neither does any other rule in our formal system.) To derive $B$ from these premises we'll need to use another rule. (In particular, we will want to use the Conjunction Elimination rule, given below.)
+
+To check to make sure you are applying the rules correctly, one good heuristic is to think about whether you are relying on the rule itself, or on your intuitive understanding of the meanings of the symbols we use in SL. Your intuitive understanding is a good way to think about which rules to use, but to check to make sure you're using the rules properly, think about whether the rules' exact formulations could explain why it is permissible to extend the derivation in the exact way you're working with. Pretend, for instance, that you have no idea what the `\eif' symbol means, but you do know that if you have two sentences joined by it on one line, and the first of those two sentences on another line, then you are allowed to copy down the second sentence exactly on a new line. This --- and no more --- is what the Conditional Elimination rule permits you to do. (This is what we mean when we say the rule is syntactically defined.) It would be pretty trivial to write a computer program to check to see whether a line is properly derived via Conditional Elimination.
+
+\section{Our second rule: \emph{modus tollens}}
+
+Here is another rule one can use with conditionals:
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{a}{\enot\metaB{}}
+	\have[\ ]{b}{\enot\metaA{}} \by{MT}{ab,a}
+\end{proof}
+
+If you have a conditional on one numbered line, and the negation of its consequent on another line, you may derive the negation of its antecedent on a new line. We abbreviate the justification for this rule as `MT' for \emph{modus tollens}. If you know that if she found the treasure, she is happy, and you also know that she isn't happy, then you can very sensibly infer that she didn't find the treasure.
+
+You may notice an asymmetry between the labels we use for \emph{modus ponens} and \emph{modus tollens}: in the former case, we use Conditional Elimination (\eif E) as its official name, but in the latter case, we call the rule Modus Tollens (MT). We'll explain in more detail why we use the labels in this way when we discuss `basic' and `derived' rules in \S\ref{sec:basic} below. For now, the important thing is to understand how to use the rule.
+
+We do not include a horizontal line in the statement of the rule, because we don't want to assume that lines $m$ and $n$ are assumptions. They might be --- they might be premises in the argument, for example --- but they might themselves be derived, and have rules justifying them. It doesn't matter how we got $m$ and $n$, it just matters that we have them.
+
+Here is an example employing \emph{Modus Tollens} several times over. We will derive $\enot A$ from $\{A \eif B, B \eif C, C \eif D, \enot D\}$:
+
+\begin{proof}
+	\hypo{ab}{A \eif B}
+	\hypo{bc}{B \eif C}
+	\hypo{cd}{C \eif D}
+	\hypo{nd}{\enot D} \want{\enot A}
+	\have{c}{\enot C} \by{MT}{cd,nd}
+	\have{b}{\enot B} \by{MT}{bc,c}
+	\have{a}{\enot A} \by{MT}{ab,b}
+\end{proof}
+
+At each of lines 5--7, we cite a conditional and the negation of its consequent to infer the negation of its antecedent.
+
+\section{Disjunction Elimination}
+
+Recall this argument form from the Introduction of this chapter:
+
+\begin{earg}
+\item[] $P \eor Q$
+\item[] $\enot P$
+\item[\therefore] $Q$
+\end{earg}
+
+We noted above that this is a different argument form from one that uses \emph{modus ponens}; instead, it uses a kind of derivation that is specific to disjunction. From a disjunction like $P \eor Q$ alone, you can't conclude either disjunct, but you can conclude that \emph{at least one} of the two disjuncts is true. So if you have also established that one of the disjuncts is false --- i.e., its negation is true --- then you can conclude the other disjunct, as in the argument above.
+
+This inference form is sometimes called `Disjunctive Syllogism'. In our system, it will be our official Disjunction Elimination ({\eor}E) rule. If you have a disjunction and also the negation of one of its disjuncts, you may conclude the other disjunct.
+
+\begin{multicols}{2}
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eor\metaB{}}
+	\have[n]{nb}{\enot\metaB{}}
+	\have[\ ]{a}\metaA{} \oe{ab,nb}
+\end{proof}
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eor\metaB{}}
+	\have[n]{na}{\enot\metaA{}}
+	\have[\ ]{b}\metaB{} \oe{ab,nb}
+\end{proof}
+
+\end{multicols}
+
+We represent two different inference patterns here, because the rule allows you to conclude \emph{either} disjunct from the negation of the other. If we'd only listed the left version of the rule above, then {\eor}E would've only permited one to conclude the \emph{first} disjunct from the negation of the \emph{second} one, along with the disjunction. Our rule lets us work with either disjunction. (If you want to be very fussy about it, you could think of these as two different rules with a strong conceptual similarity that happen to have the same name.)
+
+Now that we have several rules, we are in a position to see how they can interact to construct more interesting proofs. Consider for example this argument form:
+
+\begin{earg}
+\item[] $\enot L \eif (J \eor L)$
+\item[] $\enot L$
+\item[\therefore] $J$
+\end{earg}
+
+The two premises match the requirements for Conditional Elimination (\emph{modus ponens}). And once that is done, we will be in a position to use Disjunction Elimination to derive the desired conclusion:
+
+\begin{proof}
+	\hypo{c}{\enot L \eif (J \eor L)}
+	\hypo{a}{\enot L}  \want {J}
+	\have{3}{J \eor L} \ce{c,a}
+	\have{4}{J} \oe{a,3}
+\end{proof}
+
+Via Conditional Elimination, we can derive $J \eor L$ from lines 1 and 2. Then from $J \eor L$ and $\enot L$, we can derive $J$, by Disjunction Elimination.
+
+In this example, unlike the others we've seen so far, we used the premise on line 2 twice --- notice that the 2 appears in the justification for both line 3 and line 4. There is no limit to how many times you can make use of a given line in a natural deduction proof; once something is established, you can make use of it as often as you like.
+
+\section{Conjunction Introduction}
+
+Here is another rule. It is our Conjunction Introduction rule, which we abbreviate `{\eand}I':
+
+\begin{proof}
+	\have[m]{a}\metaA{}
+	\have[n]{b}\metaB{}
+	\have[\ ]{c}{\metaA{}\eand\metaB{}} \ai{a, b}
+\end{proof}
+
+This rule says that if you have some sentence \metaA{}, and you also have some sentence \metaB{}, you may derive their conjunction, $(\metaA{} \eand \metaB{})$. It is called Conjunction \emph{Introduction} because it derives a conjunction from sentences that are not conjunctions.
+
+Recall again that it is not a requirement either conjunct be an atom, or that $m$ and $n$ be consecutive lines, or that they appear in the order listed here. We require only that each line has been established somewhere above in the proof. If you have $K$ on line 15 and $L$ on line 8, you can prove $(K\eand L)$ at some later point in the proof with the justification `{\eand}I 8, 15.'
+
+\section{Conjunction Elimination}
+
+We have just seen that Conjunction Introduction allows you to derive a conjunction from a non-conjunction; Conjunction Elimination lets you do the converse. From a conjunction, you may derive either of its conjuncts. From $(A \eand (P \eor Q))$, for instance, you may derive $A$, or you may derive $(P \eor Q)$. (Or you could even apply Conjunction Elimination twice and derive both.)
+
+This will be our Conjunction Elimination rule, which we abbreviate `{\eand}E':
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eand\metaB{}}
+	\have[\ ]{a}\metaA{} \ae{ab}
+	\have[\ ]{b}\metaB{} \ae{ab}
+\end{proof}
+
+This rule lets you derive either conjunct. (You do not have to derive both, as indicated in the proof template representing the rule, but you can, via two applications of the rule.) So for example, this is a perfectly acceptable natural deduction proof:
+
+\begin{proof}
+	\hypo[1]{ab}{A \eand B}
+	\have[2]{b}B \ae{ab}
+\end{proof}
+
+Note that the {\eand}E rule requires only one sentence, so we write one line number as the justification for applying it.
+
+Here is an example illustrating our two conjunction rules working together. Consider this argument.
+\begin{earg}
+\item[] $[(A\eor B)\eif(C\eor D)] \eand [(E \eor F) \eif (G\eor H)]$
+\item[\therefore] $[(E \eor F) \eif (G\eor H)] \eand [(A\eor B)\eif(C\eor D)]$
+\end{earg}
+The main logical operator in both the premise and conclusion is conjunction. Since conjunction is symmetric, the argument is obviously valid. The two conjunctions have the same two conjuncts, in the opposite order. In order to provide a proof, we begin by writing down the premise. After the premises, we draw a horizontal line --- everything below this line must be justified by a rule of proof. So the beginning of the proof looks like this:
+
+\begin{proof}
+	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+\end{proof}
+
+From the premise, we can get each of the conjuncts by {\eand}E. The proof now looks like this:
+
+\begin{proof}
+	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
+	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
+\end{proof}
+
+The {\eand}I rule requires that we have each of the conjuncts available somewhere in the proof. They can be separated from one another, and they can appear in any order. So by applying the {\eand}I rule to lines 3 and 2, we arrive at the desired conclusion. The finished proof looks like this:
+
+\begin{proof}
+	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+
+	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
+	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
+	\have{ba}{{[}(E \eor F) \eif (G\eor H){]} \eand {[}(A\eor B)\eif(C\eor D){]}} \ai{a,b}
+\end{proof}
+
+This proof may not look terribly interesting or surprising, but it shows how we can use rules of proof together to demonstrate the validity of an argument form. Note also that using a truth table to show that this argument is valid would have required a staggering 256 lines, since there are eight sentence letters in the argument. A proof via trees would be less unwieldy than that, but it would be less simple and elegant than this one. (Constructing such a proof would be a good exercise for tree review.)
+
+
+\section{Basic and derived rules}
+\label{sec:basic}
+
+We have so far introduced five rules: Conditional Elimination, \emph{modus tollens}, Disjunction Elimination, Conjunction Elimination, and Conjunction Introduction. There are still more rules still to learn, but it is helpful first to pause and draw a distinction between different kinds of rules.
+
+Many of our rules, we have seen, carry the name `Elimination' or `Introduction', along with the name of one of our SL connectives. In fact, every rule we've seen so far except \emph{modus tollens} has had such a name. Such rules are the \emph{basic} rules in our natural deduction system. The basic rules comprise an Introduction and an Elimination rule for each connective, plus one more rule. \emph{Modus tollens} is not a basic rule; we will call it a \emph{derived} rule.
+
+A derived rule is a non-basic rule whose validity we can derive using basic rules only. A useful fact about our natural deduction system is that the basic rules themselves are enough to derive every SL validity. Derived rules are helpful for making some proofs shorter or more intuitive, but one could prove anything provable without them.
+
+We have already seen the Introduction and Elimination rules for conjunction, and the elimination rules for disjunction and conditionals. In the next several sections, we'll finish canvassing the basic rules, then say a bit more about \emph{modus tollens} and other derived rules.
+
+\section{The remaining basic rules}
+
+All of the rules introduced in this chapter are summarized in the Quick Reference guide at the end of this book.
+
+\subsection{Disjunction Introduction}
+If $M$ is true, then $M \eor N$ must also be true. In general, the Disjunction Introduction rule ({\eor}I) allows us to derive a disjunction if we already have one of its two disjuncts:
+
+\begin{proof}
+	\have[m]{a}\metaA{}
+	\have[\ ]{ab}{\metaA{}\eor\metaB{}}\oi{a}
+	\have[\ ]{ba}{\metaB{}\eor\metaA{}}\oi{a}
+\end{proof}
+
+One can introduce a disjunct in either position --- it can be the first disjunct or the second disjunct. Accordingly, both options are listed here. (One is not required to do both; you can just take whichever version you find most helpful.)
+
+As always, \metaB{} can be \emph{any} sentence whatsoever. So the following is a legitimate proof:
+
+\begin{proof}
+	\hypo{m}{M}
+	\have{mmm}{M \eor ([(A\eiff B) \eif (C \eand D)] \eiff [E \eand F])}\oi{m}
+\end{proof}
+
+It may seem odd that just by knowing $M$ we can derive a conclusion that includes sentences like $A$, $B$, and the rest --- sentences that have nothing to do with $M$. Yet the conclusion follows immediately by {\eor}I. This is as it should be: The truth conditions for the disjunction mean that, if \metaA{} is true, then $\metaA{}\eor \metaB{}$ is true regardless of what \metaB{} is. So the conclusion could not be false if the premise were true; the argument form is valid.
+
+\subsection{Conditional Introduction}
+
+Consider this argument:
+\begin{earg}
+\item[] $R \eor F$
+\item[\therefore] $\enot R \eif F$
+\end{earg}
+The argument form seems like it should be valid --- either $R$ or $F$ is true, so if $R$ isn't true, $F$ must be. (You can confirm that it is valid by examining the truth tables.) The Conditional Introduction rule can demonstrate that this is so.
+
+We begin the proof by writing down the premise of the argument, making a note of our intended conclusion, and drawing a horizontal line, like this:
+
+\begin{proof}
+	\hypo{rf}{R \eor F} \want{\enot R \eif F}
+\end{proof}
+
+If we had $\enot R$ as a further premise, we could derive $F$ by the {\eor}E rule. But we do not have $\enot R$ as a premise of this argument, nor can we derive it directly from the premise we do have --- so we cannot simply prove $F$. What we will do instead is start a \emph{subproof}, a proof within the main proof. When we start a subproof, we draw another vertical line to indicate that we are no longer in the main proof. Then we write in an assumption for the subproof. This can be anything we want. Here, it will be helpful to assume $\enot R$. We want to show that, if we did assume that, we would be able to derive $F$. So we make a new assumption that $\enot R$, and give ourselves a note that we wish to derive $F$. Our proof now looks like this:
+
+\begin{proof}
+	\hypo{rf}{R \eor F}  \want{\enot R \eif F}
+	\open
+		\hypo{nr}{\enot R} \want {F}
+		\have{}{}
+	\close
+\end{proof}
+
+It is important to emphasize that we are not claiming to have \emph{proven} $\enot R$ from the premise on line 1. We do not need to write in any justification for the assumption line of a subproof. (The `want' is a note to ourself, not a justification.) The new horizontal line indicates that a new \emph{assumption} is being made; we also include a vertical line that extend to future lines, to indicate that this assumption remains in effect. You can think of the subproof as posing the question: What could we show \emph{if} $\enot R$ were true? We are trying to show that we could derive $F$. And indeed, we can:
+
+\begin{proof}
+	\hypo{rf}{R \eor F}  \want{\enot R \eif F}
+	\open
+		\hypo{nr}{\enot R} \want {F}
+		\have{f}{F}\oe{rf, nr}
+	\close
+\end{proof}
+
+This has shown that \emph{if} we had $\enot R$ as a premise, \emph{then} we could prove $F$. In effect, we have proven that $F$ follows from $\enot R$. This is indeed very close to demonstrating the conditional, $\enot R \eif F$. This last step is just what the Conditional Introduction rule will allow us to perform. We close the subproof and derive $\enot R \eif F$ in the main proof. Our final proof looks like this:
+
+\begin{proof}
+	\hypo{rf}{R \eor F}
+	\open
+		\hypo{nr}{\enot R}\want {F}
+		\have{f}{F}\oe{rf, nr}
+	\close
+	\have{nrf}{\enot R \eif F}\ci{nr-f}
+\end{proof}
+
+The {\eif}I rule lets us \define{discharge} the assumption we'd been making, ending that vertical line. We also stop indenting --- the difference in placement of lines 3 and 4 emphasizes that they are importantly different: during lines 2 and 3, we were \emph{assuming} that \enot $R$. By the time we get to line 4, we are no longer making that assumption.
+
+Notice that the justification for applying the {\eif}I rule is the entire subproof. That's why we justify it by reference to a range of lines, instead of a comma-separated list. Usually that will be more than just two lines.
+
+It may seem as if the ability to assume anything at all in a subproof would lead to chaos: Does it allow you to prove any conclusion from any premises? The answer is no, it does not. Consider this proof schema:
+
+\begin{proof}
+	\hypo{a}\metaA{}
+	\open
+		\hypo{b1}\metaB{}
+		\have{b2}{\metaB{}\eand \metaA{}} \ai{a,b1}
+	\close
+\end{proof}
+
+Does this show that one can conjoin any arbitrary sentence \metaB{} with premise \metaA{}? After all, we've written \metaB{}\eand\metaA{} on a line of a proof that began with \metaA{}, without violating any of the rules of our system. The reason this doesn't have that implication is the vertical line that still extends into line 3. That line indicates that the assumption made at line 2 is still in effect. When the vertical line for the subproof ends, the subproof is \emph{closed}. In order to complete a proof, you must close all of the subproofs. The conclusion to be proved must not be `blocked off' by a vertical line; it should be aligned with the premises.
+
+In this example, there is no way to close the subproof and show that the conjunction follows from line 1 alone. One can only close a subproof via particular rules that allow you to do so; {\eif}I is one such rule; {\eand}I does not close subproofs. One can't just close a subproof willy-nilly. Closing a subproof is called \emph{discharging} the assumptions of that subproof. So we can put the point this way: You cannot complete a proof until you have discharged all of the assumptions other than the original premises of the argument.
+
+Of course, it is legitimate to do this:
+
+\begin{proof}
+	\hypo{a}\metaA{}
+	\open
+		\hypo{b1}\metaB{}
+		\have{b2}{\metaB{}\eand \metaA{}} \ai{a,b1}
+	\close
+	\have{c}{\metaB{} \eif (\metaB{}\eand\metaA{})} \ci{b1-b2}
+\end{proof}
+
+This should not seem so strange, though. The conclusion on line 4 really does follow from line 1. (Draw a truth table if you need convincing of this.) 
+
+Once an assumption has been discharged, any lines that have been shown to follow from that assumption --- i.e., those lines inside the box indicated by the vertical line of that assumption --- cannot be cited as justification on further lines. So this development of the proof above, for instance, is not permitted:
+
+\begin{proof}
+	\hypo{rf}{R \eor F}
+	\open
+		\hypo{nr}{\enot R}\want {F}
+		\have{f}{F}\oe{rf, nr}
+	\close
+	\have{nrf}{\enot R \eif F}\ci{nr-f}
+	\have{bad}{F \eor A}\oi{f}
+\end{proof}
+
+Once the assumption made at line 2 has been discharged at line 4, the lines within that assumption --- 2 and 3 --- are unavailable for further justification. So one cannot perform Disjunction Introduction on line 3 at line 5. Line 3 was not demonstrated to follow from the premise on line 1 --- it follows only from this combined with the \emph{assumption} on line 2. And by the time we get to line 5, we are no longer making that assumption.
+
+Put in its general form, the {\eif}I rule looks like this:
+
+\begin{proof}
+	\open
+		\hypo[m]{a}\metaA{} \by{want \metaB{}}{}
+		\have[n]{b}\metaB{}
+	\close
+	\have[\ ]{ab}{\metaA{}\eif\metaB{}}\ci{a-b}
+\end{proof}
+
+When we introduce a subproof, we typically write what we want to derive off to the right. This is just so that we do not forget why we started the subproof if it goes on for five or ten lines. There is no `want' rule. It is a note to ourselves, and not formally part of the proof.
+
+Although it is consistent with the natural deduction rules to open a subproof with any assumption you please, there is some strategy involved in picking a useful assumption. Starting a subproof with a random assumption is a terrible strategy. It will just waste lines of the proof. In order to derive a conditional by the {\eif}I rule, for instance, you must assume the antecedent of that conditional.
+
+The {\eif}I rule also requires that the consequent of the conditional be the last line of the subproof. It is always permissible to close a subproof and discharge its assumptions, but it will not be helpful to do so until you get what you want. This is an illustration of the observation made above, that unlike the tree method, the natural deduction method requires some strategy and thinking ahead.
+
+You should \emph{never} make an assumption without a plan for how to discharge it.
+
+Here is another example of an argument form whose validity we can prove using the conditional rules.
+
+
+\begin{earg}
+\item[] $P \eif Q$
+\item[] $Q \eif R$
+\item[\therefore] $P \eif R$
+\end{earg}
+We begin the proof by writing the two premises as assumptions. Since the main logical operator in the conclusion is a conditional, we can expect to use the {\eif}I rule. For that, we need a subproof --- so we write in the antecedent of the conditional as assumption of a subproof. We make a note that we are aiming for the consequent of that conditional:
+
+\begin{proof}
+	\hypo{pq}{P \eif Q}
+	\hypo{qr}{Q \eif R}
+	\open
+		\hypo{p}{P} \want {R}
+	\close
+\end{proof}
+
+We made $P$ available by assuming it in a subproof, allowing us to use {\eif}E on the first premise. This gives us $Q$, which allows us to use {\eif}E on the second premise. Having derived $R$, we close the subproof. By assuming $P$ we were able to prove $R$, so we apply the {\eif}I rule and finish the proof:
+\phantomsection\label{HSproof}
+\begin{proof}
+	\hypo{pq}{P \eif Q}
+	\hypo{qr}{Q \eif R}
+	\open
+		\hypo{p}{P}\want {R}
+		\have{q}{Q}\ce{pq,p}
+		\have{r}{R}\ce{qr,q}
+	\close
+	\have{pr}{P \eif R}\ci{p-r}
+\end{proof}
+
+
+
+
+\subsection{Biconditional Introduction}
+Biconditionals indicate that the two sides have the same truth value. One establishes a biconditional by establishing each direction of it as conditionals. To derive $W \eiff X$, for instance, you must establish both $W \eif X$ and $X \eif W$. (You might derive those conditionals via {\eif}I, or you might get them some other way. They might even simply be premises.) Those conditionals may occur in either order; they need not be on consecutive lines. (Compare the shape of the {\eand}I rule.) Schematically, the Biconditional Introduction rule works like this:
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{ba}{\metaB{}\eif\metaA{}}
+	\have[\ ]{c}{\metaA{}\eiff\metaB{}} \bi{ab, ba}
+\end{proof}
+
+
+\subsection{Biconditional Elimination}
+
+The Biconditional Elimination rule ({\eiff}E) is a generalized version of \emph{modus ponens} ({\eif}E). If you have the left-hand subsentence of the biconditional, you can derive the right-hand subsentence. If you have the right-hand subsentence, you can derive the left-hand subsentence. This is the rule:
+
+
+
+\begin{multicols}{2}
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eiff\metaB{}}
+	\have[n]{a}\metaA{}
+	\have[\ ]{b}\metaB{} \be{ab,a}
+\end{proof}
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eiff\metaB{}}
+	\have[n]{a}\metaB{}
+	\have[\ ]{b}\metaA{} \be{ab,a}
+\end{proof}
+\end{multicols}
+
+As in the case of Disjunction Elimination, we include both versions under the same name, so that you don't need to worry about whether the side you already have is the left-hand side of the biconditional or the right-hand side. Whichever side it is, you may derive the other via Biconditional Elimination.
+
+
+\subsection{\emph{Reductio} and the negation rules}
+Here is a simple mathematical argument in English:
+\begin{earg}
+\item[] Assume there is some greatest natural number. Call it $A$.
+\item[] That number plus one is also a natural number.
+\item[] Obviously, $A+1 > A$.
+\item[] So there is a natural number greater than $A$.
+\item[] This is impossible, since $A$ is assumed to be the greatest natural number.
+\item[\therefore] There is no greatest natural number.
+\end{earg}
+
+This kind of argument form is traditionally called a \emph{reductio}. Its full Latin name is \emph{reductio ad absurdum}, which means `reduction to absurdity.' (You will also sometimes see proofs of this form described as `indirect' proofs.) In a \emph{reductio}, we assume something for the sake of argument --- for example, that there is a greatest natural number. Then we show that the assumption leads to two contradictory sentences --- for example, that $A$ is the greatest natural number and that it is not. In this way, we show that the original assumption must have been false.
+
+The basic rules for negation will allow for arguments like this. Like the Conditional Introduction rule, our negation rules allow us to make new assumptions with no justification --- we draw a new vertical line, and a note to ourselves as to what we are trying to do. If we assume something and show that it leads to contradictory sentences, then we have proven the negation of the assumption. This is the Negation Introduction ({\enot}I) rule:
+
+\begin{proof}
+\open
+	\hypo[m]{na}\metaA{}\by{for \emph{reductio}}{}
+	\have[n]{b}\metaB{}
+	\have[o]{nb}{\enot\metaB{}}
+\close
+\have[\ ]{a}[\ ]{\enot\metaA{}}\ni{na-b, na-nb}
+\end{proof}
+
+The {\enot}I rule discharges the assumption for \emph{reductio}, concluding its negation, when it's shown that some sentence and its negation each follow from the assumption. It cites two (overlapping) ranges: a subproof from the assumption to some sentence \metaB{}, and a subproof from that same assumption to \enot\metaB{}. We write `for \emph{reductio}' to the right of the assumption, as a note to ourselves, a reminder of why we started the subproof. It is not formally part of the proof, but it is helpful for thinking clearly it and planning ahead. (An alternate notation would be `want $\bot$' instead of `for \emph{reductio}.' Either would be a way to indicate that we are now attempting to derive an absurdity within this subproof.)
+
+To see how the rule works, suppose we want to prove an instance of the law of non-contradiction: $\enot(G \eand \enot G)$. We can prove this without any premises by immediately starting a subproof. We want to apply {\enot}I to the subproof, so we assume $(G \eand \enot G)$. We then get an explicit contradiction by {\eand}E. The proof looks like this:
+
+\begin{proof}
+	\open
+		\hypo{gng}{G\eand \enot G}\by{for \emph{reductio}}{}
+		\have{g}{G}\ae{gng}
+		\have{ng}{\enot G}\ae{gng}
+	\close
+	\have{ngng}{\enot(G \eand \enot G)}\ni{gng-g, gng-ng}
+\end{proof}
+
+This is our first example of a natural deduction proof with no premises. It is a way to show that its conclusion is a tautology.
+
+The {\enot}E rule will work in much the same way. If we assume \enot\metaA{} and show that it leads to a sentence and its negation, we have effectively proven \metaA{}. So the rule looks like this:
+
+\begin{proof}
+\open
+	\hypo[m]{na}{\enot\metaA{}}\by{for \emph{reductio}}{}
+	\have[n]{b}\metaB{}
+	\have[o]{nb}{\enot\metaB{}}
+\close
+\have[\ ]{a}[\ ]\metaA{}\ne{na-b, na-nb}
+\end{proof}
+\section{Derived rules}
+
+A \define{derived rule} is a rule of proof that does not make any new proofs possible. Anything that can be proven with a derived rule can be proven without it. You can think of a short proof using a derived rule as shorthand for a longer proof that uses only the basic rules. 
+
+
+\subsection{Reiteration}
+\label{sec:reiteration}
+
+Here is a very simple rule, called Reiteration (R). If you already have shown something in the course of a proof, the Reiteration rule allows you to repeat it on a new line. Put formally:
+
+\begin{proof}
+	\have[m]{a1}\metaA{}
+	\have[\ ]{a2}\metaA{} \by{R}{a1}
+\end{proof}
+
+Here is a simple derivation of Reiteration using our basic rules:
+
+\begin{proof}
+	\hypo{a1}\metaA{}
+	\have{a2}{\metaA{} \eand \metaA{}} \ai{a1,a1}
+	\have{a3}\metaA{}  \ae{a2}
+\end{proof}
+
+Obviously, the reiteration rule will not allow us to show anything \emph{new}. For that, we will need to use other rules. Still, Reiteration is a handy rule to have available. Here, for instance, is a proof using Reiteration to help with a Negation Introduction:
+
+\begin{proof}
+	\hypo{p}{P}
+	\hypo{qnp}{Q \eif \enot P} \want{\enot Q}
+	\open
+		\hypo{q}{Q} \by{for \emph{reductio}}{}
+		\have{np}{\enot P}\ce{qnp,q}
+		\have{nnp}{P}\by{R}{p}
+	\close
+	\have{nq}{\enot Q}\ni{q-np, q-nnp}
+\end{proof}
+
+Negation Introduction requires that one show that some sentence and its negation are both derivable from the assumption for \emph{reductio}. In this case, we establish that $P$ and $\enot P$ both follow from the assumption that $Q$. In the case of $\enot P$, we can get it directly via Conditional Elimination; the easiest way to get the $P$ that we need is simply to reiterate it from line 1. But it would also be possible to do a version of this proof using more steps without Reiteration, by using Conjunction Introduction and Conjunction Elimination together instead.
+
+%You may have noticed that there is another way to prove $\enot Q$ from these premises --- one may do it in a single step via \emph{modus tollens}. Recall that \emph{modus tollens} is not one of our \emph{basic} rules. It is a \emph{derived} rule that lets us take certain shortcuts. But anything that can be proven with \emph{modus tollens} can be proven with the basic rules listed above. In fact, the proof we have just seen, using Negation Introduction and Reiteration, provides a template. Anything you could get to with one step via \emph{modus tollens}, you could also get to in four steps via Negation Introduction, Conditional Elimination, and Reiteration.
+
+
+
+
+\subsection{Modus tollens}
+
+We have been discussing \emph{modus tollens} throughout this chapter, and in \S\ref{sec:reiteration} we showed how, in the case of one simple proof using \emph{modus tollens}, we can instead give a slightly longer proof using basic rules and Reiteration. In fact, we can prove this much more generally, via this proof schema:
+
+\begin{proof}
+	\hypo{p}{\metaA{}}
+	\hypo{qnp}{\metaB{} \eif \enot \metaA{}} \want{\enot \metaB{}}
+	\open
+		\hypo{q}{\metaB{}} \by{for \emph{reductio}}{}
+		\have{np}{\enot \metaA{}}\ce{qnp,q}
+		\have{nnp}{\metaA{}}\by{R}{p}
+	\close
+	\have{nq}{\enot \metaB{}}\ni{q-np, q-nnp}
+\end{proof}
+
+Derived rules need to be derived from basic rules only. Reiteration is not a basic rule, so this by itself isn't \emph{quite} a proof that we can derive \emph{modus tollens} from our basic rules. But since we have already seen that Reiteration itself can be derived from basic rules, we know that any Reiteration step can be replaced with a series of steps using only basic rules. If we did it using basic rules only, we'd replace line 5 with a 2-step version of the Reiteration derivation from \S\ref{sec:reiteration}:
+
+\begin{proof}
+	\hypo{p}{\metaA{}}
+	\hypo{qnp}{\metaB{} \eif \enot \metaA{}} \want{\enot \metaB{}}
+	\open
+		\hypo{q}{\metaB{}} \by{for \emph{reductio}}{}
+		\have{np}{\enot \metaA{}}\ce{qnp,q}
+		\have{nnp}{\metaA{}\eand\metaA{}}\ai{p}
+		\have{nnnp}{\metaA{}}\ae{nnp}		
+	\close
+	\have{nq}{\enot \metaB{}}\ni{q-np, q-nnnp}
+\end{proof}
+
+As always, \metaA{} and \metaB{} are meta-variables. They are not symbols of SL, but stand-ins for arbitrary sentences of SL. So this is not, strictly speaking, a proof in SL. It is more like a recipe; no matter what sentences you want to use \emph{modus tollens} on, if that rule would allow it, this pattern of proof will get you to the same place using basic rules only. This means that \emph{modus tollens} is not really necessary; we could prove everything we want to prove without it.
+
+Nevertheless, it is a convenient shortcut. We add it to our list of derived rules.
+
+\subsection{Dilemma}
+
+
+Here is the Dilemma rule:
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eor\metaB{}} 
+	\have[n]{ac}{\metaA{}\eif\metaC{}}
+	\have[o]{bc}{\metaB{}\eif\metaC{}}
+	\have[\ ]{c}{\metaC{}} \by{DIL}{ab,ac,bc}
+\end{proof}
+
+It might not be immediately obvious that this is a valid inference rule, but if you think about it a minute, you may be able to see why it is a good rule. If you know that two conditionals are true, and they have the same consequent, and you also know that one of the two antecedents is true, then whichever of those two disjuncts is true, will license a \emph{modus ponens} inference to the conclusion.
+
+For example, suppose you know all of the following:
+
+\begin{earg}
+\item[] If it is raining, the car is wet.
+\item[] If it is snowing, the car is wet.
+\item[] It is raining or it is snowing.
+\end{earg}
+
+From these premises, you can definitely establish that the car is wet. This is the form that the Dilemma rule captures. We use the label `dilemma' to convey the idea that, whichever way you pick, you'll be stuck with the same conclusion. (``You're damned if you do, and you're damned if you don't...'')
+
+The Dilemma rule is also derivable from the basic rules. The proof is a bit more complicated, but here it is in schematic form:
+
+\begin{proof}
+	\hypo{ab}{\metaA{}\eor\metaB{}}
+	\hypo{ac}{\metaA{}\eif\metaC{}}
+	\hypo{bc}{\metaB{}\eif\metaC{}}\by{want \metaC{}}{}
+	\open
+		\hypo{nc}{\enot \metaC{}}\by{for \emph{reductio}}{}
+		\open
+			\hypo{a1}\metaA{}\by{for \emph{reductio}}{}
+			\have{c1}{\metaC{}}\ce{ac, a1}
+			\have{nc1}{\enot\metaC{}}\by{R}{nc}
+		\close
+		\have{na}{\enot\metaA{}}\ni{a1-c1, a1-nc1}
+		\open
+			\hypo{b2}\metaB{}\by{for \emph{reductio}}{}
+			\have{c2}{\metaC{}}\ce{bc, b2}
+			\have{nc2}{\enot\metaC{}}\by{R}{nc}
+		\close
+		\have{nb}{\enot\metaB{}}\ni{b2-c2, b2-nc2}
+		\have{b}\metaB{}\oe{ab, na}
+	\close
+	\have{c}{\metaC{}} \ne{nc-b, nc-nb}
+\end{proof}
+
+To understand this proof, think about the broad outline of it. Ultimately, we derive \metaC{} via Negation Elimination; that's why we assumed \enot\metaC{} on line 4, and worked our way to a contradiction on lines 12--13. The internal lines are subproofs to the intermediate conclusions \metaB{} and \enot\metaB{}. 
+
+This is our first example of a natural deduction proof that involves nested assumptions. You can assume something new even while a previous assumption is open, as this proof does at line 5. Make sure to close the assumptions in the proper order, closing the newest assumptions first. (Here, the line 5 assumption must be closed, as it is after line 7, before the line 4 one is, at the end of the proof.)
+
+As in the case of \emph{modus tollens}, Dilemma doesn't allow us to prove anything we couldn't prove via basic rules. Anytime you wanted to use the Dilemma rule, you could always take ten extra lines and prove the same thing in basic rules. But it's a useful shorthand to include on our list of derived rules.
+
+\subsection{Hypothetical Syllogism}
+
+
+
+We also add hypothetical syllogism (HS) as a derived rule:
+
+\begin{proof}
+	\have[m]{ab}{\metaA{}\eif\metaB{}}
+	\have[n]{bc}{\metaB{}\eif\metaC{}}
+	\have[\ ]{ac}{\metaA{}\eif\metaC{}}\by{HS}{ab,bc}
+\end{proof}
+
+We have already given a proof of one instance of Hypothetical Syllogism on p.~\pageref{HSproof}. The general proof schema is just the same, but with $P$, $Q$, and $R$ replaced with \metaA{}, \metaB{}, and \metaC{}, respectively.
+
+
+
+
+
+\section{Rules of replacement}
+
+Consider how you would prove this argument form valid: $F\eif(G\eand H)$ \therefore\ $F\eif G$
+
+Perhaps it is tempting to write down the premise and apply the {\eand}E rule to the conjunction $(G \eand H)$. This is impermissible, however, because the basic rules of proof can only be applied to whole sentences. In order to use {\eand}E, we need to get the conjunction $(G \eand H)$ on a line by itself. Here is a proof:
+
+\begin{proof}
+	\hypo{fgh}{F\eif(G\eand H)}
+	\open
+		\hypo{f}{F}\by{want $G$}{}
+		\have{gh}{G \eand H}\ce{fgh,f}
+		\have{g}{G}\ae{gh}
+	\close
+	\have{fg}{F \eif G}\ci{f-g}
+\end{proof}
+
+The rules we have seen so far must apply to wffs that are on a proof line by themselves. We will now introduce some derived rules that may be applied to wffs that are parts of more complex sentences. These are called \define{rules of replacement}, because they can be used to replace part of a sentence with a logically equivalent expression. One simple rule of replacement is Commutativity (abbreviated Comm), which says that we can swap the order of conjuncts in a conjunction or the order of disjuncts in a disjunction. We define the rule thus:
+
+\begin{center}
+\begin{tabular}{rl}
+$(\metaA{}\eand\metaB{}) \Longleftrightarrow (\metaB{}\eand\metaA{})$\\
+$(\metaA{}\eor\metaB{}) \Longleftrightarrow (\metaB{}\eor\metaA{})$\\
+$(\metaA{}\eiff\metaB{}) \Longleftrightarrow (\metaB{}\eiff\metaA{})$
+& Comm
+\end{tabular}
+\end{center}
+
+The double arrow means that you can take a subformula on one side of the arrow and replace it with the subformula on the other side. The arrow is double-headed because rules of replacement work in both directions. And replacement rules --- unlike all the rules we've seen so far --- can be applied to wffs that are part of more complex sentences. They don't need to be on their own line.
+
+Consider this argument: $(M \eor P) \eif (P \eand M)$ \therefore\ $(P \eor M) \eif (M \eand P)$
+
+It is possible to give a proof of this using only the basic rules, but it will be somewhat tedious. With the Comm rule, we can provide a proof easily:
+
+\begin{proof}
+	\hypo{1}{(M \eor P) \eif (P \eand M)}
+	\have{2}{(P \eor M) \eif (P \eand M)}\by{Comm}{1}
+	\have{n}{(P \eor M) \eif (M \eand P)}\by{Comm}{2}
+\end{proof}
+
+(We need to apply the rule twice, because each application allows one transformation. We transformed the antecedent first, then the consequent. The opposite order would also have been fine.)
+
+Another rule of replacement is Double Negation (DN). With the DN rule, you can remove or insert a pair of negations for any wff in a line, even if it isn't the whole line. This is the rule:
+
+\begin{center}
+\begin{tabular}{rl}
+$\enot\enot\metaA{} \Longleftrightarrow \metaA{}$ & DN
+\end{tabular}
+\end{center}
+
+Two more replacement rules  are called De Morgan's Laws, named for the 19th-century British logician Augustus De Morgan. (Although De Morgan did formalize and publish these laws, many others discussed them before him.) The rules capture useful relations between negation, conjunction, and disjunction. Here are the rules, which we abbreviate DeM:
+
+\begin{center}
+\begin{tabular}{rl}
+$\enot(\metaA{}\eor\metaB{}) \Longleftrightarrow (\enot\metaA{}\eand\enot\metaB{})$\\
+$\enot(\metaA{}\eand\metaB{}) \Longleftrightarrow (\enot\metaA{}\eor\enot\metaB{})$
+& DeM
+\end{tabular}
+\end{center}
+
+As we have seen, $\metaA{}\eif\metaB{}$ is equivalent to $\enot\metaA{}\eor\metaB{}$. A further replacement rule captures this equivalence. We abbreviate the rule MC, for `material conditional.' It takes two forms:
+
+\begin{center}
+\begin{tabular}{rl}
+$(\metaA{}\eif\metaB{}) \Longleftrightarrow (\enot\metaA{}\eor\metaB{})$ &\\
+$(\metaA{}\eor\metaB{}) \Longleftrightarrow (\enot\metaA{}\eif\metaB{})$ & MC
+\end{tabular}
+\end{center}
+
+Now consider this argument: $\enot(P \eif Q)$ \therefore\ $P \eand \enot Q$
+
+As always, we could prove this argument valid using only the basic rules. With rules of replacement, though, the proof is much simpler:
+
+\begin{proof}
+	\hypo{1}{\enot(P \eif Q)}
+	\have{2}{\enot(\enot P \eor Q)}\by{MC}{1}
+	\have{3}{\enot\enot P \eand \enot Q}\by{DeM}{2}
+	\have{4}{P \eand \enot Q}\by{DN}{3}
+\end{proof}
+
+A final replacement rule captures the relation between conditionals and biconditionals. We will call this rule biconditional exchange and abbreviate it {\eiff}{ex}.
+
+\begin{center}
+\begin{tabular}{rl}
+$[(\metaA{}\eif\metaB{})\eand(\metaB{}\eif\metaA{})] \Longleftrightarrow (\metaA{}\eiff\metaB{})$
+& {\eiff}{ex}
+\end{tabular}
+\end{center}
+
+
+
+%
+%Although they don't do it in the book, I've been in the habit of writing $(\metaA{}\eand\metaB{}\eand\metaC{})$ and dropping the inner pair of parentheses. This is fine. If we'd wanted to, we could have defined the basic rules in a more general way:
+%
+%\begin{proof}
+%	\have[n]{a1}{\metaA{}_1}
+%	\have{2}{\metaA{}_2}
+%	\have[\vdots]{1}{\vdots}
+%	\have[n]{an}{\metaA{}_n}
+%	\have[\ ]{aaa}{\metaA{}_1~\eand\ldots\eand~\metaA{}_n} \ai{}
+%\end{proof}
+%
+%\bigskip
+%\begin{proof}
+%	\have{3}{\metaA{}_1~\eand\ldots\eand~\metaA{}_n}
+%	\have{1}{\metaA{}_i} \ae{}
+%\end{proof}
+%
+%\bigskip
+%\begin{proof}
+%	\have{1}\metaA{}
+%	\have{3}{\metaA{}\eor\metaB{}_1\eor\metaB{}_2\ldots\eor\metaB{}_n} \ai{}
+%\end{proof}
+%
+%We don't need these extended versions, since for any given n we could prove them as a derived rule.
+%
+%
+%The basic rules for conjunction can be valuable in a proof even if there are no conjunctions in any of the assumptions; the basic rules for disjunction can be used even if there are no disjunctions in any assumptions; and similarly for the other basic rules. The rules for identity are different, in that there must be an identity claim in some assumption in order for the rules to do any work. Other than the trivial identity that we can introduce with the {=}I rule
+%
+%
+%do not apply we can now prove that identity is \emph{transitive}: If $a=b$ and $b=c$, then $a=c$. The proof proceeds in this way:
+%\begin{proof}
+%	\open
+%		\hypo{p}{a=b \eand b=c}\by{want $a=c$}{}
+%		\have{ab}{a=b}\ae{p}
+%		\have{bc}{b=c}\ae{p}
+%		\have{ac}{a=c}\by{{=}E}{ab,bc}
+%	\close
+%	\have{conc}{(a=b \eand b=c)\eif a=c} \ci{p-ac}
+%\end{proof}
+%
+%
+%As an example, consider this argument:
+%\begin{quote}
+%There is only one button in my pocket. There is a blue button in my pocket. Therefore, there is no button in my pocket that is not blue.
+%\end{quote}
+%We begin by defining a symbolization key:
+%\begin{ekey}
+%\item{UD:} buttons in my pocket
+%\item{Bx:} $x$ is blue.
+%\end{ekey}
+%\begin{proof}
+%	\hypo{one}{\forall x\forall y\ x=y}
+%	\hypo{eb}{\exists x Bx} \by{want $\enot\exists x \enot Bx$}{}
+%	\open
+%		\hypo{be1}{Be}
+%		\have{ef1}{e=f}\Ae{one}
+%		\have{bf1}{Bf}\by{{=}E}{ef1,be1}
+%	\close
+%	\have{bf}{Bf}\Ee{eb,be1-bf1}
+%	\have{ab}{\forall x Bx}\Ai{bf}
+%	\have{nnab}{\enot\enot\forall x Bx}\by{DN}{ab}
+%	\have{nenb}{\enot\exists x\enot Bx}\by{QN}{nnab}
+%\end{proof}
+
+
+
+\section{Proof strategy}
+\label{sec.SL.ND.strategy}
+
+
+
+
+
+There is no simple recipe for proofs, and there is no substitute for practice. Here, though, are some rules of thumb and strategies to keep in mind.
+
+\paragraph{Work backwards from what you want.}
+The ultimate goal is to derive the conclusion. Look at the conclusion and ask what the introduction rule is for its main logical operator. This gives you an idea of what should happen \emph{just before} the last line of the proof. Then you can treat this line as if it were your goal. Ask what you could do to derive this new goal.
+
+For example: If your conclusion is a conditional $\metaA{}\eif\metaB{}$, plan to use the {\eif}I rule. This requires starting a subproof in which you assume \metaA{}. In the subproof, you want to derive \metaB{}.
+
+\paragraph{Work forwards from what you have.}
+When you are starting a proof, look at the premises; later, look at the sentences that you have derived so far. Think about the elimination rules for the main operators of these sentences. These will tell you what your options are.
+
+For example: If you have a conditional \metaA{}\eif\metaB{}, and you also have \metaA{}, {\eif}E is a pretty natural choice.
+
+For a short proof, you might be able to eliminate the premises and introduce the conclusion. A long proof is formally just a number of short proofs linked together, so you can fill the gap by alternately working back from the conclusion and forward from the premises.
+
+
+\paragraph{Change what you are looking at.}
+Replacement rules can often make your life easier. If a proof seems impossible, try out some different substitutions.
+
+For example: It is often difficult to prove a disjunction using the basic rules. If you want to show $\metaA{}\eor\metaB{}$, it is often easier to show $\enot\metaA{}\eif\metaB{}$ and use the MC rule.
+
+Some replacement rules should become second nature. If you see a negated disjunction, for instance, you should immediately think of DeMorgan's rule.
+
+\paragraph{Do not forget indirect proof.}
+If you cannot find a way to show something directly, try assuming its negation.
+
+Remember that most proofs can be done either indirectly or directly. One way might be easier --- or perhaps one sparks your imagination more than the other --- but either one is formally legitimate.
+
+\paragraph{Repeat as necessary.} Once you have decided how you might be able to get to the conclusion, ask what you might be able to do with the premises. Then consider the target sentences again and ask how you might reach them.
+
+\paragraph{Persist.}
+Try different things. If one approach fails, then try something else.
+
+
+
+
+\section{Proof-theoretic concepts}
+
+As we did in our discussion of trees, we will again use the symbol `$\vdash$' to indicate provability. Provability is relative to a proof system, so the meaning of the `$\vdash$' symbol featured in this chapter should be distinguished from the one we used for trees. When necessary, we can specify the single turnstile with reference to the proof system in question, letting `$\vdash_{T}$' stand for provability in the tree system, and `$\vdash_{ND}$' stand for provability in this natural deduction system. For the most part in this chapter, though, we'll be interested in natural deduction, so unless it is specified otherwise, you can understand `$\vdash$' to mean `$\vdash_{ND}$'.
+
+The {double turnstile} symbol `$\models$', remains unchanged. It stands for semantic entailment, as described in ch.~\ref{ch.SLmodels}.
+
+When we write $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash_{ND}\metaB{}$, this means that it is possible to give a natural deduction derivation of \metaB{} from premises $\metaA{}_1$,$\metaA{}_2$,$\ldots$. With just one premise, we leave out the curly brackets, so $\metaA{}\vdash\metaB{}$ means that there is a proof of \metaB{} with \metaA{} as a premise. Naturally, $\vdash\metaA{}$ means that there is a proof of \metaA{} that has no premises. You can think of it as shorthand for $\emptyset\vdash\metaA{}$. 
+
+For notational completeness, we can understand $\metaSetX{}\vdash\bot$ to mean that from \metaSetX{}, we could prove an arbitrary contradiction. In other words, $\metaSetX{}$ is an inconsistent set.
+
+Logical proofs are sometimes called \emph{derivations}. So $\metaA{}\vdash\metaB{}$ can be read as `\metaB{} is derivable from \metaA{}.'
+
+A \define{theorem} is a sentence that is derivable without any premises; i.e., \metaA{} is a theorem if and only if $\vdash\metaA{}$.
+
+It is not too hard to show that something is a theorem --- you just have to give a proof of it. How could you show that something is \emph{not} a theorem? If its negation is a theorem, then you could provide a proof. For example, it is easy to prove $\enot(P \eand \enot P)$, which shows that $(P \eand \enot P)$ cannot be a theorem. For a sentence that is neither a theorem nor the negation of a theorem, however, there is no easy way to show this. You would have to demonstrate not just that certain proof strategies fail, but that no proof is possible. Even if you fail in trying to prove a sentence in a thousand different ways, perhaps the proof is just too long and complex for you to make out. As we've emphasized already, this is a difference between our natural deduction system and the tree method. (For just the same reason, the natural deduction system doesn't provide a straightforward way to demonstrate that an argument form is invalid.)
+
+Two sentences \metaA{} and \metaB{} are \define{provably equivalent} if and only if each can be derived from the other; i.e., $\metaA{}\vdash\metaB{}$ and $\metaB{}\vdash\metaA{}$.
+
+It is relatively easy to show that two sentences are provably equivalent --- it just requires a pair of proofs. Showing that sentences are \emph{not} provably equivalent would be much harder. It would be just as hard as showing that a sentence is not a theorem. (In fact, these problems are interchangeable. Can you think of a sentence that would be a theorem if and only if \metaA{} and \metaB{} were provably equivalent?)
+
+The set of sentences $\{\metaA{}_1,\metaA{}_2,\ldots\}$ is \define{provably inconsistent} if and only if contradictory sentences are derivable from it; i.e., for some sentence \metaB{}, $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash\metaB{}$ and $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash\enot \metaB{}$. This is equivalent to $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash\bot$.
+
+It is easy to show that a set is provably inconsistent: You just need to assume the sentences in the set and prove a contradiction. Showing that a set is \emph{not} provably inconsistent will be much harder. It would require more than just providing a proof or two; it would require showing that proofs of a certain kind are \emph{impossible}.
+
+
+\section{Proofs and models}
+As you might already suspect, there is a connection between \emph{theorems} and \emph{tautologies}.
+
+There is a formal way of showing that a sentence is a theorem: Prove it. For each line, we can check to see if that line follows by the cited rule. It may be hard to produce a twenty line proof, but it is not so hard to check each line of the proof and confirm that it is legitimate --- and if each line of the proof individually is legitimate, then the whole proof is legitimate. Showing that a sentence is a tautology, though, requires reasoning in English about all possible models. There is no formal way of checking to see if the reasoning is sound. Given a choice between showing that a sentence is a theorem and showing that it is a tautology, it would be easier to show that it is a theorem.
+
+By contrast, there is no formal way of showing that a sentence is \emph{not} a theorem. We would need to reason in English about all possible proofs. Yet there is a formal method for showing that a sentence is not a tautology. We need only construct a model in which the sentence is false. Given a choice between showing that a sentence is not a theorem and showing that it is not a tautology, it would be easier to show that it is not a tautology.
+
+Fortunately, a sentence is a theorem if and only if it is a tautology. If we provide a proof of $\vdash\metaA{}$ and thus show that it is a theorem, it follows that \metaA{} is a tautology; i.e., $\models\metaA{}$. Similarly, if we construct a model in which \metaA{} is false and thus show that it is not a tautology, it follows that \metaA{} is not a theorem.
+
+In general, $\metaA{}\vdash\metaB{}$ if and only if $\metaA{}\models\metaB{}$. As such:
+\begin{itemize}
+\item An argument is \emph{valid} if and only if \emph{the conclusion is derivable from the premises}.
+\item Two sentences are \emph{logically equivalent} if and only if they are \emph{provably equivalent}.
+\item A set of sentences is \emph{consistent} if and only if it is \emph{not provably inconsistent}.
+\end{itemize}
+You can pick and choose when to think in terms of proofs and when to think in terms of models, doing whichever is easier for a given task. Table \ref{table.ProofOrModel} summarizes when it is best to give proofs and when it is best to give models.
+
+In this way, proofs and models give us a versatile toolkit for working with arguments. If we can translate an argument into SL, then we can measure its logical weight in a purely formal way. If it is deductively valid, we can give a formal proof; if it is invalid, we can provide a formal counterexample.
+
+\begin{table}
+\begin{center}
+\begin{tabular*}{\textwidth}{p{10em}|p{10em}|p{10em}|}
+\cline{2-3}
+
+ & \multicolumn{1}{|c|}{YES} & \multicolumn{1}{|c|}{NO}\\
+\cline{2-3}
+
+Is \metaA{} a tautology? & prove $\vdash\metaA{}$ & give a model in which \metaA{} is false\\
+\cline{2-3}
+
+Is \metaA{} a contradiction? &  prove $\vdash\enot\metaA{}$ & give a model in which \metaA{} is true\\
+\cline{2-3}
+
+Is \metaA{} contingent? & give a model in which \metaA{} is true and another in which \metaA{} is false & prove $\vdash\metaA{}$ or $\vdash\enot\metaA{}$\\
+\cline{2-3}
+
+Are \metaA{} and \metaB{} equivalent? & prove \mbox{$\metaA{}\vdash\metaB{}$} and \mbox{$\metaB{}\vdash\metaA{}$}  & give a model in which \metaA{} and \metaB{} have different truth values\\
+\cline{2-3}
+
+Is the set \model{A} consistent? & give a model in which all the sentences in \model{A} are true & taking the sentences in \model{A}, prove \metaB{} and \enot\metaB{}\\
+\cline{2-3}
+
+Is the argument `\metaA{}, \metaB{}, \ldots \mbox{\therefore\ \metaC{}'} valid? & prove $\metaA{}, \metaB{}, \ldots \vdash\metaC{}$ & give a model in which \{\metaA{}, \metaB{}, \ldots \} is satisfied and \metaC{} is falsified\\
+\cline{2-3}
+\end{tabular*}
+\end{center}
+\caption{Sometimes it is easier to show something by providing proofs than it is by providing models. Sometimes it is the other way round.  It depends on what you are trying to show.}
+\label{table.ProofOrModel}
+\end{table}
+
+\FloatBarrier
+
+\section{Soundness and completeness}
+
+Chapter \ref{ch.SLsoundcomplete} considered the soundness and completeness of the tree method at length; it proved that this method was both sound ($\metaSetX{}\vdash_{T}\metaA{}$ only if $\metaSetX{}\models{}$\metaA{}) and complete ($\metaSetX{}\models{}$\metaA{} only if $\metaSetX{}\vdash_{T}\metaA{}$). We said in the last section that $\metaA{}\vdash_{ND}\metaB{}$ if and only if $\metaA{}\models\metaB{}$; this is equivalent to saying that our natural deduction system, too, is sound and complete. Given the soundness and completeness of the tree method, this also means that our two proof systems are equivalent in the sense that anything provable in one is also provable in the other ($\metaSetX{}\vdash_{T}\metaA{})$ iff ($\metaSetX{}\vdash_{ND}\metaA{}$).
+
+How can we know that our natural deduction method is sound? A proof system is \define{sound} if there are no derivations corresponding to invalid arguments. Demonstrating that the proof system is sound would require showing that any possible proof in our system is the proof of a valid argument. There is a fairly simple way of approaching this in a step-wise fashion. If using the {\eand}E rule on the last line of a proof could never change a valid argument into an invalid one, then using the rule many times could not make an argument invalid. Similarly, if using the {\eand}E and {\eor}E rules individually on the last line of a proof could never change a valid argument into an invalid one, then using them in combination could not either.
+
+The strategy is to show for every rule of inference that it alone could not make a valid argument into an invalid one. It follows that the rules used in combination would not make a valid argument invalid. Since a proof is just a series of lines, each justified by a rule of inference, this would show that every provable argument is valid.
+
+Consider, for example, the {\eand}I rule. Suppose we use it to add \metaA{}\eand\metaB{} to a valid argument. In order for the rule to apply, \metaA{} and \metaB{} must already be available in the proof. Since the argument so far is valid, \metaA{} and \metaB{} are either premises of the argument or valid consequences of the premises. As such, any model in which the premises are true must be a model in which \metaA{} and \metaB{} are true. According to the definition of \define{truth in SL}, this means that \metaA{}\eand\metaB{} is also true in such a model. Therefore, \metaA{}\eand\metaB{} validly follows from the premises. This means that using the {\eand}I rule to extend a valid proof produces another valid proof.
+
+In order to show that the proof system is sound, we would need to show this for the other inference rules. Since the derived rules are consequences of the basic rules, it would suffice to provide similar arguments for the 16 other basic rules. The reasoning is extremely similar to that given in the soundness proof for trees in the previous chapter. We will not go through it in detail here.
+
+What of completeness? Why think that \emph{every} valid argument is an argument that can be proven in our natural deduction system? That is, why think that $\metaA{}\models\metaB{}$ implies $\metaA{}\vdash\metaB{}$? Our system \emph{is} also complete, but the completeness proof for natural deduction is a bit more complex than the completeness proof for trees. (In the case of trees, we had a mechanical method that was guaranteed to find proofs if they exist; we have seen no such method here, which makes proving these general results harder.) This proof is beyond the scope of this book.
+
+The important point is that, happily, the proof system for SL is both sound and complete. Consequently, we may freely use this natural deduction method to draw conclusions about models in SL.
+
+
+\section*{Summary of definitions}
+\begin{itemize}
+\item A sentence \metaA{} is a \define{theorem} if and only if $\vdash\metaA{}$.
+
+\item Two sentences \metaA{} and \metaB{} are \define{provably equivalent} if and only if $\metaA{}\vdash\metaB{}$ and $\metaB{}\vdash\metaA{}$.
+
+\item $\{\metaA{}_1,\metaA{}_2,\ldots\}$ is \define{provably inconsistent} if and only if, for some sentence \metaB{}, $\{\metaA{}_1,\metaA{}_2,\ldots\}\vdash(\metaB{} \eand \enot \metaB{})$.
+\end{itemize}
+
+
+
+\practiceproblems
+
+\solutions
+\problempart
+\label{pr.justifySLproof}
+Provide a justification (rule and line numbers) for each line of proof that requires one.
+\begin{multicols}{2}
+\begin{proof}
+\hypo{1}{W \eif \enot B}
+\hypo{2}{A \eand W}
+\hypo{2b}{B \eor (J \eand K)}
+\have{3}{W}{}
+\have{4}{\enot B} {}
+\have{5}{J \eand K} {}
+\have{6}{K}{}
+\end{proof}
+
+\begin{proof}
+\hypo{1}{L \eiff \enot O}
+\hypo{2}{L \eor \enot O}
+\open
+	\hypo{a1}{\enot L}
+	\have{a2}{\enot O}{}
+	\have{a3}{L}{}
+	\have{a4}{\enot L}{}
+\close
+\have{3}{L}{}
+\end{proof}
+
+\begin{proof}
+\hypo{1}{Z \eif (C \eand \enot N)}
+\hypo{2}{\enot Z \eif (N \eand \enot C)}
+\open
+	\hypo{a1}{\enot(N \eor  C)}
+	\have{a2}{\enot N \eand \enot C} {}
+	\open
+		\hypo{b1}{Z}
+		\have{b2}{C \eand \enot N}{}
+		\have{b3}{C}{}
+		\have{b4}{\enot C}{}
+	\close
+	\have{a3}{\enot Z}{}
+	\have{a4}{N \eand \enot C}{}
+	\have{a5}{N}{}
+	\have{a6}{\enot N}{}
+\close
+\have{3}{N \eor C}{}
+\end{proof}
+\end{multicols}
+
+\solutions
+\problempart
+\label{pr.solvedSLproofs}
+Give a proof for each argument in SL.
+\begin{earg}
+\item $K\eand L$, \therefore $K\eiff L$
+\item $A\eif (B\eif C)$, \therefore $(A\eand B)\eif C$
+\item $P \eand (Q\eor R)$, $P\eif \enot R$, \therefore $Q\eor E$
+\item $(C\eand D)\eor E$, \therefore $E\eor D$
+\item $\enot F\eif G$, $F\eif H$, \therefore $G\eor H$
+\item $(X\eand Y)\eor(X\eand Z)$, $\enot(X\eand D)$, $D\eor M$ \therefore $M$
+\end{earg}
+
+\problempart
+Give a proof for each argument in SL.
+\begin{earg}
+\item $Q\eif(Q\eand\enot Q)$, \therefore\ $\enot Q$
+\item $J\eif\enot J$, \therefore\ $\enot J$
+\item $E\eor F$, $F\eor G$, $\enot F$, \therefore\ $E \eand G$
+\item $A\eiff B$, $B\eiff C$, \therefore\ $A\eiff C$
+\item $M\eor(N\eif M)$, \therefore\ $\enot M \eif \enot N$
+\item $S\eiff T$, \therefore\ $S\eiff (T\eor S)$
+\item $(M \eor N) \eand (O \eor P)$, $N \eif P$, $\enot P$, \therefore\ $M\eand O$
+\item $(Z\eand K) \eor (K\eand M)$, $K \eif D$, \therefore\ $D$
+\end{earg}
+
+
+\solutions
+\problempart
+\label{pr.SLND.theorems}
+Show that each of the following sentences is a theorem in SL.
+\begin{earg}
+\item $O \eif O$
+\item $N \eor \enot N$
+\item $\enot(P\eand \enot P)$
+\item $\enot(A \eif \enot C) \eif (A \eif C)$
+\item $J \eiff [J\eor (L\eand\enot L)]$
+\end{earg}
+
+\problempart
+Show that each of the following pairs of sentences are provably equivalent in SL.
+\begin{earg}
+\item $\enot\enot\enot\enot G$, $G$
+\item $T\eif S$, $\enot S \eif \enot T$
+\item $R \eiff E$, $E \eiff R$
+\item $\enot G \eiff H$, $\enot(G \eiff H)$
+\item $U \eif I$, $\enot(U \eand \enot I)$
+\end{earg}
+
+\solutions
+\problempart
+\label{pr.solvedSLproofs2}
+Provide proofs to show each of the following.
+\begin{earg}
+\item $M \eand (\enot N \eif \enot M) \vdash (N \eand M) \eor \enot M$
+\item \{$C\eif(E\eand G)$, $\enot C \eif G$\} $\vdash$ $G$
+\item \{$(Z\eand K)\eiff(Y\eand M)$, $D\eand(D\eif M)$\} $\vdash$ $Y\eif Z$
+\item \{$(W \eor X) \eor (Y \eor Z)$, $X\eif Y$, $\enot Z$\} $\vdash$ $W\eor Y$
+\end{earg}
+
+
+
+\problempart
+For the following, provide proofs using only the basic rules. The proofs will be longer than proofs of the same claims would be using the derived rules.
+\begin{earg}
+\item Show that MT is a legitimate derived rule. Using only the basic rules, prove the following: \metaA{}\eif\metaB{}, \enot\metaB{}, \therefore\ \enot\metaA{}
+\item Show that Comm is a legitimate rule for the biconditional. Using only the basic rules, prove that $\metaA{}\eiff\metaB{}$ and $\metaB{}\eiff\metaA{}$ are equivalent.
+\item Using only the basic rules, prove the following instance of DeMorgan's Laws: $(\enot A \eand \enot B)$, \therefore\ $\enot(A \eor B)$
+\item Show that {\eiff}{ex} is a legitimate derived rule. Using only the basic rules, prove that $D\eiff E$ and $(D\eif E)\eand(E\eif D)$ are equivalent.
+\end{earg}
+
+
+
+
+\problempart
+\begin{earg}
+\item If you know that $\metaA{}\vdash\metaB{}$, what can you say about $(\metaA{}\eand\metaC{})\vdash\metaB{}$? Explain your answer.
+\item If you know that $\metaA{}\vdash\metaB{}$, what can you say about $(\metaA{}\eor\metaC{})\vdash\metaB{}$? Explain your answer.
+\end{earg}
+
+
+
+

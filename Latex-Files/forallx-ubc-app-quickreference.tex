@@ -384,109 +384,109 @@ A branch closes if and only if either (i) it contains some sentence \metaA{} alo
 
 \textsc{Conjunction Introduction}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{a}{\metaA{}}
 	\have[n]{b}{\metaB{}}
 	\have[\ ]{c}{\metaA{}\eand\metaB{}} \ai{a, b}
-\end{proof}
+\end{ndproof}
 
 \textsc{Conjunction Elimination}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{ab}{\metaA{}\eand\metaB{}}
 	\have[\ ]{a}{\metaA{}} \ae{ab}
 	\have[\ ]{b}{\metaB{}} \ae{ab}
-\end{proof}
+\end{ndproof}
 
 
 \textsc{Disjunction Introduction}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{a}{\metaA{}}
 	\have[\ ]{ab}{\metaA{}\eor\metaB{}}\oi{a}
 	\have[\ ]{ba}{\metaB{}\eor\metaA{}}\oi{a}
-\end{proof}
+\end{ndproof}
 
 \textsc{Disjunction Elimination}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{ab}{\metaA{}\eor\metaB{}}
 	\have[n]{nb}{\enot\metaB{}}
 	\have[\ ]{a}{\metaA{}} \oe{ab,nb}
-\end{proof}
+\end{ndproof}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{ab}{\metaA{}\eor\metaB{}}
 	\have[n]{na}{\enot\metaA{}}
 	\have[\ ]{b}{\metaB{}} \oe{ab,nb}
-\end{proof}
+\end{ndproof}
 
 
 \textsc{Conditional Introduction}
 
 \nopagebreak
-\begin{proof}
+\begin{ndproof}
 	\open
 		\hypo[m]{a}{\metaA{}} \by{want \metaB{}}{}
 		\have[n]{b}{\metaB{}}
 	\close
 	\have[\ ]{ab}{\metaA{}\eif\metaB{}}\ci{a-b}
-\end{proof}
+\end{ndproof}
 
 \pagebreak
 \textsc{Conditional Elimination}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{ab}{\metaA{}\eif\metaB{}}
 	\have[n]{a}{\metaA{}}
 	\have[\ ]{b}{\metaB{}} \ce{ab,a}
-\end{proof}
+\end{ndproof}
 
 \textsc{Biconditional Introduction}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{ab}{\metaA{}\eif\metaB{}}
 	\have[n]{ba}{\metaB{}\eif\metaA{}}
 	\have[\ ]{c}{\metaA{}\eiff\metaB{}} \bi{ab, ba}
-\end{proof}
+\end{ndproof}
 
 \textsc{Biconditional Elimination}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{ab}{\metaA{}\eiff\metaB{}}
 	\have[n]{a}{\metaB{}}
 	\have[\ ]{b}{\metaA{}} \be{ab,a}
-\end{proof}
+\end{ndproof}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{ab}{\metaA{}\eiff\metaB{}}
 	\have[n]{a}{\metaA{}}
 	\have[\ ]{b}{\metaB{}} \be{ab,a}
-\end{proof}
+\end{ndproof}
 
 
 
 \textsc{Negation Introduction}
 
-\begin{proof}
+\begin{ndproof}
 \open
 	\hypo[m]{na}\metaA{}\by{for reductio}{}
 	\have[n]{b}\metaB{}
 	\have[o]{nb}{\enot\metaB{}}
 \close
 \have[\ ]{a}[\ ]{\enot\metaA{}}\ni{na-b, na-nb}
-\end{proof}
+\end{ndproof}
 
 \textsc{Negation Elimination}
 
-\begin{proof}
+\begin{ndproof}
 \open
 	\hypo[m]{na}{\enot\metaA{}}\by{for reductio}{}
 	\have[n]{b}\metaB{}
 	\have[o]{nb}{\enot\metaB{}}
 \close
 \have[\ ]{a}[\ ]\metaA{}\ne{na-b, na-nb}
-\end{proof}
+\end{ndproof}
 
 
 
@@ -499,10 +499,10 @@ A branch closes if and only if either (i) it contains some sentence \metaA{} alo
 
 \textsc{Existential Introduction}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{a}{\metaA{}}
 	\have[\ ]{c}{\exists \script{x}\metaA{}\substitutesome{\script{c}^\ast}{\script{x}}} \Ei{a}
-\end{proof}
+\end{ndproof}
 
 \begin{footnotesize}\emph{
 $^\ast$ \script{x} may replace some or all occurrences of \script{c}.}
@@ -511,14 +511,14 @@ $^\ast$ \script{x} may replace some or all occurrences of \script{c}.}
 
 \textsc{Existential Elimination}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{a}{\exists \script{x}\metaA{}}
 	\open	
 		\hypo[n]{b}{\metaA{}\substitute{\script{x}}{\script{c}^\ast}}
 		\have[p]{c}{\metaB{}}
 	\close
 	\have[\ ]{d}{\metaB{}} \Ee{a,b-c}
-\end{proof}
+\end{ndproof}
 
 \begin{footnotesize}\emph{
 $^\ast$ \script{c} must not appear outside the subproof.}
@@ -527,39 +527,39 @@ $^\ast$ \script{c} must not appear outside the subproof.}
 \textsc{Universal Introduction}
 
 
-\begin{proof}
-	\have[m]{a}{\metaA{}\substitute{x}{c^\ast}}
+\begin{ndproof}
+	\have[m]{a}{\metaA{}\substitute{\script{x}}{\script{c}^\ast}}
 	\have[\ ]{c}{\forall \script{x}\metaA{}} \Ai{a}
-\end{proof}
+\end{ndproof}
 
 \begin{footnotesize}\emph{
-$^\ast$ The constant \script{c} must not occur in $\metaA{}$ or in any undischarged assumption.}
+$^\ast$ \script{c} must not occur in $\metaA{}$ or in any undischarged assumption.}
 \end{footnotesize}
 
 
 
 \textsc{Universal Elimination}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{a}{\forall \script{x}\metaA{}}
 	\have[\ ]{c}{\metaA{}\substitute{\script{x}}{\script{c}}} \Ae{a}
-\end{proof}
+\end{ndproof}
 
 
 
 
 {\large \bf Identity Rules}
 
-\begin{proof}
+\begin{ndproof}
 	\have[\ \,\,\,]{x}{\script{c}{=}\script{c}} \by{=I}{}
-\end{proof}
+\end{ndproof}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{e}{\script{c}{=}\script{d}}
 	\have[n]{a}{\metaA{}}
 	\have[\ ]{ea1}{\metaA{}\substitutesome{\script{c}}{\script{d}}} \by{=E}{e,a}
 	\have[\ ]{ea2}{\metaA{}\substitutesome{\script{d}}{\script{c}}} \by{=E}{e,a}
-\end{proof}
+\end{ndproof}
 
 \begin{footnotesize}\emph{One constant may replace some or all occurrences of the other.}
 \end{footnotesize}
@@ -574,36 +574,36 @@ $^\ast$ The constant \script{c} must not occur in $\metaA{}$ or in any undischar
 
 \textsc{Reiteration}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{a}{\metaA{}}
 	\have[\ ]{c}{\metaA{}} \by{R}{a}
-\end{proof}
+\end{ndproof}
 
 
 \textsc{Dilemma}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{ab}{\metaA{}\eor\metaB{}}
 	\have[n]{ac}{\metaA{}\eif\metaC{}}
 	\have[p]{bc}{\metaB{}\eif\metaC{}}
 	\have[\ ]{a}{\metaC{}} \by{DIL}{ab,ac,bc}
-\end{proof}
+\end{ndproof}
 
 \textsc{Modus Tollens}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{ab}{\metaA{}\eif\metaB{}}
 	\have[n]{a}{\enot\metaB{}}
 	\have[\ ]{b}{\enot\metaA{}} \by{MT}{ab,a}
-\end{proof}
+\end{ndproof}
 
 \textsc{Hypothetical Syllogism}
 
-\begin{proof}
+\begin{ndproof}
 	\have[m]{ab}{\metaA{}\eif\metaB{}}
 	\have[n]{bc}{\metaB{}\eif\metaC{}}
 	\have[\ ]{ac}{\metaA{}\eif\metaC{}}\by{HS}{ab,bc}
-\end{proof}
+\end{ndproof}
 
 
 
