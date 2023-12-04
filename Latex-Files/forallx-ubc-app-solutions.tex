@@ -3242,10 +3242,10 @@ Regarding the translation of this argument, see p.~\pageref{likes2}.
 \begin{ndproof}
 \hypo{1}{\exists x\forall y[\forall z(Lxz \eif Lyz) \eif Lxy]}
 \open
-	\have{a}{\forall y[\forall z(Laz \eif Lyz) \eif Lay]} \by{for $\exists${}E}{}
+	\hypo{a}{\forall y[\forall z(Laz \eif Lyz) \eif Lay]} \by{for $\exists${}E}{}
 	\have{b}{\forall z(Laz \eif Laz) \eif Laa} \Ae{a}
 	\open
-		\have{c1}{\enot \exists x Lxx} \by{for \emph{reductio}}{}
+		\hypo{c1}{\enot \exists x Lxx} \by{for \emph{reductio}}{}
 		\have{c2}{\forall x\enot Lxx} \by{QN}{c1}
 		\have{c3}{\enot Laa} \Ae{c2}
 		\have{c4}{\enot \forall z(Laz \eif Laz)} \by{MT}{b,c3}
