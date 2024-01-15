@@ -442,7 +442,7 @@ This definition follows the same structure as the definition of a wff for QL, so
 
 Consider a simple quantified sentence like $\forall xPx$. By part 7 in the definition of satisfaction, this sentence is satisfied if $a[\pi|x]$ satisfies $Px$ in \model{M} for every $\pi$ in the UD. In other words, assign that $x$ to any object in the UD you like, and the resultant wff will come out true. By part 1 of the definition, this will be the case if every $\pi$ is in the extension of $P$. Whether $\forall xPx$ is satisfied does not depend on the particular variable assignment $a$. If this sentence is satisfied, then it is true. This is a formalization of what we have said all along: $\forall xPx$ is true if everything in the UD is in the extension of $P$.
 
-The same thing holds for any sentence of QL. Because all of the variables are bound, a sentence is satisfied or not regardless of the details of the variable assignment. So we can define truth in this way: A sentence \metaA{} is \define{true in} \model{M} if and only if some variable assignment satisfies \metaA{} in $M$; \metaA{} is \define{false in} \model{M} otherwise.
+The same thing holds for any sentence of QL. Because all of the variables are bound, a sentence is satisfied or not regardless of the details of the variable assignment. So we can define truth in this way: A sentence \metaA{} is \define{true in} \model{M} if and only if some variable assignment satisfies \metaA{} in \model{M}; \metaA{} is \define{false in} \model{M} otherwise.
 
 Truth in QL is \emph{truth in a model}. Sentences of QL are not flat-footedly true or false as mere symbols, but only relative to a model. A model provides the meaning of the symbols, insofar as it makes any difference to truth and falsity.
 
