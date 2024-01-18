@@ -2,14 +2,14 @@
 \chapter{Soundness and Completeness for QL Trees}
 \label{ch.QLsoundcomplete}
 
-In Chapter \ref{ch.SLsoundcomplete} we proved that our SL tree method works the way it is supposed to: any tree that closed was guaranteed to have a root that was unsatisfiable in SL, and any completed tree that remained open was guaranteed to describe an SL model that satisfies the root. These two theorems together are called \emph{soundness} and \emph{completeness}.
+In Chapter \ref{ch.SLsoundcomplete} we proved that our SL tree method works the way it is supposed to: any tree that closed was guaranteed to have a root that was unsatisfiable in SL, and any completed tree that remained open was guaranteed to describe an SL model that satisfies the root. These two theorems together are called \emph{soundness} and \emph{completeness}. Here are the statements of these theorems we gave in Chapter \ref{ch.SLsoundcomplete}:
 
 \factoidbox{
 \define{soundness}: If a tree closes, that guarantees that its root is unsatisfiable. In other words: $$\metaSetX{}\vdash{}\bot\Rightarrow\metaSetX{}\models{}\bot$$
 \define{completeness}: If a root is unsatisfiable, that guarantees that the tree will close. In other words: $$\metaSetX{}\models\bot{}\Rightarrow\metaSetX{}\vdash{}\bot$$
 }
 
-These definitions were first given on pages \pageref{definesound} and \pageref{definecomplete}. They are equally applicable to our extended tree system for QL. The system introduced in Chapter \ref{ch.QLTrees} is also sound and complete. The rules are designed in a way so as to guarantee that if the tree closes, there is no model for the root (sound), and to guarantee that an open branch describes a model for the root (complete). The proofs for these two theorems are structurally very similar to the proofs given in Chapter \ref{ch.SLsoundcomplete}.
+These theorems, stated in this way, are equally applicable to our extended tree system for QL. The system introduced in Chapter \ref{ch.QLTrees} is also sound and complete. The rules are designed to guarantee that if the tree closes, there is no model for the root (soundness), and to guarantee that an open branch describes a model for the root (completeness). The proofs for these two theorems are structurally very similar to the proofs given in Chapter \ref{ch.SLsoundcomplete}.
 
 \section{Soundness}
 
