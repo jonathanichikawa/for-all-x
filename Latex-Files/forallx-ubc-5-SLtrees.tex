@@ -713,7 +713,7 @@ This tree gets us to the same result much more quickly, pointing to the same int
 
 Completing an open branch guarantees that the tree will never close, even if there are other branches that are not yet complete. The tree method is a method of determining whether there is at least one interpretation that satisfies the root; since one completed open branch describes such an interpretation, it is enough to answer that question. For this reason, sometimes we don't need to complete the entire tree, to determine whether the root is satisfiable.
 
-Here is a simple illustration. Consider whether $\{P \eand Q, \enot P \eor \enot R, S \eif (P \eiff (\enot Q \eand R)) \vdash{}\bot$. We put those three sentences in the root of the tree. In this example, it is efficient to resolve them in the order in which they're listed:
+Here is a simple illustration. Consider whether $\{P \eand Q, \enot P \eor \enot R, S \eif (P \eiff (\enot Q \eand R))\} \vdash{}\bot$. We put those three sentences in the root of the tree. In this example, it is efficient to resolve them in the order in which they're listed:
 
 
 \begin{prooftree}
