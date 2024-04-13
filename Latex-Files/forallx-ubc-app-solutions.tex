@@ -1563,7 +1563,7 @@ There are many possible correct answers. Here are some:
 		[\enot \forall x Fx, checked=a, just=1 \enot \eor
 		[\enot \forall x (Fx \eif Gx), grouped, checked=b
 			[\enot Fa, just=2 \enot $\forall$
-				[\enot (Fb \eif Gb), just=3 \enot $\forall$, checked, grouped
+				[\enot (Fb \eif Gb), just=3 \enot $\forall$, checked
 					[Fb, just=5 \enot \eif
 					[\enot Gb, grouped, open
 					]
@@ -2098,7 +2098,7 @@ $\forall x \exists y Gyx$, \therefore\ $\forall x \exists y (Gxy \eor Gyx)$ is v
 
 \begin{prooftree}
 	{not line numbering}
-	[\exists x Fx
+	[\exists x Fx, checked
 	[\enot Fa, grouped
 		[Fa, close]
 	]
@@ -2124,7 +2124,7 @@ $\forall x \exists y Gyx$, \therefore\ $\forall x \exists y (Gxy \eor Gyx)$ is v
 
 \begin{prooftree}
 	{not line numbering}
-	[\exists x Fx
+	[\exists x Fx, checked=d
 	[\enot Fd, grouped
 		[Fd, close]
 	]
@@ -2158,7 +2158,7 @@ $\forall x \exists y Gyx$, \therefore\ $\forall x \exists y (Gxy \eor Gyx)$ is v
 
 \begin{prooftree}
 	{not line numbering}
-	[\exists x Fx
+	[\exists x Fx, checked
 	[\enot Fa, grouped
 		[Fa, 
 		[Fb, grouped
@@ -2496,7 +2496,7 @@ $\forall x \exists y Gyx$, \therefore\ $\forall x \exists y (Gxy \eor Gyx)$ is v
 	[\forall x \forall y \enot Rxy, grouped, subs={a}
 	[\forall x \exists y Rxy, grouped, subs={a}
 		[\forall y \enot Ray, subs={a}, just=2 $\forall$
-			[\exists y Ray, checked=b, just=3 $\forall$, grouped
+			[\exists y Ray, checked=b, just=3 $\forall$
 				[\enot Raa, just=4 $\forall$
 					[Rab, just=5 $\exists$]
 				]
@@ -3253,7 +3253,7 @@ Regarding the translation of this argument, see p.~\pageref{likes2}.
 		\have{c6}{\forall z(Laz \eif Laz)} \Ai{c5}
 		\have{cn}{\enot \forall z(Laz \eif Laz)} \by{R}{c4}
 	\close
-	\have{h}{\exists x Lxx} \ne{c1-cn}
+	\have{h}{\exists x Lxx} \ne{c1-c6, c1-cn}
 \close
 \have{n}{\exists x Lxx} \Ee{1, a-h}
 \end{ndproof}

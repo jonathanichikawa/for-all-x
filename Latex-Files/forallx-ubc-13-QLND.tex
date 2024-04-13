@@ -55,14 +55,14 @@ It is important to notice that \metaA{}\substitutesome{\script{c}}{\script{x}} i
 
 \begin{ndproof}
 	\hypo{a}{Ma \eif Rad}
-	\have{b}{\exists x(Ma \eif Rax)} \Ei{a}
-	\have{c}{\exists x(Mx \eif Rxd)} \Ei{a}
-	\have{d}{\exists x(Mx \eif Rad)} \Ei{a}
-	\have{e}{\exists y\exists x(Mx \eif Ryd)} \Ei{d}
+	\have{b}{\exists x(Mx \eif Rad)} \Ei{a}
+	\have{c}{\exists x(Ma \eif Rxd)} \Ei{a}
+	\have{d}{\exists x(Mx \eif Rxd)} \Ei{a}
+	\have{e}{\exists y\exists x(Mx \eif Ryd)} \Ei{b}
 	\have{f}{\exists z\exists y\exists x(Mx \eif Ryz)} \Ei{e}
 \end{ndproof}
 
-There are two instances of the name $a$ in the premise on line 1; when using $\exists${}I, one can introduce a variable to replace the first instance, as in line 4, the second instance, as in line 2, or both, as in line 3.
+There are two instances of the name $a$ in the premise on line 1; when using $\exists${}I, one can introduce a variable to replace the first instance, as in line 2, the second instance, as in line 3, or both, as in line 4. Line 5 in this example does a second existential introduction, generalizing the remaining $a$ on line 2 into the variable $y$; line 6 does a third generalization, changing the last remaining name, $d$, into a $z$.
 
 \subsection{Universal introduction}
 A universal claim like $\forall x Px$ would be proven if {every} substitution instance of it had been proven, if every sentence $Pa$, $Pb$, $\ldots$ were available in a proof. Alas, there is no hope of proving \emph{every} substitution instance. That would require proving $Pa$, $Pb$, $\ldots$, $Pj_2$, $\ldots$, $Ps_7$, $\ldots$, and so on to infinity. There are infinitely many constants in QL, and so this process would never come to an end.
