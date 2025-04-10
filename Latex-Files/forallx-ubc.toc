@@ -166,7 +166,7 @@
 \contentsline {section}{\numberline {9.4}Extensions of 0-place predicates}{189}{section.9.4}%
 \contentsline {section}{\numberline {9.5}Working with models}{190}{section.9.5}%
 \contentsline {section}{\numberline {9.6}Constructing models}{191}{section.9.6}%
-\contentsline {section}{\numberline {9.7}Reasoning about all models}{194}{section.9.7}%
+\contentsline {section}{\numberline {9.7}Reasoning about all models}{193}{section.9.7}%
 \contentsline {section}{\numberline {9.8}Truth in QL}{195}{section.9.8}%
 \contentsline {section}{\numberline {9.9}Satisfaction}{196}{section.9.9}%
 \contentsline {section}{\numberline {9.10}Truth in QL}{198}{section.9.10}%
