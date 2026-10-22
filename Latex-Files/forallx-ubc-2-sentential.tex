@@ -142,8 +142,8 @@ Sentence \ref{not5b} can be paraphrased as `It is not the case that Rodrigo is i
 
 Here is an example that illustrates some of the complexities of translation.
 \begin{earg}
-\item[\ex{not6}] Elliott is happy.
-\item[\ex{not7}] Elliott is unhappy.
+\item[\ex{not6}] Elliot is happy.
+\item[\ex{not7}] Elliot is unhappy.
 \end{earg}
 
 If we let $H$ mean `Elliot is happy', then we can symbolize sentence \ref{not6} as $H$.
@@ -264,7 +264,7 @@ For these sentences we can use this symbolization key:
 
 Sentence \ref{or1} is `Either $D$ or $M$.' To fully symbolize this, we introduce a new symbol. The sentence becomes $(D \eor M)$. The `\eor' connective is a \define{disjunction}, and $D$ and $M$ are called \define{disjuncts}.
 
-Sentence \ref{or2} is only slightly more complicated. There are two subjects, but the English sentence only gives the verb once. In translating, we can paraphrase it as `Either Denison will golf with me, or Ellery will golf with me.' Now it obviously translates as $(D \eor E$).
+Sentence \ref{or2} is only slightly more complicated. There are two subjects, but the English sentence only gives the verb once. In translating, we can paraphrase it as `Either Denison will golf with me, or Ellery will golf with me.' Now it obviously translates as $(D \eor E)$.
 
 \factoidbox{
 A sentence can be symbolized as $(\metaA{}\eor\metaB{})$ if it can be paraphrased in English as `Either \metaA{}, or \metaB{}.' Each of the disjuncts must be a sentence.
@@ -337,6 +337,8 @@ It is important to remember that the connective `\eif' says only that, if the an
 The paraphrased sentence `\metaA{} only if \metaB{}' is logically equivalent to `If \metaA{}, then \metaB{}.'
 }
 
+
+
 % Could discuss necessary and sufficient conditions here.
 
 `If \metaA{} then \metaB{}' means that if \metaA{} is true then so is \metaB{}. So we know that if the antecedent \metaA{} is true but the consequent \metaB{} is false, then the conditional `If \metaA{} then \metaB{}' is false. What is the truth value of `If \metaA{} then \metaB{}' under other circumstances? Suppose, for instance, that the antecedent \metaA{} happened to be false. `If \metaA{} then \metaB{}' would then not tell us anything about the actual truth value of the consequent \metaB{}, and it is unclear what the truth value of `If \metaA{} then \metaB{}' would be.
@@ -363,7 +365,7 @@ More than any other connective, the SL translation of the conditional is a rough
 
 \begin{earg}
 \item[\ex{pmc1}] If there are no philosophy courses at UBC, then PHIL 220 is a philosophy course at UBC.
-\item[\ex{pmc2}] If this book has fewer than thirty pages, then it will win the 2018 Pulitzer prize for poetry.
+\item[\ex{pmc2}] If this book has fewer than thirty pages, then it will win the 2028 Pulitzer prize for poetry.
 \end{earg}
 
 Both \ref{pmc1} and \ref{pmc2} seem clearly false. But each of them, translated into SL, would come out true. (If this isn't obvious, it's worth taking a moment to translate them and consider the truth table.) I told you before that English translations into SL are only approximate! Despite these odd results, the approach to conditionals offered here actually preserves many of the most important logical features of conditionals. We'll see this in more detail once we start working with proofs. For now, I'll just ask you to go along with this approach to conditionals, even though it will seem strange.
@@ -401,7 +403,7 @@ To appreciate the difference between these three sentences, do not be distracted
 
 Sentence \ref{iff1}, for reasons discussed above, can be translated as $(T\eif S)$.
 
-Sentence \ref{iff2} is importantly different. It can be paraphrased as, `If the figure has three sides, then it is a triangle.' So it can be translated as $(S\eif T$).
+Sentence \ref{iff2} is importantly different. It can be paraphrased as, `If the figure has three sides, then it is a triangle.' So it can be translated as $(S\eif T)$.
 
 Sentence \ref{iff3} says that $T$ is true \emph{if and only if} $S$ is true; we can infer $S$ from $T$, and we can infer $T$ from $S$. This is called a \define{biconditional}, because it entails the two conditionals $S\eif T$ and $T \eif S$. We will use `\eiff' to represent the biconditional; sentence \ref{iff3} can be translated as $(S \eiff T)$.
 
@@ -425,7 +427,7 @@ $(\metaA{}\eiff\metaB{})$ is true if and only if \metaA{} and \metaB{} have the 
 We call the sentence written before the biconditional symbol the \define{left-hand side}. The sentence after it is the \define{right-hand side}. A biconditional tells you that the left-hand side and the right-hand side have the same truth value.
 
 \section{Other symbolization}
-We have now introduced all of the connectives of SL. We can use them together to translate many kinds of sentences. Consider these examples of sentences that use the English-language connective `unless', with an associated symbolization key:
+We have now introduced all of the connectives of SL. We can use them together to translate many kinds of sentences. Consider these examples of sentences that use the English word `unless', with an associated symbolization key:
 
 \begin{earg}
 \item[\ex{unless1}] Unless you wear a jacket, you will catch a cold. 
@@ -449,10 +451,6 @@ When symbolizing sentences like sentence \ref{unless1} and sentence \ref{unless2
 If a sentence can be paraphrased as `Unless \metaA{}, \metaB{},' then it can be symbolized as $(\enot\metaA{}\eif\metaB{})$, $(\enot\metaB{}\eif\metaA{})$, $(\metaA{}\eor\metaB{})$, or $(\metaB{}\eor\metaA{})$.
 }
 
-Symbolization of standard sentence types is summarized on p.~\pageref{app.notation}.
-
-
-
 
 
 \section{Sentences of SL}
@@ -464,7 +462,9 @@ It is important to distinguish between the logical language SL, which we are dev
 
 The object language in this chapter is SL. The metalanguage is English --- not conversational English, but English supplemented with some logical and mathematical vocabulary (including the `\metaA{}' and `\metaB{}' symbols). The sentence `$(A\eor B)$' is a sentence in the object language, because it uses only symbols of SL. The word `sentence' is not itself part of SL, however, so the sentence `This expression is a sentence of SL' is not a sentence of SL. It is a sentence in the metalanguage, a sentence that we use to talk \emph{about} SL.
 
-In this section, we will give a formal definition for `sentence of SL.' The definition itself will be given in mathematical English, the metalanguage.
+In this section, we will give a formal definition for `sentence of SL.' The definition itself will be given in mathematical English, the metalanguage. We're going to give that definition in a very precise and technical way. It may seem odd to express what are, at their core, fairly simple ideas in such a complicated way, but doing so will be important later on, because we will be constructing algorithms that operate on SL sentences. To do that, we need a very precise definition of what counts as a sentence.
+
+We'll build that definition from simpler parts, starting with \emph{expressions}.
 
 \subsection{Expressions}
 
@@ -569,28 +569,28 @@ There are many ways one can translate a given English sentence into SL, which me
 \item[] Shuri is the Black Panther and Everett is American.
 \end{earg}
 
-One obvious way to translate it would be to use this interpretation key:
+One obvious way to translate it would be to use this symbolization key:
 
 \begin{ekey}
 \item[S:] Shuri is the Black Panther.
 \item[E:] Everett is American.
 \end{ekey}
 
-And of course the sentence is trivially translated as $S \eand E$. But we could equally well have used a different interpretation key, calling for a different translation, e.g.:
+And of course the sentence is trivially translated as $S \eand E$. But we could equally well have used a different symbolization key, calling for a different translation, e.g.:
 
 \begin{ekey}
 \item[A:] Shuri is the Black Panther.
 \item[B:] Everett is American.
 \end{ekey}
 
-If we made this key, we would translate the English sentence as $A \eand B$. These are equally good translations, and it doesn't matter which one we pick. But there can be better and worse choices of interpretation keys. Suppose we used this one:
+If we made this key, we would translate the English sentence as $A \eand B$. These are equally good translations, and it doesn't matter which one we pick. But there can be better and worse choices of symbolization keys. Suppose we used this one:
 
 \begin{ekey}
 \item[P:] Shuri is the Black Panther and Everett is American.
 \item[Q:] Everett is American.
 \end{ekey}
 
-There is nothing in the rules of SL that prohibits the use of such interpretation keys. Given this key, our target sentence could be translated trivially as $P$. This would not be an \emph{incorrect} translation, but there is something unfortunate about it. By translating an English conjunction as an atomic sentence in SL, we lose important information. This translation has failed to encode the conjunctive information that was given in the English sentence. It will be unable to explain why ``Shuri is the Black Panther and Everett is American'' implies that Everett is American --- $Q$ does not follow from $P$ in SL.
+There is nothing in the rules of SL that prohibits the use of such symbolization keys. Given this key, our target sentence could be translated trivially as $P$. This would not be an \emph{incorrect} translation, but there is something unfortunate about it. By translating an English conjunction as an atomic sentence in SL, we lose important information. This translation has failed to encode the conjunctive information that was given in the English sentence. It will be unable to explain why ``Shuri is the Black Panther and Everett is American'' implies that Everett is American --- $Q$ does not follow from $P$ in SL.
 
 We will say that a translation gives the \define{most descriptive form} when atomic sentences in SL are assigned only to sententially atomic sentences in English --- i.e., sentences that are not negations, conjunctions, disjunctions, conditionals, or biconditionals. This ensures that the sentential form of every given English sentence is reflected in the SL translation. When translating from English to SL, one should typically do so in most descriptive form.
 
@@ -614,29 +614,36 @@ We will say that a translation gives the \define{most descriptive form} when ato
 \end{earg}
 
 
+
 \problempart Using the symbolization key given, translate each English-language sentence into SL.
-\begin{ekey}
-\item[A:] Mister Ace was murdered.
-\item[B:] The butler did it.
-\item[C:] The cook did it.
-\item[D:] The Duchess is lying.
-\item[E:] Mister Edge was murdered.
-\item[F:] The murder weapon was a frying pan.
-\end{ekey}
-\begin{earg}
-\item Either Mister Ace or Mister Edge was murdered.
-\item If Mister Ace was murdered, then the cook did it.
-\item If Mister Edge was murdered, then the cook did not do it.
-\item Either the butler did it, or the Duchess is lying.
-\item The cook did it only if the Duchess is lying.
-\item If the murder weapon was a frying pan, then the culprit must have been the cook.
-\item If the murder weapon was not a frying pan, then the culprit was either the cook or the butler.
-\item Mister Ace was murdered if and only if Mister Edge was not murdered.
-\item The Duchess is lying, unless it was Mister Edge who was murdered.
-\item If Mister Ace was murdered, he was done in with a frying pan.
-%\item Since the cook did it, the butler did not.
-%\item Of course the Duchess is lying!
-\end{earg}
+\begin{ekey} \item[K:] Korra is the Avatar. \item[T:] Tenzin is an airbender. \item[A:] Asami is an engineer. \item[M:] Mako is a police officer. \item[B:] Bolin is a lavabender. \item[V:] Varrick is wealthy. \item[J:] Jinora is an airbender. \end{ekey} Using the symbolization key above, translate each sentence into SL. \begin{earg} \item Korra is the Avatar and Tenzin is an airbender. \item Asami is an engineer, but Mako is not a police officer. \item Either Bolin is a lavabender or Varrick is wealthy. \item If Korra is the Avatar, then Jinora is an airbender. \item Korra is the Avatar only if Tenzin is an airbender. \item Asami is an engineer if Mako is a police officer. \item Bolin is a lavabender if and only if Korra is the Avatar. \item If Varrick is wealthy, then either Asami is an engineer or Mako is a police officer. \item Neither Mako nor Bolin is a police officer. \item Either Korra is not the Avatar or Tenzin is an airbender. \item If Asami is an engineer, then if Mako is a police officer, Korra is the Avatar. \item Varrick is wealthy and either Bolin is a lavabender or Jinora is an airbender. \end{earg}
+
+
+
+
+%
+%\begin{ekey}
+%\item[A:] Mister Ace was murdered.
+%\item[B:] The butler did it.
+%\item[C:] The cook did it.
+%\item[D:] The Duchess is lying.
+%\item[E:] Mister Edge was murdered.
+%\item[F:] The murder weapon was a frying pan.
+%\end{ekey}
+%\begin{earg}
+%\item Either Mister Ace or Mister Edge was murdered.
+%\item If Mister Ace was murdered, then the cook did it.
+%\item If Mister Edge was murdered, then the cook did not do it.
+%\item Either the butler did it, or the Duchess is lying.
+%\item The cook did it only if the Duchess is lying.
+%\item If the murder weapon was a frying pan, then the culprit must have been the cook.
+%\item If the murder weapon was not a frying pan, then the culprit was either the cook or the butler.
+%\item Mister Ace was murdered if and only if Mister Edge was not murdered.
+%\item The Duchess is lying, unless it was Mister Edge who was murdered.
+%\item If Mister Ace was murdered, he was done in with a frying pan.
+%%\item Since the cook did it, the butler did not.
+%%\item Of course the Duchess is lying!
+%\end{earg}
 
 
 
@@ -699,9 +706,9 @@ Give a symbolization key and symbolize the following sentences in SL, using most
 \label{pr.choresSL}
 For each argument, write a symbolization key and translate the argument as well as possible into SL.
 \begin{earg}
-\item If Dorothy plays the piano in the morning, then Roger wakes up cranky. Dorothy plays piano in the morning unless she is distracted. So if Roger does not wake up cranky, then Dorothy must be distracted.
-\item It will either rain or snow on Tuesday. If it rains, Neville will be sad. If it snows, Neville will be cold. Therefore, Neville will either be sad or cold on Tuesday.
-\item If Zoog remembered to do his chores, then things are clean but not neat. If he forgot, then things are neat but not clean. Therefore, things are either neat or clean --- but not both.
+\item If Pavi enters the Spirit World, then Jae becomes worried. Pavi enters the Spirit World unless she is being watched by the White Lotus. So if Jae does not become worried, then Pavi must be being watched by the White Lotus.
+\item Either a storm will strike the Harshlands or a spirit disturbance will occur there. If a storm strikes, Nisha will cancel her voyage. If a spirit disturbance occurs, Nisha will remain ashore. Therefore, Nisha will either cancel her voyage or remain ashore.
+\item If the the twins have mastered airbending but not waterbending, then the training is successful but not complete. If the twins can spiritbend, then the training is complete. If the training is complete, then the twins have mastered waterbending. Therefore, if the training is complete, then it is successful.
 \end{earg}
 
 
@@ -793,3 +800,12 @@ Translate these SL sentences into English, using this symbolization key:
 		\item $(Q \eiff R)$
 	\end{earg}
 	
+\textbf{GenAI prompts for further practice}
+
+Here are some potential GenAI prompts you might use to generate further practice problems, in case you find that helpful. (A note of caution: unless you explain the specific conventions we are using, GenAI will probably give you symbolizations slightly different from the ones we use in this course. Make sure you adjust accordingly.)
+\begin{earg} 
+\item I am studying sentential logic. Give me English sentences and ask me to translate them into SL. Start with simple uses of negation, conjunction, and disjunction, and gradually introduce conditionals and biconditionals. After each answer, check my translation and explain any mistakes. 
+\item Give me a series of English sentences involving ``if'', ``only if'', and ``if and only if''. Present them one at a time. My task is to translate each sentence into SL. After each answer, explain whether I got the direction of the conditional correct.
+\item Give me English sentences containing words such as ``but'', ``although'', ``unless'', ``either \dots or \dots'', and ``neither \dots nor \dots''. Ask me to translate each one into SL and explain the logical form of the sentence. 
+\item Give me SL sentences and ask me to identify their main connective. Start with simple examples and gradually increase the complexity. After each answer, explain how to determine the main connective. 
+\end{earg}
