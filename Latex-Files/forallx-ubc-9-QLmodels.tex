@@ -200,9 +200,7 @@ The set $\{\metaA{}_1,\metaA{}_2,\metaA{}_3,\cdots\}$ is \define{consistent in Q
 
 \section{Constructing models}
 
-Suppose we want to show that $\forall xAxx \eif Bd$ is \emph{not} a tautology. This requires showing that the sentence is not true in every model. If we can provide an example of a model in which the sentence is false, then we will have shown that the sentence is not a tautology.
-
-What would such a model look like? In order for $\forall xAxx \eif Bd$ to be false, the antecedent ($\forall x Axx$) must be true, and the consequent ($Bd$) must be false.
+Suppose we want to show that $\forall xAxx \eif Bd$ is \emph{not} a tautology. In other words, we need to give a model where this sentence is false. What would such a model look like? In order for $\forall xAxx \eif Bd$ to be false, the antecedent ($\forall x Axx$) must be true, and the consequent ($Bd$) must be false.
 
 To construct such a model, we start with a UD. It will be easier to specify extensions for predicates if we have a small UD, so start with a UD that has just one member. Formally, this single member might be anything. Let's say it is Miles Morales.
 
@@ -384,7 +382,7 @@ For each term $t_i$: If $t_i$ is a constant, then $\pi_i = \referent{t_i}$. If $
 	\end{array}\right.
 \end{displaymath}
 
-\item If \metaA{} is $(\metaB{}\eand\metaC{})$ for some wffs \metaA{}, \metaB{}, then
+\item If \metaA{} is $(\metaB{}\eand\metaC{})$ for some wffs \metaB{}, \metaC{}, then
 \begin{displaymath}s(\metaA{}, a) =
 	\left\{\begin{array}{ll}
 	1 & \mbox{if $s(\metaB{}, a) = 1$ and $s(\metaC{}, a) = 1$,}\\
@@ -392,7 +390,7 @@ For each term $t_i$: If $t_i$ is a constant, then $\pi_i = \referent{t_i}$. If $
 	\end{array}\right.
 \end{displaymath}
 
-\item If \metaA{} is $(\metaB{}\eor\metaC{})$ for some wffs \metaA{}, \metaB{}, then
+\item If \metaA{} is $(\metaB{}\eor\metaC{})$ for some wffs \metaB{}, \metaC{}, then
 \begin{displaymath}s(\metaA{}, a) =
 	\left\{\begin{array}{ll}
 	0 & \mbox{if $s(\metaB{}, a) = 0$  and $s(\metaC{}, a) = 0$,}\\
@@ -400,7 +398,7 @@ For each term $t_i$: If $t_i$ is a constant, then $\pi_i = \referent{t_i}$. If $
 	\end{array}\right.
 \end{displaymath}
 
-\item If \metaA{} is $(\metaB{}\eif\metaC{})$ for some wffs \metaA{}, \metaB{}, then
+\item If \metaA{} is $(\metaB{}\eif\metaC{})$ for some wffs \metaB{}, \metaC{}, then
 \begin{displaymath}s(\metaA{}, a) =
 	\left\{\begin{array}{ll}
 	0 & \mbox{if $s(\metaB{}, a) = 1$ and $s(\metaC{}, a) = 0$,}\\
@@ -408,7 +406,7 @@ For each term $t_i$: If $t_i$ is a constant, then $\pi_i = \referent{t_i}$. If $
 	\end{array}\right.
 \end{displaymath}
 
-\item If \metaA{} is $(\metaB{}\eiff\metaC{})$ for some wffs \metaA{}, \metaB{}, then
+\item If \metaA{} is $(\metaB{}\eiff\metaC{})$ for some wffs \metaB{}, \metaC{}, then
 \begin{displaymath}s(\metaA{}, a) =
 	\left\{\begin{array}{ll}
 	1 & \mbox{if $s(\metaB{}, a) = s(\metaC{}, a)$},\\

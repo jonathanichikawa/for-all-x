@@ -139,9 +139,9 @@ We are now in a position to give more precise definitions of terms like `tautolo
 The relation of semantic entailment is about satisfiability --- that is, whether there is any possible interpretation that meets a certain set of conditions. `\metaA{} entails \metaB{}', means that there is no interpretation for which \metaA{} is true and \metaB{} is false. An interpretation provides a valuation function that gives truth values to atomic sentences; so \metaA{} entails \metaB{} if and only if every assignment of truth values to atomic sentences that makes \metaA{} true also makes \metaB{} true. (We could just as well say that  `\metaA{} entails \metaB{}', means that there is no \emph{valuation function} that makes \metaA{} true and \metaB{} false. Interpretations specify valuation functions.)
 
 We abbreviate entailment with a symbol called the \emph{double turnstile}:
-$\metaA{}\models\metaB{}$ means `\metaA{} semantically entails \metaB{}.'
+$\metaA{}\models\metaB{}$ means `\metaA{} semantically entails \metaB{}.' The same symbol with a slash through it, $\not\models$, represents non-entailment. $\metaA{}\not\models\metaB{}$ means `\metaA{} does not entail \metaB{}.'
 
-The double turnstile, like `\metaA{}', etc., is part of the \emph{metalanguage} we use to discuss SL; it is not part of SL itself.
+These symbols, like `\metaA{}', etc., are part of the \emph{metalanguage} we use to discuss SL; they are not part of SL itself.
 
 \section{Entailment, validity, and informally good arguments}
 
@@ -149,13 +149,17 @@ Entailment is a formal notion. It is connected in important ways to the informal
 
 Let's start with a straightforward example. Consider whether this entailment claim is true: $$(P\eand Q) \models (P\eor Q)$$ This is true if and only if every interpretation that satisfies $(P\eand Q)$, also satisfies  $(P\eor Q)$. Hopefully it is obvious to you that this is true. Only an interpretation that assigns 1 to both $P$ and $Q$ will satisfy the left, and any such interpretation will certainly satisfy the right as well. (You could draw the truth table to verify this if you want the practice.) So, as one might naturally expect, $(P\eand Q) \models (P\eor Q)$.
 
+Or to take another simple case, consider this entailment claim, which is the converse of the one just discussed:
+$$(P \eor Q) \models (P \eand Q)$$
+It is true if and only every interpretation that satisfies $(P \eor Q)$, also satisfies $(P \eand Q)$. Again, you could construct the truth table to check whether this is so, but for a simple example like this one, it should be reasonably obvious that this entailment claim is false. There are interpretations that make $(P \eor Q)$ true, and that also make $(P \eand Q)$ false. Any interpretation that makes exactly one of $P$ and $Q$ true will be a counterexample to this entailment claim.
+
 Here is a less intuitive example. What should we make of this claim?
 
 \begin{quote}
 $(P\eand Q) \models (A\eiff\enot\enot A)$
 \end{quote}
 
-Notice that the sentence letters on the left-hand side here are completely different letters from those on the right-hand hand side. So there is a straightforward sense in which the two sides of the turnstile have \emph{nothing to do with one another}. Nevertheless, this \emph{is} a true entailment claim. This is because it satisfies the definition: every interpretation that satisfies the left (i.e., every interpretation with a valuation function assigns `1' to both $P$ and $Q$), also satisfies $(A\eiff\enot\enot A)$. This for the simple reason that every valuation \emph{whatsoever} satisfies $(A\eiff\enot\enot A)$; it is a tautology.
+Notice that the sentence letters on the left-hand side here are completely different letters from those on the right-hand side. So there is a straightforward sense in which the two sides of the turnstile have \emph{nothing to do with one another}. Nevertheless, this \emph{is} a true entailment claim. This is because it satisfies the definition: every interpretation that satisfies the left (i.e., every interpretation with a valuation function assigns `1' to both $P$ and $Q$), also satisfies $(A\eiff\enot\enot A)$. This for the simple reason that every valuation \emph{whatsoever} satisfies $(A\eiff\enot\enot A)$; it is a tautology.
 
 From this example we can see that a tautology will be entailed by anything whatsoever. If the right-hand side of the entailment claim is a tautology, it doesn't matter what's on the left --- you know it's going to be true.
 
@@ -173,7 +177,7 @@ In the examples so far, we've been talking about one sentence entailing another.
 
 In general, we may say that $$\metaSetX{}\models\metaB{}$$ means that there's no interpretation satisfying every member of set \metaSetX{} without also satisfying sentence \metaB{}.
 
-We saw in the previous section that a tautology ---  an SL sentence that is true in every interpretation --- is entailed by any sentence. The reasoning applies more generally: a tautology will be entailed by any set of sentences. This includes the \emph{empty set}, which can be written `$\emptyset$'. In general `$\metaSetX{} \models \metaA{}$' says that every interpretation that satisfies everything in \metaSetX{}, satisfies \metaA{}; in the special case where \metaSetX{} is $\emptyset$, every interpretation trivially satisfies everything in \metaSetX{}. So `$\emptyset \models \metaA{}$' says that absolutely every interpretation satisfies \metaA{}. That is, it says that \metaA{} is a tautology.
+We saw in the previous section that a tautology ---  an SL sentence that is true in every interpretation --- is entailed by any sentence. The reasoning applies more generally: a tautology will be entailed by any set of sentences. This includes the \emph{empty set}, which can be written `$\emptyset$'. In general, `$\metaSetX{} \models \metaA{}$' says that every interpretation that satisfies everything in \metaSetX{}, satisfies \metaA{}; in the special case where \metaSetX{} is $\emptyset$, every interpretation trivially satisfies everything in \metaSetX{}. This is because, trivially, every interpretation satisfies everything in $\emptyset$. So `$\emptyset \models \metaA{}$' says that absolutely every interpretation satisfies \metaA{}. That is, it says that \metaA{} is a tautology.
 
 By convention, we can leave the left side of an entailment claim blank, instead of writing in $\emptyset$. In other words, $$\models \metaA{} $$ is shorthand for $$ \emptyset \models \metaA{}.$$
 
@@ -271,11 +275,10 @@ Each of the following claims can be evaluated with truth tables. For each, what 
 		\item[0.] $\Phi$ is a tautology.
 		To evaluate this claim, check to see whether the main connective of $\Phi$ has a 1 under it in every row. If so, it is true. Otherwise, it is false.
 		\item $\Phi \models \Psi$. 
-		To evaluate this claim, check to see whether... 
-		
-		\item $\Phi$ is contingent.
-\item $\Phi \models \bot$
-		\item $\emptyset \models \Phi$
+		To evaluate this claim, check to see whether... 		
+		\item $\Phi$ is contingent. To evaluate this claim, check to see whether... 
+		\item $\Phi \models \bot$ 	To evaluate this claim, check to see whether... 
+		\item $\emptyset \models \Phi$ 	To evaluate this claim, check to see whether... 
 	\end{earg}
 
 \solutions
@@ -297,3 +300,56 @@ Determine whether each entailment claim is true. You may construct a truth table
 \item $(P \eiff Q) \models ((P \eand Q) \eor \enot (P \eor Q))$
 \end{earg}
 
+\problempart
+\label{pr.entailmentcounterexamples}
+Prove each of the following, by providing an interpretation that shows the relevant entailment claim to be false.
+\begin{earg}
+\item $A \not\models B$
+\item $A \not\models \enot A$
+\item $(A \eor B) \not\models A$
+\item $(A \eif B) \not\models A$
+\item $(A \eif B) \not\models B$
+\item $(A \eand B) \not\models C$
+\item $A \not\models (A \eand B)$
+\item $(A \eif B) \not\models (\enot A)$
+\item $(A \eif B), B \not\models A$
+\item $(A \eor B), \enot A \not\models C$
+\item $(A \eif B), (B \eif C) \not\models (C \eif A)$
+\end{earg}
+
+\problempart
+For each claim, determine whether it is true or false. If it is true, briefly explain why. If it is false, provide a counterexample interpretation.
+
+\begin{earg}
+\item If $\metaA{} \models \metaB{}$ and $\metaA{} \models \metaC{}$, then $\metaA{} \models (\metaB{} \eand \metaC{})$.
+\item If $\metaA{} \models \metaB{}$ and $\metaB{} \models \metaC{}$, then $\metaA{} \models \metaC{}$.
+\item If $\metaA{} \models \metaB{}$, then $\metaB{} \models \metaA{}$.
+\item If $\metaA{} \models \metaB{}$, then $(\metaA{} \eand \metaC{}) \models \metaB{}$.
+\item If $(\metaA{} \eand \metaB{}) \models \metaC{}$, then $\metaA{} \models \metaC{}$.
+\item If $\metaA{} \models (\metaB{} \eand \metaC{})$, then $\metaA{} \models \metaB{}$.
+\item If $\metaA{} \models \metaB{}$, then $\metaA{} \models (\metaB{} \eor \metaC{})$.
+\item If $\metaA{} \models \metaC{}$ and $\metaB{} \models \metaC{}$, then $(\metaA{} \eor \metaB{}) \models \metaC{}$.
+\end{earg}
+
+\textbf{GenAI prompts for further practice}
+
+Here are some potential GenAI prompts you might use to generate further practice problems, in case you find that helpful.
+
+\begin{earg}
+\item Give me entailment claims involving one or two SL sentences. One at a time, ask me whether the entailment claim is true or false. After I answer, explain the correct result and justify it using the definition of entailment.
+
+\item Give me false entailment claims. My task is to provide an interpretation that shows the entailment fails. Check my interpretation and explain why it works.
+
+\item Give me pairs of SL sentences and ask whether they are logically equivalent. Present one pair at a time, let me answer, and then explain the correct result.
+
+\item Give me statements involving entailment, consistency, and equivalence. Some should be true and some false. Ask me to determine which are which and justify my answers.
+
+\item Give me a set of premises and ask which of several candidate conclusions are entailed by those premises. Explain each answer using the definition of entailment.
+
+\item Give me a sentence of SL and ask me to describe all interpretations that satisfy it. Start with very simple sentences and gradually increase the complexity.
+
+\item Give me semantic claims expressed using the symbols $\models$ and $\not\models$. Ask me to explain what each claim means in ordinary English.
+
+\item Give me ordinary-English descriptions of semantic relationships and ask me to express them using the notation $\models$, $\not\models$, equivalence, consistency, or inconsistency, whichever is appropriate.
+
+\end{earg}

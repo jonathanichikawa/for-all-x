@@ -82,7 +82,7 @@ Other singular terms more obviously convey information about the thing to which 
 
 In English, the specification of a singular term may depend on context; `Willard' means a specific person and not just someone named Willard; `P.D. Magnus' as a logical singular term means the original author of this textbook, not the other person who has the same name. We live with this kind of ambiguity in English, but it is important to keep in mind that singular terms in QL must refer to just one specific thing.
 
-In QL, we will symbolize singular terms with lower-case letters $a$ through $w$. We can add subscripts if we want to use some letter more than once. So $a,b,c,\ldots w, a_1, f_{32}, j_{390}$, and $m_{12}$ are all terms in QL.
+In QL, we will symbolize singular terms with lower-case letters $a$ through $w$. We can add numerical subscripts if we want to use some letter more than once. So $a,b,c,\ldots w, a_1, f_{32}, j_{390}$, and $m_{12}$ are all terms in QL.
 
 Singular terms are called \define{constants} because they pick out specific individuals. Note that $x, y$, and $z$ are not constants in QL. They will be \define{variables}, letters which do not stand for any specific thing. We will need them when we introduce quantifiers.
 
@@ -131,7 +131,7 @@ If we are translating this sentence into QL, should we translate it with a one-,
 
 In general, we can have predicates with as many places as we need. Predicates with more than one place are called \define{polyadic}. Predicates with $n$ places, for some number $n$, are called \define{n-place} or \define{n-adic}. You can make an $n$-adic predicate by replacing $n$ names in any sentence with blanks. You can even have a 0-place predicate --- this would be the result of replacing $0$ names in a sentence with blanks. In other words, a 0-place predicate is just a sentence.
 
-In QL, we symbolize predicates with capital letters $A$ through $Z$, with or without subscripts. When we give a symbolization key for predicates, we will not use blanks; instead, we will use variables. By convention, constants are listed at the end of the key. So we might write a key that looks like this:
+In QL, we symbolize predicates with capital letters $A$ through $Z$, with or without numerical subscripts. When we give a symbolization key for predicates, we will not use blanks; instead, we will use variables. By convention, constants are listed at the end of the key. So we might write a key that looks like this:
 \begin{groupitems}
 \begin{ekey}
 \item[Ax:] $x$ is angry.
@@ -576,13 +576,13 @@ There are six kinds of symbols in QL:
 \begin{tabular}{|c|c|}
 \hline
 predicates & $A,B,C,\ldots,Z$\\
-with subscripts, as needed & $A_1, B_1, Z_1, A_2, A_{25}, J_{375},\ldots$\\
+with numerical subscripts, as needed & $A_1, B_1, Z_1, A_2, A_{25}, J_{375},\ldots$\\
 \hline
 constants & $a,b,c,\ldots,w$\\
-with subscripts, as needed & $a_1, w_4, h_7, m_{32},\ldots$\\
+with numerical subscripts, as needed & $a_1, w_4, h_7, m_{32},\ldots$\\
 \hline
 variables & $x,y,z$\\
-with subscripts, as needed & $x_1, y_1, z_1, x_2,\ldots$\\
+with numerical subscripts, as needed & $x_1, y_1, z_1, x_2,\ldots$\\
 \hline
 sentential connectives & \enot, \eand, \eor, \eif, \eiff\\
 \hline
