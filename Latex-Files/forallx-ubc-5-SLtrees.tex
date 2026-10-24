@@ -93,7 +93,7 @@ close with=\ensuremath{\times},
 
 Notice that we're putting the \emph{negation} of the conclusion here in line (4), since we're looking to see whether it's possible to satisfy the premises and \emph{falsify} the conclusion. The sentences we write down at the beginning of the tree, we call the \define{root}. Trees are designed to show whether the root is satisfiable, and if so, how.
 
-With proof trees, the idea is to continue writing down that which our previous lines \emph{already commit us to}. Consider the first line, $A \eand B$. For this conjunction to be true, both conjuncts must be true. So any interpretation that satisfies the top four lines must also satisfy both $A$ and $B$; the truth of those sentences is a commitment of what we already have. Each follow from what is already written down. We represent this by continuing the tree with those sentences:
+With proof trees, the idea is to continue writing down that which our previous lines \emph{already commit us to}. Consider the first line, $A \eand B$. For this conjunction to be true, both conjuncts must be true. So any interpretation that satisfies the top four lines must also satisfy both $A$ and $B$; the truth of those sentences is a commitment of what we already have. Each follows from what is already written down. We represent this by continuing the tree with those sentences:
 
 
 \begin{prooftree}
@@ -301,7 +301,41 @@ close with=\ensuremath{\times},
 ]
 \end{prooftree}
 
-The $\uparrow$ indicates that the open branch ending in $D$ is a \emph{completed} branch. (We'll precisely define `completion' in \S\ref{sec.SL.tree.completion}.) What this means is that this branch represents a way to satisfy all three sentences at the root of the tree. In other words, this argument form is \emph{not} valid in SL. Furthermore, examining the open branch demonstrates an interpretation that satisfies the root. The branch includes three wffs that are either atoms or negated atoms: \enot $A$, $D$, and \enot $N$. So it suggests this interpretation:
+
+
+The $\uparrow$ indicates that the open branch ending in $D$ is a \emph{completed} branch. (We'll precisely define `completion' in \S\ref{sec.SL.tree.completion}.) A completed open branch tells us that the root is satisfiable, which means that the SL argument form we began with is \emph{not} valid. We can use the completed open branch to construct an interpretation that satisfies all three sentences in the root. To do this, we look at the open branch, and consider only the nodes in it that contain atoms or negated atoms. In this case, there are four such nodes. Here's the same tree again, with the atoms and negated atoms highlighted:
+
+\begin{center}
+\begin{highlightprooftree}
+{not line numbering,
+single branches,
+close with=\ensuremath{\times},
+}
+[(D\eor A) \eand \enot N, checked
+[N \eor \enot A, grouped, checked
+[\enot (\enot N \eand A), grouped, checked
+    [D \eor A, checked
+    [\focusnode{\enot N}, grouped
+        [N, close
+        ]
+        [\focusnode{\enot A}
+            [\enot \enot N, close
+            ]
+            [\focusnode{\enot A}
+                [\focusnode{D}, open]
+                [A, close]
+            ]
+        ]
+    ]
+    ]
+]
+]
+]
+\end{highlightprooftree}
+\end{center}
+
+To construct an interpretation that satisfies the root, make any atom that appears in the completed open branch true, and any atom whose negation appears in the completed branch false. 
+ The branch includes three wffs that are either atoms or negated atoms: \enot $A$, $D$, and \enot $N$. (\enot $A$ appears twice, but we only need to define it once.) So this branch suggests this interpretation:
 
 \begin{displaymath}
 \script{I} =
@@ -568,7 +602,7 @@ Note that it is \emph{not} a rule that sentences must be resolved in the order i
 ]
 \end{prooftree}
 
-This tree has two disjunctions in the root, so it will involve branching multiple times. We could start with either one, but this tree resolved line (1) first, branching into the two disjuncts at line (3). The `1 \eor' to the right at that line is the explanation for what is happening there: it indicates that the disjunction rule was applied to line (1). When the second disjunction is processed at line (4), it needs to be done on both branches, since both branches include line (2). That's why our two branches split into four at line (4). One branch closes at that point. At line (5), the conjunction at line (3) is processed. This needs to be done on both branches that include that conjunction, but not the right-most branch, which does not include it. Resolving a sentence affects everything below it in the tree in its own descendent branches, but it doesn't affect branches that are off to the side.
+This tree has two disjunctions in the root, so it will involve branching multiple times. We could start with either one, but this tree resolved line (1) first, branching into the two disjuncts at line (3). The `1 \eor' to the right at that line is the explanation for what is happening there: it indicates that the disjunction rule was applied to line (1). When the second disjunction is processed at line (4), it needs to be done on both branches, since both branches include line (2). That's why our two branches split into four at line (4). One branch closes at that point. At line (5), the conjunction at line (3) is processed. This needs to be done on both branches that include that conjunction, but not the right-most branch, which does not include it. Resolving a sentence affects everything below it in the tree in its own descendant branches, but it doesn't affect branches that are off to the side.
 
 Besides the tree resolution rules, there are two more rules to our proof system.
 
@@ -616,7 +650,7 @@ A tree is complete if and only if every branch in that tree is complete.}
 
 If there is at least one open branch in a completed tree, the tree method indicates that that branch corresponds to an interpretation that satisfies the root.
 
-We use the `$\vdash{}$' symbol to indicate tree closure. `$\metaSetX{}\vdash{} \bot$' means that a tree with root \metaSetX{} closes. We use `$\nvdash{}\bot$' to indicate that a completed tree remains open.
+We use the symbol `$\vdash$' to indicate tree closure. `$\metaSetX{}\vdash{} \bot$' means that a tree with root \metaSetX{} closes. We use `$\nvdash{}\bot$' to indicate that a completed tree remains open.
 
 We will also define our single turnstile symbol so that $\metaSetX{}\vdash{} \metaA{}$ is equivalent to $\metaSetX{}, \enot\metaA{}\vdash{}\bot$. So the latter is a way of saying that the tree method shows that the argument from $\metaSetX{}$ to $\metaA{}$ is valid.
 
@@ -664,7 +698,50 @@ The resolution rules do not specify the order in which you should resolve senten
 ]
 \end{prooftree}
 
-Again, the justifications for particular steps are added to the right of the tree for clarity. For example, `1\enot\eand{}' indicates that line (5) was produced by performing the negated conjunction resolution rule on line (1). This tree remains open, offering this interpretation that satisfies the root:
+Again, the justifications for particular steps are added to the right of the tree for clarity. For example, `1\enot\eand{}' indicates that line (5) was produced by performing the negated conjunction resolution rule on line (1). This tree remains open. To construct an interpretation that satisfies the root, focus on the atoms and negated atoms in the completed open branch:
+
+\begin{center}
+\begin{highlightprooftree}
+{not line numbering,
+}
+[\enot (C \eand A), checked, name=p1
+[D \eiff C, checked, grouped, name=p2
+[A \eor B, grouped, checked, name=p3
+[\focusnode{\enot B}, grouped, name=p4
+	[\focusnode{\enot C}, just={\enot\eand}:p1
+		[D, just={\eiff}:p2
+			[C, grouped, close]
+		]
+		[\focusnode{\enot D}
+			[\focusnode{\enot C}, grouped
+				[\focusnode{A}, just={\eor}:p3, open]
+				[B, close]
+			]
+		]
+	]
+	[\enot A
+		[D
+			[C, grouped
+				[A, close]
+				[B, close]
+			]
+		]
+		[\enot D
+			[\enot C, grouped
+				[A, close]
+				[B, close]
+			]
+		]
+	]
+]
+]
+]
+]
+\end{highlightprooftree}
+\end{center}
+
+(This tree illustrates that the root is part of the open branch.)
+That branch offers this interpretation, which satisfies the root:
 
 \begin{displaymath}
 \script{I} =
@@ -750,7 +827,7 @@ After these three steps, there is one completed open branch, describing an inter
 \right.
 \end{displaymath}
 
-There is another branch including a biconditional that has not yet been resolved, but we don't need to continue working on this tree to answer our question. Since we found a model that satisfies the root, we conclude that $\{P \eand Q, \enot P \eor \enot R, S \eif (P \eiff (\enot Q \eand R)) \nvdash{}\bot$. It doesn't matter whether that branch would have closed, had we completed it. (You could complete it as an exercise, if you're curious.)
+There is another branch including a biconditional that has not yet been resolved, but we don't need to continue working on this tree to answer our question. Since we found a model that satisfies the root, we conclude that $\{P \eand Q, \enot P \eor \enot R, S \eif (P \eiff (\enot Q \eand R))\} \nvdash{}\bot$. It doesn't matter whether that branch would have closed, had we completed it. (You could complete it as an exercise, if you're curious.)
 
 \section{Choosing the right root}
 \label{sec.sl.treeroots}
@@ -772,7 +849,7 @@ If you want additional practice, you can construct trees for any of the SL argum
 \solutions
 \problempart 
 \label{pr.sl.treeroot}
-To evaluate each of the following claims with a tree, (a) what would you put in the root of the tree?, and (b) if the tree closes, does that show that the claim is true or false?
+To evaluate each of the following claims with a tree, (a) what would you put in the root of the tree?, and (b) if the tree closes, does that show that the claim is true or false? (Note: this question is not asking for you to actually evaluate each of these claims. It's asking conceptually about what setup you'd use to evaluate them with a tree. Part \ref{tree.examples} will ask you to actually construct the trees.)
 \begin{earg}
 \item $\{P, P \eif Q, Q \eif \enot P\} \vdash{}\bot$
 %(a) $\{P, P \eif Q, Q \eif \enot P\}$, (b) true
@@ -794,6 +871,8 @@ To evaluate each of the following claims with a tree, (a) what would you put in 
 \item There is at least one interpretation that satisfies $P \eif Q$, $\enot P \eor \enot Q$, and $Q \eif P$.
 %(a) $\{P \eif Q, \enot P \eor \enot Q, Q \eif P\}, (b) false.
  \end{earg}
+
+
 
 \solutions
 \problempart 
@@ -818,3 +897,64 @@ Evaluate the argument given on p.\ \pageref{8letterargument} by constructing a t
 \end{center}
 
 What would be appropriate tree resolution rules for the Sheffer stroke, or the negated Sheffer stroke?
+
+\problempart
+For each SL sentence below, construct a tree to determine whether it is a tautology. If it isn't, use the tree to construct a model that falsifies it.
+
+\begin{earg}
+\item $A \eor \enot A$
+\item $((A \eif B) \eand A) \eif B$
+\item $(A \eand B) \eif A$
+\item $A \eif (A \eor B)$
+\item $(A \eif B) \eor (B \eif A)$
+\item $(A \eor B) \eif (B \eor A)$
+\item $(A \eif B) \eiff (\enot B \eif \enot A)$
+\item $((A \eif B) \eand (B \eif C)) \eif (A \eif C)$
+\end{earg}
+
+\problempart
+For each SL sentence below, construct a tree to determine whether it is a contradiction. If it isn't, use the tree to construct a model that satisfies it.
+
+\begin{earg}
+\item $A \eand \enot A$
+\item $\enot (A \eor \enot A)$
+\item $(A \eif B) \eand (A \eand \enot B)$
+\item $((A \eiff B) \eand A) \eand \enot B$
+\item $((A \eor B) \eand \enot A) \eand \enot B$
+\item $(A \eif B) \eand (B \eif A) \eand (A \eand \enot B)$
+\item $\enot ((A \eand B) \eiff (B \eand A))$
+\item $((A \eif B) \eand (A \eif \enot B)) \eand A$
+\end{earg}
+
+\problempart
+For each set of SL sentences below, construct a tree to determine whether they are consistent. If they are, use the tree to construct a model that satisfies all of them.
+
+\begin{earg}
+\item $\{A, B\}$
+\item $\{A \eor B, \enot A\}$
+\item $\{A \eif B, A\}$
+\item $\{A \eif B, B \eif C, A\}$
+\item $\{A \eor B, \enot A, \enot B\}$
+\item $\{A \eiff B, A, \enot B\}$
+\item $\{A \eif B, B \eif C, A, \enot C\}$
+\item $\{A \eor B, A \eif C, B \eif C, \enot C\}$
+\end{earg}
+
+
+\textbf{GenAI prompts for further practice}
+
+Here are some potential GenAI prompts you might use to generate further practice problems, in case you find that helpful.
+
+\begin{earg}
+
+\item Give me SL sentences and ask me to determine whether they are tautologies, contradictions, or contingencies using trees. Present one sentence at a time. I'll draw the tree and tell you what I found, and you tell me whether my reasoning is correct.
+
+\item Give me examples of SL sentences that might form the root of a tree. My task is to predict whether constructing a tree for the sentence is likely to require substantial branching, very little branching, or no branching at all. Then discuss the structure of the sentence with me.
+\item I am practicing using SL trees to answer questions about SL sentences and arguments. Give me a series of questions that one could use a tree to answer. My task is to describe how to set up a tree in order to answer each question.
+
+\item Give me SL sentences and ask me to predict whether the resulting tree will have all branches closed, at least one open branch, or both, before I begin constructing it. Help me think through that reasoning before I construct the tree to test it.
+
+\item I'm a logic student studying SL trees. Give me completed trees and ask me what follows from them. For example, ask whether the original sentence is a tautology, contradiction, or contingency, or whether the original argument is valid or invalid.
+
+
+\end{earg}

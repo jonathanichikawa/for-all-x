@@ -43,209 +43,209 @@
 \contentsline {section}{\numberline {3.4}Partial truth tables}{62}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Evaluating English arguments via SL}{64}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Common student mistakes}{67}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Validity is not relative to particular valuations of atoms}{67}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Valid arguments with invalid forms}{68}{subsection.3.6.2}%
-\contentsline {section}{Practice Exercises}{69}{section*.7}%
-\contentsline {chapter}{\numberline {4}Entailment and Models for SL}{74}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Semantics for SL}{75}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Defining truth in SL}{76}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Semantic entailment}{78}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Entailment, validity, and informally good arguments}{79}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Tautologies are entailed by the empty set}{80}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Inconsistent sentences entail absurdities}{81}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Defining concepts in terms of entailment}{82}{section.4.7}%
-\contentsline {section}{Practice Exercises}{83}{section*.9}%
-\contentsline {chapter}{\numberline {5}SL Trees}{84}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Satisfiability and entailment}{85}{section.5.1}%
-\contentsline {section}{\numberline {5.2}An example: proving validity}{86}{section.5.2}%
-\contentsline {section}{\numberline {5.3}An example: proving invalidity}{88}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Resolution rules for SL trees}{90}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Conjunction}{90}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Negated conjunction}{91}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Disjunction}{92}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Negated disjunction}{92}{subsection.5.4.4}%
-\contentsline {subsection}{\numberline {5.4.5}Conditional}{92}{subsection.5.4.5}%
-\contentsline {subsection}{\numberline {5.4.6}Negated conditional}{93}{subsection.5.4.6}%
-\contentsline {subsection}{\numberline {5.4.7}Biconditional}{93}{subsection.5.4.7}%
-\contentsline {subsection}{\numberline {5.4.8}Negated biconditional}{94}{subsection.5.4.8}%
-\contentsline {subsection}{\numberline {5.4.9}Double negation}{94}{subsection.5.4.9}%
-\contentsline {subsection}{\numberline {5.4.10}Resolution rules summary}{94}{subsection.5.4.10}%
-\contentsline {section}{\numberline {5.5}Branch closure rules}{95}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Branch completion rules}{96}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Resolution order}{97}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Completed Open Branch in an Incomplete Tree}{99}{section.5.8}%
-\contentsline {section}{\numberline {5.9}Choosing the right root}{100}{section.5.9}%
-\contentsline {section}{Practice Exercises}{100}{section*.10}%
-\contentsline {chapter}{\numberline {6}Soundness and Completeness for SL Trees}{102}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Informal proof}{103}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Soundness}{103}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Recursive proofs}{104}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Proving soundness}{105}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Root}{106}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Conjunction}{106}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Negated conjunction}{107}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}Disjunction}{108}{subsection.6.4.4}%
-\contentsline {subsection}{\numberline {6.4.5}Negated Disjunction}{108}{subsection.6.4.5}%
-\contentsline {subsection}{\numberline {6.4.6}Conditional}{109}{subsection.6.4.6}%
-\contentsline {subsection}{\numberline {6.4.7}Negated Conditional}{109}{subsection.6.4.7}%
-\contentsline {subsection}{\numberline {6.4.8}Biconditional}{110}{subsection.6.4.8}%
-\contentsline {subsection}{\numberline {6.4.9}Negated biconditional}{110}{subsection.6.4.9}%
-\contentsline {subsection}{\numberline {6.4.10}Double negation}{110}{subsection.6.4.10}%
-\contentsline {subsection}{\numberline {6.4.11}Taking stock}{111}{subsection.6.4.11}%
-\contentsline {section}{\numberline {6.5}Completeness}{111}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Proving completeness}{113}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Conjunction}{113}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Negated conjunction}{114}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}Disjunction}{114}{subsection.6.6.3}%
-\contentsline {subsection}{\numberline {6.6.4}Negated disjunction}{115}{subsection.6.6.4}%
-\contentsline {subsection}{\numberline {6.6.5}Conditional}{115}{subsection.6.6.5}%
-\contentsline {subsection}{\numberline {6.6.6}Negated conditional}{115}{subsection.6.6.6}%
-\contentsline {subsection}{\numberline {6.6.7}Biconditional}{115}{subsection.6.6.7}%
-\contentsline {subsection}{\numberline {6.6.8}Negated biconditional}{116}{subsection.6.6.8}%
-\contentsline {subsection}{\numberline {6.6.9}Double negation}{116}{subsection.6.6.9}%
-\contentsline {subsection}{\numberline {6.6.10}Summarizing the completeness proof}{116}{subsection.6.6.10}%
-\contentsline {section}{\numberline {6.7}Testing alternate rules}{117}{section.6.7}%
-\contentsline {section}{Practice Exercises}{120}{section*.11}%
-\contentsline {chapter}{\numberline {7}Natural Deduction Proofs in SL}{122}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Natural deduction: the basic idea}{123}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Our first rule: Conditional Elimination (\emph {modus ponens})}{124}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Exact matches}{126}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Our second rule: \emph {modus tollens}}{128}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Disjunction Elimination}{129}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Conjunction Introduction}{130}{section.7.6}%
-\contentsline {section}{\numberline {7.7}Conjunction Elimination}{130}{section.7.7}%
-\contentsline {section}{\numberline {7.8}Basic and derived rules}{132}{section.7.8}%
-\contentsline {section}{\numberline {7.9}The remaining basic rules}{133}{section.7.9}%
-\contentsline {subsection}{\numberline {7.9.1}Disjunction Introduction}{133}{subsection.7.9.1}%
-\contentsline {subsection}{\numberline {7.9.2}Conditional Introduction}{133}{subsection.7.9.2}%
-\contentsline {subsection}{\numberline {7.9.3}Biconditional Introduction}{138}{subsection.7.9.3}%
-\contentsline {subsection}{\numberline {7.9.4}Biconditional Elimination}{138}{subsection.7.9.4}%
-\contentsline {subsection}{\numberline {7.9.5}\emph {Reductio} and the negation rules}{139}{subsection.7.9.5}%
-\contentsline {section}{\numberline {7.10}Derived rules}{140}{section.7.10}%
-\contentsline {subsection}{\numberline {7.10.1}Reiteration}{140}{subsection.7.10.1}%
-\contentsline {subsection}{\numberline {7.10.2}Modus tollens}{141}{subsection.7.10.2}%
-\contentsline {subsection}{\numberline {7.10.3}Dilemma}{142}{subsection.7.10.3}%
-\contentsline {subsection}{\numberline {7.10.4}Hypothetical Syllogism}{144}{subsection.7.10.4}%
-\contentsline {section}{\numberline {7.11}Rules of replacement}{145}{section.7.11}%
-\contentsline {section}{\numberline {7.12}Proof strategy}{147}{section.7.12}%
-\contentsline {paragraph}{Work backwards from what you want.}{147}{paragraph*.13}%
-\contentsline {paragraph}{Work forwards from what you have.}{147}{paragraph*.14}%
-\contentsline {paragraph}{Change what you are looking at.}{148}{paragraph*.15}%
-\contentsline {paragraph}{Do not forget indirect proof.}{148}{paragraph*.16}%
-\contentsline {paragraph}{Repeat as necessary.}{148}{paragraph*.17}%
-\contentsline {paragraph}{Persist.}{148}{paragraph*.18}%
-\contentsline {section}{\numberline {7.13}Proof-theoretic concepts}{148}{section.7.13}%
-\contentsline {section}{\numberline {7.14}Proofs and models}{150}{section.7.14}%
-\contentsline {section}{\numberline {7.15}Soundness and completeness}{151}{section.7.15}%
-\contentsline {section}{Practice Exercises}{153}{section*.19}%
-\contentsline {chapter}{\numberline {8}Quantified logic}{156}{chapter.8}%
-\contentsline {section}{\numberline {8.1}From sentences to predicates}{156}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Building blocks of QL}{158}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Singular terms}{159}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Predicates}{160}{section.8.4}%
-\contentsline {section}{\numberline {8.5}Quantifiers}{162}{section.8.5}%
-\contentsline {section}{\numberline {8.6}Universe of discourse}{164}{section.8.6}%
-\contentsline {section}{\numberline {8.7}Translating to QL}{165}{section.8.7}%
-\contentsline {section}{\numberline {8.8}Empty predicates}{167}{section.8.8}%
-\contentsline {section}{\numberline {8.9}Picking a universe of discourse}{168}{section.8.9}%
-\contentsline {section}{\numberline {8.10}Translating pronouns}{170}{section.8.10}%
-\contentsline {section}{\numberline {8.11}Quantifiers and scope}{172}{section.8.11}%
-\contentsline {section}{\numberline {8.12}Ambiguous predicates}{172}{section.8.12}%
-\contentsline {section}{\numberline {8.13}Multiple quantifiers}{174}{section.8.13}%
-\contentsline {section}{\numberline {8.14}Grammaticality rules for QL}{176}{section.8.14}%
-\contentsline {subsection}{\numberline {8.14.1}Expressions}{176}{subsection.8.14.1}%
-\contentsline {subsection}{\numberline {8.14.2}Well-formed formulae}{176}{subsection.8.14.2}%
-\contentsline {subsection}{\numberline {8.14.3}Sentences}{177}{subsection.8.14.3}%
-\contentsline {subsection}{\numberline {8.14.4}Notational conventions}{178}{subsection.8.14.4}%
-\contentsline {section}{\numberline {8.15}Common student errors}{179}{section.8.15}%
-\contentsline {section}{Practice Exercises}{180}{section*.20}%
-\contentsline {chapter}{\numberline {9}A formal semantics for QL}{186}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Interpretations in QL}{186}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Sets}{189}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Extensions of predicates}{189}{section.9.3}%
-\contentsline {section}{\numberline {9.4}Extensions of 0-place predicates}{191}{section.9.4}%
-\contentsline {section}{\numberline {9.5}Working with models}{192}{section.9.5}%
-\contentsline {section}{\numberline {9.6}Constructing models}{193}{section.9.6}%
-\contentsline {section}{\numberline {9.7}Reasoning about all models}{195}{section.9.7}%
-\contentsline {section}{\numberline {9.8}Truth in QL}{197}{section.9.8}%
-\contentsline {section}{\numberline {9.9}Satisfaction}{198}{section.9.9}%
-\contentsline {section}{\numberline {9.10}Truth in QL}{200}{section.9.10}%
-\contentsline {section}{\numberline {9.11}Reasoning about all models (reprise)}{201}{section.9.11}%
-\contentsline {section}{Practice Exercises}{202}{section*.21}%
-\contentsline {chapter}{\numberline {10}QL Trees}{206}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Trees with fixed domains}{206}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Generalizing the tree method}{210}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Existentials}{211}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Universals}{212}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Negated existentials}{213}{section.10.5}%
-\contentsline {section}{\numberline {10.6}Negated universals}{214}{section.10.6}%
-\contentsline {section}{\numberline {10.7}Whither branching?}{214}{section.10.7}%
-\contentsline {section}{\numberline {10.8}The other development rules}{214}{section.10.8}%
-\contentsline {section}{\numberline {10.9}Branch closure rules}{215}{section.10.9}%
-\contentsline {section}{\numberline {10.10}Tree completion rules}{215}{section.10.10}%
-\contentsline {section}{\numberline {10.11}Resolution order}{217}{section.10.11}%
-\contentsline {section}{\numberline {10.12}Infinite trees}{218}{section.10.12}%
-\contentsline {section}{\numberline {10.13}Common student errors}{223}{section.10.13}%
-\contentsline {subsection}{\numberline {10.13.1}Using old names}{223}{subsection.10.13.1}%
-\contentsline {subsection}{\numberline {10.13.2}Main Connectives}{224}{subsection.10.13.2}%
-\contentsline {section}{Practice Exercises}{224}{section*.22}%
-\contentsline {chapter}{\numberline {11}Soundness and Completeness for QL Trees}{226}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Soundness}{227}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}Root}{228}{subsection.11.1.1}%
-\contentsline {subsection}{\numberline {11.1.2}Existentials}{229}{subsection.11.1.2}%
-\contentsline {subsection}{\numberline {11.1.3}Universals}{230}{subsection.11.1.3}%
-\contentsline {subsection}{\numberline {11.1.4}Negated Existential}{231}{subsection.11.1.4}%
-\contentsline {subsection}{\numberline {11.1.5}Negated Universal}{231}{subsection.11.1.5}%
-\contentsline {subsection}{\numberline {11.1.6}Summarizing the soundness proof}{232}{subsection.11.1.6}%
-\contentsline {section}{\numberline {11.2}Completeness}{232}{section.11.2}%
-\contentsline {subsection}{\numberline {11.2.1}Existential}{233}{subsection.11.2.1}%
-\contentsline {subsection}{\numberline {11.2.2}Universal}{233}{subsection.11.2.2}%
-\contentsline {subsection}{\numberline {11.2.3}Negated Existential}{233}{subsection.11.2.3}%
-\contentsline {subsection}{\numberline {11.2.4}Negated Universal}{234}{subsection.11.2.4}%
-\contentsline {subsection}{\numberline {11.2.5}Summarizing the completeness proof}{234}{subsection.11.2.5}%
-\contentsline {section}{Practice Exercises}{234}{section*.23}%
-\contentsline {chapter}{\numberline {12}Identity}{237}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Motivating identity as a logical category}{237}{section.12.1}%
-\contentsline {section}{\numberline {12.2}=}{240}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Identity and `no one else'}{241}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Identical objects satisfy identical predicates}{242}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Quantity}{243}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Definite descriptions}{244}{section.12.6}%
-\contentsline {section}{\numberline {12.7}Identity and trees}{246}{section.12.7}%
-\contentsline {section}{Practice Exercises}{250}{section*.24}%
-\contentsline {chapter}{\numberline {13}Natural Deduction Proofs in QL}{254}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Natural Deduction: the basics}{254}{section.13.1}%
-\contentsline {section}{\numberline {13.2}Basic quantifier rules}{255}{section.13.2}%
-\contentsline {subsection}{\numberline {13.2.1}Universal elimination}{255}{subsection.13.2.1}%
-\contentsline {subsection}{\numberline {13.2.2}Existential introduction}{256}{subsection.13.2.2}%
-\contentsline {subsection}{\numberline {13.2.3}Universal introduction}{257}{subsection.13.2.3}%
-\contentsline {subsection}{\numberline {13.2.4}Existential elimination}{258}{subsection.13.2.4}%
-\contentsline {subsection}{\numberline {13.2.5}Quantifier negation}{260}{subsection.13.2.5}%
-\contentsline {section}{\numberline {13.3}Identity Introduction}{261}{section.13.3}%
-\contentsline {section}{\numberline {13.4}Identity Elimination}{262}{section.13.4}%
-\contentsline {section}{\numberline {13.5}Translation and evaluation}{263}{section.13.5}%
-\contentsline {section}{\numberline {13.6}Natural deduction strategy}{264}{section.13.6}%
-\contentsline {section}{\numberline {13.7}Soundness and completeness}{265}{section.13.7}%
-\contentsline {section}{Practice Exercises}{265}{section*.25}%
-\contentsline {chapter}{\numberline {A}Other symbolic notation}{269}{appendix.A}%
-\contentsline {paragraph}{Negation}{269}{paragraph*.26}%
-\contentsline {paragraph}{Disjunction}{269}{paragraph*.27}%
-\contentsline {paragraph}{Conjunction}{269}{paragraph*.28}%
-\contentsline {paragraph}{Material Conditional}{269}{paragraph*.29}%
-\contentsline {paragraph}{Material Biconditional}{270}{paragraph*.30}%
-\contentsline {paragraph}{Quantifiers}{270}{paragraph*.31}%
-\contentsline {chapter}{\numberline {B}Solutions to selected exercises}{272}{appendix.B}%
-\contentsline {section}{Chapter {\ref {ch.intro}}}{272}{section*.32}%
-\contentsline {section}{Chapter {\ref {ch.SL}}}{273}{Item.701}%
-\contentsline {section}{Chapter {\ref {ch.TruthTables}}}{274}{Item.739}%
-\contentsline {section}{Chapter {\ref {ch.SLmodels}}}{276}{Item.767}%
-\contentsline {section}{Chapter {\ref {ch.sl.trees}}}{276}{section*.49}%
-\contentsline {section}{Chapter {\ref {ch.SLsoundcomplete}}}{280}{Item.785}%
-\contentsline {section}{Chapter {\ref {ch.ND.proofs}}}{282}{Item.794}%
-\contentsline {section}{Chapter {\ref {ch.QL}}}{289}{Item.809}%
-\contentsline {section}{Chapter {\ref {ch.QL.models}}}{291}{Item.877}%
-\contentsline {section}{Chapter {\ref {ch.QLTrees}}}{294}{Item.890}%
-\contentsline {section}{Chapter {\ref {ch.QLsoundcomplete}}}{300}{Item.901}%
-\contentsline {section}{Chapter {\ref {ch.identity}}}{303}{Item.921}%
-\contentsline {section}{Chapter {\ref {ch.QLND}}}{312}{Item.968}%
-\contentsline {chapter}{\numberline {C}Quick Reference}{319}{appendix.C}%
+\contentsline {subsection}{\numberline {3.6.1}Validity is not relative to particular valuations of atoms}{68}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Valid arguments with invalid forms}{69}{subsection.3.6.2}%
+\contentsline {section}{Practice Exercises}{70}{section*.7}%
+\contentsline {chapter}{\numberline {4}Entailment and Models for SL}{75}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Semantics for SL}{76}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Defining truth in SL}{77}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Semantic entailment}{79}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Entailment, validity, and informally good arguments}{80}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Tautologies are entailed by the empty set}{81}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Inconsistent sentences entail absurdities}{82}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Defining concepts in terms of entailment}{84}{section.4.7}%
+\contentsline {section}{Practice Exercises}{84}{section*.9}%
+\contentsline {chapter}{\numberline {5}SL Trees}{87}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Satisfiability and entailment}{88}{section.5.1}%
+\contentsline {section}{\numberline {5.2}An example: proving validity}{89}{section.5.2}%
+\contentsline {section}{\numberline {5.3}An example: proving invalidity}{91}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Resolution rules for SL trees}{93}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Conjunction}{94}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Negated conjunction}{95}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Disjunction}{95}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Negated disjunction}{95}{subsection.5.4.4}%
+\contentsline {subsection}{\numberline {5.4.5}Conditional}{95}{subsection.5.4.5}%
+\contentsline {subsection}{\numberline {5.4.6}Negated conditional}{96}{subsection.5.4.6}%
+\contentsline {subsection}{\numberline {5.4.7}Biconditional}{96}{subsection.5.4.7}%
+\contentsline {subsection}{\numberline {5.4.8}Negated biconditional}{97}{subsection.5.4.8}%
+\contentsline {subsection}{\numberline {5.4.9}Double negation}{97}{subsection.5.4.9}%
+\contentsline {subsection}{\numberline {5.4.10}Resolution rules summary}{97}{subsection.5.4.10}%
+\contentsline {section}{\numberline {5.5}Branch closure rules}{98}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Branch completion rules}{99}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Resolution order}{100}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Completed Open Branch in an Incomplete Tree}{102}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Choosing the right root}{103}{section.5.9}%
+\contentsline {section}{Practice Exercises}{104}{section*.10}%
+\contentsline {chapter}{\numberline {6}Soundness and Completeness for SL Trees}{107}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Informal proof}{108}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Soundness}{108}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Recursive proofs}{109}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Proving soundness}{110}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Root}{111}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Conjunction}{111}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Negated conjunction}{112}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}Disjunction}{113}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}Negated Disjunction}{113}{subsection.6.4.5}%
+\contentsline {subsection}{\numberline {6.4.6}Conditional}{114}{subsection.6.4.6}%
+\contentsline {subsection}{\numberline {6.4.7}Negated Conditional}{114}{subsection.6.4.7}%
+\contentsline {subsection}{\numberline {6.4.8}Biconditional}{115}{subsection.6.4.8}%
+\contentsline {subsection}{\numberline {6.4.9}Negated biconditional}{115}{subsection.6.4.9}%
+\contentsline {subsection}{\numberline {6.4.10}Double negation}{115}{subsection.6.4.10}%
+\contentsline {subsection}{\numberline {6.4.11}Taking stock}{116}{subsection.6.4.11}%
+\contentsline {section}{\numberline {6.5}Completeness}{116}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Proving completeness}{118}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Conjunction}{118}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Negated conjunction}{119}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}Disjunction}{119}{subsection.6.6.3}%
+\contentsline {subsection}{\numberline {6.6.4}Negated disjunction}{120}{subsection.6.6.4}%
+\contentsline {subsection}{\numberline {6.6.5}Conditional}{120}{subsection.6.6.5}%
+\contentsline {subsection}{\numberline {6.6.6}Negated conditional}{120}{subsection.6.6.6}%
+\contentsline {subsection}{\numberline {6.6.7}Biconditional}{120}{subsection.6.6.7}%
+\contentsline {subsection}{\numberline {6.6.8}Negated biconditional}{121}{subsection.6.6.8}%
+\contentsline {subsection}{\numberline {6.6.9}Double negation}{121}{subsection.6.6.9}%
+\contentsline {subsection}{\numberline {6.6.10}Summarizing the completeness proof}{121}{subsection.6.6.10}%
+\contentsline {section}{\numberline {6.7}Testing alternate rules}{122}{section.6.7}%
+\contentsline {section}{Practice Exercises}{125}{section*.11}%
+\contentsline {chapter}{\numberline {7}Natural Deduction Proofs in SL}{127}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Natural deduction: the basic idea}{128}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Our first rule: Conditional Elimination (\emph {modus ponens})}{129}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Exact matches}{131}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Our second rule: \emph {modus tollens}}{133}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Disjunction Elimination}{134}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Conjunction Introduction}{135}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Conjunction Elimination}{135}{section.7.7}%
+\contentsline {section}{\numberline {7.8}Basic and derived rules}{137}{section.7.8}%
+\contentsline {section}{\numberline {7.9}The remaining basic rules}{138}{section.7.9}%
+\contentsline {subsection}{\numberline {7.9.1}Disjunction Introduction}{138}{subsection.7.9.1}%
+\contentsline {subsection}{\numberline {7.9.2}Conditional Introduction}{138}{subsection.7.9.2}%
+\contentsline {subsection}{\numberline {7.9.3}Biconditional Introduction}{143}{subsection.7.9.3}%
+\contentsline {subsection}{\numberline {7.9.4}Biconditional Elimination}{143}{subsection.7.9.4}%
+\contentsline {subsection}{\numberline {7.9.5}\emph {Reductio} and the negation rules}{144}{subsection.7.9.5}%
+\contentsline {section}{\numberline {7.10}Derived rules}{145}{section.7.10}%
+\contentsline {subsection}{\numberline {7.10.1}Reiteration}{145}{subsection.7.10.1}%
+\contentsline {subsection}{\numberline {7.10.2}Modus tollens}{146}{subsection.7.10.2}%
+\contentsline {subsection}{\numberline {7.10.3}Dilemma}{147}{subsection.7.10.3}%
+\contentsline {subsection}{\numberline {7.10.4}Hypothetical Syllogism}{149}{subsection.7.10.4}%
+\contentsline {section}{\numberline {7.11}Rules of replacement}{150}{section.7.11}%
+\contentsline {section}{\numberline {7.12}Proof strategy}{152}{section.7.12}%
+\contentsline {paragraph}{Work backwards from what you want.}{152}{paragraph*.13}%
+\contentsline {paragraph}{Work forwards from what you have.}{152}{paragraph*.14}%
+\contentsline {paragraph}{Change what you are looking at.}{153}{paragraph*.15}%
+\contentsline {paragraph}{Do not forget indirect proof.}{153}{paragraph*.16}%
+\contentsline {paragraph}{Repeat as necessary.}{153}{paragraph*.17}%
+\contentsline {paragraph}{Persist.}{153}{paragraph*.18}%
+\contentsline {section}{\numberline {7.13}Proof-theoretic concepts}{153}{section.7.13}%
+\contentsline {section}{\numberline {7.14}Proofs and models}{155}{section.7.14}%
+\contentsline {section}{\numberline {7.15}Soundness and completeness}{156}{section.7.15}%
+\contentsline {section}{Practice Exercises}{158}{section*.19}%
+\contentsline {chapter}{\numberline {8}Quantified logic}{161}{chapter.8}%
+\contentsline {section}{\numberline {8.1}From sentences to predicates}{161}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Building blocks of QL}{163}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Singular terms}{164}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Predicates}{165}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Quantifiers}{167}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Universe of discourse}{169}{section.8.6}%
+\contentsline {section}{\numberline {8.7}Translating to QL}{170}{section.8.7}%
+\contentsline {section}{\numberline {8.8}Empty predicates}{172}{section.8.8}%
+\contentsline {section}{\numberline {8.9}Picking a universe of discourse}{173}{section.8.9}%
+\contentsline {section}{\numberline {8.10}Translating pronouns}{175}{section.8.10}%
+\contentsline {section}{\numberline {8.11}Quantifiers and scope}{177}{section.8.11}%
+\contentsline {section}{\numberline {8.12}Ambiguous predicates}{177}{section.8.12}%
+\contentsline {section}{\numberline {8.13}Multiple quantifiers}{179}{section.8.13}%
+\contentsline {section}{\numberline {8.14}Grammaticality rules for QL}{181}{section.8.14}%
+\contentsline {subsection}{\numberline {8.14.1}Expressions}{181}{subsection.8.14.1}%
+\contentsline {subsection}{\numberline {8.14.2}Well-formed formulae}{181}{subsection.8.14.2}%
+\contentsline {subsection}{\numberline {8.14.3}Sentences}{182}{subsection.8.14.3}%
+\contentsline {subsection}{\numberline {8.14.4}Notational conventions}{183}{subsection.8.14.4}%
+\contentsline {section}{\numberline {8.15}Common student errors}{184}{section.8.15}%
+\contentsline {section}{Practice Exercises}{185}{section*.20}%
+\contentsline {chapter}{\numberline {9}A formal semantics for QL}{191}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Interpretations in QL}{191}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Sets}{194}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Extensions of predicates}{194}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Extensions of 0-place predicates}{196}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Working with models}{197}{section.9.5}%
+\contentsline {section}{\numberline {9.6}Constructing models}{198}{section.9.6}%
+\contentsline {section}{\numberline {9.7}Reasoning about all models}{200}{section.9.7}%
+\contentsline {section}{\numberline {9.8}Truth in QL}{202}{section.9.8}%
+\contentsline {section}{\numberline {9.9}Satisfaction}{203}{section.9.9}%
+\contentsline {section}{\numberline {9.10}Truth in QL}{205}{section.9.10}%
+\contentsline {section}{\numberline {9.11}Reasoning about all models (reprise)}{206}{section.9.11}%
+\contentsline {section}{Practice Exercises}{207}{section*.21}%
+\contentsline {chapter}{\numberline {10}QL Trees}{211}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Trees with fixed domains}{211}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Generalizing the tree method}{215}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Existentials}{216}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Universals}{217}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Negated existentials}{218}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Negated universals}{219}{section.10.6}%
+\contentsline {section}{\numberline {10.7}Whither branching?}{219}{section.10.7}%
+\contentsline {section}{\numberline {10.8}The other development rules}{219}{section.10.8}%
+\contentsline {section}{\numberline {10.9}Branch closure rules}{220}{section.10.9}%
+\contentsline {section}{\numberline {10.10}Tree completion rules}{220}{section.10.10}%
+\contentsline {section}{\numberline {10.11}Resolution order}{222}{section.10.11}%
+\contentsline {section}{\numberline {10.12}Infinite trees}{223}{section.10.12}%
+\contentsline {section}{\numberline {10.13}Common student errors}{228}{section.10.13}%
+\contentsline {subsection}{\numberline {10.13.1}Using old names}{228}{subsection.10.13.1}%
+\contentsline {subsection}{\numberline {10.13.2}Main Connectives}{229}{subsection.10.13.2}%
+\contentsline {section}{Practice Exercises}{229}{section*.22}%
+\contentsline {chapter}{\numberline {11}Soundness and Completeness for QL Trees}{231}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Soundness}{232}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Root}{233}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Existentials}{234}{subsection.11.1.2}%
+\contentsline {subsection}{\numberline {11.1.3}Universals}{235}{subsection.11.1.3}%
+\contentsline {subsection}{\numberline {11.1.4}Negated Existential}{236}{subsection.11.1.4}%
+\contentsline {subsection}{\numberline {11.1.5}Negated Universal}{236}{subsection.11.1.5}%
+\contentsline {subsection}{\numberline {11.1.6}Summarizing the soundness proof}{237}{subsection.11.1.6}%
+\contentsline {section}{\numberline {11.2}Completeness}{237}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Existential}{238}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Universal}{238}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}Negated Existential}{238}{subsection.11.2.3}%
+\contentsline {subsection}{\numberline {11.2.4}Negated Universal}{239}{subsection.11.2.4}%
+\contentsline {subsection}{\numberline {11.2.5}Summarizing the completeness proof}{239}{subsection.11.2.5}%
+\contentsline {section}{Practice Exercises}{239}{section*.23}%
+\contentsline {chapter}{\numberline {12}Identity}{242}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Motivating identity as a logical category}{242}{section.12.1}%
+\contentsline {section}{\numberline {12.2}=}{245}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Identity and `no one else'}{246}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Identical objects satisfy identical predicates}{247}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Quantity}{248}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Definite descriptions}{249}{section.12.6}%
+\contentsline {section}{\numberline {12.7}Identity and trees}{251}{section.12.7}%
+\contentsline {section}{Practice Exercises}{255}{section*.24}%
+\contentsline {chapter}{\numberline {13}Natural Deduction Proofs in QL}{259}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Natural Deduction: the basics}{259}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Basic quantifier rules}{260}{section.13.2}%
+\contentsline {subsection}{\numberline {13.2.1}Universal elimination}{260}{subsection.13.2.1}%
+\contentsline {subsection}{\numberline {13.2.2}Existential introduction}{261}{subsection.13.2.2}%
+\contentsline {subsection}{\numberline {13.2.3}Universal introduction}{262}{subsection.13.2.3}%
+\contentsline {subsection}{\numberline {13.2.4}Existential elimination}{263}{subsection.13.2.4}%
+\contentsline {subsection}{\numberline {13.2.5}Quantifier negation}{265}{subsection.13.2.5}%
+\contentsline {section}{\numberline {13.3}Identity Introduction}{266}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Identity Elimination}{267}{section.13.4}%
+\contentsline {section}{\numberline {13.5}Translation and evaluation}{268}{section.13.5}%
+\contentsline {section}{\numberline {13.6}Natural deduction strategy}{269}{section.13.6}%
+\contentsline {section}{\numberline {13.7}Soundness and completeness}{270}{section.13.7}%
+\contentsline {section}{Practice Exercises}{270}{section*.25}%
+\contentsline {chapter}{\numberline {A}Other symbolic notation}{274}{appendix.A}%
+\contentsline {paragraph}{Negation}{274}{paragraph*.26}%
+\contentsline {paragraph}{Disjunction}{274}{paragraph*.27}%
+\contentsline {paragraph}{Conjunction}{274}{paragraph*.28}%
+\contentsline {paragraph}{Material Conditional}{274}{paragraph*.29}%
+\contentsline {paragraph}{Material Biconditional}{275}{paragraph*.30}%
+\contentsline {paragraph}{Quantifiers}{275}{paragraph*.31}%
+\contentsline {chapter}{\numberline {B}Solutions to selected exercises}{277}{appendix.B}%
+\contentsline {section}{Chapter {\ref {ch.intro}}}{277}{section*.32}%
+\contentsline {section}{Chapter {\ref {ch.SL}}}{278}{Item.769}%
+\contentsline {section}{Chapter {\ref {ch.TruthTables}}}{279}{Item.807}%
+\contentsline {section}{Chapter {\ref {ch.SLmodels}}}{281}{Item.835}%
+\contentsline {section}{Chapter {\ref {ch.sl.trees}}}{281}{section*.49}%
+\contentsline {section}{Chapter {\ref {ch.SLsoundcomplete}}}{285}{Item.853}%
+\contentsline {section}{Chapter {\ref {ch.ND.proofs}}}{287}{Item.862}%
+\contentsline {section}{Chapter {\ref {ch.QL}}}{294}{Item.877}%
+\contentsline {section}{Chapter {\ref {ch.QL.models}}}{296}{Item.945}%
+\contentsline {section}{Chapter {\ref {ch.QLTrees}}}{299}{Item.958}%
+\contentsline {section}{Chapter {\ref {ch.QLsoundcomplete}}}{305}{Item.969}%
+\contentsline {section}{Chapter {\ref {ch.identity}}}{308}{Item.989}%
+\contentsline {section}{Chapter {\ref {ch.QLND}}}{317}{Item.1036}%
+\contentsline {chapter}{\numberline {C}Quick Reference}{324}{appendix.C}%
