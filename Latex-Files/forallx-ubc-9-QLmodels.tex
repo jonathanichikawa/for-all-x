@@ -218,7 +218,7 @@ Since Miles is the only member of the UD, it must be the referent of $d$. The mo
 
 Strictly speaking, a model specifies an extension for \emph{every} predicate of QL and a referent for \emph{every} constant. As such, it is generally impossible to write down a complete model. That would require writing down infinitely many extensions and infinitely many referents. However, we do not need to consider every predicate in order to show that there are models in which $\forall xAxx \eif Bd$ is false. Predicates like $H$ and constants like $f_{13}$ make no difference to the truth or falsity of this sentence. It is enough to specify extensions for $A$ and $B$ and a referent for $d$, as we have done. This provides a \emph{partial model} in which the sentence is false.
 
-Perhaps you are wondering: What does the predicate $A$ mean in English? It doesn't really matter. For formal purposes, the existence of models like the ones described above are enough to show that $\forall x Axx \eif Bd$ is not a tautology. But we can offer an interpretation in English if we like. How about this one?
+Perhaps you are wondering: What does the predicate $A$ mean in English? It doesn't really matter. For formal purposes, the existence of models like the ones described above is enough to show that $\forall x Axx \eif Bd$ is not a tautology. But we can offer an interpretation in English if we like. How about this one?
 
 \begin{ekey}
 \item[UD:] Miles Morales
@@ -308,12 +308,12 @@ Is the argument \mbox{`\script{P}, \therefore\ \metaC{}'} valid? & {show that an
 \label{sec.allmodelreasoning}
 We can show that a sentence is \emph{not} a tautology just by providing one carefully specified model: a model in which the sentence is false. To show that something is a tautology, on the other hand, it would not be enough to construct ten, one hundred, or even a thousand models in which the sentence is true. It is only a tautology if it is true in \emph{every} model, and there are infinitely many models. This cannot be avoided just by constructing partial models, because there are infinitely many partial models.
 
-Consider, for example, the sentence $Raa\eiff Raa$. There are two logically distinct partial models of this sentence that have a 1-member UD. There are 32 distinct partial models that have a 2-member UD. There are 1526 distinct partial models that have a 3-member UD. There are 262,144 distinct partial models that have a 4-member UD. And so on to infinity. In order to show that this sentence is a tautology, we need to show something about all of these models. There is no hope of doing so by dealing with them one at a time.
+Consider, for example, the sentence $Raa\eiff Raa$. There are two logically distinct partial models of this sentence that have a 1-member UD. There are 32 distinct partial models that have a 2-member UD. There are 1,536 distinct partial models that have a 3-member UD. There are 262,144 distinct partial models that have a 4-member UD. And so on to infinity. In order to show that this sentence is a tautology, we need to show something about \emph{all} of these models. There is obviously no hope of doing so by dealing with them one at a time.
 
 Nevertheless, $Raa\eiff Raa$ is obviously a tautology. We can prove it with a simple argument:
 \begin{quote}
 \label{allmodels1}
-There are two kinds of models: those in which $\langle$referent(a), referent(a)$\rangle$ is in the extension of $R$ and those in which it is not. In the first kind of model, $Raa$ is true; by the truth table for the biconditional, $Raa\eiff Raa$ is also true. In the second kind of model, $Raa$ is false; this makes $Raa\eiff Raa$ true. Since the sentence is true in both kinds of model, and since every model is one of the two kinds, $Raa\eiff Raa$ is true in every model. Therefore, it is a tautology.
+There are two kinds of models: those in which $\langle$referent(a), referent(a)$\rangle$ is in the extension of $R$, and those in which it is not. In the first kind of model, $Raa$ is true; by the truth table for the biconditional, $Raa\eiff Raa$ is also true. In the second kind of model, $Raa$ is false; this makes $Raa\eiff Raa$ true. Since the sentence is true in both kinds of model, and since every model is one of the two kinds, $Raa\eiff Raa$ is true in every model. Therefore, it is a tautology.
 \end{quote}
 This is a sound argument; it should convince us of its conclusion. But note that it is not an argument in QL. Rather, it is an argument in English \emph{about} QL; it is an argument in the metalanguage. There is no formal procedure for evaluating or constructing natural language arguments like this one. The imprecision of natural language is the very reason we began thinking about formal languages.
 
@@ -448,7 +448,7 @@ Truth in QL is \emph{truth in a model}. Sentences of QL are not flat-footedly tr
 \section{Reasoning about all models (reprise)}
 At the end of section \ref{sec.allmodelreasoning}, we were stymied when we tried to show that $\forall x(Rxx\eif Rxx)$ is a tautology. Having defined satisfaction, we can now reason in this way:
 \begin{quote}
-Consider some arbitrary model \model{M}. Now consider an arbitrary member of the UD; for the sake of convenience, call it $\pi$. It must be the case either that $\langle\pi,\pi\rangle$ is in the extension of $R$ or that it is not. If $\langle\pi,\pi\rangle$ is in the extension of $R$, then $Rxx$ is satisfied by a variable assignment that assigns $\pi$ to $x$ (by part 1 of the definition of  {satisfaction}); since the consequent of $Rxx\eif Rxx$ is satisfied, the conditional is satisfied (by part 5). If $\langle\pi,\pi\rangle$ is not in the extension of $R$, then $Rxx$ is not satisfied by a variable assignment that assigns $\pi$ to $x$ (by part 1); since the antecedent of $Rxx\eif Rxx$ is not satisfied, the conditional is satisfied (by part 5). In either case, $Rxx\eif Rxx$ is satisfied. This is true for any member of the UD, so $\forall x(Rxx \eif Rxx)$ is satisfied by any truth value assignment (by part 7). So $\forall x(Rxx \eif Rxx)$ is true in \model{M} (by the definition of {truth}). This argument holds regardless of the exact UD and regardless of the exact extension of $R$, so $\forall x(Rxx \eif Rxx)$ is true in any model. Therefore, it is a tautology.
+Consider some arbitrary model \model{M}. Now consider an arbitrary member of the UD; for the sake of convenience, call it $\pi$. It must be the case either that $\langle\pi,\pi\rangle$ is in the extension of $R$ or that it is not. If $\langle\pi,\pi\rangle$ is in the extension of $R$, then $Rxx$ is satisfied by a variable assignment that assigns $\pi$ to $x$ (by part 1 of the definition of  {satisfaction}); since the consequent of $Rxx\eif Rxx$ is satisfied, the conditional is satisfied (by part 5). If $\langle\pi,\pi\rangle$ is not in the extension of $R$, then $Rxx$ is not satisfied by a variable assignment that assigns $\pi$ to $x$ (by part 1); since the antecedent of $Rxx\eif Rxx$ is not satisfied, the conditional is satisfied (by part 5). In either case, $Rxx\eif Rxx$ is satisfied. This is true for any member of the UD, so $\forall x(Rxx \eif Rxx)$ is satisfied by any variable assignment (by part 7). So $\forall x(Rxx \eif Rxx)$ is true in \model{M} (by the definition of {truth}). This argument holds regardless of the exact UD and regardless of the exact extension of $R$, so $\forall x(Rxx \eif Rxx)$ is true in any model. Therefore, it is a tautology.
 \end{quote}
 
 Giving arguments about all possible models typically requires clever combination of two strategies:
@@ -466,6 +466,56 @@ Even for a simple argument like this one, the reasoning is somewhat complicated.
 
 
 \practiceproblems
+
+
+
+\problempart
+\label{pr.varass1}
+Consider the following model and variable assignment:
+
+\begin{partialmodel}
+UD & \{Alia, Ben, Cleo\}\\
+\extension{P} & \{Alia, Cleo\}\\
+\extension{R} & \{\ntuple{Alia, Ben}, \ntuple{Cleo, Alia}\}
+\end{partialmodel}
+
+Let $a$ be a variable assignment such that:
+
+\[
+a(x)=\text{Alia},\qquad
+a(y)=\text{Ben},\qquad
+a(z)=\text{Cleo}.
+\]
+
+The wffs below are not QL sentences, because they have unbound variables. For each, determine whether it is satisfied in the model by variable assignment $a$.
+
+\begin{earg}
+\item $Px$
+\item $Py$
+\item $Rxy$
+\item $Ryx$
+\item $Px \eand \enot Py$
+\item $Rzy \eor Rzx$
+\item $Pz \eif Rzx$
+\item $\enot Ryz \eand Pz$
+\end{earg}
+
+
+\problempart
+\label{pr.varass2}
+Using the same model from Part \ref{pr.varass1}, give a variable assignment that satisfies each of the following wffs, if there is one. If no such assignment exists, explain why.
+
+\begin{earg}
+\item $Pz$
+\item $\enot Py$
+\item $Rxy$
+\item $Px \eand Rxy$
+\item $Px \eand \enot Py \eand Rxy$
+\item $Rxy \eand Rzx$
+\item $Rxy \eand Ryx$
+\item $Px \eand \enot Px$
+\item $\exists x Px$
+\end{earg}
 
 \solutions
 \problempart
@@ -634,4 +684,28 @@ Construct models to show that the following arguments are invalid.
 Does this definition lead to any different sets being consistent than the definition on  p.~\pageref{def.consistencySL}? Explain your answer.
 
 \item\leftsolutions\ Our definition of truth says that a sentence \metaA{} is \define{true in} \model{M} if and only if some variable assignment satisfies \metaA{} in $M$. Would it make any difference if we said instead that \metaA{} is \define{true in} \model{M} if and only if \emph{every} variable assignment satisfies \metaA{} in $M$? Explain your answer.
+\end{earg}
+
+\textbf{GenAI prompts for further practice}
+
+Here are some potential GenAI prompts you might use to generate further practice problems, in case you find that helpful.
+
+\begin{earg}
+
+\item Give me a small QL model with a universe of discourse, extensions for some one-place and two-place predicates, and referents for some constants. Give me QL sentences one at a time and ask me whether each is true or false in the model. Check my answer and explain any mistakes.
+
+\item Give me a small QL model and a variable assignment. Give me open wffs one at a time and ask me whether each is satisfied by that variable assignment. After I answer, explain how the model and variable assignment determine the answer.
+
+\item Give me a small QL model and an open wff containing one or more free variables. Ask me to provide a variable assignment that satisfies the wff, or explain why no such assignment exists.
+
+\item Give me QL sentences that are not tautologies. Present them one at a time and ask me to construct a model in which each sentence is false. Check whether my model works.
+
+\item Give me QL sentences that are not contradictions. Present them one at a time and ask me to construct a model in which each sentence is true. Check whether my model works.
+
+\item Give me pairs of QL sentences that are not logically equivalent. Ask me to construct a model in which they have different truth values. Do not give me a countermodel until I have attempted one.
+
+\item Give me invalid QL argument forms. Ask me to construct a model in which all the premises are true and the conclusion is false. After I provide a model, check each premise and the conclusion individually.
+
+\item Give me a QL model and several variable assignments. Ask me which assignments satisfy a given open wff. Include some examples where changing the assignment of a variable makes no difference because that variable does not occur free in the wff.
+
 \end{earg}

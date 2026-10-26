@@ -276,7 +276,7 @@ Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} 
 
 Sentence \ref{quan2} is most naturally translated with an existential quantifier. It says that there is some coin which is both on the table and which is a dime. So we can translate it as $\exists x(Tx \eand Dx)$.
 
-Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. This is a common pattern. What would it mean to write $\exists x(Tx \eif Dx)$? Probably not what you think. It means that there is some member of the UD which would satisfy the subformula; roughly speaking, there is some name $\alpha$ such that $(T\alpha \eif D\alpha)$ is true. In SL, $\metaA{} \eif \metaB{}$ is logically equivalent to $\enot\metaA{} \eor \metaB{}$, and this will also hold in QL. So $\exists x(Tx \eif Dx)$ is true if there is some $\alpha$ such that $(\enot T\alpha \eor D\alpha)$; i.e., it is true if some coin is \emph{either} not on the table \emph{or} is a dime. Of course there is a coin that is not on the table --- there are coins in lots of other places. So $\exists x(Tx \eif Dx)$ makes an extremely weak claim. A conditional will usually be the natural connective to use with a universal quantifier, but a conditional within the scope of an existential quantifier can do very strange things. It's a pretty good rule of thumb that you shouldn't be putting conditionals in the scope of existential quantifiers. This is pretty much never a good translation of any natural English sentence.
+Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. This is a common pattern. What would it mean to write $\exists x(Tx \eif Dx)$? Probably not what you think. It means that there is some member of the UD which would satisfy the subformula; roughly speaking, there is some name $\alpha$ such that $(T\alpha \eif D\alpha)$ is true. In SL, $\metaA{} \eif \metaB{}$ is logically equivalent to $\enot\metaA{} \eor \metaB{}$, and this will also hold in QL. So $\exists x(Tx \eif Dx)$ is true if there is some $\alpha$ such that $(\enot T\alpha \eor D\alpha)$; i.e., it is true if some coin is \emph{either} not on the table \emph{or} is a dime. Of course there is a coin that is not on the table --- there are coins in lots of other places. So $\exists x(Tx \eif Dx)$ makes an extremely weak claim. A conditional will usually be the natural connective to use with a universal quantifier, but a conditional within the scope of an existential quantifier can do very strange things. As a general rule, there is almost never any good reason to translate an English sentence into QL as an existential governing a conditional.
 
 Sentence \ref{quan3} can be paraphrased as, `It is not the case that every coin on the table is a loonie.' So we can translate it as $\enot \forall x(Tx \eif Lx)$. You might look at sentence \ref{quan3} and paraphrase it instead as, `Some coin on the table is not a loonie.' You would then translate it as $\exists x(Tx \eand \enot Lx)$. Although it is probably not obvious, these two translations are logically equivalent. (This is due to the logical equivalence between $\enot\forall x\metaA{}$ and $\exists x\enot\metaA{}$, along with the equivalence between $\enot(\metaA{}\eif\metaB{})$ and $\metaA{}\eand\enot\metaB{}$. We'll be able to prove this later.)
 
@@ -376,7 +376,7 @@ Suppose that we want to translate sentence \ref{pickUDrose} and, with the same s
 \item[\ex{pickUDcross}] Everyone is cross with Esmerelda.
 \end{earg}
 
-We need a UD that includes roses (so that we can symbolize sentence \ref{pickUDrose}) and a UD that includes people (so we can translate sentence \ref{pickUDhair}--\ref{pickUDcross}.) Here is a suitable key:
+We need a UD that includes roses (so that we can symbolize sentence \ref{pickUDrose}), and that also includes people (so we can translate sentence \ref{pickUDhair}--\ref{pickUDcross}.) Here is a suitable key:
 \begin{ekey}
 \item[UD:] people and plants
 \item[Px:] $x$ is a person.
@@ -437,7 +437,7 @@ These two sentences have the same antecedent (`If anyone can play guitar$\ldots$
 
 Sentence \ref{anyone1} can be paraphrased, `If someone can play guitar, then Lemmy can play guitar.' The antecedent and consequent are separate sentences, so it can be symbolized with a conditional as the main logical operator: $\exists x Gx \eif Gl$.
 
-Sentence \ref{anyone2} can be paraphrased, `For anyone, if that one can play guitar, then that one is a rock star.' It would be a mistake to symbolize this with an existential quantifier, because it is talking about everybody. The sentence is equivalent to `All guitar players are rock stars.' It is best translated as $\forall x(Gx \eif Rx)$.
+Sentence \ref{anyone2} can be paraphrased, `For any person, if they can play guitar, then they are a rock star.' It would be a mistake to symbolize this with an existential quantifier, because it is talking about everybody. The sentence is equivalent to `All guitar players are rock stars.' It is best translated as $\forall x(Gx \eif Rx)$.
 
 The English words `any' and `anyone' should typically be translated using quantifiers. As these two examples show, they sometimes call for an existential quantifier (as in sentence \ref{anyone1}) and sometimes for a universal quantifier (as in sentence \ref{anyone2}). If you have a hard time determining which is required, paraphrase the sentence with an English language sentence that uses words besides `any' or `anyone.'
 
@@ -504,7 +504,7 @@ This translation is a disaster! It takes what in English is a terrible argument 
 \end{earg}
 Like the English language argument it translates, this is invalid. %\nix{Notice that there is no logical connection between $K_1c$ and $Rc$. As symbols of QL, they might be any one-place predicates. In English there is a connection between being a \emph{surgeon} and being a \emph{skilled surgeon}: Every skilled surgeon is a surgeon. In order to capture this connection, we symbolize `Carol is a skilled surgeon' as $Rc \eand K_1c$. This means: `Carol is a surgeon and is skilled as a surgeon.'}
 
-The moral of these examples is that you need to be careful of symbolizing predicates in an ambiguous way. Similar problems can arise with predicates like \emph{good}, \emph{bad}, \emph{big}, and \emph{small}. Just as skilled surgeons and skilled tennis players have different skills, big dogs, big mice, and big problems are big in different ways.
+The moral of these examples is that you need to be careful of symbolizing predicates, when they are presented in English in a way that might be ambiguous. Similar problems can arise with predicates like \emph{good}, \emph{bad}, \emph{big}, and \emph{small}. Just as skilled surgeons and skilled tennis players have different skills, big dogs, big mice, and big problems are big in different ways.
 
 Is it enough to have a predicate that means `$x$ is a skilled surgeon', rather than two predicates `$x$ is skilled' and `$x$ is a surgeon'? Sometimes. As sentence \ref{surgeon1} shows, sometimes we do not need to distinguish between skilled surgeons and other surgeons.
 
@@ -693,6 +693,10 @@ It is also a serious mistake to use an existential instead of a universal for se
 \end{itemize}
 
 These are very weak claims. They say that there is some object in the domain that satisfies a certain conditional. For example, $\exists x (Sx \eif Wx)$ says there is something in the domain such that, if it is a student, it is working. Given the truth conditions for the material conditional, this will be true if there is even one object in the domain that is not a student, regardless of who is and isn't working; it will also be true if there is even one object in the domain that is working, regardless of who is and isn't a student.
+
+\factoidbox{
+If you translate an English sentence as an existential governing a conditional, you are almost definitely making a mistake.
+}
 
 If you find yourself offering, as a translation of some English sentence, an existential governing a conditional, you are almost certainly making a mistake. This is not a reasonable translation of any ordinary English sentence. You probably want either a universal over a conditional (everything with one property has another property) or an existential over a conjunction (there is something with the following properties). 
 
@@ -976,4 +980,20 @@ $\forall y Lby$, $\forall x Lbx$, $Lab$, $\exists x Lxa$
 \end{earg}
 
 
+\textbf{GenAI prompts for further practice}
 
+Here are some potential GenAI prompts you might use to generate further practice problems, in case you find that helpful.
+
+\begin{earg}
+
+\item Give me ordinary-English sentences involving quantifiers. My task is to translate them into QL. Present one sentence at a time, beginning with simple examples and gradually increasing the difficulty.
+\item Give me English sentences involving words like ``all'', ``some'', ``none'', ``every'', ``someone'', and ``everything''. Ask me to identify which quantifier should be used to translate each sentence into QL, and to explain my reasoning.
+\item Give me English sentences containing multiple quantifiers. My task is to translate them into QL and explain the scope of each quantifier.
+\item Give me pairs of QL sentences that differ only in quantifier order. Ask me to explain the difference in their meanings using ordinary English.
+\item Give me QL sentences and a suitable interpretation key, and ask me to translate them back into ordinary English. After I answer, compare my translation with several other acceptable translations.
+\item Give me English sentences involving relationships such as ``loves'', ``knows'', ``admires'', or ``is taller than''. Ask me to choose suitable predicates and then translate the sentence into QL.
+\item Give me English sentences involving ``only'', ``only if'', ``unless'', or ``at least one'. My task is to express them in QL.
+\item Give me ordinary-English sentences and ask me whether they are best translated using a universal quantifier, an existential quantifier, or both. Explain any mistakes I make.
+\item Give me English sentences together with a proposed translation into QL. Some translations should be correct and some incorrect. Ask me to determine which are which and explain my reasoning.
+
+\end{earg}

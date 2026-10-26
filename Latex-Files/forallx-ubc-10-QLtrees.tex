@@ -2,7 +2,8 @@
 \chapter{QL Trees}
 \label{ch.QLTrees}
 
-In Chapter \ref{ch.QL.models} we saw that the more structured models of QL make reasoning about all possible models rather complex. In SL, where a model was just an assignment of truth values to atomic sentences, reasoning about all models was relatively straightforward: we could simply survey them via truth tables. In QL there isn't really as simple a method for considering claims about validity or satisfiability as the truth table method. So we must rely more heavily on proof systems.
+In Chapter \ref{ch.QL.models} we saw that the more structured models of QL make reasoning about all possible models rather complex. In SL, where a model was just an assignment of truth values to atomic sentences, reasoning about all models was relatively straightforward: we could simply survey them via truth tables. In QL there is no method for considering
+claims about validity or satisfiability that is as simple as the truth table method. So we must rely more heavily on proof systems.
 
 This chapter considers a tree method for QL. Like the tree method for SL discussed in Chapter \ref{ch.sl.trees}, the QL tree method is a method that attempts to generate an interpretation satisfying a given set of sentences. When it succeeds, it shows a way to satisfy them; when it fails, it shows that they are unsatisfiable. As we did in the initial presentation of trees in Chapter \ref{ch.sl.trees}, we'll begin by working through a couple of examples at an intuitive level, before laying out the formal tree rules.
 
@@ -45,7 +46,7 @@ Let's begin with a simplifying assumption. Let's suppose that we're only interes
 ]
 \end{prooftree}
 
-Let's start by considering the universal claim on line 1. A universal says that each of its instances are true. Since at the moment we are assuming that there are two objects in our UD, let's also assume we have just two names, $a$ and $b$, corresponding to our two objects. So we can just write down the two instances as a linear development. We also put a check at line 1 to indicate that we've resolved that sentence.
+Let's start by considering the universal claim on line 1. A universal says that each of its instances is true. Since at the moment we are assuming that there are two objects in our UD, let's also assume we have just two names, $a$ and $b$, corresponding to our two objects. So we can just write down the two instances as a linear development. We also put a check at line 1 to indicate that we've resolved that sentence.
 
 
 \begin{prooftree}
@@ -156,7 +157,7 @@ There is one more quantified sentence to resolve, on line 3, but before we do th
 \end{prooftree}
 
 
-Now let's look at line 3. It is an existential claim, so it says that at least one of its instances are true. Again, we're assuming for now that there are only two instances. So we branch into those two disjunctions at line 10. After that, we apply the approach to disjunctions from SL trees, and the tree closes.
+Now let's look at line 3. It is an existential claim, so it says that at least one of its instances is true. Again, we're assuming for now that there are only two instances. So we branch into those two disjunctions at line 10. After that, we apply the approach to disjunctions from SL trees, and the tree closes.
 
 \begin{prooftree}
 {
@@ -414,7 +415,9 @@ Our branch closure rules also remain unchanged. A branch closes if and only if i
 
 \section{Tree completion rules}
 
-The completion rules, however, require a modification. The SL tree completion rule, given in \S\ref{sec.SL.tree.completion}, said that a branch was complete if every sentence, other than atoms and negated atoms, has been resolved. In the QL tree system we need for our tree completion rules to take account of the fact that some sentences need to be acted on multiple times. The universal rule, for example, lets one take whatever instance one likes; we need our completion rules to ensure that we've taken \emph{enough} instances.
+The completion rules, however, require a modification. The SL tree completion rule, given in \S\ref{sec.SL.tree.completion}, said that a branch was complete if every sentence, other than atoms and negated atoms, has been resolved. 
+In the QL tree system, our tree completion rules need to take account of the fact that some sentences must be acted on multiple times.
+The universal rule, for example, lets one take whatever instance one likes; we need our completion rules to ensure that we've taken \emph{enough} instances.
 
 For example, this should not count as a completed tree:
 
@@ -664,7 +667,7 @@ Once we put it this way, we can see that the $R$ predicate needn't draw any dist
 \end{partialmodel}
 
 
-When a tree continues indefinitely, the root is satisfiable; you can describe a model for it using an infinite domain, taking advantage of the pattern indicated by the infinite branch; or you can often find a way to simplify it into a model with a finite UD.
+When a tree being developed in a systematic way continues indefinitely without closing, its infinite branch describes a model that satisfies the root. You can describe that model using an infinite domain, taking advantage of the pattern indicated by the infinite branch; or you can often find a way to simplify it into a model with a finite UD.
 
 Let's consider another example of an infinite tree. This time, we'll use names with subscripts. Everything is straightforward up until line 6; at line 7, we need to go back and take a second instance of line 2, and the infinite cycle begins.
 
@@ -683,7 +686,7 @@ Let's consider another example of an infinite tree. This time, we'll use names w
 							[Ra_{3}a_{1}, grouped
 								[\exists z (\enot Ra_{1}a_{3} \eand Rza_{1}), just=2 $\forall$, checked={a_{4}}
 									[\enot Ra_{1}a_{3} \eand Ra_{4}a_{1}, just=11 $\exists$, checked
-										[\enot Ra_{1}a_{3}, just=9 \eand
+										[\enot Ra_{1}a_{3}, just=12 \eand
 										[Ra_{4}a_{1}, grouped
 											[\vdots]	
 										]
@@ -702,7 +705,7 @@ Let's consider another example of an infinite tree. This time, we'll use names w
 ]
 \end{prooftree}
 
-If we continued drawing the tree, we'd take the $a_{4}$ instance of the universal at line 2 on line 15, then introduce a new name by resolving that universal. The tree will continue forever, again with a clear pattern. Lines 5, 9, 13, etc.\ tell us that for every integer $i$, $Ra_{1}a_{i}$=0. Lines 6, 10, 14, etc.\ tell us that for every $i > 1$, $Ra_{i}a_{1}$=1. Or in chart form:
+If we continued drawing the tree, we'd take the $a_{4}$ instance of the universal at line 2 on line 15, then introduce a new name by resolving that existential. The tree will continue forever, again with a clear pattern. Lines 5, 9, 13, etc.\ tell us that for every integer $i$, $Ra_{1}a_{i}$=0. Lines 6, 10, 14, etc.\ tell us that for every $i > 1$, $Ra_{i}a_{1}$=1. Or in chart form:
 
 \begin{table}[h!]
 \centering
@@ -771,6 +774,373 @@ Always work on the main connectives. If you have a sentence like $$\forall x \ex
 
 \solutions
 \problempart
+For each of the following partially developed tree branches, consider the indicated quantified sentence. Identify which of the constants $a$, $b$, $c$, and $d$ could be used as instantiating constants in the next application of the relevant quantifier rule. Explain your answer.
+\label{pr.qltreesubs}
+
+\begin{earg}
+
+\item Consider this partially completed tree:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[Ga \eand Hb
+[\forall x Fx, name=p1, grouped
+	[Ga
+		[Hb, grouped
+		]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+
+Which of $a$, $b$, $c$, and $d$ may be used at this point to take an instance of $\forall x Fx$?
+
+
+\item Consider this partially completed tree:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[Ga \eand Hb
+[\exists x Fx, name=p1, grouped
+	[Ga
+		[Hb, grouped
+		]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+
+Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\exists x Fx$?
+
+\item Consider this partially completed tree:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[Ga \eand Hb
+[\enot\exists x Fx, name=p1, grouped
+	[Ga
+		[Hb, grouped
+		]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+
+Which of $a$, $b$, $c$, and $d$ may be used at this point to take an instance of $\enot\exists x Fx$?
+
+\item Consider this partially completed tree:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[Ga \eand Hb
+[\enot\forall x Fx, name=p1, grouped
+	[Ga
+		[Hb, grouped
+		]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+
+Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\enot\forall x Fx$?
+
+\item Consider this partially completed tree:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\forall x(Fx \eif Gx), name=p1, subs={a}
+[Fa \eand \enot Gb, grouped
+	[Fa \eif Ga
+		[Fa
+		[\enot Gb, grouped
+		]
+		]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+
+Which of $a$, $b$, $c$, and $d$ may legally be used at this point to take another instance of $\forall x(Fx \eif Gx)$?
+
+\item Consider this partially completed tree:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[Fa \eand Gb \eand Hc
+[\exists x(Fx \eand Gx), name=p1, grouped
+	[Fa
+	[Gb, grouped
+	[Hc, grouped
+	]
+	]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+
+Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\exists x(Fx \eand Gx)$?
+
+\item Consider this partially completed tree:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[Fa \eand Gb
+[\enot\exists x(Fx \eor Gx), name=p1, grouped, subs={a}
+	[Fa
+	[Gb, grouped
+	[\enot(Fa \eor Ga)
+	]
+	]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+
+Which of $a$, $b$, $c$, and $d$ may legally be used at this point to take another instance of $\enot\exists x(Fx \eor Gx)$?
+
+\item Consider this partially completed tree:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[Fa \eand Gb
+[\enot\forall x(Fx \eif Gx), name=p1, grouped
+	[Fa
+	[Gb, grouped
+	]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+
+Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\enot\forall x(Fx \eif Gx)$?
+
+
+\item Consider this partially completed tree:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\exists x \enot Gx
+[\exists x Gx \eor \exists x Hx, checked, grouped
+	[\exists x Gx, checked=a 
+		[Ga]
+	]
+	[\exists x Hx, checked=b
+		[Hb]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+
+To continue this tree, $\exists x \enot Gx$ would need to be resolved in both branches.
+Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\exists x \enot Gx$ on the left branch?
+
+\item In the same tree as the last question, which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\exists x \enot Gx$ on the right branch?
+\end{earg}
+
+
+
+\problempart
+\label{pr.QL.completingbranches}
+Examine the trees below. In the case of trees that involve branching, focus on the highlighted branch, and indicate whether the branch is closed, complete and open, or incomplete. If it is incomplete, describe what would need to be done in order to complete it. (The check marks and substitution instances have not been marked in these examples; you may find it helpful to mark them yourself.)
+\begin{earg}
+
+\item
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[Fa \eand Gb
+[\enot\forall x(Fx \eif Gx), name=p1, grouped
+	[Fa
+	[Gb, grouped
+		[\enot (Fc \eif Gc)
+			[Fc
+			[\enot Gc, grouped
+			]
+			]
+		]
+	]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item
+\factoidbox{
+\begin{center}
+\begin{highlightprooftree}
+{not line numbering}
+[\focusnode{\forall x Fx}
+[\focusnode{\exists x Gx \eor \exists x \enot Fx}, grouped
+	[\focusnode{\exists x Gx}
+		[\focusnode{Ga}
+			[\focusnode{Fa}]
+		]
+	]
+	[\exists x \enot Fx
+		[\enot Fa
+			[Fa]
+		]
+	]
+]
+]
+\end{highlightprooftree}
+\end{center}
+}
+
+\item
+\factoidbox{
+\begin{center}
+\begin{highlightprooftree}
+{not line numbering}
+[\focusnode{\forall x Fx}
+[\focusnode{\exists x Gx \eor \exists x \enot Fx}, grouped
+	[\exists x Gx
+		[Ga
+			[Fa]
+		]
+	]
+	[\focusnode{\exists x \enot Fx}
+		[\focusnode{\enot Fa}
+			[\focusnode{Fa}]
+		]
+	]
+]
+]
+\end{highlightprooftree}
+\end{center}
+}
+
+\item
+\factoidbox{
+\begin{center}
+\begin{highlightprooftree}
+{not line numbering}
+[\focusnode{\forall x(Fx \eif Gx)}, name=p1
+[\focusnode{\exists x Fx}, grouped
+	[\focusnode{Fa}
+		[\focusnode{Fa \eif Ga}
+			[\enot Fa]
+			[\focusnode{Ga}]
+		]
+	]
+]
+]
+\end{highlightprooftree}
+\end{center}
+}
+
+\item
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\forall x Fx, name=p1
+[\exists x Gx, grouped
+	[Fa
+		[Gb
+		]
+	]
+]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item
+\factoidbox{
+\begin{center}
+\begin{highlightprooftree}
+{not line numbering}
+[\focusnode{\forall x Fx}
+[\focusnode{Ga \eor \enot Fa}, grouped
+	[\focusnode{Ga}
+		[\focusnode{Fa}
+		]
+	]
+	[\enot Fa
+		[Fa]
+	]
+]
+]
+\end{highlightprooftree}
+\end{center}
+}
+
+\item
+\factoidbox{
+\begin{center}
+\begin{highlightprooftree}
+{not line numbering}
+[\focusnode{\forall x \enot Gx}
+[\focusnode{\exists x Gx \eor \exists x Hx}, grouped
+	[\exists x Gx
+		[Ga]
+	]
+	[\focusnode{\exists x Hx}
+		[\focusnode{Hb}
+			[\focusnode{\enot Gb}]
+		]
+	]
+]
+]
+\end{highlightprooftree}
+\end{center}
+}
+
+\item
+\factoidbox{
+\begin{center}
+\begin{highlightprooftree}
+{not line numbering}
+[\focusnode{\forall x Fx \eand \bigl((Ga \eor Hb) \eand \enot(Ga \eor Hb)\bigr)}
+	[\focusnode{\forall x Fx}
+	[\focusnode{(Ga \eor Hb) \eand \enot(Ga \eor Hb)}, grouped
+		[\focusnode{Ga \eor Hb}
+			[Ga
+				[\enot(Ga \eor Hb)
+				]
+			]
+			[\focusnode{Hb}
+				[\focusnode{\enot(Ga \eor Hb)}
+				]
+			]
+		]
+	]
+	]
+]
+\end{highlightprooftree}
+\end{center}
+}
+
+\end{earg}
+
+
+
+
+
+\solutions
+\problempart
 \label{pr.QL.trees.tautology}
 Use a tree to test whether the following sentences are tautologies. If they are not tautologies, describe a model on which they are false.
 \begin{earg}
@@ -803,4 +1173,25 @@ Translate each argument into QL, specifying a UD, then use a tree to evaluate th
 \item The Red Sox are going to win the game. Every team who wins the game will be celebrated. Therefore, the Red Sox will be celebrated.
 \item The Red Sox are going to win the game. Therefore, the Yankees are not going to win the game.
 \item All cats make Frank sneeze, unless they are hairless. Some hairless cats are cuddly. Therefore, some cuddly things make Frank sneeze.
+\end{earg}
+
+
+\textbf{GenAI prompts for further practice}
+
+Here are some potential GenAI prompts you might use to generate further practice problems, in case you find that helpful.
+
+\begin{earg}
+
+\item Give me a partially described branch of a QL tree, including the names that have already appeared on that branch and a quantified sentence that I want to resolve. Ask me which of several names I could legally use as an instantiating constant. (Do not require me to type out the resulting tree.)
+
+\item Give me QL sentences involving universal quantifiers, existential quantifiers, negated universal quantifiers, and negated existential quantifiers. Ask me to classify each according to whether it may need to be instantiated multiple times or should be resolved only once, if I am using it in a tree proof.
+
+\item Give me descriptions of partially completed QL tree branches. Ask me whether each branch is closed, complete and open, or incomplete. If I say it is incomplete, ask me to explain what would still need to be done.
+
+\item Give me a QL tree problem and ask me what root I should use to test whether a sentence is a tautology, whether a set of sentences is consistent, or whether an argument is valid. Present one problem at a time and check my answer.
+
+\item Give me examples of proposed uses of the existential, universal, negated existential, or negated universal tree rule. Some should correctly use a new name and some should incorrectly reuse a name already on the branch. Ask me to identify which applications are legal and explain why.
+
+\item I want to practice developing QL trees that continue infinitely. Give me some examples of sets of QL sentences that will generate such trees.
+
 \end{earg}

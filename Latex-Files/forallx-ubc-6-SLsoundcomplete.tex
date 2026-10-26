@@ -307,7 +307,9 @@ Soundness is the first of two important metalogical theorems considered in this 
 \define{completeness}: If a root is unsatisfiable, that guarantees that the tree will close. In other words: $$\metaSetX{}\models{}\bot\Rightarrow\metaSetX{}\vdash{}\bot$$
 }
 
-Consider the unsatisfiable set of sentences, $\{\enot Q, P \eand Q\}$. Given our conjunction rule, a tree with this root will close:
+Completeness is the converse of soundness. Soundness says that tree closure guarantees unsatisfiability; completeness says that unsatisfiability guarantees tree closure.
+
+To illustrate the point of completeness, consider an unsatisfiable set of sentences, like this one: $\{\enot Q, P \eand Q\}$. Given our conjunction rule, a tree with this root will close:
 
 \begin{prooftree}
 {
@@ -427,7 +429,7 @@ single branches}
 \end{prooftree}
 \end{center}
 
-If the left development is the open branch, then we suppose that  $\mathcal{I}(\metaA{})=0$, which means that $\mathcal{I}(\metaA{}\eif\metaB{})=1$. If this right development is the open branch, then we suppose that $\mathcal{I}(\metaB{})=1$, which \emph{also} means that $\mathcal{I}(\metaA{}\eif\metaB{})=1$. So if the material below in at least one branch is satisfied, then the conditional is satisfied too.
+If the left development is the open branch, then we suppose that  $\mathcal{I}(\metaA{})=0$, which means that $\mathcal{I}(\metaA{}\eif\metaB{})=1$. If the right development is the open branch, then we suppose that $\mathcal{I}(\metaB{})=1$, which \emph{also} means that $\mathcal{I}(\metaA{}\eif\metaB{})=1$. So if the material below in at least one branch is satisfied, then the conditional is satisfied too.
 
 \subsection{Negated conditional}
 
@@ -513,7 +515,7 @@ single branches}
 
 This tree is a counterexample to soundness, using the hypothetical rule mentioned above. Note that a counterexample is a tree that uses SL sentences, not the Greek letters \metaA{} and \metaB{} that we use in the statements of the rules.
 
-Let's work through one more example. Suppose we changed the conjunction rule to this one:
+Let's work through another example. Suppose we changed the conjunction rule to this one:
 	\begin{center}
 	\begin{prooftree}
 	{not line numbering}
@@ -574,6 +576,27 @@ It is also possible to construct counterexamples using simpler sentences if you 
 \end{center}
 
 This too is a counterexample to completeness, given the rule in question. So we see here two different kinds of strategies for generating counterexamples to completeness.
+
+Here is one more example. Suppose we replaced the rule for biconditionals with this rule:
+
+\begin{center}
+\begin{prooftree}
+{not line numbering,
+single branches}
+[\metaA{}\eiff\metaB{}
+	[\metaA{}\eif \metaB{}
+	[\metaB{}\eif \metaA{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+
+Let's first evaluate whether this rule change would interfere with the soundness proof. To evaluate soundness, we assume we have an interpretation that satisfies the biconditional, and see if this ensures that it will also satisfy the development. Given the definition of truth of a biconditional, any model that satisfies $\metaA{}\eif\metaB{}$ must either make $\metaA{}$ and $\metaB{}$ both true, or it must make them both false. If it makes them both true, then it will satisfy both conditionals in the development, because they will both have true consequents. If it makes them both false, then it will also satisfy both conditionals in the development, because they each have a false antecedent. So any interpretation that satisfies the biconditional will also satisfy the development below. The soundness proof would extend to a system that used this alternate rule.
+
+Now consider completeness. We consider the branch below, and ask whether satisfying the wffs there --- both conditionals --- would guarantee satisfying the biconditional. The answer is yes: the only ways to satisfy both $\metaA{}\eif\metaB{}$ and $\metaB{}\eif\metaA{}$ are to make $\metaA{}$ and $\metaB{}$ both true, or to make them both false. (If this isn't obvious to you, draw the truth table for those two conditionals to confirm.) But this is exactly what it takes to satisfy the biconditional $\metaA{}\eiff\metaB{}$. So satisfying the development guarantees satisfying the sentence above. The completeness proof would also extend to a system that used this alternate rule.
+
+This shows that in an important sense, there's nothing wrong with the alternate rule for biconditionals here contemplated. If this had been our tree rule for biconditionals, our proof system would have worked just as well, as far as soundness and completeness go. (This alternate rule would have been somewhat less convenient in practice. The standard rule breaks a biconditional into simpler sentences more directly, and tends to lead to shorter trees; a system with this alternate rule would prove the same things, but a bit less efficiently.)
 
 \practiceproblems
 
@@ -711,3 +734,259 @@ Following are possible modifications to our SL tree system. For each, imagine a 
 \problempart
 \label{pr.SL.completenessresolutions}
 For each of the rule modifications given in Part \ref{pr.SL.soundness-resolutions}, would the modified tree system be complete? If so, explain how the proof given in this chapter would extend to a system with this rule; if not, give a tree that is a counterexample to the completeness of the modified system.
+
+
+\problempart
+\label{pr.SL.soundnesscounterexamples}
+For each of the following alternate tree rules, prove that a system using it would be unsound, by providing a counterexample: a tree with a satisfiable root, that closes.
+
+\begin{earg}
+
+\item Change the rule for disjunctions to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eor\metaB{}
+	[\metaA{}
+	]
+	[\metaB{}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for negated conjunctions to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot(\metaA{}\eand\metaB{})
+	[\enot\metaA{}	]
+	[\enot\metaB{}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for conditionals to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eif\metaB{}
+	[\metaA{}
+	[\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for negated conditionals to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot(\metaA{}\eif\metaB{})
+	[\enot\metaA{}
+	[\enot\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for biconditionals to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eiff\metaB{}
+	[\metaA{}
+	[\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+
+\item Change the rule for negated biconditionals to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot(\metaA{}\eiff\metaB{})
+	[\metaA{}
+	[\metaB{}, grouped
+	]
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for double negations to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot\enot\metaA{}
+	[\enot\metaA{}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for conjunctions to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eand\metaB{}
+	[\metaA{}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\end{earg}
+
+
+
+\problempart
+\label{pr.SL.completenessnesscounterexamples}
+For each of the following alternate tree rules, prove that a system using it would be incomplete, by providing a counterexample: a tree with an unsatisfiable root, that results in at least one completed open branch.
+\begin{earg}
+
+
+
+
+
+
+
+
+\item Change the rule for conjunctions to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eand\metaB{}
+	[\metaA{}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for conjunctions to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eand\metaB{}
+	[\metaB{}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for biconditionals to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eiff\metaB{}
+	[\metaA{}\eif\metaB{}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for biconditionals to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\metaA{}\eiff\metaB{}
+	[\metaB{}\eif\metaA{}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for negated biconditionals to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot(\metaA{}\eiff\metaB{})
+	[\metaA{}
+	]
+	[\enot\metaA{}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\item Change the rule for negated biconditionals to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot(\metaA{}\eiff\metaB{})
+	[\metaB{}
+	]
+	[\enot\metaB{}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+
+\item Change the rule for negated disjunctions to this rule:
+\factoidbox{
+\begin{center}
+\begin{prooftree}
+{not line numbering}
+[\enot(\metaA{}\eor\metaB{})
+	[\enot\metaB{}
+	]
+]
+\end{prooftree}
+\end{center}
+}
+
+\end{earg}
+
+\textbf{GenAI prompts for further practice}
+
+Here are some potential GenAI prompts you might use to generate further practice problems, in case you find that helpful. (A warning: when I tried reasoning through some of these with GenAI in 2026, I found those systems to be likelier to make conceptual mistakes here than in most areas. Remember that these systems are fallible! Use them at your own risk.)
+
+\begin{earg}
+\item Give me proposed tree rules for various SL connectives. My task is to determine whether a system modified to use each rule would be sound, complete, both, or neither. Do not tell me the answer until I have explained my reasoning.
+
+\item Give me a tree rule and ask me how I would begin a soundness argument for that rule. After I answer, critique my explanation and suggest improvements.
+
+\item Give me a tree rule and ask me how I would begin a completeness argument for that rule. After I answer, critique my explanation and suggest improvements.
+
+\item Give me descriptions of hypothetical changes to a proof system. My task is to predict whether the modified system would remain sound, complete, both, or neither.
+
+\item Give me examples of sound but incomplete rules, incomplete but sound proof systems, and unsound rules. Ask me to explain what kinds of mistakes or limitations each would introduce.
+
+\item Give me statements about soundness and completeness. Some should be true and some false. My task is to determine which are which and explain my reasoning.
+
+\end{earg}

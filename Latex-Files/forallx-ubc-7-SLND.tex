@@ -379,7 +379,7 @@ If we had $\enot R$ as a further premise, we could derive $F$ by the {\eor}E rul
 	\close
 \end{ndproof}
 
-It is important to emphasize that we are not claiming to have \emph{proven} $\enot R$ from the premise on line 1. We do not need to write in any justification for the assumption line of a subproof. (The `want' is a note to ourself, not a justification.) The new horizontal line indicates that a new \emph{assumption} is being made; we also include a vertical line that extend to future lines, to indicate that this assumption remains in effect. You can think of the subproof as posing the question: What could we show \emph{if} $\enot R$ were true? We are trying to show that we could derive $F$. And indeed, we can:
+It is important to emphasize that we are not claiming to have \emph{proven} $\enot R$ from the premise on line 1. We do not need to write in any justification for the assumption line of a subproof. (The `want' is a note to ourself, not a justification.) The new horizontal line indicates that a new \emph{assumption} is being made; we also include a vertical line that extends to lines below, to indicate that this assumption remains in effect. You can think of the subproof as posing the question: What could we show \emph{if} $\enot R$ were true? We are trying to show that we could derive $F$. And indeed, we can:
 
 \begin{ndproof}
 	\hypo{rf}{R \eor F}  \want{\enot R \eif F}
@@ -402,7 +402,7 @@ This has shown that \emph{if} we had $\enot R$ as a premise, \emph{then} we coul
 
 The {\eif}I rule lets us \define{discharge} the assumption we'd been making, ending that vertical line. We also stop indenting --- the difference in placement of lines 3 and 4 emphasizes that they are importantly different: during lines 2 and 3, we were \emph{assuming} that \enot $R$. By the time we get to line 4, we are no longer making that assumption.
 
-Notice that the justification for applying the {\eif}I rule is the entire subproof. That's why we justify it by reference to a range of lines, instead of a comma-separated list. Usually that will be more than just two lines.
+Notice that the justification for applying the {\eif}I rule is the entire subproof. That's why we justify it by reference to a range of lines, instead of a comma-separated list. In this example, that was just two lines, but often, we'll cite longer subproofs.
 
 It may seem as if the ability to assume anything at all in a subproof would lead to chaos: Does it allow you to prove any conclusion from any premises? The answer is no, it does not. Consider this proof schema:
 
@@ -457,12 +457,15 @@ Put in its general form, the {\eif}I rule looks like this:
 
 When we introduce a subproof, we typically write what we want to derive off to the right. This is just so that we do not forget why we started the subproof if it goes on for five or ten lines. There is no `want' rule. It is a note to ourselves, and not formally part of the proof.
 
-Although it is consistent with the natural deduction rules to open a subproof with any assumption you please, there is some strategy involved in picking a useful assumption. Starting a subproof with a random assumption is a terrible strategy. It will just waste lines of the proof. In order to derive a conditional by the {\eif}I rule, for instance, you must assume the antecedent of that conditional.
+Although it is consistent with the natural deduction rules to open a subproof with any assumption you please, there are some very important guidelines you should always make sure to follow, when working with assumptions. Starting a subproof with a random assumption is a terrible strategy. It will just waste lines of the proof. Never make an assumption unless you already have a specific plan for how you are going to discharge it. In order to derive a conditional by the {\eif}I rule, for instance, you must assume the antecedent of that conditional.
 
 The {\eif}I rule also requires that the consequent of the conditional be the last line of the subproof. It is always permissible to close a subproof and discharge its assumptions, but it will not be helpful to do so until you get what you want. This is an illustration of the observation made above, that unlike the tree method, the natural deduction method requires some strategy and thinking ahead.
 
+\factoidbox{
 You should \emph{never} make an assumption without a plan for how to discharge it.
+}
 
+So far, conditional introduction is the only rule we've looked at that involves assumptions, but we'll see two more assumption-involving rules later in the chapter.
 Here is another example of an argument form whose validity we can prove using the conditional rules.
 
 
@@ -578,6 +581,16 @@ The {\enot}E rule will work in much the same way. If we assume \enot\metaA{} and
 \close
 \have[\ ]{a}[\ ]\metaA{}\ne{na-b, na-nb}
 \end{ndproof}
+
+This is a good time to reiterate the important advice I gave in the discussion of assumptions and conditional introduction: 
+\factoidbox{
+You should \emph{never} make an assumption without a plan for how to discharge it.
+}
+
+There are only three good reasons to ever make an assumption, when working in our SL natural deduction proof system, and each reason indicates exactly what you should assume, and where you want to get in the subproof, based on what you're trying to prove. First, if you want to prove a conditional $\metaA{}\eif\metaB{}$, assume the antecedent $\metaA{}$, and try to derive the consequent $\metaB{}$. This will let you derive the conditional, via conditional introduction. Second, if you want to prove a negation $\enot\metaA{}$ via \emph{reductio}, assume the negand, $\metaA{}$, and try to derive some sentence $\metaB{}$ along with its negation, $\enot\metaB{}$. Then you can use negation introduction to derive $\enot\metaA{}$. Third, if you want to prove some sentence $\metaA{}$ via \emph{reductio}, assume the negation, $\enot\metaA{}$, and once again try to derive some $\metaB{}$ along with $\enot\metaB{}$. This will allow you to prove $\metaA{}$ by negation elimination.
+
+\emph{Never} make an assumption, in this proof system, unless it exactly matches one of those three patterns.
+
 \section{Derived rules}
 
 A \define{derived rule} is a rule of proof that does not make any new proofs possible. Anything that can be proven with a derived rule can be proven without it. You can think of a short proof using a derived rule as shorthand for a longer proof that uses only the basic rules. 
@@ -636,7 +649,7 @@ We have been discussing \emph{modus tollens} throughout this chapter, and in \S\
 	\have{nq}{\enot \metaB{}}\ni{q-np, q-nnp}
 \end{ndproof}
 
-Derived rules need to be derived from basic rules only. Reiteration is not a basic rule, so this by itself isn't \emph{quite} a proof that we can derive \emph{modus tollens} from our basic rules. But since we have already seen that Reiteration itself can be derived from basic rules, we know that any Reiteration step can be replaced with a series of steps using only basic rules. If we did it using basic rules only, we'd replace line 5 with a 2-step version of the Reiteration derivation from \S\ref{sec:reiteration}:
+Reiteration is not a basic rule, so this by itself isn't \emph{quite} a proof that we can derive \emph{modus tollens} from our basic rules. But since we have already seen that Reiteration itself can be derived from basic rules, we know that any Reiteration step can be replaced with a series of steps using only basic rules. If we did it using basic rules only, we'd replace line 5 with a 2-step version of the Reiteration derivation from \S\ref{sec:reiteration}:
 
 \begin{ndproof}
 	\hypo{p}{\metaA{}}
@@ -1161,5 +1174,17 @@ For the following, provide proofs using only the basic rules. The proofs will be
 \end{earg}
 
 
+\textbf{GenAI prompts for further practice}
 
+Here are some potential GenAI prompts you might use to generate further practice problems, in case you find that helpful.
+
+\begin{earg}
+
+\item Give me some examples of valid SL argument forms, for me to practice proving with natural deduction. Before I attempt each proof, ask me to explain the proof strategy I will employ. Critique my strategy and, if appropriate, suggest alternatives.
+\item Give me some SL natural deduction derivations that contain a mistake. My task is to identify the place where the derivation goes wrong.
+\item Give me short natural deduction proofs and ask me whether they are correct. If they are incorrect, ask me to identify the first line where an error occurs.
+\item Give me statements involving derivability, validity, and entailment. Ask me to determine which notion is being discussed and explain the difference between them.
+\item Give me a completed natural deduction proof and ask me to explain, in ordinary English, the overall strategy used in the proof.
+
+\end{earg}
 
