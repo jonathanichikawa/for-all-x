@@ -471,6 +471,58 @@ A branch is \define{complete} if and only if either (i) it is closed, or (ii) ev
 A tree is complete if and only if every branch in that tree is complete.
 }
 
+\section{Constructing models from completed open branches}
+
+
+As in the case of SL trees, a completed open branch in a QL tree can be used to describe a model that satisfies the root. To construct that model, we focus only on atoms and negated atoms in that branch. Here is an example of a tree with a completed open branch, with the atoms and negated atoms in it highlighted:
+
+\begin{highlightprooftree}
+{
+}
+[\forall x (Fx \eif Rxa), subs={a,b}
+[\exists x Fx, grouped, checked={b}
+[\focusnode{\enot Raa}, grouped
+	[\focusnode{Fb}
+		[Fa \eif Raa, checked
+			[\focusnode{\enot Fa}
+				[Fb \eif Rba, checked
+					[\enot Fb, close]
+					[\focusnode{Rba}, open]
+				]
+			]
+			[Raa, close]
+		]
+	]
+]
+]
+]
+\end{highlightprooftree}
+
+The four highlighted sentences are the only atoms or negated atoms in the completed open branch. Note that the root is part of the branch, so we include the $\enot Raa$ on line 3. The $Raa$ on line 6 is not part of the open branch, so we don't include it. To construct a model corresponding to the completed open branch, we follow these steps:
+
+First define the UD. If there is at least one name in the branch, let the UD be the set of names in the branch. In this example, the UD will be $\{a, b\}$. In a QL model, the UD can be a set of objects of any kind; for these purposes, we choose a set of QL names. (If there are no names in the branch, then let the UD contain one arbitrary object. QL models are designed such that the UD must be non-empty.)
+
+Second, for each name in the UD, let that name refer to itself. In this example, that means we make $a$ refer to $a$, and $b$ refer to $b$. This is just one convenient way to construct a model; making the names refer to themselves makes them easier to keep track of. There are also possible models that assign names to members of the UD in different ways, including ones that assign multiple names to the same objects. But for our standard recipe for constructing a model from a completed open branch, let each name refer to itself.
+
+Third, assign the extensions of the predicates to make any atoms in the branch true, and any atoms whose negations are in the branch false. In this case, since $Fb$ is in the branch, the extension of $F$ will include $b$. And since $\enot Fa$ is in the branch, the extension of $F$ will not include $a$. Since $\enot Raa$ is in the branch, we'll set the extension of $R$ as excluding \ntuple{$a,a$}. And since $Rba$ is in the branch, we'll include \ntuple{$b,a$} in the extension of $R$.
+
+It is often easiest to represent these extensions in tables:
+
+\begin{partialmodel}
+	\extension{F} & \begin{tabular}{l|l}
+	           & $F$ \\ \hline
+		\textbf{a} & 0          \\
+		\textbf{b} & 1         
+		\end{tabular}\\
+	\extension{R} & \begin{tabular}{l|ll} $Rxy$ & \textbf{a} & \textbf{b} \\ \hline
+		\textbf{a} & 0 & - \\
+		\textbf{b} & 1 & -
+		\end{tabular}\\
+\end{partialmodel}
+
+Note that in the extension of $R$, two cells are left blank. The partial model we're constructing does not specify whether $Rab$ or $Rbb$ is true or false.
+
+We can be sure that this procedure does not impose conflicting requirements on the model. A conflict would require the branch both to require that some tuple be included in the extension of a predicate and to require that the same tuple be excluded. But that would mean that the branch contained both an atom and its negation, in which case the branch would already be closed.
 
 \section{Resolution order}
 
@@ -539,7 +591,7 @@ From here we have three choices to consider: lines 2, 3, and 4. Line 3 pretty ob
 ]
 \end{prooftree}
 
-Now we turn our attention to the universal at line 4. We can take whatever instance we want. Let's be intelligent about it. The $b$ instance wouldn't do anything interesting; $Fb$ won't interact with that \enot\enot $Gb$ in any helpful way. But the $a$ instance will close the tree. So we take that one.
+Now we turn our attention to the universal at line 4. We can take whatever instance we want. Let's be intelligent about it. The $b$ instance won't help us; $Fb$ won't interact with that \enot\enot $Gb$ in a useful way. But the $a$ instance will close the tree. So we take that one.
 
 \begin{prooftree}
 {
@@ -566,7 +618,7 @@ Planning ahead can help make your trees more efficient. The general principle yo
 
 In the SL tree system, every development of the tree took us closer to a completed tree, because we checked sentences above as resolved, and wrote simpler sentences in one or two branches below. SL trees are guaranteed to be completed in a finite number of steps --- they will either close, or they will reach a point where everything resolvable has been resolved.
 
-Because of the way our QL system works, it is possible for trees to continue indefinitely without closing. General sentences require that instances be taken for all names in the branch; but the rules for existentials and negated universals require that new names be introduced. Often, we can introduce the new names before dealing with the general instances, as in this completed tree:
+Because of the way our QL system works, it is possible for trees to continue indefinitely without closing. General sentences require that instances be taken for all names in the branch; but the rules for existentials and negated universals require that new names be introduced. Often, we can introduce the new names before dealing with the general instances, as in this simple, complete tree:
 
 \begin{prooftree}
 {
@@ -618,7 +670,7 @@ This tree has not closed, but note that it is not complete. We haven't taken the
 ]
 \end{prooftree}
 
-As the pattern makes clear, this tree will never close, but it will also never be complete. It will just keep taking instances of an existential with new names, then taking those instances of the universal, which in turn require a new existential, and so on. (Eventually we will run out of letters, but we have subscripts available too, so we'll never run out of names.) Because the tree will never close, its open branch is describing a model that satisfies the root, but the model suggested is an infinite one. Line 3 tells us that \ntuple{a, b} should be in the extension of $R$; line 5 says that \ntuple{b, c} should too. There is a clear pattern that tells us what $R$'s extension must be like:
+As the pattern makes clear, this tree will never close, but it will also never be complete. It will just keep taking instances of an existential with new names, then taking those instances of the universal, which in turn require a new existential, and so on. (Eventually we will run out of letters in the alphabet, but we have subscripts available too, so we'll never run out of names.) Because the tree will never close, its open branch is describing a model that satisfies the root, but the model suggested is an infinite one. Line 3 tells us that \ntuple{a, b} should be in the extension of $R$; line 5 says that \ntuple{b, c} should too. There is a clear pattern that tells us what $R$'s extension must be like:
 
 \begin{partialmodel}
 	\extension{R} & $ \{\ntuple{a, b}, \ntuple{b, c}, \ntuple{c, d}, \ntuple{d, e}, \ldots\}$
@@ -741,7 +793,7 @@ Or, describing the model in question with sets and n-tuples:
 
 The reasoning involved in collapsing models with infinite domains into finite ones centrally involves reasoning about what distinctions are required: do we need to suppose that the objects named are \emph{different objects}, or can we treat it as a case of multiple names for the \emph{same thing}. In Chapter \ref{ch.identity}, we'll foreground this kind of question in more detail, and introduce a way to talk about it in QL.
 
-Note that, for purposes of answering questions about entailment, you needn't go through the reasoning that allows you to move from infinite models to finite ones that would serve just as well. The tree method, most fundamentally, is a question about whether there is any possible model of the root. If a tree continues infinitely, then it is answering that question: yes, there is an infinite model for it. It's not necessary, for the question of whether there is any model satisfying the root, to determine whether there is a \emph{finite} model that does so.
+Note that, for purposes of answering questions about entailment, you needn't go through the reasoning that allows you to move from infinite models to finite ones that would serve just as well. The tree method, most fundamentally, is a question about whether there is any possible model of the root. If a tree developed systematically continues infinitely, then it is answering that question: yes, there is an infinite model for it. It's not necessary, for the question of whether there is any model satisfying the root, to determine whether there is a \emph{finite} model that does so.
 
 \section{Common student errors}
 
@@ -774,13 +826,13 @@ Always work on the main connectives. If you have a sentence like $$\forall x \ex
 
 \solutions
 \problempart
-For each of the following partially developed tree branches, consider the indicated quantified sentence. Identify which of the constants $a$, $b$, $c$, and $d$ could be used as instantiating constants in the next application of the relevant quantifier rule. Explain your answer.
+For each of the following partially developed trees, consider the indicated quantified sentence and identify which of the constants $a$, $b$, $c$, and $d$ may legally be used as instantiating constants in the next application of the relevant quantifier rule. Where the tree branches, consider the relevant branch separately. Explain your answers.
 \label{pr.qltreesubs}
 
 \begin{earg}
 
-\item Consider this partially completed tree:
-
+\item
+\factoidbox{
 \begin{center}
 \begin{prooftree}
 {not line numbering}
@@ -794,12 +846,9 @@ For each of the following partially developed tree branches, consider the indica
 ]
 \end{prooftree}
 \end{center}
-
-Which of $a$, $b$, $c$, and $d$ may be used at this point to take an instance of $\forall x Fx$?
-
-
-\item Consider this partially completed tree:
-
+}
+\item
+\factoidbox{
 \begin{center}
 \begin{prooftree}
 {not line numbering}
@@ -813,11 +862,10 @@ Which of $a$, $b$, $c$, and $d$ may be used at this point to take an instance of
 ]
 \end{prooftree}
 \end{center}
+}
 
-Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\exists x Fx$?
-
-\item Consider this partially completed tree:
-
+\item
+\factoidbox{
 \begin{center}
 \begin{prooftree}
 {not line numbering}
@@ -831,11 +879,9 @@ Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\exists x 
 ]
 \end{prooftree}
 \end{center}
-
-Which of $a$, $b$, $c$, and $d$ may be used at this point to take an instance of $\enot\exists x Fx$?
-
-\item Consider this partially completed tree:
-
+}
+\item
+\factoidbox{
 \begin{center}
 \begin{prooftree}
 {not line numbering}
@@ -849,11 +895,9 @@ Which of $a$, $b$, $c$, and $d$ may be used at this point to take an instance of
 ]
 \end{prooftree}
 \end{center}
-
-Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\enot\forall x Fx$?
-
-\item Consider this partially completed tree:
-
+}
+\item
+\factoidbox{
 \begin{center}
 \begin{prooftree}
 {not line numbering}
@@ -869,11 +913,9 @@ Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\enot\fora
 ]
 \end{prooftree}
 \end{center}
-
-Which of $a$, $b$, $c$, and $d$ may legally be used at this point to take another instance of $\forall x(Fx \eif Gx)$?
-
-\item Consider this partially completed tree:
-
+}
+\item
+\factoidbox{
 \begin{center}
 \begin{prooftree}
 {not line numbering}
@@ -889,11 +931,9 @@ Which of $a$, $b$, $c$, and $d$ may legally be used at this point to take anothe
 ]
 \end{prooftree}
 \end{center}
-
-Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\exists x(Fx \eand Gx)$?
-
-\item Consider this partially completed tree:
-
+}
+\item
+\factoidbox{
 \begin{center}
 \begin{prooftree}
 {not line numbering}
@@ -909,11 +949,9 @@ Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\exists x(
 ]
 \end{prooftree}
 \end{center}
-
-Which of $a$, $b$, $c$, and $d$ may legally be used at this point to take another instance of $\enot\exists x(Fx \eor Gx)$?
-
-\item Consider this partially completed tree:
-
+}
+\item
+\factoidbox{
 \begin{center}
 \begin{prooftree}
 {not line numbering}
@@ -927,12 +965,9 @@ Which of $a$, $b$, $c$, and $d$ may legally be used at this point to take anothe
 ]
 \end{prooftree}
 \end{center}
-
-Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\enot\forall x(Fx \eif Gx)$?
-
-
-\item Consider this partially completed tree:
-
+}
+\item
+\factoidbox{
 \begin{center}
 \begin{prooftree}
 {not line numbering}
@@ -949,13 +984,9 @@ Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\enot\fora
 \end{prooftree}
 \end{center}
 
-To continue this tree, $\exists x \enot Gx$ would need to be resolved in both branches.
-Which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\exists x \enot Gx$ on the left branch?
-
-\item In the same tree as the last question, which of $a$, $b$, $c$, and $d$ may be used at this point to resolve $\exists x \enot Gx$ on the right branch?
+For this tree, answer separately for the left and right branches.
+}
 \end{earg}
-
-
 
 \problempart
 \label{pr.QL.completingbranches}

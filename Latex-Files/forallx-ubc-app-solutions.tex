@@ -1529,6 +1529,58 @@ There are many possible correct answers. Here are some:
 
 \solutionsection{ch.QLTrees}
 % Chapter 10 Part A
+\solutionpart{ch.QLTrees}{pr.QLsoundnesscx}
+\begin{earg}
+
+\item
+\begin{prooftree}
+{not line numbering}
+[\forall x Fx, checked={a}
+[Fa, grouped
+	[\enot Fa, close
+	]
+]
+]
+\end{prooftree}
+
+\item
+\begin{prooftree}
+{not line numbering}
+[\enot\exists x Fx, checked={a}
+[\enot Fa, grouped
+	[Fa, close
+	]
+]
+]
+\end{prooftree}
+
+\item
+\begin{prooftree}
+{not line numbering}
+[\exists x Fx, checked={b}
+[\enot Fb, grouped
+	[Fb, close
+	]
+]
+]
+\end{prooftree}
+
+\item
+\begin{prooftree}
+{not line numbering}
+[\exists x Fx, checked={a}
+[\enot Fa, grouped
+	[\forall x Fx
+		[Fa, close
+		]
+	]
+]
+]
+\end{prooftree}
+
+\end{earg}
+
+% Chapter 10 Part C
 \solutionpart{ch.QLTrees}{pr.qltreesubs}
 
 \begin{earg}
@@ -1540,11 +1592,10 @@ There are many possible correct answers. Here are some:
 \item $d$ only
 \item $a$, $b$, $c$, or $d$ (even though the $a$ instance has already been taken)
 \item $c$ or $d$
-\item $b$, $c$, or $d$
-\item $a$, $c$, or $d$
+\item Left branch: $b$, $c$, or $d$. Right branch: $a$, $c$, or $d$
 \end{earg}
 
-% Chapter 10 Part B
+% Chapter 10 Part D
 \solutionpart{ch.QLTrees}{pr.QL.trees.tautology}
 
 \begin{earg}
