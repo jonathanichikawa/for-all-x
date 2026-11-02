@@ -210,9 +210,13 @@
 \contentsline {section}{\numberline {12.3}Identity and `no one else'}{250}{section.12.3}%
 \contentsline {section}{\numberline {12.4}Identical objects satisfy identical predicates}{251}{section.12.4}%
 \contentsline {section}{\numberline {12.5}Quantity}{252}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Definite descriptions}{253}{section.12.6}%
+\contentsline {section}{\numberline {12.6}Definite descriptions}{254}{section.12.6}%
 \contentsline {section}{\numberline {12.7}Identity and trees}{255}{section.12.7}%
-\contentsline {section}{Practice Exercises}{259}{section*.23}%
+\contentsline {subsection}{\numberline {12.7.1}Developing branches with identity}{255}{subsection.12.7.1}%
+\contentsline {subsection}{\numberline {12.7.2}Closing branches with identity}{256}{subsection.12.7.2}%
+\contentsline {subsection}{\numberline {12.7.3}Identity and open branch completion}{257}{subsection.12.7.3}%
+\contentsline {subsection}{\numberline {12.7.4}Constructing models with identity}{261}{subsection.12.7.4}%
+\contentsline {section}{Practice Exercises}{264}{section*.1}%
 \contentsline {chapter}{\numberline {13}Natural Deduction Proofs in QL}{263}{chapter.13}%
 \contentsline {section}{\numberline {13.1}Natural Deduction: the basics}{263}{section.13.1}%
 \contentsline {section}{\numberline {13.2}Basic quantifier rules}{264}{section.13.2}%

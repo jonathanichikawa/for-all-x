@@ -2584,8 +2584,40 @@ $\forall x \exists y Gyx$, \therefore\ $\forall x \exists y (Gxy \eor Gyx)$ is v
 
 \end{earg}
 
+
 \solutionsection{ch.identity}
 % Chapter 12 Part A
+\solutionpart{ch.identity}{pr.QL-ID-constructmodel}
+
+
+\begin{partialmodel}
+	UD & $\{a,d\}$\\
+	\referent{a} & $a$\\
+	\referent{b} & $a$\\
+	\referent{c} & $a$\\
+	\referent{d} & $d$\\
+	\referent{e} & $d$\\
+	\extension{F} & 
+	\begin{tabular}{l|l}
+	           & $F$ \\ \hline
+		\textbf{a} & 1 \\
+		\textbf{d} & 1
+	\end{tabular}\\
+	\extension{R} & 
+	\begin{tabular}{l|l}
+	           & $R$ \\ \hline
+		\textbf{a} & 1 \\
+		\textbf{d} & -
+	\end{tabular}\\
+	\extension{G} & 
+	\begin{tabular}{l|l}
+	           & $G$ \\ \hline
+		\textbf{a} & - \\
+		\textbf{d} & 0
+	\end{tabular}
+\end{partialmodel}
+
+% Chapter 12 Part B
 \solutionpart{ch.identity}{pr.QL-ID-spies}
 \begin{earg}
 \item $Sh \eand \enot \exists x (Vx \eand Sx)$%Hofthor is a spy, but no vegetarian is a spy.
@@ -2603,7 +2635,7 @@ $\forall x \exists y Gyx$, \therefore\ $\forall x \exists y (Gxy \eor Gyx)$ is v
 
 
 
-% Chapter 12 Part B
+% Chapter 12 Part C
 \solutionpart{ch.identity}{pr.QL-ID-cards}
 \begin{earg}
 \item %All clubs are black cards.
@@ -2635,7 +2667,7 @@ $\exists x \exists y (Dx \eand Cx \eand \forall z((Dz \eand Cz) \eif x{=}z) \ean
 
 
 
-% Chapter 12 Part C
+% Chapter 12 Part D
 \solutionpart{ch.identity}{pr.QLbuffy}
 %\begin{ekey}
 %\item[UD:] people, generations, and monsters
@@ -2668,7 +2700,7 @@ $\exists x \exists y (Dx \eand Cx \eand \forall z((Dz \eand Cz) \eif x{=}z) \ean
 \end{earg}
 
 
-% Chapter 12 Part E
+% Chapter 12 Part 
 \solutionpart{ch.identity}{pr.IdentityModels}
 \begin{earg}
 \item %Show that $\{{\enot}Raa, \forall x (x{=}a \eor Rxa)\}$ is consistent.

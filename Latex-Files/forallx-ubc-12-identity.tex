@@ -2,7 +2,7 @@
 \chapter{Identity}
 \label{ch.identity}
 
-This chapter extends QL by adding logical resources for discussion of \emph{identity}. In the logical sense, identity is about which object something is. Two things aren't `identical' in our sense just because they look exactly alike. (Identical twins aren't \emph{logically} identical.) Neither does identity, in our logical sense, have to do with the way an individual conceives of oneself. (We're not getting into whether one \emph{identifies as} a woman, etc.) Instead, we will develop logical vocabulary to talk about whether, e.g., the person who robbed the bank is \emph{the same person as} the person who shot Uncle Ben.
+This chapter extends QL by adding logical resources for discussion of \emph{identity}. In the logical sense, identity is about which object something is. Two things aren't `identical' in our sense just because they look exactly alike. (Identical twins aren't \emph{logically} identical.) Neither does identity, in our logical sense, have to do with the way an individual conceives of oneself. (We're not getting into whether one \emph{identifies as} a woman, etc.) Instead, we will develop logical vocabulary to talk about whether, e.g., the burglar Peter saw earlier is \emph{the same person as} the person who shot Uncle Ben.
 
 It is already possible to talk about identity in QL, by assigning identity and related concepts to predicates in interpretation keys. (In this sense, it's possible to talk about pretty much anything in QL.) However, there are a few reasons why we may wish to have a more robust logical notion of identity than that. We begin by examining some of these motivations. Identity will strengthen QL, increasing its expressive power in many ways.
 
@@ -138,6 +138,8 @@ For any two names \script{a} and \script{b}, `$\script{a}{=}\script{b}$' is an a
 
 In this model, $p{=}s$ is true, and $p{=}m$ and $s{=}m$ are false. We'll introduce a familiar shorthand for negating identity claims; $s {\neq} m$ is our preferred abbreviation for \enot $s{=}m$. (Remember that `$s{=}m$' is an atomic sentence, so `\enot $s {=} m$' is the negation of that sentence. It is tempting, when one looks at that sentence, to attach the negation only to $s$, so that the sentence says that the `negation of $s$' is identical to $m$. But this way of reading it ultimately makes no sense; names do not have negations in QL. Only sentences do. This is part of the reason we will usually prefer to write $s {\neq} m$, rather than the potentially confusing \enot $s{=}m$. But if you do see or write the latter, remember that the negation applies to the whole identity claim.)
 
+We can also use the identity symbol with variables. Recall that a QL sentence is a QL wff with no free variables. I said above that for any two names \script{a} and \script{b}, `$\script{a}{=}\script{b}$' is an atomic sentence; more generally, for any two \emph{terms} \script{c} and \script{d}, `$\script{c}{=}\script{d}$' is an atomic wff in QL. In the special case where both terms are constants (names) rather than variables, it is an atomic sentence. So, for example,  $a{=}x$ and  $x{=}y$ are wffs, but not sentences. An identity wff $\script{c}{=}\script{d}$ is satisfied by a variable assignment in a model iff the two terms pick out the same object, where constants pick out their referents and variables pick out the objects assigned to them.
+
 A logical notion of identity is just what is needed to overcome the shortcomings of the translations in the introduction to this chapter.
 
 \section{Identity and `no one else'}
@@ -236,7 +238,7 @@ A slightly more efficient way of saying the same thing, rather than conjoining a
 \exists x \exists y ((x {\neq} y  \eand  Ox \eand Oy \eand  Cmx \eand Cmy) \eand \forall z [(Oz \eand Cmz) \eif (z{=}x \eor z{=}y)])
 \end{multline*}
 
-So identity gives us a way to talk about quantities, albeit not a particularly efficient one.
+So identity gives us a way to talk about quantities, albeit not a particularly efficient one. To say that \emph{at least} $n$ things satisfy a condition, existentially quantify $n$ variables, say that each satisfies the condition, and use identity to require that they are all distinct. To say that \emph{exactly} $n$ things satisfy the condition, say that at least $n$ do, but that everything that satisfies the condition is one of those $n$ things. Similarly, to say that \emph{at most} $n$ things satisfy a condition, we can say that there are not at least $n+1$ things that satisfy it.
 
 
 
@@ -271,13 +273,29 @@ The general statement of Russell's theory of definite descriptions is, if you ha
 \section{Identity and trees}
 \label{sec.identity.trees}
 
-Because we have extended QL to include claims of identity, we also need to modify our tree system. Notice that if we do not do so, the system will not be complete. For example, the rules offered in Chapter \ref{ch.QLsoundcomplete} do not provide a way to demonstrate that $Fa, \enot Fb, a{=}b \models \bot$, even though those sentences are obviously inconsistent. Since each of those sentences are atoms or negated atoms in QL, there is nothing to resolve, and there is no contradiction to close the tree. We need to add new rules to deal with identity.
+Because we have extended QL to include claims of identity, we also need to modify our tree system. Notice that if we do not do so, the system will not be complete. For example, the rules offered in Chapter \ref{ch.QLsoundcomplete} do not provide a way to demonstrate that $Fa, \enot Fb, a{=}b \models \bot$, even though those sentences are obviously inconsistent. Since each of those sentences is an atom or negated atom in QL, there is nothing to resolve, and there is no contradiction to close the tree. We need to add new rules to deal with identity. We'll make three modifications: one for new ways to develop branches, one for branch closure, and one for branch completion.
 
-Here is an obvious one:
+\subsection{Developing branches with identity}
+\label{subsec.identity.develop}
 
-\factoidbox{If a branch contains an identity claim \script{a}{=}\script{b} and some sentence \metaA{}, then you may add \metaA{}\substitute{\script{a}}{\script{b}} or \metaA{}\substitute{\script{b}}{\script{a}} to the branch.}
+To characterize our new branch development rule, we'll first define a notion of \define{identity in a branch}. The intuitive idea of identity in a branch is simple: names are identified in a branch if the branch contains identity claims that require them to refer to the same object. So, for example, if $a{=}b$ is in the branch, then $a$ and $b$ are identified. If $a{=}b$ and $b{=}c$ are both in the branch, then $a$, $b$, and $c$ are all identified. Syntactically, we can define identity in a branch thus:
 
-Recall that `\metaA{}\substitute{\script{a}}{\script{b}}' just means the sentence you get by replacing every `\script{a}' in \metaA{} with `\script{b}'. With this rule, we can easily demonstrate that the set of sentences mentioned above closes:
+\factoidbox{Names \script{a} and \script{b} are \define{identified on a branch} if they are the same name, or if there is a chain of identity claims in the branch linking them. More precisely, \script{a} and \script{b} are identified on a branch if the branch contains identity claims that can be arranged in a sequence
+$$
+\script{a}{=}\script{c}_1,\quad
+\script{c}_1{=}\script{c}_2,\quad
+\ldots,\quad
+\script{c}_n{=}\script{b},
+$$
+where an identity claim may be read in either direction.}
+
+And here is an obvious rule for branch development with identity:
+
+\factoidbox{If names \script{a} and \script{b} are identified in a branch, for any sentence \metaA{} in the branch, then you may add \metaA{}\substitute{\script{a}}{\script{b}} to the branch.}
+
+Recall that `\metaA{}\substitute{\script{a}}{\script{b}}' just means the sentence you get by replacing every `\script{a}' in \metaA{} with `\script{b}'. Note also that the definition of identity in a branch is symmetric; if \script{a} is identified with \script{b} in a branch, then  \script{b} is identified with \script{a}. So this rule allows substitution in either direction. 
+
+With this rule, we can easily demonstrate that the set of sentences mentioned above closes:
 
 \begin{prooftree}
 {
@@ -294,28 +312,11 @@ to prove={\{Fa, \enot Fb, a{=}b\} \vdash{}\bot}
 
 We will add this rule to our tree system. Notice that it is not a \emph{resolution} rule --- we do not put a check mark next to either sentence referenced. They may be used again.
 
-Since our tree system is supposed to be \emph{complete}, we need to \emph{ensure} that the tree will close; it's not enough that we have a rule that allows that it might. So, as in the case of the general rules discussed in Chapter \ref{ch.QLTrees}, we will also add an additional requirement governing branch completion. What we need is to make sure that we've made enough identity substitutions to demonstrate everything that needs demonstrating. The way we'll do this is by requiring, for every identity claim in the branch, that, for at least one of its directions (left-to-right or right-to-left) the substitution has been performed in that direction on every atomic sentence or negated atomic sentence in the branch.
+\subsection{Closing branches with identity}
 
-More precisely stated, an open branch is complete only if, for any identity claim $\script{a}{=}\script{b}$ in the branch, either, for any atomic sentence or negated atomic sentence \metaA{} containing \script{a} in the branch, \metaA{}\substitute{\script{a}}{\script{b}} is in the branch, or, for any atomic sentence or negated atomic sentence \metaA{} containing \script{b} in the branch, \metaA{}\substitute{\script{b}}{\script{a}} is in the branch.
+Previously we said that branches only close when they contain some sentence along with its negation. We add one more condition that suffices for branch closure. If any branch contains a sentence of the form $\script{a}{\neq}\script{a}$, then that branch closes. In no model can something be non-identical with itself.
 
-So, adding this requirement to the definition of branch completion given on page \pageref{branchcompletion.defined}, we get:
-
-\factoidbox{
-A branch is \define{complete} if and only if either (i) it is closed, or (ii) all of the following conditions are met:
-
-\begin{enumerate}
-\item Every resolvable sentence in the branch has been resolved;
-\item For every general quantified sentence \metaA{} and every name \script{a} in the branch, the \script{a} instance of \metaA{} is in the branch; and
-\item For every identity claim $\script{a}{=}\script{b}$ in the branch, either:
-	\begin{enumerate}
-	\item for every atomic sentence or negated atomic sentence \metaA{} containing \script{a} in the branch, \metaA{}\substitute{\script{a}}{\script{b}} is in the branch, or 
-	\item for every atomic sentence or negated atomic sentence \metaA{} containing \script{b} in the branch, \metaA{}\substitute{\script{b}}{\script{a}} is in the branch.
-	\end{enumerate}
-\end{enumerate}}
-
-We must also add one more rule to our tree system. Previously we said that branches only close when they contain some sentence along with its negation. We add one more condition that suffices for branch closure. If any branch contains a sentence $\script{a}{\neq}\script{a}$, then that branch closes. In no model can something be non-identical with itself.
-
-Adding this to the rule given on page \pageref{branchclosure.defined}:
+Adding this to the rule given on page \pageref{branchclosure.defined}, we get:
 
 \factoidbox{
 A branch closes if and only if either (i) it contains some sentence \metaA{} along with its negation, \enot\metaA{}, or (ii) it contains, for some name \script{a}, the sentence $\script{a}{\neq}\script{a}$.
@@ -339,7 +340,203 @@ to prove={\{\forall x \: a{=}x, \exists x \: x{\neq}a\} \vdash \bot}
 	]
 \end{prooftree}
 
-We must also take care, when constructing models from completed open branches, to respect identity claims. If for example the sentence $b{=}c$ appears in an open branch, we will not construct a model with two different objects, b and c --- instead, we'll just pick one of them as the object indicated, and assign both names to it. For example, consider this tree:
+
+\subsection{Identity and open branch completion}
+\label{subsec.identitycompletion}
+
+Since our tree system is supposed to be \emph{complete}, we need to \emph{ensure} that the tree will close; it's not enough that we have a rule that allows that it might. So, as in the case of the general rules discussed in Chapter \ref{ch.QLTrees}, we will also add an additional requirement governing branch completion. What we need is to make sure that we've made enough identity substitutions to demonstrate everything that needs demonstrating. For example, this shouldn't count as a completed open branch:
+
+
+\begin{prooftree}
+{}
+	[\enot Fb
+	[Fa, grouped
+	[Ga, grouped
+	[a{=}b, grouped
+		[Gb, just={3, 4 {=}}, open]
+	]
+	]
+	]
+	]
+\end{prooftree}
+
+The development on line 5 is a good one, but we can't stop the tree there: in addition to substituting the $a$ with a $b$ in the $Ga$ on line 3, we also need to make the same substitution in the $Fa$ on line 2. That would give us $Fb$, and the tree will close. We need a branch completion rule that ensures that an open branch isn't complete until every necessary substitution has been made.
+
+
+
+
+
+To articulate that rule, we'll use the notion of an \define{identity group}. 
+The relation of being identified on a branch, introduced in \S\ref{subsec.identity.develop}, divides the names in that branch into groups. Call each maximal set of names identified with one another an identity group. (A name that is not identified with any different name forms an identity group by itself.) For each identity group, choose one name in that group as its \define{representative}. The \define{representative version} of an atomic or negated atomic sentence is the sentence obtained by replacing every name in it with the representative of its identity group. We can revise our definition of branch completion, previously given on page \pageref{branchcompletion.defined}, thus: 
+
+\factoidbox{
+A branch is \define{complete} if and only if either (i) it is closed, or (ii) all of the following conditions are met:
+
+\begin{enumerate}
+\item Every resolvable sentence in the branch has been resolved;
+\item For every general quantified sentence \metaA{} in the branch, at least one instance of \metaA{} is in the branch; and, for every name \script{a} in the branch, the \script{a} instance of \metaA{} is in the branch;
+\item It is possible to select one name as the representative of each identity group in the branch such that, for every atomic sentence or negated atomic sentence in the branch other than a positive identity claim, its representative version is also in the branch.
+\end{enumerate}
+
+}
+
+
+
+
+
+
+In the example above, $a{=}b$ is in the branch, so $\{a,b\}$ are an identity group in the branch. We need to pick one of those two names as the representative, and ensure that we've done enough substitutions to ensure that the representative version of all atoms or negated atoms is present. If $a$ is our representative, then we need every atom or negated atom containing $b$, other than identity claims, to have been transformed into an $a$ sentence. But the branch contains $\enot Fb$ with no $\enot Fa$. So if $a$ is the representative, the branch is incomplete. If $b$ is the representative, we need every relevant line containing $a$ to be transformed into a version with $b$; but the branch contains $Fa$ but not $Fb$. Note that including either one of those developments would have closed the tree, just as we want.
+
+The same principle applies if we have more than two names identified. For a more complicated example, consider this partially completed tree:
+
+
+\begin{prooftree}
+{}
+	[Fa
+	[(Fe \eand Rb \eand \enot Gd) \eor \enot Fc, grouped, checked
+	[a{=}b, grouped
+	[b{=}c, grouped
+	[d{=}e, grouped
+		[Fe \eand Rb \eand \enot Gd, just={2 \eor}, checked
+			[Fe
+			[Rb, just={6 \eand}
+			[\enot Gd, grouped
+			]
+			]
+			]
+		]
+		[\enot Fc
+		]
+	]
+	]
+	]
+	]
+	]
+\end{prooftree}
+
+The three identity claims create two identity groups in both branches: $a{=}b$ and $b{=}c$ mean that $a$, $b$, and $c$ are all identified with one another. And $d{=}e$ means that $d$ and $e$ are identified with one another. So to complete either branch, we need a representative of each of those identity groups to stand in for every other name it's identified with. Let's focus first on the right branch: there are two sentences that are atoms or negated atoms, other than the identity claims: $Fa$ and $\enot Fc$. $a$ and $c$ are identified together, along with $b$. So we need to pick one of those three names as a representative, and substitute it for any other(s) in that branch. If we pick $a$, then we go from $\enot Fc$ to $\enot Fa$, and the branch closes:
+
+\begin{highlightprooftree}
+{}
+	[\focusnode{Fa}
+	[(Fe \eand Rb \eand \enot Gd) \eor \enot Fc, grouped, checked
+	[\focusnode{a{=}b}, grouped
+	[\focusnode{b{=}c}, grouped
+	[d{=}e, grouped
+		[Fe \eand Rb \eand \enot Gd, checked
+			[Fe
+			[Rb, grouped
+			[\enot Gd, grouped
+			]
+			]
+			]
+		]
+		[\focusnode{\enot Fc}
+			[\focusnode{\enot Fa}, just={1, 3, 4 {=}}, close]
+		]
+	]
+	]
+	]
+	]
+	]
+\end{highlightprooftree}
+
+As a useful bit of practice, work out what would happen if one chose $b$ or $c$ as a representative instead. Either way, the branch will close. (If you pick $b$, you'll need one additional step.)
+
+Now let's consider the left branch. Here, we'll need a representative from each of the two identity groups. Let's pick $a$ as our representative for $a$, $b$, and $c$. So we need to check the branch for any atomic sentence or negated atomic sentence that contains a $b$ or a $c$, other than an identity claim, and transform it into a representative version that uses $a$ instead. The highlighted sentences are the ones we need to check:
+
+\begin{highlightprooftree}
+{}
+	[\focusnode{Fa}
+	[(Fe \eand Rb \eand \enot Gd) \eor \enot Fc, grouped, checked
+	[a{=}b, grouped
+	[b{=}c, grouped
+	[d{=}e, grouped
+		[Fe \eand Rb \eand \enot Gd, checked
+			[\focusnode{Fe}
+			[\focusnode{Rb}, grouped
+			[\focusnode{\enot Gd}, grouped
+			]
+			]
+			]
+		]
+		[\enot Fc
+			[\enot Fa, close]
+		]
+	]
+	]
+	]
+	]
+	]
+\end{highlightprooftree}
+
+The $Rb$ at line 8 is the only place where we need to substitute $a$ as a representative. (Our rules \emph{allow} for this substitution for any sentence in the branch, but the completion rules \emph{require} it only for atoms or negated atoms containing other identified names, which aren't identity claims.) Note that the $\enot Fc$ on line 6 is not in the open branch we're considering. So we'll develop the left branch with $Ra$:
+
+\begin{highlightprooftree}
+{}
+	[\focusnode{Fa}
+	[(Fe \eand Rb \eand \enot Gd) \eor \enot Fc, grouped, checked
+	[a{=}b, grouped
+	[b{=}c, grouped
+	[d{=}e, grouped
+		[Fe \eand Rb \eand \enot Gd, checked
+			[Fe
+			[\focusnode{Rb}, grouped
+			[\enot Gd, grouped
+				[\focusnode{Ra}, just={3, 8 {=}}
+				]
+			]
+			]
+			]
+		]
+		[\enot Fc
+			[\enot Fa, close]
+		]
+	]
+	]
+	]
+	]
+	]
+\end{highlightprooftree}
+
+Finally, we need to make all necessary substitutions with a representative for the identity group with $d$ and $e$. Let's pick $d$ as the representative; we need to develop $Fe$ on line 7 into $Fd$. There is no other non-identity atom or negated atom in the branch containing $e$, so once we've done that, our branch is complete:
+
+\begin{prooftree}
+{}
+	[Fa
+	[(Fe \eand Rb \eand \enot Gd) \eor \enot Fc, grouped, checked
+	[a{=}b, grouped
+	[b{=}c, grouped
+	[d{=}e, grouped
+		[Fe \eand Rb \eand \enot Gd, checked
+			[Fe
+			[Rb, grouped
+			[\enot Gd, grouped
+				[Ra
+					[Fd, open]
+				]
+			]
+			]
+			]
+		]
+		[\enot Fc
+			[\enot Fa, close]
+		]
+	]
+	]
+	]
+	]
+	]
+\end{prooftree}
+
+
+
+
+\subsection{Constructing models with identity}
+
+Here is one last supplement to our tree method, having to do with constructing models from completed open branches. If a completed open branch includes any identity claims, the model must satisfy those claims by including only one object for each identity group in the UD, and having all names in the identity group refer to that object. For instance, if the sentence $b{=}c$ appears in an open branch, we will not construct a model with two different objects, b and c --- instead, we'll just pick one of them as the object indicated, and assign both names to it.
+
+Consider this tree:
 
 \begin{prooftree}
 {}
@@ -374,7 +571,44 @@ We must also take care, when constructing models from completed open branches, t
 	]
 \end{prooftree}
 
-We end up with two open branches. We only need one to demonstrate that the root is satisfiable, but it is useful practice to consider both. Let's begin with the shorter open branch to the left, that completes at line 10. Examining that branch, we see three names, $a$, $b$, and $c$, and three atomic sentences concerning the extension of $R$: $Rac$, $Rab$, and $\enot Raa$. Using our previous method for constructing models, we would have posited a three-object UD and related those objects via $R$ in the appropriate way. Now, however, we also have identity claims to consider. There are two identity claims in the branch. $b{=}b$ doesn't tell us anything interesting --- of \emph{course} that object is identical with itself --- but the presence of $c{=}b$ indicates that our model will not include separate objects b and c. We'll only posit one object in the UD for those two names, and another object for $a$. We can pick either letter for the object; let's call it $b$. (Remember, it doesn't matter what kinds of objects we pick for the UD; it could be Reed Richards for all it matters. We typically pick letters because they are easy to keep track of.)
+We end up with two open branches. We only need one to demonstrate that the root is satisfiable, but it is useful practice to consider both. Let's begin with the shorter open branch to the left. Focus in on the atoms and negated atoms in that branch:
+
+\begin{highlightprooftree}
+{}
+	[\forall x (Rax \eif x{=}b), subs={a, b, c}
+	[\exists x Rax, grouped, checked=c
+		[\focusnode{Rac}, just=2 $\exists$
+			[Raa \eif a{=}b, just=1 $\forall$, checked
+			[Rab \eif b{=}b, grouped, just=1 $\forall$, checked
+			[Rac \eif c{=}b, grouped, just=1 $\forall$, checked
+				[\enot Rac, just=6 \eif, close={3, 7}
+				]
+				[\focusnode{c{=}b}
+					[\focusnode{Rab}, just={3, 7 {=}}
+						[\enot Rab, just=5 \eif, close={8, 9}]
+						[\focusnode{b{=}b}
+							[\focusnode{\enot Raa}, just=4 \eif, open
+							]
+							[a{=}b
+%								[Rbb, just={8, 10 =}
+%									[Rbc, just={3, 10 =}, open
+%									]
+%								]
+							]
+						]
+					]
+				]
+			]
+			]
+			]
+		]
+	]
+	]
+\end{highlightprooftree}
+
+
+
+Examining that branch, we see three names, $a$, $b$, and $c$, and three atomic sentences concerning the extension of $R$: $Rac$, $Rab$, and $\enot Raa$. Using our previous method for constructing models, we would have posited a three-object UD and related those objects via $R$ in the appropriate way. Now, however, we also have identity claims to consider. There are two identity claims in the branch. $b{=}b$ doesn't tell us anything interesting --- of \emph{course} that object is identical with itself --- but the presence of $c{=}b$ indicates that our model will not include separate objects b and c. We'll only posit one object in the UD for those two names, and another object for $a$. We can pick either letter for the object; let's call it $b$. (Remember, it doesn't matter what kinds of objects we pick for the UD; it could be Reed Richards for all it matters. We typically pick letters because they are easy to keep track of.)
 
 So the model suggested by the first open branch here is:
 
@@ -391,7 +625,42 @@ So the model suggested by the first open branch here is:
 	\end{tabular}
 \end{partialmodel}
 
-The longer open branch includes additional identity claims. It includes $a{=}b$ and $c{=}b$, which of course implies that all three of these names are names for the same object. So the UD for the model corresponding to the right branch will have only one object, which all three names denote.
+As a second example, let's consider the other, longer completed open branch in the same tree:
+
+\begin{highlightprooftree}
+{}
+	[\forall x (Rax \eif x{=}b), subs={a, b, c}
+	[\exists x Rax, grouped, checked=c
+		[\focusnode{Rac}, just=2 $\exists$
+			[Raa \eif a{=}b, just=1 $\forall$, checked
+			[Rab \eif b{=}b, grouped, just=1 $\forall$, checked
+			[Rac \eif c{=}b, grouped, just=1 $\forall$, checked
+				[\enot Rac, just=6 \eif, close={3, 7}
+				]
+				[\focusnode{c{=}b}
+					[\focusnode{Rab}, just={3, 7 {=}}
+						[\enot Rab, just=5 \eif, close={8, 9}]
+						[\focusnode{b{=}b}
+							[\enot Raa, just=4 \eif, open
+							]
+							[\focusnode{a{=}b}
+								[\focusnode{Rbb}, just={8, 10 =}
+									[\focusnode{Rbc}, just={3, 10 =}, open
+									]
+								]
+							]
+						]
+					]
+				]
+			]
+			]
+			]
+		]
+	]
+	]
+\end{highlightprooftree}
+
+This branch includes both $a{=}b$ and $c{=}b$, which implies that all three of these names are names for the same object. So the UD for the model corresponding to the right branch will have only one object, which all three names denote.
 
 \begin{partialmodel}
 	UD & \{a\}\\
@@ -409,6 +678,17 @@ It is sometimes helpful, for an intuitive grip on what is going on in these tree
 
 
 \practiceproblems
+
+\solutions
+\problempart
+\label{pr.QL-ID-constructmodel}
+Use the completed open branch in the tree given in the final tree in \S\ref{subsec.identitycompletion} to construct a model that satisfies its root.
+
+
+
+
+
+
 
 \solutions
 \problempart
@@ -568,4 +848,26 @@ is consistent.
 \item Worf is the only Klingon in Starfleet. Everyone in Starfleet is brave. All brave Klingons are warriors. Therefore, there is at least one brave warrior in Starfleet.
 \item Worf is the only Klingon in Starfleet. Everyone in Starfleet is brave. All brave Klingons are warriors. Therefore, there is exactly one brave warrior in Starfleet.
 \item Every person likes every kind of sandwich that is tasty. Jack is a person. Jack likes exactly one kind of sandwich. Therefore, no more than one kind of sandwich is tasty.
+\end{earg}
+
+
+
+\textbf{GenAI prompts for further practice}
+
+Here are some potential GenAI prompts you might use to generate further practice problems, in case you find that helpful.
+
+\begin{earg}
+
+\item Give me English sentences involving phrases like ``only'', ``no one else'', ``everyone except'', and ``someone other than''. Ask me to translate them into QL with identity. Present one sentence at a time and check my answer.
+
+\item Give me English sentences making claims about quantities, such as ``at least two'', ``at most two'', ``exactly two'', and ``exactly three''. Ask me to translate them into QL with identity and explain how the identity claims ensure that the right number of objects are involved.
+
+\item Give me English sentences containing definite descriptions, such as ``the student who passed the exam'', and ask me to translate them into QL using Russell's theory of definite descriptions. After I answer, check separately whether my translation expresses existence, uniqueness, and the property attributed to the object.
+
+\item Give me some identity claims together with atomic and negated atomic QL sentences. Ask me to replace each name with the representative of its identity group and determine whether the resulting sentences reveal a contradiction.
+
+\item Give me lists of atoms, negated atoms, identity claims, and negated identity claims that could occur on a completed open branch. Ask me to construct a model that satisfies them, making sure that names identified on the branch are assigned the same referent.
+
+\item Give me sets of QL sentences involving identity and ask me whether I can construct a model satisfying them. Present one set at a time. If I think the set is inconsistent, ask me to explain which identity claims and predicate claims create the conflict.
+
 \end{earg}
