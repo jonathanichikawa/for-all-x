@@ -583,9 +583,10 @@ The {\enot}E rule will work in much the same way. If we assume \enot\metaA{} and
 \end{ndproof}
 
 This is a good time to reiterate the important advice I gave in the discussion of assumptions and conditional introduction: 
-\factoidbox{
+\factoidbox{\label{factoid.assumptionadvice}
 You should \emph{never} make an assumption without a plan for how to discharge it.
 }
+
 
 There are only three good reasons to ever make an assumption, when working in our SL natural deduction proof system, and each reason indicates exactly what you should assume, and where you want to get in the subproof, based on what you're trying to prove. First, if you want to prove a conditional $\metaA{}\eif\metaB{}$, assume the antecedent $\metaA{}$, and try to derive the consequent $\metaB{}$. This will let you derive the conditional, via conditional introduction. Second, if you want to prove a negation $\enot\metaA{}$ via \emph{reductio}, assume the negand, $\metaA{}$, and try to derive some sentence $\metaB{}$ along with its negation, $\enot\metaB{}$. Then you can use negation introduction to derive $\enot\metaA{}$. Third, if you want to prove some sentence $\metaA{}$ via \emph{reductio}, assume the negation, $\enot\metaA{}$, and once again try to derive some $\metaB{}$ along with $\enot\metaB{}$. This will allow you to prove $\metaA{}$ by negation elimination.
 
@@ -1173,18 +1174,11 @@ For the following, provide proofs using only the basic rules. The proofs will be
 \item If you know that $\metaA{}\vdash\metaB{}$, what can you say about $(\metaA{}\eor\metaC{})\vdash\metaB{}$? Explain your answer.
 \end{earg}
 
-
-\textbf{GenAI prompts for further practice}
-
-Here are some potential GenAI prompts you might use to generate further practice problems, in case you find that helpful.
-
-\begin{earg}
-
+\begin{genaipractice}[]
 \item Give me some examples of valid SL argument forms, for me to practice proving with natural deduction. Before I attempt each proof, ask me to explain the proof strategy I will employ. Critique my strategy and, if appropriate, suggest alternatives.
 \item Give me some SL natural deduction derivations that contain a mistake. My task is to identify the place where the derivation goes wrong.
 \item Give me short natural deduction proofs and ask me whether they are correct. If they are incorrect, ask me to identify the first line where an error occurs.
 \item Give me statements involving derivability, validity, and entailment. Ask me to determine which notion is being discussed and explain the difference between them.
 \item Give me a completed natural deduction proof and ask me to explain, in ordinary English, the overall strategy used in the proof.
 
-\end{earg}
-
+\end{genaipractice}

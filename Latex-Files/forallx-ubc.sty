@@ -2,7 +2,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{forallx-ubc}[2011/10/29 support for a logic textbook]
 \usepackage[dvipsnames]{xcolor}
-\RequirePackage{adjustbox, amssymb,amsmath,lmodern,microtype,multicol,ifthen,prooftrees,titlesec, apptools}
+\RequirePackage{adjustbox, amssymb,amsmath,lmodern,microtype,multicol,ifthen,prooftrees,titlesec, apptools,xparse}
 \usepackage[linktocpage=true]{hyperref}
 \definecolor{URLblue}{RGB}{0,0,150}
 \hypersetup{
@@ -155,6 +155,62 @@
 
 % \tablefbox{...} is used in certain tables to put a box around the contents of specific table cells without having lines that run the whole length of the table
 \newcommand{\tablefbox}[1]{\multicolumn{1}{|p{10em}|}{#1}}
+
+
+
+% ************************************************************
+% GenAI practice prompts
+% ************************************************************
+
+\RequirePackage{xparse}
+
+% Global switch
+\newif\ifgenaiprompts
+\genaipromptstrue
+
+% Box appearance
+\definecolor{genaibackground}{gray}{0.94}
+
+
+% GenAI prompt environment
+\NewDocumentEnvironment{genaipractice}{O{} +b}
+{%
+	\ifgenaiprompts
+		\par\smallskip
+		\begingroup
+		\small
+		\setlength{\fboxsep}{5pt}%
+		\noindent
+		\colorbox{genaibackground}{%
+			\begin{minipage}{\dimexpr\linewidth-2\fboxsep\relax}
+			\textbf{GenAI prompts for further practice}
+
+			\smallskip
+
+			Here are some potential GenAI prompts you might use to generate further practice problems, in case you find that helpful.
+
+			\if\relax\detokenize{#1}\relax
+			\else
+				\smallskip
+
+				#1
+			\fi
+
+			\begin{itemize}
+				\setlength{\itemsep}{0.25em}
+				\setlength{\parskip}{0pt}
+				\setlength{\topsep}{0.4em}
+				\setlength{\parsep}{0pt}
+				\setlength{\leftmargin}{1.5em}
+				#2
+			\end{itemize}
+			\end{minipage}%
+		}
+		\par\smallskip
+		\endgroup
+	\fi
+}
+{}
 
 
 
@@ -619,6 +675,123 @@
 
 \def\nd*by#1#2{\ifx\nd*x#2\nd*x\gdef\nd*byt{\mbox{#1}}\else\gdef\nd*byt{\mbox{#1\ \ndref{#2}}}\fi}
 
+% Highlighted natural-deduction lines
+\def\nd*stohighlight#1#2#3{%
+  \gdef\nd*typ{#1}%
+  \gdef\nd*byt{}%
+  \gdef\nd*cmd{%
+    \color{blue!70!black}%
+    \nd*typ{#2}{#3}\nd*byt%
+    \color{black}%
+    \\%
+  }%
+}
+
+% Highlighted natural-deduction proof line
+\def\nd*havebhighlight#1#2{%
+  \nd*f{{\color{blue!70!black}\nd*num{#1}}}%
+  &%
+  \nd*iter\nd*stack\relax
+  \nd*cont\nd*stack
+  \nd*s
+  \nd*f{{\color{blue!70!black}#2}}%
+  &%
+}
+
+\def\nd*stohighlight#1#2#3{%
+  \gdef\nd*typ{#1}%
+  \gdef\nd*byt{}%
+  \gdef\nd*cmd{%
+    \nd*typ{#2}{#3}%
+    {\color{blue!70!black}\nd*byt}%
+    \\%
+  }%
+}
+
+% Highlighted natural-deduction proof line
+\definecolor{proofhighlight}{RGB}{255,245,170}
+
+\def\nd*havebhighlight#1#2{%
+  \colorbox{proofhighlight}{\nd*f{\nd*num{#1}}}%
+  &%
+  \nd*iter\nd*stack\relax
+  \nd*cont\nd*stack
+  \nd*s
+  \colorbox{proofhighlight}{\nd*f{#2}}%
+  &%
+}
+
+\def\nd*stohighlight#1#2#3{%
+  \gdef\nd*typ{#1}%
+  \gdef\nd*byt{}%
+  \gdef\nd*cmd{%
+    \nd*typ{#2}{#3}%
+    \colorbox{proofhighlight}{\nd*byt}%
+    \\%
+  }%
+}
+
+% Highlighted natural-deduction proof line
+\def\nd*havebhighlight#1#2{%
+  \nd*f{{\color{blue!70!black}\boldmath\nd*num{#1}}}%
+  &%
+  \nd*iter\nd*stack\relax
+  \nd*cont\nd*stack
+  \nd*s
+  \nd*f{{\color{blue!70!black}\boldmath#2}}%
+  &%
+}
+
+\def\nd*stohighlight#1#2#3{%
+  \gdef\nd*typ{#1}%
+  \gdef\nd*byt{}%
+  \gdef\nd*cmd{%
+    \nd*typ{#2}{#3}%
+    {\color{blue!70!black}\bfseries\boldmath\nd*byt}%
+    \\%
+  }%
+}
+
+% Highlighted natural-deduction proof line
+\def\nd*havebhighlight#1#2{%
+  \nd*f{{\color{blue!90!black}\nd*num{#1}}}%
+  &%
+  \nd*iter\nd*stack\relax
+  \nd*cont\nd*stack
+  \nd*s
+  \nd*f{{\color{blue!90!black}\boldsymbol{#2}}}%
+  &%
+}
+
+\def\nd*stohighlight#1#2#3{%
+  \gdef\nd*typ{#1}%
+  \gdef\nd*byt{}%
+  \gdef\nd*cmd{%
+    \nd*typ{#2}{#3}%
+    {\color{blue!90!black}\nd*byt}%
+    \\%
+  }%
+}
+
+\def\nd*hachighlight#1#2{%
+  \nd*cmd
+  \nd*stohighlight{\nd*havebhighlight}{#1}{#2}%
+}
+
+\def\nd*haxhighlight[#1][#2]#3[#4]#5{%
+  \ifx\relax#4\relax
+  \else
+    \nd*guardb{1}{#4}%
+  \fi
+  \nd*hachighlight{#3}{#5}%
+  \nd*set{#1}{#2}%
+}
+
+\def\nd*havehighlight{\nd*five{\nd*haxhighlight}}
+
+
+
+
 % * * *
 % This block defines the natural deduction rules.
 % Rules designated by ordinary letters may be specified with \by{RULE}
@@ -629,6 +802,7 @@
   \let\close\nd*close%
   \let\hypo\nd*hypo%
   \let\have\nd*have%
+  \let\havehighlight\nd*havehighlight%
   \let\by\nd*by%
   \let\guard\nd*guard%
   \def\bi{\by{{\eiff}I}}%
@@ -741,4 +915,6 @@
   {\endprooftree}
   
   \newcommand{\focusnode}[1]{\textcolor{blue!70!black}{#1}}
+  
+  
   

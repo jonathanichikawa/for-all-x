@@ -3,9 +3,9 @@
 \label{ch.QLND}
 
 
-Trees employ a kind of `brute force' strategy for proving entailment claims. When the logical structure of the relevant sentences are rather simple, as they are in SL and in some QL cases, it can be an effective strategy, but in some cases they can become very tedious and complex. It is useful to have a proof system that allows one to reason in a more targeted way --- especially if you already have an intuitive understanding of why a given argument should be expected to turn out valid. As we did in Chapter \ref{ch.ND.proofs} for SL, in this chapter we will consider a natural deduction system for quantified logic. As in the case of trees, our QL natural deduction system is an extension of the one we learned previously for SL.
+Trees employ a kind of `brute force' strategy for proving entailment claims. When the logical structure of the relevant sentences is rather simple, as they are in SL and in some QL cases, it can be an effective strategy, but in some cases they can become very tedious and complex. It is useful to have a proof system that allows one to reason in a more targeted way --- especially if you already have an intuitive understanding of why a given argument should be expected to turn out valid. As we did in Chapter \ref{ch.ND.proofs} for SL, in this chapter we will consider a natural deduction system for quantified logic. As in the case of trees, our QL natural deduction system is an extension of the one we learned previously for SL.
 
-Like our SL natural deduction system, our system can only be used to demonstrate that an argument \emph{is} valid. We do not have a formal method, as part of our natural deduction system, for demonstrating an argument \emph{invalid}. In this respect natural deduction differs from trees. We won't go through the proof in this book, but the natural deduction is both sound and complete. That means that there are natural deductions proofs corresponding to all and only the valid arguments in QL.
+Like our SL natural deduction system, our system can only be used to demonstrate that an argument \emph{is} valid. We do not have a formal method, as part of our natural deduction system, for demonstrating an argument \emph{invalid}. In this respect natural deduction differs from trees. We won't go through the proof in this book, but the natural deduction system is both sound and complete. That means that there are natural deduction proofs corresponding to all and only the valid arguments in QL.
 
 \section{Natural Deduction: the basics}
 
@@ -41,7 +41,7 @@ This rule is very similar to the tree rule for universals, which, in our tree sy
 
 \subsection{Existential introduction}
 
-When is it legitimate to infer $\exists x Ax$? If you know that something is an $A$ --- for instance, if you have $Aa$ available in the proof.
+When is it legitimate to infer $\exists x Ax$? If you know that something satisfies $Ax$ --- for instance, if you have $Aa$ available in the proof.
 
 This is the existential introduction rule ($\exists$I):
 
@@ -114,10 +114,10 @@ The constant may not occur in any \emph{undischarged} assumption, but it may occ
 	\have{zz}{\forall z(Dz \eif Dz)}\Ai{ff}
 \end{ndproof}
 
-Requiring that the constant not occur in any undischarged assumption is our way of ensuring that it is suitably \emph{arbitrary}. We could just have easily have established any other substitution instance.
+Requiring that the constant not occur in any undischarged assumption is our way of ensuring that it is suitably \emph{arbitrary}. We could just as easily have established any other substitution instance.
 
 \subsection{Existential elimination}
-A sentence with an existential quantifier tells us that there is \emph{some} member of the UD that satisfies a formula. For example, $\exists x Sx$ tells us (roughly) that there is at least one $S$. It does not tell us \emph{which} member of the UD satisfies $S$, however. We cannot immediately conclude $Sa$, $Sf_{23}$, or any other substitution instance of the sentence. What can we do?
+A sentence with an existential quantifier tells us that there is \emph{some} member of the UD that satisfies a formula. For example, $\exists x Sx$ tells us that at least one object in the UD satisfies $Sx$. It does not tell us \emph{which} object does that, however. We cannot immediately conclude $Sa$, $Sf_{23}$, or any other substitution instance of the sentence. What can we do?
 
 Suppose that we knew both $\exists x Sx$ and $\forall x(Sx \eif Tx)$. We could reason in this way:
 \begin{quote}
@@ -127,7 +127,7 @@ In this paragraph, we introduced a name for the thing that is an $S$. We gave it
 
 We want the existential elimination rule to work in a similar way. Yet since English language words like `Ishmael' are not symbols of QL, we cannot use them in formal proofs. Instead, just as we did in the analogous rule within our tree system, we will use names that are \emph{new} --- names which do not appear anywhere else in the proof. (This includes the conclusion you are aiming for.)
 
-A constant that is used to stand in for whatever it is that satisfies an existential claim is called a \define{proxy}. Reasoning with the proxy must all occur inside a subproof, and the proxy cannot be a constant that is doing work elsewhere in the proof.
+A constant that is used to stand in for whatever it is that satisfies an existential claim is called a \define{proxy}. When we reason with a proxy, we introduce that proxy in an assumption, taking care that there is nothing special about the name we use as the proxy: in particular, that name must not occur anywhere earlier in the proof, and it also must not occur in the sentence we want to use existential elimination to derive.
 
 This is the schematic form of the existential elimination rule ($\exists$E): 
 
@@ -139,9 +139,9 @@ This is the schematic form of the existential elimination rule ($\exists$E):
 	\close
 	\have[\ ]{d}{\metaB{}} \Ee{a,b-c}
 \end{ndproof}
-$^\ast$ The constant \script{c} must not appear outside the subproof.
+$^\ast$ The constant \script{c} must not occur anywhere earlier in the proof or in \metaB{}.
 
-Remember that the proxy constant cannot appear in \metaB{}, the sentence you prove using $\exists$E. (It would actually be enough just to require that the proxy constant not appear in $\exists\script{x}\metaA{}$, in \metaB{}, or in any undischarged assumption. In recognition of the fact that it is just a place holder that we use inside the subproof, though, we require an entirely new constant which does not appear anywhere else in the proof.)
+Remember that the proxy constant cannot appear in \metaB{}, the sentence you prove using $\exists$E. (It would actually be enough just to require that the proxy constant not appear in $\exists\script{x}\metaA{}$, in \metaB{}, or in any undischarged assumption. In recognition of the fact that it is just a place holder that we use inside the subproof, though, we require an entirely new constant which does not appear anywhere above in the proof.)
 
 The existential elimination rule, like the rules for conditional introduction and negation introduction and elimination, is a rule that involves discharging an assumption. Assume a proxy instance, and see what would follow from that instance; if you have the existential, then, you can stop making the assumption about the proxy, and help yourself to what would have followed from it. We draw the horizontal line at the point where the assumption is discharged, defining a box of lines that were only conditionally derived. As with those other assumption-involving rules, instead of a justification, one includes a note --- in this case, `for $\exists${}E' --- about the role of the assumption in the proof. Remember that assumptions must be discharged before your proof is complete, so you should only make an assumption that goes beyond your premises when you have a plan for discharging it.
 
@@ -258,7 +258,7 @@ At line 4, we took advantage of the identity claim $b{=}c$ on line 3, and replac
 
 \section{Translation and evaluation}
 
-Consider this argument: There is only one button in my pocket. There is a blue button in my pocket. So there is no non-blue button in my pocket.
+Consider this argument: There is at most one button in my pocket. There is a blue button in my pocket. So there is no non-blue button in my pocket.
 
 We begin by defining a symbolization key:
 \begin{ekey}
@@ -290,7 +290,7 @@ So the set-up for a natural deduction proof will be:
 %	\have{nenb}{\enot\exists x\enot Bx}\by{QN}{nnab}
 \end{ndproof}
 
-There are various strategies one might employ. Here are two clues that point toward one promising strategy. Note again that we have an existential on line 2 --- this suggests existential elimination as a possible strategy. Note also that we are aiming for $\enot \exists x \enot Bx$, which equivalent to $\enot \enot \forall x Bx$ by QN. This in turn is equivalent, by DN, to $\forall x Bx$, which suggests that universal introduction is going to be an important step. If we introduce an assumption with a proxy instance of $\exists x Bx$, we'll be able to work toward a generic instance of $Bx$. In this example, we'll take $e$ as our proxy, and show that $Bf$ follows from $\exists x Bx$:
+There are various strategies one might employ. Here are two clues that point toward one promising strategy. Note again that we have an existential on line 2 --- this suggests existential elimination as a possible strategy. Note also that we are aiming for $\enot \exists x \enot Bx$, which is equivalent to $\enot \enot \forall x Bx$ by QN. This in turn is equivalent, by DN, to $\forall x Bx$, which suggests that universal introduction is going to be an important step. If we introduce an assumption with a proxy instance of $\exists x Bx$, we'll be able to work toward a generic instance of $Bx$. In this example, we'll take $e$ as our proxy, and show that $Bf$ follows from $\exists x Bx$:
 
 \begin{ndproof}
 	\hypo{one}{\forall x\forall y\ x{=}y}
@@ -307,7 +307,7 @@ There are various strategies one might employ. Here are two clues that point tow
 %	\have{nenb}{\enot\exists x\enot Bx}\by{QN}{nnab}
 \end{ndproof}
 
-By line 7, we have discharged the assumption about the proxy --- we won't use the name $e$ any more --- we have established that $Bf$ follows from the two premises. Since $f$ is an arbitrary name --- one that does not appear in any undischarged assumption --- we can perform universal introduction on that instance. This in turn lets us complete the proof via the two substitution rules mentioned above:
+By line 7, we have discharged the assumption about the proxy --- we are no longer assuming anything about $e$ in particular. We have established that $Bf$ follows from the two premises. Since $f$ is an arbitrary name --- one that does not appear in any undischarged assumption --- we can perform universal introduction on that instance. This in turn lets us complete the proof via the two substitution rules mentioned above:
 
 \begin{ndproof}
 	\hypo{one}{\forall x\forall y\ x{=}y}
@@ -330,7 +330,33 @@ By line 7, we have discharged the assumption about the proxy --- we won't use th
 
 All the strategy advice given in \S\ref{sec.SL.ND.strategy} is equally applicable to natural deduction proofs in QL. Review the suggestions there for general advice for natural deduction proofs. Applied to our new QL rules, if you have a universal, you can think about taking any instances that look useful. (Taking random instances is unlikely to be useful.) If you have an existential, consider using the existential elimination rule, which begins by assuming an instance with a proxy, then deriving a conclusion that does not contain that proxy name.
 
-Showing $\enot \exists x\metaA{}$ can also be hard, and it is often easier to show  $\forall x\enot \metaA{}$ and use the QN rule.
+Back in Chapter \ref{ch.ND.proofs}, I emphasized that one should never make an assumption without a specific plan for discharging it. That advice was so important that I put it in a special highlighted box on page \pageref{factoid.assumptionadvice}. It's even more important now, since our natural deduction proofs have become increasingly complicated. So let me emphasize it a second time:
+
+\factoidbox{
+You should \emph{never} make an assumption without a plan for how to discharge it.
+}
+
+There are only four possible good reasons to make a new assumption in a natural deduction proof, and each of those reasons requires you to design your assumption in a specific way. Never make an assumption unless you're doing one of these four things:
+
+\begin{center}
+\begin{tabular}{|p{0.06\textwidth}|p{0.27\textwidth}|p{0.30\textwidth}|p{0.20\textwidth}|}
+\hline
+\textbf{Rule} & \textbf{To prove...} & \textbf{Assume...} & \textbf{Derive...} \\
+\hline
+$\eif$I & \metaA{}\eif\metaB{} & \metaA{} & \metaB{} \\
+\hline
+$\enot$I & \enot\metaA{} & \metaA{} & \metaB{} and \enot\metaB{} (for any \metaB{}) \\
+\hline
+$\enot$E & \metaA{} & \enot\metaA{} & \metaB{} and \enot\metaB{} (for any \metaB{}) \\
+\hline
+$\exists$E & \metaB{} (given $\exists\script{x}\metaA{}$ on another line) & \metaA{}\substitute{\script{x}}{\script{c}}, using a new proxy \script{c} & \metaB{} \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+%Showing $\enot \exists x\metaA{}$ can also be hard, and it is often easier to show  $\forall x\enot \metaA{}$ and use the QN rule.
 
 
 
@@ -352,6 +378,9 @@ Here is a hint if you're interested in undertaking that project: the tree method
 Provide a justification (rule and line numbers) for each line of proof that requires one.
 \begin{multicols}{2}
 %$\{\forall x(\exists y)(Rxy \eor Ryx),\forall x\enot Rmx\}\vdash\exists xRxm$
+\begin{earg}
+\setlength{\itemsep}{1em}
+\item
 \begin{ndproof}
 \hypo{p1}{\forall x\exists y(Rxy \eor Ryx)}
 \hypo{p2}{\forall x\enot Rmx}
@@ -365,6 +394,7 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 \have{n}{\exists x Rxm} {}
 \end{ndproof}
 
+\item
 %$\{\forall x(\exists yLxy \eif \forall zLzx), Lab\} \vdash \forall xLxx$
 \begin{ndproof}
 \hypo{1}{\forall x(\exists yLxy \eif \forall zLzx)}
@@ -380,7 +410,7 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 \have{11}{\forall x Lxx}{}
 \end{ndproof}
 
-
+\item
 % $\{\forall x(Jx \eif Kx), \exists x\forall y Lxy, \forall x Jx\} \vdash \exists x(Kx \eand Lxx)$
 \begin{ndproof}
 \hypo{a}{\forall x(Jx \eif Kx)}
@@ -398,7 +428,7 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 \have{j}{\exists x(Kx \eand Lxx)}{}
 \end{ndproof}
 
-
+\item
 %$\vdash \exists x Mx \eor \forall x\enot Mx$
 \begin{ndproof}
 	\open
@@ -410,6 +440,7 @@ Provide a justification (rule and line numbers) for each line of proof that requ
 	\close
 \have{n}{\exists x Mx \eor \forall x\enot Mx} {}
 \end{ndproof}
+\end{earg}
 \end{multicols}
 
 \solutions
@@ -423,6 +454,119 @@ Provide a natural deduction proof of each claim.
 \item $\forall x(Cx \eand Dt)\vdash \forall xCx \eand Dt$
 \item $\exists x(Cx \eor Dt)\vdash \exists x Cx \eor Dt$
 \end{earg}
+
+\problempart
+Examine the highlighted line of each natural deduction proof below, and determine whether it is a legal development according to our natural deduction rules. If it isn't, explain why not.
+
+\begin{earg}
+\setlength{\itemsep}{1em}
+
+\item
+\begin{ndproof}
+\hypo{1}{Fa}
+\hypo{2}{\forall x Gx}
+\have{3}{Fa}\by{R}{1}
+\have{4}{Ga}\forallE{2}
+\have{5}{Fa \eand Ga}\andI{3,4}
+\havehighlight{6}{\forall x (Fx \eand Gx)}\forallI{5}
+\end{ndproof}
+
+
+\item
+\begin{ndproof}
+\hypo{1}{\forall x(Fx \eif Gx)}
+\hypo{2}{Fa}
+\havehighlight{3}{Fa \eif Ga}\forallE{1}
+\end{ndproof}
+
+\item
+\begin{ndproof}
+\hypo{1}{Fa}
+\have{2}{Fa \eor Ga}\orI{1}
+\havehighlight{3}{\exists x(Fx \eor Gx)}\existsI{2}
+\end{ndproof}
+
+\item
+\begin{ndproof}
+\hypo{1}{Fa \eif Ga}
+\havehighlight{2}{\exists x(Fx \eif Gx)}\existsI{1}
+\end{ndproof}
+
+\item
+\begin{ndproof}
+\hypo{1}{Fa \eif Ga}
+\havehighlight{2}{\forall x(Fx \eif Gx)}\forallI{1}
+\end{ndproof}
+
+\item
+\begin{ndproof}
+\hypo{1}{\forall x(Fx \eif Gx)}
+\have{2}{Fb \eif Gb}\forallE{1}
+\havehighlight{3}{\forall y(Fy \eif Gy)}\forallI{2}
+\end{ndproof}
+
+\item
+\begin{ndproof}
+\hypo{1}{\exists x Fx}
+\open
+	\hypo{2}{Fa}\by{for $\exists$E}{}
+	\have{3}{Fa \eor Ga}\orI{2}
+	\have{4}{\exists x(Fx \eor Gx)}\existsI{3}
+\close
+\havehighlight{5}{\exists x(Fx \eor Gx)}\existsE{1,2-4}
+\end{ndproof}
+
+\item
+\begin{ndproof}
+\hypo{1}{\exists x Fx}
+\open
+	\hypo{2}{Fa}\by{for $\exists$E}{}
+	\have{3}{Fa \eor Ga}\orI{2}
+\close
+\havehighlight{4}{Fa \eor Ga}\existsE{1,2-3}
+\end{ndproof}
+
+
+
+\item
+\begin{ndproof}
+\hypo{1}{\exists x Fx}
+\hypo{2}{\exists x Gx \eif H}
+\open
+	\hypo{3}{Fa}\by{for $\exists$E}{}
+	\have{4}{Fa \eor Ga}\orI{3}
+	\have{5}{\exists x(Fx \eor Gx)}\existsI{4}
+\close
+\havehighlight{6}{\exists x Gx}\existsE{1,3-5}
+\have{7}{H}\ifE{2,6}
+\end{ndproof}
+
+\item
+\begin{ndproof}
+\hypo{1}{Fa}
+\hypo{2}{a{=}b}
+\havehighlight{3}{Fb}\by{$=$E}{1,2}
+\end{ndproof}
+
+\item
+\begin{ndproof}
+\hypo{1}{\exists x Fx}
+\hypo{2}{\forall x\forall y(Fx \eif Gy)}
+\open
+	\hypo{3}{Fa}\by{for $\exists$E}{}
+	\have{4}{\forall y(Fa \eif Gy)}\forallE{2}
+	\have{5}{Fa \eif Gb}\forallE{4}
+	\have{6}{Gb}\ifE{3,5}
+	\havehighlight{7}{\forall y Gy}\forallI{6}
+\close
+\have{8}{\forall y Gy}\existsE{1,3-7}
+\have{9}{\exists x Fx \eand \forall y Gy}\andI{1,8}
+\end{ndproof}
+
+
+\end{earg}
+
+
 
 \problempart
 Provide a proof of the argument about Billy on p.~\pageref{surgeon2}.
@@ -531,14 +675,31 @@ For each of the following arguments: If it is valid in QL, give a proof. If it i
 \item $\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx$, \therefore\ $\forall x \enot Mx$
 \end{earg}
 
-\problempart
-\label{pr.QLND.trees1}
-Look at the arguments given in Chapter \ref{ch.QLTrees}, Problem Part \ref{pr.QL.trees.translation.and.validity} (page \pageref{pr.QL.trees.translation.and.validity}). For those arguments whose QL translations are valid, prove their validity via natural deduction.
+%\problempart
+%\label{pr.QLND.trees1}
+%Look at the arguments given in Chapter \ref{ch.QLTrees}, Problem Part \ref{pr.QL.trees.translation.and.validity} (page \pageref{pr.QL.trees.translation.and.validity}). For those arguments whose QL translations are valid, prove their validity via natural deduction.
+%
+%\problempart
+%\label{pr.QLND.trees2}
+%Look at the entailment claims given in Chapter \ref{ch.identity}, Problem Part \ref{pr.IdentityTrees} (page \pageref{pr.IdentityTrees}). For those entailment claims that are true, prove them via natural deduction.
+%
+%\problempart
+%\label{pr.QLND.trees3}
+%Look at the arguments given in Chapter \ref{ch.identity}, Problem Part \ref{pr.IdentityArguments} (page \pageref{pr.IdentityArguments}). For those arguments whose QL translations are valid, prove their validity via natural deduction.
 
-\problempart
-\label{pr.QLND.trees2}
-Look at the entailment claims given in Chapter \ref{ch.identity}, Problem Part \ref{pr.IdentityTrees} (page \pageref{pr.IdentityTrees}). For those entailment claims that are true, prove them via natural deduction.
 
-\problempart
-\label{pr.QLND.trees3}
-Look at the arguments given in Chapter \ref{ch.identity}, Problem Part \ref{pr.IdentityArguments} (page \pageref{pr.IdentityArguments}). For those arguments whose QL translations are valid, prove their validity via natural deduction.
+\begin{genaipractice}[]
+
+\item Give me short descriptions of proposed applications of the quantifier rules in natural deduction. Ask me whether each application is legal or illegal, paying particular attention to the restrictions on Universal Introduction and Existential Elimination. After I answer, explain your reasoning.
+
+\item Give me natural deduction problems involving quantifiers. Before I attempt each proof, ask me which quantifier rules seem likely to be useful and why. Help me think through a proof strategy without giving me the proof itself.
+
+\item Give me an existential sentence and a proposed conclusion. Ask me how I would set up an Existential Elimination subproof: what proxy instance I should assume, what I would need to derive inside the subproof, and what restriction the proxy must satisfy.
+
+\item Give me pairs consisting of a quantified sentence and a proposed application of Existential Introduction or Universal Elimination. Ask me whether the proposed inference is licensed, and explain any mistakes I make.
+
+\item Give me short QL arguments involving identity. Ask me which applications of Identity Introduction or Identity Elimination might be useful in proving the conclusion. Do not give me a complete proof unless I ask for one.
+
+\item Give me natural deduction problems involving both Existential Elimination and Universal Introduction. Ask me to explain how I can choose the proxy and arbitrary constants so that the restrictions on both rules are respected.
+
+\end{genaipractice}
